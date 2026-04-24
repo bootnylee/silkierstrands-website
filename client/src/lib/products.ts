@@ -21,6 +21,7 @@ export interface Product {
   categorySlug: string;
   imageUrl: string;
   amazonImageUrl: string;
+  hairTypes?: string[];
   shortDescription: string;
   fullReview: string;
   pros: string[];

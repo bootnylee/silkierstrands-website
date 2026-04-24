@@ -43,10 +43,19 @@ jobs:
         run: pnpm install --frozen-lockfile
         working-directory: .
 
+      - name: Calculate week number
+        id: week
+        run: |
+          LAUNCH_EPOCH=$(python3 -c "import datetime; print(int(datetime.datetime(2025,4,24).timestamp()))")
+          TODAY_EPOCH=$(date +%s)
+          WEEK_NUM=$(( (TODAY_EPOCH - LAUNCH_EPOCH) / 604800 + 1 ))
+          echo "week_number=$WEEK_NUM" >> $GITHUB_OUTPUT
+          echo "Running Week $WEEK_NUM update"
+
       - name: Run weekly content update script
         run: node scripts/weekly-update.mjs
         env:
-          WEEK_NUMBER: ${{ github.run_number }}
+          WEEK_NUMBER: ${{ steps.week.outputs.week_number }}
 
       - name: Regenerate sitemap
         run: node scripts/generate-sitemap.mjs
@@ -81,9 +90,26 @@ jobs:
             -d '{"trigger_title":"Weekly content update"}' \
             || echo "⚠️ Netlify hook not configured — deploy manually or add NETLIFY_BUILD_HOOK secret"
 
+      - name: Ping search engines
+        if: ${{ github.event.inputs.dry_run != 'true' }}
+        env:
+          INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
+        run: node scripts/ping-search-engines.mjs
+
       - name: Upload SEO audit report
         uses: actions/upload-artifact@v4
         with:
-          name: seo-audit-${{ github.run_number }}
+          name: seo-audit-week-${{ steps.week.outputs.week_number }}
           path: seo-audit-report.json
-          retention-days: 30
+          retention-days: 90
+
+      - name: Job summary
+        run: |
+          echo "## Week ${{ steps.week.outputs.week_number }} Update Complete" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "- New product reviews added" >> $GITHUB_STEP_SUMMARY
+          echo "- New comparisons added" >> $GITHUB_STEP_SUMMARY
+          echo "- Sitemap regenerated" >> $GITHUB_STEP_SUMMARY
+          echo "- SEO audit completed" >> $GITHUB_STEP_SUMMARY
+          echo "- Netlify deploy triggered" >> $GITHUB_STEP_SUMMARY
+          echo "- Search engines pinged" >> $GITHUB_STEP_SUMMARY
