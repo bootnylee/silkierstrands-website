@@ -4,7 +4,18 @@
 
 import { useState } from "react";
 import { Link, useLocation } from "wouter";
-import { Menu, X, Search, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
+import NewsletterSignup from "./NewsletterSignup";
+
+const navHairTypes = [
+  { label: "🌾 Fine Hair", href: "/hair-type/fine" },
+  { label: "🌿 Thick Hair", href: "/hair-type/thick" },
+  { label: "🌀 Curly Hair", href: "/hair-type/curly" },
+  { label: "🪨 Coarse Hair", href: "/hair-type/coarse" },
+  { label: "💧 Dry Hair", href: "/hair-type/dry" },
+  { label: "✨ Normal Hair", href: "/hair-type/normal" },
+  { label: "🎨 Color-Treated", href: "/hair-type/color-treated" },
+];
 
 const navCategories = [
   { label: "Shampoo & Conditioner", href: "/category/shampoo-conditioner" },
@@ -18,6 +29,7 @@ const navCategories = [
 export default function SiteLayout({ children }: { children: React.ReactNode }) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [categoriesOpen, setCategoriesOpen] = useState(false);
+  const [hairTypeOpen, setHairTypeOpen] = useState(false);
   const [location] = useLocation();
 
   return (
@@ -76,6 +88,28 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
                   </div>
                 )}
               </div>
+              {/* Hair Type Dropdown */}
+              <div className="relative"
+                onMouseEnter={() => setHairTypeOpen(true)}
+                onMouseLeave={() => setHairTypeOpen(false)}
+              >
+                <button className="nav-link flex items-center gap-1">
+                  Hair Type <ChevronDown size={12} />
+                </button>
+                {hairTypeOpen && (
+                  <div className="absolute top-full left-0 mt-1 w-52 bg-white border shadow-lg z-50"
+                    style={{ borderColor: "#E8DDD0" }}>
+                    {navHairTypes.map(ht => (
+                      <Link key={ht.href} href={ht.href}>
+                        <div className="px-4 py-2.5 hover:bg-amber-50 font-body text-sm cursor-pointer"
+                          style={{ color: "#2C2C2C", borderBottom: "1px solid #F5EBE0" }}>
+                          {ht.label}
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
               <Link href="/about">
                 <span className="nav-link">About</span>
               </Link>
@@ -107,6 +141,14 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
                 {navCategories.map(cat => (
                   <Link key={cat.href} href={cat.href} onClick={() => setMobileOpen(false)}>
                     <div className="py-2 font-body text-sm" style={{ color: "#2C2C2C" }}>{cat.label}</div>
+                  </Link>
+                ))}
+              </div>
+              <div className="border-t pt-2" style={{ borderColor: "#E8DDD0" }}>
+                <p className="section-label mb-2">By Hair Type</p>
+                {navHairTypes.map(ht => (
+                  <Link key={ht.href} href={ht.href} onClick={() => setMobileOpen(false)}>
+                    <div className="py-1.5 font-body text-sm" style={{ color: "#2C2C2C" }}>{ht.label}</div>
                   </Link>
                 ))}
               </div>
@@ -174,6 +216,11 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
                   <span className="font-body text-sm cursor-pointer hover:text-white transition-colors" style={{ color: "#B8A99A" }}>Curling Irons & Wands</span>
                 </Link>
               </div>
+            </div>
+
+            {/* Newsletter */}
+            <div className="md:col-span-1">
+              <NewsletterSignup variant="footer" />
             </div>
           </div>
 

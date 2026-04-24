@@ -7,7 +7,9 @@ import { ArrowRight, ExternalLink } from "lucide-react";
 import SiteLayout from "@/components/SiteLayout";
 import ProductCard from "@/components/ProductCard";
 import ComparisonCard from "@/components/ComparisonCard";
+import NewsletterSignup from "@/components/NewsletterSignup";
 import { categories, getEditorPicks, comparisons, allProducts } from "@/lib/products";
+import { hairTypes } from "@/lib/hairTypes";
 import { useEffect } from "react";
 import { updateDocumentMeta } from "@/lib/seo";
 
@@ -213,26 +215,36 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Newsletter / CTA */}
-      <section className="py-16" style={{ backgroundColor: "#8B1A2F" }}>
-        <div className="container max-w-2xl mx-auto text-center">
-          <p className="font-label font-bold text-xs mb-3" style={{ color: "#F2C4CE", letterSpacing: "0.2em", textTransform: "uppercase" }}>
-            Stay in the Know
-          </p>
-          <h2 className="font-display font-bold mb-4" style={{ fontSize: "2.2rem", color: "#FDF6EE" }}>
-            New Reviews Every Week
-          </h2>
-          <p className="font-body mb-8 leading-relaxed" style={{ color: "#F2C4CE" }}>
-            We publish new head-to-head comparisons and product reviews every Monday. Bookmark us and check back weekly for the latest.
-          </p>
-          <Link href="/reviews">
-            <button className="rounded-sm px-8 py-4 font-label font-bold text-sm"
-              style={{ backgroundColor: "#D4822A", color: "#FDF6EE", letterSpacing: "0.08em", textTransform: "uppercase" }}>
-              Browse All Reviews
-            </button>
-          </Link>
+      {/* Hair Type Guide Section */}
+      <section className="py-14 border-b" style={{ borderColor: "#E8DDD0", backgroundColor: "#FFF8F0" }}>
+        <div className="container">
+          <div className="flex items-center justify-between mb-8">
+            <div>
+              <div className="flex items-center gap-3 mb-2">
+                <div className="w-1 h-6 rounded-sm" style={{ backgroundColor: "#D4822A" }} />
+                <p className="font-label font-semibold text-xs" style={{ color: "#D4822A", letterSpacing: "0.12em", textTransform: "uppercase" }}>Personalized Guides</p>
+              </div>
+              <h2 className="font-display font-bold" style={{ fontSize: "1.75rem", color: "#2C2C2C" }}>Find Products for Your Hair Type</h2>
+            </div>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7 gap-3">
+            {hairTypes.map(ht => (
+              <Link key={ht.id} href={`/hair-type/${ht.slug}`}>
+                <div className="p-4 rounded-sm cursor-pointer transition-all hover:shadow-md group"
+                  style={{ backgroundColor: "#FDF6EE", border: "1px solid #E8DDD0" }}>
+                  <span className="text-2xl mb-2 block">{ht.icon}</span>
+                  <p className="font-display font-semibold leading-tight group-hover:text-red-800 transition-colors"
+                    style={{ fontSize: "0.9rem", color: "#2C2C2C" }}>{ht.name}</p>
+                  <p className="font-body text-xs mt-1" style={{ color: "#B8A99A" }}>{ht.tagline.split(' ').slice(0,4).join(' ')}…</p>
+                </div>
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
+
+      {/* Newsletter Signup */}
+      <NewsletterSignup variant="banner" />
     </SiteLayout>
   );
 }
