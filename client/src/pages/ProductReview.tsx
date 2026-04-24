@@ -1,0 +1,207 @@
+// SilkierStrands.com — Product Review Page
+
+import { useEffect } from "react";
+import { useParams, Link } from "wouter";
+import { ExternalLink, ArrowLeft, CheckCircle, XCircle } from "lucide-react";
+import SiteLayout from "@/components/SiteLayout";
+import { StarRatingDisplay } from "@/components/ProductCard";
+import { allProducts, amazonLink, getProductsByCategory } from "@/lib/products";
+import { updateDocumentMeta, buildProductSchema, buildReviewSchema, injectStructuredData } from "@/lib/seo";
+import ProductCard from "@/components/ProductCard";
+
+export default function ProductReview() {
+  const { slug } = useParams<{ slug: string }>();
+  const product = allProducts.find(p => p.slug === slug);
+  const relatedProducts = product ? getProductsByCategory(product.categorySlug).filter(p => p.id !== product.id).slice(0, 3) : [];
+
+  useEffect(() => {
+    if (product) {
+      updateDocumentMeta({
+        title: `${product.name} Review | SilkierStrands`,
+        description: `Expert review of ${product.name} by ${product.brand}. ${product.shortDescription}`,
+        keywords: `${product.name} review, ${product.brand}, ${product.category}`,
+        canonical: `https://silkierstrands.com/review/${product.slug}`,
+        ogImage: product.imageUrl,
+        ogType: "article",
+      });
+
+      const productSchema = buildProductSchema({
+        name: product.name,
+        description: product.shortDescription,
+        brand: product.brand,
+        price: product.price,
+        rating: product.rating,
+        reviewCount: product.reviewCount,
+        imageUrl: product.imageUrl,
+        asin: product.asin,
+      });
+
+      const reviewSchema = buildReviewSchema({
+        productName: product.name,
+        reviewBody: product.fullReview.substring(0, 500),
+        rating: product.rating,
+        datePublished: product.publishDate,
+      });
+
+      injectStructuredData(productSchema, "product-schema");
+      injectStructuredData(reviewSchema, "review-schema");
+    }
+  }, [product]);
+
+  if (!product) {
+    return (
+      <SiteLayout>
+        <div className="container py-20 text-center">
+          <h1 className="font-display text-3xl" style={{ color: "#2C2C2C" }}>Review Not Found</h1>
+          <Link href="/reviews"><button className="btn-primary mt-6 rounded-sm px-6 py-3">Browse All Reviews</button></Link>
+        </div>
+      </SiteLayout>
+    );
+  }
+
+  return (
+    <SiteLayout>
+      <div className="container py-10 max-w-5xl mx-auto">
+        {/* Breadcrumb */}
+        <div className="flex items-center gap-2 mb-8">
+          <Link href="/"><span className="font-body text-sm cursor-pointer hover:text-red-800" style={{ color: "#B8A99A" }}>Home</span></Link>
+          <span style={{ color: "#B8A99A" }}>/</span>
+          <Link href={`/category/${product.categorySlug}`}><span className="font-body text-sm cursor-pointer hover:text-red-800" style={{ color: "#B8A99A" }}>{product.category}</span></Link>
+          <span style={{ color: "#B8A99A" }}>/</span>
+          <span className="font-body text-sm" style={{ color: "#2C2C2C" }}>{product.name}</span>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
+          {/* Left: Product Info */}
+          <div className="lg:col-span-1">
+            {/* Product Image */}
+            <div className="rounded-sm overflow-hidden mb-4" style={{ backgroundColor: "#F5EBE0", height: "280px" }}>
+              <img
+                src={product.imageUrl}
+                alt={product.name}
+                className="w-full h-full object-contain p-6"
+                onError={(e) => {
+                  (e.target as HTMLImageElement).src = `https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=400&auto=format&fit=crop`;
+                }}
+              />
+            </div>
+
+            {/* Price & Buy */}
+            <div className="p-5 rounded-sm border" style={{ borderColor: "#E8DDD0", backgroundColor: "white" }}>
+              {product.editorPick && (
+                <div className="mb-3">
+                  <span className="editor-pick-badge text-xs px-3 py-1">Editor's Pick</span>
+                </div>
+              )}
+              <p className="font-label font-bold" style={{ color: "#8B1A2F", fontSize: "1.8rem" }}>{product.priceDisplay}</p>
+              <p className="font-body text-xs mb-3" style={{ color: "#B8A99A" }}>Price on Amazon</p>
+              <StarRatingDisplay rating={product.rating} reviewCount={product.reviewCount} size={16} />
+              <a
+                href={amazonLink(product.asin)}
+                target="_blank"
+                rel="noopener noreferrer nofollow"
+                className="btn-amazon rounded-sm w-full mt-4 flex items-center justify-center gap-2 py-3"
+              >
+                View on Amazon <ExternalLink size={14} />
+              </a>
+              <p className="font-body text-xs text-center mt-2" style={{ color: "#B8A99A" }}>
+                Affiliate link — we earn a commission at no extra cost to you
+              </p>
+            </div>
+
+            {/* Pros & Cons */}
+            <div className="mt-6">
+              <h3 className="font-display font-bold mb-4" style={{ fontSize: "1.3rem", color: "#2C2C2C" }}>Pros & Cons</h3>
+              <div className="space-y-2 mb-4">
+                {product.pros.map((pro, i) => (
+                  <div key={i} className="flex items-start gap-2">
+                    <CheckCircle size={16} className="flex-shrink-0 mt-0.5" style={{ color: "#4CAF50" }} />
+                    <span className="font-body text-sm" style={{ color: "#2C2C2C" }}>{pro}</span>
+                  </div>
+                ))}
+              </div>
+              <div className="space-y-2">
+                {product.cons.map((con, i) => (
+                  <div key={i} className="flex items-start gap-2">
+                    <XCircle size={16} className="flex-shrink-0 mt-0.5" style={{ color: "#E53935" }} />
+                    <span className="font-body text-sm" style={{ color: "#2C2C2C" }}>{con}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Best For */}
+            <div className="mt-6 p-4 rounded-sm" style={{ backgroundColor: "#FFF8F0", border: "1px solid #E8DDD0" }}>
+              <p className="section-label text-xs mb-2">Best For</p>
+              <p className="font-body text-sm" style={{ color: "#2C2C2C" }}>{product.bestFor}</p>
+            </div>
+          </div>
+
+          {/* Right: Review Content */}
+          <div className="lg:col-span-2">
+            <p className="section-label mb-2">{product.brand}</p>
+            <h1 className="font-display font-bold mb-4 leading-tight" style={{ fontSize: "clamp(1.8rem, 3vw, 2.5rem)", color: "#2C2C2C" }}>
+              {product.name}
+            </h1>
+            <hr className="editorial-rule w-16 mb-6" />
+
+            <p className="font-body text-lg leading-relaxed mb-8" style={{ color: "#6C6C6C" }}>
+              {product.shortDescription}
+            </p>
+
+            {/* Full Review */}
+            <div className="prose max-w-none">
+              {product.fullReview.split('\n\n').map((paragraph, i) => (
+                <p key={i} className="font-body leading-relaxed mb-5" style={{ color: "#2C2C2C", fontSize: "1rem" }}>
+                  {paragraph}
+                </p>
+              ))}
+            </div>
+
+            {/* Pull Quote */}
+            <blockquote className="pull-quote my-8">
+              {product.shortDescription}
+            </blockquote>
+
+            {/* Final Verdict */}
+            <div className="p-6 rounded-sm mt-8" style={{ backgroundColor: "#FFF8F0", border: "2px solid #D4822A" }}>
+              <p className="section-label mb-2">Our Verdict</p>
+              <div className="flex items-center gap-3 mb-3">
+                <StarRatingDisplay rating={product.rating} reviewCount={product.reviewCount} size={20} />
+              </div>
+              <p className="font-body leading-relaxed" style={{ color: "#2C2C2C" }}>
+                {product.shortDescription} Best for: <strong>{product.bestFor}</strong>.
+              </p>
+              <a
+                href={amazonLink(product.asin)}
+                target="_blank"
+                rel="noopener noreferrer nofollow"
+                className="btn-amazon rounded-sm mt-4 inline-flex items-center gap-2 py-3 px-6"
+              >
+                Check Price on Amazon <ExternalLink size={14} />
+              </a>
+            </div>
+
+            <p className="font-body text-xs mt-4" style={{ color: "#B8A99A" }}>
+              Published: {new Date(product.publishDate).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })} · 
+              Prices and availability subject to change. Last verified on Amazon.
+            </p>
+          </div>
+        </div>
+
+        {/* Related Products */}
+        {relatedProducts.length > 0 && (
+          <section className="mt-16 pt-10 border-t" style={{ borderColor: "#E8DDD0" }}>
+            <p className="section-label mb-2">More in {product.category}</p>
+            <h2 className="font-display font-bold mb-8" style={{ fontSize: "1.8rem", color: "#2C2C2C" }}>
+              Related Reviews
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+              {relatedProducts.map(p => <ProductCard key={p.id} product={p} variant="default" />)}
+            </div>
+          </section>
+        )}
+      </div>
+    </SiteLayout>
+  );
+}
