@@ -1,4 +1,4 @@
-// SilkierStrands.com — All Comparisons Page
+// SilkierStrands.com - All Comparisons Page
 
 import { useEffect } from "react";
 import SiteLayout from "@/components/SiteLayout";

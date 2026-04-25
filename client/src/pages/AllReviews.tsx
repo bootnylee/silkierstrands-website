@@ -1,4 +1,4 @@
-// SilkierStrands.com — All Reviews Page
+// SilkierStrands.com - All Reviews Page
 // Design: Bold magazine aesthetic with Burgundy (#8B1A2F) + Amber (#D4822A) + Cream (#FDF6EE)
 // Features: Sidebar FilterPanel (price range + hair type + category) + Sort + Search
 

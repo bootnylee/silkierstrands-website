@@ -1,4 +1,4 @@
-// SilkierStrands.com — Hair Type Data & Helpers
+// SilkierStrands.com - Hair Type Data & Helpers
 // Defines each hair type landing page's metadata, SEO content, and product matching logic
 
 import { allProducts, type Product } from "./products";
@@ -27,7 +27,7 @@ export const hairTypes: HairType[] = [
     name: "Fine Hair",
     tagline: "Lightweight formulas that add volume without weighing you down",
     description:
-      "Fine hair has a smaller diameter per strand, which means it can easily become weighed down by heavy products and is prone to looking flat and limp. The right products make an enormous difference — lightweight formulas that hydrate without heaviness are key.",
+      "Fine hair has a smaller diameter per strand, which means it can easily become weighed down by heavy products and is prone to looking flat and limp. The right products make an enormous difference - lightweight formulas that hydrate without heaviness are key.",
     challenges: [
       "Gets weighed down easily by heavy products",
       "Prone to looking flat and lacking volume",
@@ -36,7 +36,7 @@ export const hairTypes: HairType[] = [
     ],
     tips: [
       "Use sulfate-free, lightweight shampoos to avoid stripping natural oils",
-      "Apply conditioner only from mid-length to ends — never the roots",
+      "Apply conditioner only from mid-length to ends - never the roots",
       "Choose volumizing serums over heavy oils",
       "Blow-dry with a diffuser on low heat to add body",
     ],
@@ -93,7 +93,7 @@ export const hairTypes: HairType[] = [
       "Tangles and breakage during detangling",
     ],
     tips: [
-      "Use sulfate-free, moisturizing shampoos — or co-wash",
+      "Use sulfate-free, moisturizing shampoos - or co-wash",
       "Apply conditioner generously and use a wide-tooth comb",
       "Use a diffuser attachment when blow-drying",
       "Apply curl creams or gels on soaking wet hair for best definition",
@@ -151,7 +151,7 @@ export const hairTypes: HairType[] = [
       "Responds poorly to heat styling",
     ],
     tips: [
-      "Wash less frequently — 2-3 times per week maximum",
+      "Wash less frequently - 2-3 times per week maximum",
       "Use hydrating hair masks weekly",
       "Apply hair oils to seal in moisture after washing",
       "Use the lowest effective heat setting when styling",
@@ -172,7 +172,7 @@ export const hairTypes: HairType[] = [
     name: "Normal Hair",
     tagline: "Balanced formulas that maintain healthy, beautiful hair every day",
     description:
-      "Normal hair has a good balance of moisture and oil, with a healthy shine and manageable texture. The goal is maintenance — keeping hair in its naturally healthy state while protecting against damage from heat, environment, and styling.",
+      "Normal hair has a good balance of moisture and oil, with a healthy shine and manageable texture. The goal is maintenance - keeping hair in its naturally healthy state while protecting against damage from heat, environment, and styling.",
     challenges: [
       "Maintaining balance without over-moisturizing or over-drying",
       "Protecting against heat and environmental damage",

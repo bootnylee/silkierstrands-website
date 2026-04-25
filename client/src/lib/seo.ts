@@ -1,4 +1,4 @@
-// SilkierStrands.com — SEO Utilities
+// SilkierStrands.com - SEO Utilities
 // Handles meta tags, structured data, and canonical URLs
 
 export interface SEOMeta {

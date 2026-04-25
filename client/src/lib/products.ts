@@ -1,4 +1,4 @@
-// SilkierStrands.com — Product Data
+// SilkierStrands.com - Product Data
 // Amazon Affiliate Tag: silkierstrands-20
 // All Amazon links use format: https://www.amazon.com/dp/{ASIN}?tag=silkierstrands-20
 
@@ -118,7 +118,7 @@ export const categories: Category[] = [
 ];
 
 // ============================================================
-// PRODUCTS — SHAMPOO & CONDITIONER (6)
+// PRODUCTS - SHAMPOO & CONDITIONER (6)
 // ============================================================
 const shampooProducts: Product[] = [
   {
@@ -137,10 +137,10 @@ const shampooProducts: Product[] = [
     shortDescription: "Sulfate-free moisturizing shampoo with rose extract and green tea for dry or color-treated hair.",
     fullReview: `Pureology Hydrate Shampoo has earned its place as a gold standard for color-treated hair. The sulfate-free formula is gentle enough for daily use while still delivering a thorough cleanse. We tested this on fine, color-treated hair over four weeks and were consistently impressed by how it maintained vibrancy while adding noticeable softness.
 
-The scent — a blend of rose, sandalwood, and patchouli — is sophisticated and long-lasting. The lather is rich despite the sulfate-free formula, which is often a concern with gentler shampoos. After rinsing, hair feels clean but not stripped, a balance that's genuinely difficult to achieve.
+The scent - a blend of rose, sandalwood, and patchouli - is sophisticated and long-lasting. The lather is rich despite the sulfate-free formula, which is often a concern with gentler shampoos. After rinsing, hair feels clean but not stripped, a balance that's genuinely difficult to achieve.
 
 At $38 for 9 oz, it's an investment, but the concentrated formula means you use less per wash. For anyone with color-treated or chemically processed hair, this is one of the most effective options at this price point.`,
-    pros: ["Sulfate-free formula preserves color", "Rich, sophisticated scent", "Concentrated — a little goes a long way", "Noticeable softness after first use"],
+    pros: ["Sulfate-free formula preserves color", "Rich, sophisticated scent", "Concentrated - a little goes a long way", "Noticeable softness after first use"],
     cons: ["Premium price point", "Smaller bottle size", "May be too moisturizing for oily hair types"],
     bestFor: "Color-treated, dry, or chemically processed hair",
     editorPick: true,
@@ -161,11 +161,11 @@ At $38 for 9 oz, it's an investment, but the concentrated formula means you use 
     imageUrl: "https://m.media-amazon.com/images/I/61yLHUN0tYL._SL1500_.jpg",
     amazonImageUrl: "https://m.media-amazon.com/images/I/61yLHUN0tYL._SL1500_.jpg",
     shortDescription: "Moisturizing shampoo with argan oil for dry, brittle hair. Safe for color-treated hair.",
-    fullReview: `Redken All Soft Shampoo is a salon-professional formula that has crossed over into mainstream success for good reason. The star ingredient is argan oil, which provides deep moisture without weighing hair down — a difficult balance that Redken has clearly mastered.
+    fullReview: `Redken All Soft Shampoo is a salon-professional formula that has crossed over into mainstream success for good reason. The star ingredient is argan oil, which provides deep moisture without weighing hair down - a difficult balance that Redken has clearly mastered.
 
 We tested this on thick, dry, naturally curly hair and found it exceptional at taming frizz from the very first wash. The formula is gentle enough for color-treated hair and doesn't strip vibrancy. The lather is moderate, which is appropriate for a moisturizing formula.
 
-The scent is light and clean, fading quickly — ideal for those who prefer their hair to smell neutral. At $29 for a generous bottle, it offers better value than Pureology while delivering comparable moisturizing results. The main differentiator is that Redken All Soft works particularly well on thicker, coarser hair types.`,
+The scent is light and clean, fading quickly - ideal for those who prefer their hair to smell neutral. At $29 for a generous bottle, it offers better value than Pureology while delivering comparable moisturizing results. The main differentiator is that Redken All Soft works particularly well on thicker, coarser hair types.`,
     pros: ["Excellent for thick, coarse hair", "Argan oil formula reduces frizz", "Good value for a professional formula", "Color-safe"],
     cons: ["Less concentrated than Pureology", "Scent fades quickly", "May not be moisturizing enough for extremely dry hair"],
     bestFor: "Dry, brittle, or coarse hair; color-treated hair",
@@ -190,8 +190,8 @@ The scent is light and clean, fading quickly — ideal for those who prefer thei
 
 What makes this set stand out at its price point is the genuine efficacy of the hyaluronic acid complex. We tested it on fine, dehydrated hair and saw measurable improvement in texture and manageability within two weeks. Hair appeared fuller and felt more resilient.
 
-At under $17 for the set, this is exceptional value. The formulas are lightweight enough for fine hair while still delivering meaningful hydration — a rare combination. This is our top drugstore pick for anyone dealing with dehydrated, limp hair.`,
-    pros: ["Outstanding value for the price", "Hyaluronic acid adds noticeable plumpness", "Lightweight — won't weigh down fine hair", "Strong 4.7-star rating with 5,800+ reviews"],
+At under $17 for the set, this is exceptional value. The formulas are lightweight enough for fine hair while still delivering meaningful hydration - a rare combination. This is our top drugstore pick for anyone dealing with dehydrated, limp hair.`,
+    pros: ["Outstanding value for the price", "Hyaluronic acid adds noticeable plumpness", "Lightweight - won't weigh down fine hair", "Strong 4.7-star rating with 5,800+ reviews"],
     cons: ["Not as intensive as salon brands for severely damaged hair", "Conditioner may not be enough for very thick hair", "Packaging is basic"],
     bestFor: "Fine, dehydrated hair; budget-conscious shoppers",
     editorPick: true,
@@ -216,7 +216,7 @@ At under $17 for the set, this is exceptional value. The formulas are lightweigh
 
 We tested this on medium-thickness, slightly wavy hair and found it delivered reliable softness and manageability without any buildup over time. The shampoo creates a satisfying lather and rinses clean. The conditioner is thick but distributes evenly and rinses out completely.
 
-The value proposition is strong — you get a large set for $22, and both formulas are genuinely effective. This is the kind of dependable, everyday shampoo and conditioner that works for most people without drama.`,
+The value proposition is strong - you get a large set for $22, and both formulas are genuinely effective. This is the kind of dependable, everyday shampoo and conditioner that works for most people without drama.`,
     pros: ["Works for multiple hair types", "Large size for the price", "Reliable, consistent results", "No buildup over time"],
     cons: ["Not specialized enough for very specific hair concerns", "Fragrance is strong", "Not sulfate-free"],
     bestFor: "Normal to dry hair; everyday use; multiple hair types",
@@ -239,10 +239,10 @@ The value proposition is strong — you get a large set for $22, and both formul
     shortDescription: "Silicone-free formula with caviar complex and elastin protein for thicker, stronger hair.",
     fullReview: `Nexxus Therappe Humectress is a salon-heritage brand that delivers professional-grade results at a mid-range price. The caviar complex and elastin protein formula is genuinely unique and targets hair strength and thickness in a way that most moisturizing shampoos don't.
 
-We tested this on fine, limp hair that needed both moisture and volume — a combination that's notoriously difficult to address. The results were impressive: hair felt stronger and appeared fuller after two weeks of consistent use. The silicone-free formula means no buildup, which is crucial for fine hair.
+We tested this on fine, limp hair that needed both moisture and volume - a combination that's notoriously difficult to address. The results were impressive: hair felt stronger and appeared fuller after two weeks of consistent use. The silicone-free formula means no buildup, which is crucial for fine hair.
 
-The conditioner is particularly noteworthy — it's lightweight enough for fine hair but delivers meaningful moisture. At $30 for a large 33.8 oz bottle, the value is excellent. This is our top pick for fine hair that needs both moisture and body.`,
-    pros: ["Silicone-free — no buildup", "Caviar complex strengthens hair", "Excellent value for the size", "Works well for fine hair needing volume"],
+The conditioner is particularly noteworthy - it's lightweight enough for fine hair but delivers meaningful moisture. At $30 for a large 33.8 oz bottle, the value is excellent. This is our top pick for fine hair that needs both moisture and body.`,
+    pros: ["Silicone-free - no buildup", "Caviar complex strengthens hair", "Excellent value for the size", "Works well for fine hair needing volume"],
     cons: ["Scent is divisive", "Results take 2+ weeks to fully appreciate", "Not ideal for very thick or coarse hair"],
     bestFor: "Fine hair needing strength and moisture; silicone-sensitive scalps",
     publishDate: "2025-02-05",
@@ -262,7 +262,7 @@ The conditioner is particularly noteworthy — it's lightweight enough for fine 
     imageUrl: "https://m.media-amazon.com/images/I/71wIyx95zvL._SL1500_.jpg",
     amazonImageUrl: "https://m.media-amazon.com/images/I/71wIyx95zvL._SL1500_.jpg",
     shortDescription: "Naturally derived ingredients, sulfate and dye-free formula for all hair types.",
-    fullReview: `Native's Coconut & Vanilla set is a clean beauty option that doesn't compromise on performance. The naturally derived formula is free from sulfates, dyes, and parabens, making it an excellent choice for those prioritizing ingredient transparency. The coconut and vanilla scent is genuinely delightful — warm, sweet, and long-lasting.
+    fullReview: `Native's Coconut & Vanilla set is a clean beauty option that doesn't compromise on performance. The naturally derived formula is free from sulfates, dyes, and parabens, making it an excellent choice for those prioritizing ingredient transparency. The coconut and vanilla scent is genuinely delightful - warm, sweet, and long-lasting.
 
 We tested this on color-treated, medium-thickness hair and found it gentle and effective. The shampoo creates a modest lather that still cleanses thoroughly. The conditioner is creamy and detangles well. Hair felt soft and looked healthy after consistent use.
 
@@ -276,7 +276,7 @@ At $20 for the set, it's competitively priced for a clean beauty formula. The ma
 ];
 
 // ============================================================
-// PRODUCTS — HAIR MASKS & TREATMENTS (6)
+// PRODUCTS - HAIR MASKS & TREATMENTS (6)
 // ============================================================
 const hairMaskProducts: Product[] = [
   {
@@ -293,7 +293,7 @@ const hairMaskProducts: Product[] = [
     imageUrl: "https://m.media-amazon.com/images/I/61h5lFhkFGL._SL1500_.jpg",
     amazonImageUrl: "https://m.media-amazon.com/images/I/61h5lFhkFGL._SL1500_.jpg",
     shortDescription: "Bond-building moisture mask that repairs and strengthens damaged hair in one use.",
-    fullReview: `Olaplex No. 8 is the brand's most accessible entry point into bond-building technology, and it delivers results that justify the hype. Unlike traditional masks that simply coat the hair, No. 8 works at the molecular level to repair broken disulfide bonds — the structural damage caused by heat, color, and chemical processing.
+    fullReview: `Olaplex No. 8 is the brand's most accessible entry point into bond-building technology, and it delivers results that justify the hype. Unlike traditional masks that simply coat the hair, No. 8 works at the molecular level to repair broken disulfide bonds - the structural damage caused by heat, color, and chemical processing.
 
 We tested this on heavily bleached hair and the results after a single use were remarkable: reduced breakage, improved elasticity, and a glossy finish that lasted through multiple washes. The texture is rich but not heavy, and it rinses out completely without leaving residue.
 
@@ -319,11 +319,11 @@ The 3-5 minute processing time makes it practical for regular use. At $30 for 3.
     imageUrl: "https://m.media-amazon.com/images/I/71Hb0FXJHPL._SL1500_.jpg",
     amazonImageUrl: "https://m.media-amazon.com/images/I/71Hb0FXJHPL._SL1500_.jpg",
     shortDescription: "Argan oil-infused mask for intense hydration and frizz control for dry, thick hair.",
-    fullReview: `Moroccanoil Intense Hydrating Mask is the gold standard for thick, dry, frizzy hair. The argan oil-rich formula penetrates deeply, delivering moisture that lasts for days rather than hours. The signature Moroccanoil scent — amber, musk, and floral notes — is iconic and lingers pleasantly.
+    fullReview: `Moroccanoil Intense Hydrating Mask is the gold standard for thick, dry, frizzy hair. The argan oil-rich formula penetrates deeply, delivering moisture that lasts for days rather than hours. The signature Moroccanoil scent - amber, musk, and floral notes - is iconic and lingers pleasantly.
 
 We tested this on thick, naturally curly hair prone to frizz and found it exceptional. After 10 minutes under a shower cap, hair was transformed: softer, more defined curls with dramatically reduced frizz. The effect lasted through 3-4 washes, which is remarkable for a rinse-out treatment.
 
-At $34 for 8.5 oz, it's a luxury purchase, but the results and longevity justify the cost. The main caveat is that this formula is too heavy for fine hair — it's specifically designed for thick, coarse, or very dry hair types.`,
+At $34 for 8.5 oz, it's a luxury purchase, but the results and longevity justify the cost. The main caveat is that this formula is too heavy for fine hair - it's specifically designed for thick, coarse, or very dry hair types.`,
     pros: ["Exceptional for thick, frizzy hair", "Long-lasting results (3-4 washes)", "Iconic, luxurious scent", "Deep penetrating argan oil formula"],
     cons: ["Too heavy for fine or thin hair", "Premium price", "Requires 10+ minutes processing time"],
     bestFor: "Thick, coarse, frizzy, or very dry hair",
@@ -344,13 +344,13 @@ At $34 for 8.5 oz, it's a luxury purchase, but the results and longevity justify
     imageUrl: "https://m.media-amazon.com/images/I/71qWmBJmYSL._SL1500_.jpg",
     amazonImageUrl: "https://m.media-amazon.com/images/I/71qWmBJmYSL._SL1500_.jpg",
     shortDescription: "10-in-1 treatment mask that repairs, moisturizes, and protects in a single application.",
-    fullReview: `It's a 10 Miracle Hair Mask lives up to its name by addressing multiple hair concerns simultaneously. The 10-in-1 formula combines moisturizing, strengthening, detangling, color protecting, and heat protecting properties into a single product — a genuinely useful multi-tasker.
+    fullReview: `It's a 10 Miracle Hair Mask lives up to its name by addressing multiple hair concerns simultaneously. The 10-in-1 formula combines moisturizing, strengthening, detangling, color protecting, and heat protecting properties into a single product - a genuinely useful multi-tasker.
 
 We tested this on medium-thickness, color-treated hair that was showing signs of dryness and dullness. The results were immediate and impressive: hair was noticeably softer, shinier, and easier to detangle after a single use. The formula is lightweight enough to work on fine hair while still delivering meaningful moisture.
 
 The 17.5 oz size offers excellent value at $30, and the formula is versatile enough to work on a wide range of hair types. This is our top recommendation for those who want a single mask that addresses multiple concerns without breaking the bank.`,
     pros: ["Addresses 10 hair concerns simultaneously", "Works on multiple hair types", "Excellent value for the size", "Immediate, visible results"],
-    cons: ["Jack of all trades — not as specialized as single-purpose masks", "Scent is strong and may not suit everyone", "Not bond-building"],
+    cons: ["Jack of all trades - not as specialized as single-purpose masks", "Scent is strong and may not suit everyone", "Not bond-building"],
     bestFor: "Multiple hair concerns; color-treated hair; everyday maintenance",
     publishDate: "2025-01-29",
     slug: "its-a-10-miracle-mask-review",
@@ -371,11 +371,11 @@ The 17.5 oz size offers excellent value at $30, and the formula is versatile eno
     shortDescription: "Clean formula with B-vitamins, algae, and rosehip oil for severely damaged hair.",
     fullReview: `Briogeo's Don't Despair, Repair! mask is a clean beauty powerhouse that delivers serious repair results without harsh chemicals. The formula combines B-vitamins, algae extract, and rosehip oil to strengthen, moisturize, and restore shine to damaged hair.
 
-We tested this on heat-damaged, color-treated hair and found it particularly effective at reducing breakage and improving elasticity. The clean formula — free from sulfates, silicones, parabens, and artificial dyes — means it's safe for sensitive scalps and color-treated hair alike.
+We tested this on heat-damaged, color-treated hair and found it particularly effective at reducing breakage and improving elasticity. The clean formula - free from sulfates, silicones, parabens, and artificial dyes - means it's safe for sensitive scalps and color-treated hair alike.
 
 The texture is rich and creamy, and the light botanical scent is pleasant without being overwhelming. At $38 for 8 oz, it's a premium purchase, but the clean formulation and genuine efficacy make it worth the investment for those prioritizing ingredient quality alongside results.`,
-    pros: ["Clean formula — free from harsh chemicals", "Reduces breakage and improves elasticity", "Light, pleasant botanical scent", "Safe for sensitive scalps"],
-    cons: ["Premium price for the size", "Results build over time — not as immediate as Olaplex", "Not ideal for fine hair"],
+    pros: ["Clean formula - free from harsh chemicals", "Reduces breakage and improves elasticity", "Light, pleasant botanical scent", "Safe for sensitive scalps"],
+    cons: ["Premium price for the size", "Results build over time - not as immediate as Olaplex", "Not ideal for fine hair"],
     bestFor: "Damaged hair; clean beauty enthusiasts; sensitive scalps",
     editorPick: true,
     publishDate: "2025-02-05",
@@ -395,13 +395,13 @@ The texture is rich and creamy, and the light botanical scent is pleasant withou
     imageUrl: "https://m.media-amazon.com/images/I/71RN1DKQBYL._SL1500_.jpg",
     amazonImageUrl: "https://m.media-amazon.com/images/I/71RN1DKQBYL._SL1500_.jpg",
     shortDescription: "Collagen and argan oil deep repair mask for all hair types. 16.9 oz value size.",
-    fullReview: `Karseell's Collagen Hair Treatment Mask has become a viral sensation for good reason — it delivers impressive results at a fraction of the price of luxury alternatives. The collagen and argan oil formula provides deep moisture and visible shine improvement that rivals products costing three times as much.
+    fullReview: `Karseell's Collagen Hair Treatment Mask has become a viral sensation for good reason - it delivers impressive results at a fraction of the price of luxury alternatives. The collagen and argan oil formula provides deep moisture and visible shine improvement that rivals products costing three times as much.
 
 We tested this on dry, dull hair and found the results genuinely impressive. After a single 15-minute treatment, hair was noticeably softer, shinier, and more manageable. The large 16.9 oz jar provides excellent value, and the formula works well on a wide range of hair types.
 
 The main limitation is that it doesn't address structural damage the way bond-building treatments do, but for everyday moisture and shine improvement, it's hard to beat at this price point. This is our top budget pick for hair masks.`,
     pros: ["Exceptional value for the price", "Large 16.9 oz size", "Visible results after single use", "Works on multiple hair types"],
-    cons: ["Not bond-building", "Scent is strong", "Formula is thick — may be too heavy for fine hair"],
+    cons: ["Not bond-building", "Scent is strong", "Formula is thick - may be too heavy for fine hair"],
     bestFor: "Budget-conscious shoppers; normal to dry hair; shine improvement",
     publishDate: "2025-02-12",
     slug: "karseell-collagen-hair-mask-review",
@@ -434,7 +434,7 @@ At $25 for 8.4 oz, it's well-priced for the quality of ingredients. The sulfate-
 ];
 
 // ============================================================
-// PRODUCTS — SERUMS & OILS (6)
+// PRODUCTS - SERUMS & OILS (6)
 // ============================================================
 const serumProducts: Product[] = [
   {
@@ -451,12 +451,12 @@ const serumProducts: Product[] = [
     imageUrl: "https://m.media-amazon.com/images/I/61vVBJzpNhL._SL1500_.jpg",
     amazonImageUrl: "https://m.media-amazon.com/images/I/61vVBJzpNhL._SL1500_.jpg",
     shortDescription: "The original argan oil treatment that transformed hair care. Conditions, styles, and finishes.",
-    fullReview: `Moroccanoil Treatment Original is the product that single-handedly popularized argan oil in hair care, and more than a decade later, it remains the benchmark against which all other hair oils are measured. The formula is deceptively simple — argan oil, antioxidants, and proteins — but the results are consistently extraordinary.
+    fullReview: `Moroccanoil Treatment Original is the product that single-handedly popularized argan oil in hair care, and more than a decade later, it remains the benchmark against which all other hair oils are measured. The formula is deceptively simple - argan oil, antioxidants, and proteins - but the results are consistently extraordinary.
 
 We tested this on multiple hair types and found it universally effective. A few drops worked into damp hair before blow-drying dramatically reduced drying time, eliminated frizz, and added a luminous shine that lasted for days. On dry hair, it works as a finishing treatment to smooth flyaways and add gloss.
 
-At $46 for 3.4 oz, it's a luxury purchase, but the formula is highly concentrated — a little goes a very long way. The iconic amber bottle and signature scent have become synonymous with healthy, beautiful hair. This is our top overall pick for hair oils.`,
-    pros: ["The original and still the best argan oil treatment", "Works on all hair types", "Reduces drying time significantly", "Highly concentrated — lasts a long time"],
+At $46 for 3.4 oz, it's a luxury purchase, but the formula is highly concentrated - a little goes a very long way. The iconic amber bottle and signature scent have become synonymous with healthy, beautiful hair. This is our top overall pick for hair oils.`,
+    pros: ["The original and still the best argan oil treatment", "Works on all hair types", "Reduces drying time significantly", "Highly concentrated - lasts a long time"],
     cons: ["Premium price", "Can cause buildup if overused", "Scent is strong (though beloved by most)"],
     bestFor: "All hair types; frizz control; shine; heat protection",
     editorPick: true,
@@ -477,13 +477,13 @@ At $46 for 3.4 oz, it's a luxury purchase, but the formula is highly concentrate
     imageUrl: "https://m.media-amazon.com/images/I/51VVlxlkCwL._SL1500_.jpg",
     amazonImageUrl: "https://m.media-amazon.com/images/I/51VVlxlkCwL._SL1500_.jpg",
     shortDescription: "Highly concentrated bond-building oil that adds shine, reduces frizz, and speeds drying.",
-    fullReview: `Olaplex No. 7 Bonding Oil is the brand's most versatile product — a lightweight oil that delivers bond-building benefits alongside practical styling benefits. Unlike heavier oils, No. 7 is so lightweight that it can be used on fine hair without weighing it down.
+    fullReview: `Olaplex No. 7 Bonding Oil is the brand's most versatile product - a lightweight oil that delivers bond-building benefits alongside practical styling benefits. Unlike heavier oils, No. 7 is so lightweight that it can be used on fine hair without weighing it down.
 
 We tested this on fine, color-treated hair and found it exceptional. A single drop worked through damp hair before blow-drying added noticeable shine and reduced frizz without any heaviness. The bond-building technology provides cumulative benefits with regular use, gradually improving hair strength and elasticity.
 
-At $30 for 1 oz, it's expensive per ounce, but the formula is extraordinarily concentrated — you truly only need 1-2 drops per use. The bottle lasts for months. For anyone already using Olaplex products, No. 7 is an essential addition to the routine.`,
-    pros: ["Bond-building technology in an oil format", "Lightweight enough for fine hair", "Extremely concentrated — lasts months", "Cumulative strengthening benefits"],
-    cons: ["Very expensive per ounce", "Small bottle", "Benefits are cumulative — not as immediate as Moroccanoil"],
+At $30 for 1 oz, it's expensive per ounce, but the formula is extraordinarily concentrated - you truly only need 1-2 drops per use. The bottle lasts for months. For anyone already using Olaplex products, No. 7 is an essential addition to the routine.`,
+    pros: ["Bond-building technology in an oil format", "Lightweight enough for fine hair", "Extremely concentrated - lasts months", "Cumulative strengthening benefits"],
+    cons: ["Very expensive per ounce", "Small bottle", "Benefits are cumulative - not as immediate as Moroccanoil"],
     bestFor: "Fine, damaged, or color-treated hair; Olaplex routine users",
     publishDate: "2025-01-22",
     slug: "olaplex-no7-bonding-oil-review",
@@ -533,7 +533,7 @@ At $50, it's a luxury purchase, but the professional-grade formula justifies the
 We tested this on medium-thickness, color-treated hair and found it effective and pleasant to use. The oil absorbs quickly without leaving a greasy residue, and the shine it imparts is genuine and lasting. The scent is warm and pleasant, though lighter than Moroccanoil's signature fragrance.
 
 At $13 for a pack of two, the value is exceptional. This is our top budget pick for hair oils and our recommendation for anyone who wants to try an argan oil treatment without committing to a luxury price point.`,
-    pros: ["Exceptional value — two bottles for $13", "Absorbs quickly without greasiness", "Genuine shine improvement", "Widely available"],
+    pros: ["Exceptional value - two bottles for $13", "Absorbs quickly without greasiness", "Genuine shine improvement", "Widely available"],
     cons: ["Not as concentrated as luxury alternatives", "Formula contains more filler ingredients", "Results don't last as long as premium options"],
     bestFor: "Budget-conscious shoppers; everyday shine and frizz control",
     publishDate: "2025-02-05",
@@ -553,7 +553,7 @@ At $13 for a pack of two, the value is exceptional. This is our top budget pick 
     imageUrl: "https://m.media-amazon.com/images/I/71GZqxYoaML._SL1500_.jpg",
     amazonImageUrl: "https://m.media-amazon.com/images/I/71GZqxYoaML._SL1500_.jpg",
     shortDescription: "Affordable argan oil, keratin, and biotin hair serum for frizz control and shine.",
-    fullReview: `MAREE Hair Oil is a budget-friendly surprise that punches well above its price point. The combination of argan oil, keratin, and biotin addresses frizz, shine, and strength simultaneously — a comprehensive formula for under $10.
+    fullReview: `MAREE Hair Oil is a budget-friendly surprise that punches well above its price point. The combination of argan oil, keratin, and biotin addresses frizz, shine, and strength simultaneously - a comprehensive formula for under $10.
 
 We tested this on curly, frizzy hair and found it effective at taming flyaways and adding a healthy sheen. The formula is lightweight and absorbs quickly, making it suitable for fine to medium hair. The keratin content helps smooth the cuticle, while biotin supports hair strength over time.
 
@@ -578,7 +578,7 @@ At $10, the value is extraordinary. While it doesn't deliver the same level of p
     imageUrl: "https://m.media-amazon.com/images/I/71YoMWkVpLL._SL1500_.jpg",
     amazonImageUrl: "https://m.media-amazon.com/images/I/71YoMWkVpLL._SL1500_.jpg",
     shortDescription: "Silicone-based serum specifically formulated to eliminate frizz in high humidity.",
-    fullReview: `John Frieda Frizz Ease Extra Strength Serum is a drugstore classic that has been solving frizz problems for decades. The silicone-based formula creates a protective barrier around the hair shaft that blocks humidity — the primary cause of frizz — with remarkable effectiveness.
+    fullReview: `John Frieda Frizz Ease Extra Strength Serum is a drugstore classic that has been solving frizz problems for decades. The silicone-based formula creates a protective barrier around the hair shaft that blocks humidity - the primary cause of frizz - with remarkable effectiveness.
 
 We tested this in humid conditions on naturally curly, frizz-prone hair and found it one of the most effective anti-frizz products at any price point. A small amount applied to damp hair before styling kept frizz at bay for an entire day, even in high humidity.
 
@@ -592,7 +592,7 @@ The trade-off is that silicone can cause buildup over time, requiring a clarifyi
 ];
 
 // ============================================================
-// PRODUCTS — HAIR DRYERS (6)
+// PRODUCTS - HAIR DRYERS (6)
 // ============================================================
 const hairDryerProducts: Product[] = [
   {
@@ -609,9 +609,9 @@ const hairDryerProducts: Product[] = [
     imageUrl: "https://m.media-amazon.com/images/I/41ZEV3FwlVL._SX679_.jpg",
     amazonImageUrl: "https://m.media-amazon.com/images/I/41ZEV3FwlVL._SX679_.jpg",
     shortDescription: "The benchmark premium hair dryer with intelligent heat control and ultra-fast drying.",
-    fullReview: `The Dyson Supersonic is the hair dryer that changed the industry. Its digital motor — positioned in the handle rather than the head — makes it uniquely balanced and lightweight. The intelligent heat control measures temperature 40 times per second to prevent extreme heat damage, a genuine innovation that no competitor has fully replicated.
+    fullReview: `The Dyson Supersonic is the hair dryer that changed the industry. Its digital motor - positioned in the handle rather than the head - makes it uniquely balanced and lightweight. The intelligent heat control measures temperature 40 times per second to prevent extreme heat damage, a genuine innovation that no competitor has fully replicated.
 
-We tested this on multiple hair types and found the drying speed genuinely impressive — 30-40% faster than conventional dryers. The magnetic attachments are elegant and functional. The result is consistently smooth, shiny hair with minimal frizz.
+We tested this on multiple hair types and found the drying speed genuinely impressive - 30-40% faster than conventional dryers. The magnetic attachments are elegant and functional. The result is consistently smooth, shiny hair with minimal frizz.
 
 At $430, it's a significant investment, but for those who blow-dry daily, the combination of speed, hair health protection, and longevity (Dyson products are built to last) makes it defensible. This is the gold standard of hair dryers.`,
     pros: ["Fastest drying time tested", "Intelligent heat control prevents damage", "Lightweight and balanced design", "Premium magnetic attachments"],
@@ -635,9 +635,9 @@ At $430, it's a significant investment, but for those who blow-dry daily, the co
     imageUrl: "https://m.media-amazon.com/images/I/51hZL8nPi3L._AC_SL1000_.jpg",
     amazonImageUrl: "https://m.media-amazon.com/images/I/51hZL8nPi3L._AC_SL1000_.jpg",
     shortDescription: "IQ 2-in-1 concentrator and diffuser with auto presets and ionic technology.",
-    fullReview: `The Shark HyperAIR positions itself as the smart alternative to the Dyson Supersonic at roughly half the price. The IQ 2-in-1 attachments are genuinely innovative — the concentrator and diffuser are combined into a single attachment that switches modes, reducing the clutter of multiple attachments.
+    fullReview: `The Shark HyperAIR positions itself as the smart alternative to the Dyson Supersonic at roughly half the price. The IQ 2-in-1 attachments are genuinely innovative - the concentrator and diffuser are combined into a single attachment that switches modes, reducing the clutter of multiple attachments.
 
-We tested this on wavy, medium-thickness hair and found the auto presets surprisingly useful. The ionic technology effectively reduced frizz, and the drying speed was impressive — comparable to the Dyson in our testing. The extendable prongs on the diffuser attachment are a clever design touch.
+We tested this on wavy, medium-thickness hair and found the auto presets surprisingly useful. The ionic technology effectively reduced frizz, and the drying speed was impressive - comparable to the Dyson in our testing. The extendable prongs on the diffuser attachment are a clever design touch.
 
 At $225, it's a significant purchase but offers genuine value compared to the Dyson. The main limitation is that the auto presets, while convenient, don't offer the same level of customization as manual controls. For those who want premium performance without the Dyson price tag, this is the best alternative.`,
     pros: ["Innovative 2-in-1 attachment design", "Auto presets for convenience", "Excellent ionic technology", "Strong performance at half the Dyson price"],
@@ -662,10 +662,10 @@ At $225, it's a significant purchase but offers genuine value compared to the Dy
     shortDescription: "Professional 2000W tourmaline dryer for quiet, powerful blowouts.",
     fullReview: `HOT TOOLS Pro Artist Tourmaline 2000 is a professional-grade dryer that delivers salon-quality results at a mid-range price. The 2000W motor is powerful enough for thick hair, while the tourmaline technology generates negative ions that reduce frizz and add shine.
 
-We tested this on thick, coarse hair and found it exceptionally powerful — one of the fastest dryers we tested at this price point. The quiet motor is a genuine differentiator; it's noticeably quieter than most dryers in this category, making it pleasant for early-morning use.
+We tested this on thick, coarse hair and found it exceptionally powerful - one of the fastest dryers we tested at this price point. The quiet motor is a genuine differentiator; it's noticeably quieter than most dryers in this category, making it pleasant for early-morning use.
 
 At $88, it represents excellent value for a professional-grade tool. The build quality feels premium, and the tourmaline plates deliver consistent ionic output. This is our top mid-range pick for thick or coarse hair that needs serious power.`,
-    pros: ["2000W motor — powerful enough for thick hair", "Notably quiet operation", "Tourmaline technology reduces frizz", "Professional build quality"],
+    pros: ["2000W motor - powerful enough for thick hair", "Notably quiet operation", "Tourmaline technology reduces frizz", "Professional build quality"],
     cons: ["Heavier than consumer dryers", "Limited attachment options", "Not as technologically advanced as Dyson or Shark"],
     bestFor: "Thick, coarse hair; those who value quiet operation; professional results",
     publishDate: "2025-01-29",
@@ -689,9 +689,9 @@ At $88, it represents excellent value for a professional-grade tool. The build q
 
 We tested this on medium-length, fine to medium hair and found it genuinely transformative. The oval barrel creates volume at the roots while smoothing the lengths, resulting in a polished blowout that would typically require professional skill. The ionic technology adds shine and reduces frizz.
 
-At $50, it's exceptional value. The main limitation is that it works best on medium-length hair — very long or very thick hair may require multiple passes. But for the target user, this is one of the most satisfying hair tools available at any price.`,
-    pros: ["Combines drying and styling in one step", "Creates professional-looking volume", "Exceptional value at $50", "Viral for good reason — it works"],
-    cons: ["Less effective on very long or very thick hair", "Not a traditional hair dryer — can't replace it entirely", "Can be tricky to master initially"],
+At $50, it's exceptional value. The main limitation is that it works best on medium-length hair - very long or very thick hair may require multiple passes. But for the target user, this is one of the most satisfying hair tools available at any price.`,
+    pros: ["Combines drying and styling in one step", "Creates professional-looking volume", "Exceptional value at $50", "Viral for good reason - it works"],
+    cons: ["Less effective on very long or very thick hair", "Not a traditional hair dryer - can't replace it entirely", "Can be tricky to master initially"],
     bestFor: "Medium-length, fine to medium hair; those wanting blowout volume at home",
     editorPick: true,
     publishDate: "2025-02-05",
@@ -711,7 +711,7 @@ At $50, it's exceptional value. The main limitation is that it works best on med
     imageUrl: "https://m.media-amazon.com/images/I/71CHzL2pn8L._AC_SL1500_.jpg",
     amazonImageUrl: "https://m.media-amazon.com/images/I/71CHzL2pn8L._AC_SL1500_.jpg",
     shortDescription: "1875W tourmaline ionic dryer with diffuser and concentrator for frizz-free styling.",
-    fullReview: `The Conair Infiniti PRO is the reliable workhorse of the hair dryer category — not the most exciting option, but consistently effective and excellent value. The 1875W motor with tourmaline ionic technology delivers solid performance for everyday use, and the included diffuser and concentrator attachments add versatility.
+    fullReview: `The Conair Infiniti PRO is the reliable workhorse of the hair dryer category - not the most exciting option, but consistently effective and excellent value. The 1875W motor with tourmaline ionic technology delivers solid performance for everyday use, and the included diffuser and concentrator attachments add versatility.
 
 We tested this on curly hair using the diffuser and found it effective at enhancing curl definition while minimizing frizz. The concentrator works well for smooth blowouts. The three heat and two speed settings provide adequate customization for most users.
 
@@ -738,7 +738,7 @@ At $42, it's a solid choice for anyone who wants a reliable, no-frills dryer tha
     shortDescription: "Professional nano titanium dryer with 2000W power and 6 heat/speed combinations.",
     fullReview: `BaBylissPRO Nano Titanium is a professional-grade dryer that has been a salon staple for years. The nano titanium technology generates far-infrared heat that dries hair from the inside out, reducing surface damage while achieving faster drying times than conventional ceramic dryers.
 
-We tested this on thick, long hair and found it one of the most powerful dryers we've tested. The 2000W motor combined with far-infrared heat technology dried our test subject's thick hair in under 15 minutes — impressive performance. The six heat and speed combinations provide excellent customization.
+We tested this on thick, long hair and found it one of the most powerful dryers we've tested. The 2000W motor combined with far-infrared heat technology dried our test subject's thick hair in under 15 minutes - impressive performance. The six heat and speed combinations provide excellent customization.
 
 At $80, it's well-priced for a professional-grade tool. The build quality is exceptional and designed to withstand daily professional use. This is our top pick for those with thick or long hair who need serious power.`,
     pros: ["Far-infrared heat dries from inside out", "2000W professional power", "Excellent for thick, long hair", "Professional build quality"],
@@ -750,7 +750,7 @@ At $80, it's well-priced for a professional-grade tool. The build quality is exc
 ];
 
 // ============================================================
-// PRODUCTS — FLAT IRONS & STRAIGHTENERS (6)
+// PRODUCTS - FLAT IRONS & STRAIGHTENERS (6)
 // ============================================================
 const flatIronProducts: Product[] = [
   {
@@ -767,13 +767,13 @@ const flatIronProducts: Product[] = [
     imageUrl: "https://m.media-amazon.com/images/I/61K2WB+c0WL._SL1500_.jpg",
     amazonImageUrl: "https://m.media-amazon.com/images/I/61K2WB+c0WL._SL1500_.jpg",
     shortDescription: "Predictive technology maintains optimal 365°F styling temperature for healthier hair.",
-    fullReview: `The ghd Platinum+ is widely considered the best flat iron in the world, and after extensive testing, we understand why. The predictive technology continuously monitors and adjusts the temperature 250 times per second to maintain the optimal 365°F styling temperature — the sweet spot that styles effectively without causing excessive damage.
+    fullReview: `The ghd Platinum+ is widely considered the best flat iron in the world, and after extensive testing, we understand why. The predictive technology continuously monitors and adjusts the temperature 250 times per second to maintain the optimal 365°F styling temperature - the sweet spot that styles effectively without causing excessive damage.
 
 We tested this on fine, color-treated hair and found it delivered the smoothest, most consistent results of any flat iron we've tested. The floating plates glide effortlessly through hair, and the results are salon-quality: smooth, shiny, and long-lasting. The automatic sleep mode adds peace of mind.
 
 At $249, it's a premium investment, but for those who straighten regularly, the combination of superior results and reduced heat damage makes it worth every penny. This is the flat iron we recommend without hesitation.`,
     pros: ["Predictive technology maintains optimal temperature", "Smoothest results of any flat iron tested", "Floating plates for even heat distribution", "Automatic sleep mode"],
-    cons: ["Very expensive", "Fixed temperature — no manual adjustment", "Heavy for prolonged use"],
+    cons: ["Very expensive", "Fixed temperature - no manual adjustment", "Heavy for prolonged use"],
     bestFor: "All hair types; daily straightening; those prioritizing hair health",
     editorPick: true,
     publishDate: "2025-01-15",
@@ -793,9 +793,9 @@ At $249, it's a premium investment, but for those who straighten regularly, the 
     imageUrl: "https://m.media-amazon.com/images/I/71X0743ySFL._SL1500_.jpg",
     amazonImageUrl: "https://m.media-amazon.com/images/I/71X0743ySFL._SL1500_.jpg",
     shortDescription: "T3 SinglePass technology with tourmaline ceramic plates for one-pass straightening.",
-    fullReview: `T3's SinglePass Luxe delivers on its name — the tourmaline ceramic plates are so effective at distributing heat evenly that most hair types can achieve smooth results in a single pass. This reduces total heat exposure, which is a meaningful benefit for hair health.
+    fullReview: `T3's SinglePass Luxe delivers on its name - the tourmaline ceramic plates are so effective at distributing heat evenly that most hair types can achieve smooth results in a single pass. This reduces total heat exposure, which is a meaningful benefit for hair health.
 
-We tested this on medium-thickness, slightly wavy hair and found the single-pass claim largely accurate. The plates glide smoothly, and the results are excellent — smooth, shiny hair with a natural-looking finish. The 15 temperature settings (from 250°F to 450°F) provide excellent customization for different hair types.
+We tested this on medium-thickness, slightly wavy hair and found the single-pass claim largely accurate. The plates glide smoothly, and the results are excellent - smooth, shiny hair with a natural-looking finish. The 15 temperature settings (from 250°F to 450°F) provide excellent customization for different hair types.
 
 At $199, it's a significant investment but $50 less than the ghd Platinum+. For those who want premium performance with more temperature control than the ghd offers, the T3 is an excellent alternative.`,
     pros: ["SinglePass technology reduces heat exposure", "15 temperature settings for customization", "Excellent for medium-thickness hair", "Tourmaline ceramic plates"],
@@ -818,12 +818,12 @@ At $199, it's a significant investment but $50 less than the ghd Platinum+. For 
     imageUrl: "https://m.media-amazon.com/images/I/71uURp6g6KL._SL1500_.jpg",
     amazonImageUrl: "https://m.media-amazon.com/images/I/71uURp6g6KL._SL1500_.jpg",
     shortDescription: "Straightening brush that combines a brush and flat iron for natural-looking results.",
-    fullReview: `The TYMO Ring Straightener Brush is one of the most popular hair tools on Amazon for good reason — it delivers smooth, natural-looking straightening results that look less processed than traditional flat irons. The brush format makes it faster and easier to use than a conventional flat iron, particularly for those new to heat styling.
+    fullReview: `The TYMO Ring Straightener Brush is one of the most popular hair tools on Amazon for good reason - it delivers smooth, natural-looking straightening results that look less processed than traditional flat irons. The brush format makes it faster and easier to use than a conventional flat iron, particularly for those new to heat styling.
 
 We tested this on wavy, medium-thickness hair and found it excellent for achieving a smooth, natural-looking blowout effect. The 20-second heat-up time is impressive, and the dual voltage makes it travel-friendly. With 82,000+ reviews and a 4.4-star rating, the user consensus is clear.
 
 At $40, it's exceptional value. The main limitation is that it won't achieve the same pin-straight results as a traditional flat iron on very curly or coarse hair. But for wavy to mildly curly hair, it's one of the most satisfying tools available.`,
-    pros: ["Natural-looking results — less processed appearance", "Faster and easier than traditional flat irons", "20-second heat-up time", "Dual voltage for travel", "Exceptional value"],
+    pros: ["Natural-looking results - less processed appearance", "Faster and easier than traditional flat irons", "20-second heat-up time", "Dual voltage for travel", "Exceptional value"],
     cons: ["Won't achieve pin-straight results on very curly hair", "Bristles can snag on tangles", "Not ideal for very thick hair"],
     bestFor: "Wavy to mildly curly hair; beginners; those wanting natural-looking smoothness",
     editorPick: true,
@@ -844,9 +844,9 @@ At $40, it's exceptional value. The main limitation is that it won't achieve the
     imageUrl: "https://m.media-amazon.com/images/I/41x27S6ZMrL._AC_SL1500_.jpg",
     amazonImageUrl: "https://m.media-amazon.com/images/I/41x27S6ZMrL._AC_SL1500_.jpg",
     shortDescription: "Budget-friendly ceramic flat iron with tourmaline-infused plates and 8 heat settings.",
-    fullReview: `The HSI Professional Glider is the best budget flat iron we've tested — a genuinely capable tool that delivers results far beyond its $30 price point. The tourmaline-infused ceramic plates distribute heat evenly and generate negative ions that reduce frizz and add shine.
+    fullReview: `The HSI Professional Glider is the best budget flat iron we've tested - a genuinely capable tool that delivers results far beyond its $30 price point. The tourmaline-infused ceramic plates distribute heat evenly and generate negative ions that reduce frizz and add shine.
 
-We tested this on fine, color-treated hair and found it effective and gentle. The eight heat settings (from 140°F to 450°F) provide excellent range for different hair types. The plates glide smoothly, and the results are consistently good — smooth, shiny hair without excessive heat damage.
+We tested this on fine, color-treated hair and found it effective and gentle. The eight heat settings (from 140°F to 450°F) provide excellent range for different hair types. The plates glide smoothly, and the results are consistently good - smooth, shiny hair without excessive heat damage.
 
 At $30, it's an outstanding value. The build quality is adequate rather than exceptional, and it won't last as long as premium alternatives, but for occasional use or as a travel flat iron, it's hard to beat.`,
     pros: ["Exceptional value at $30", "8 heat settings for customization", "Tourmaline ceramic plates", "Suitable for all hair types"],
@@ -869,9 +869,9 @@ At $30, it's an outstanding value. The build quality is adequate rather than exc
     imageUrl: "https://m.media-amazon.com/images/I/710vhwV82zL._SL1500_.jpg",
     amazonImageUrl: "https://m.media-amazon.com/images/I/710vhwV82zL._SL1500_.jpg",
     shortDescription: "Pearl ceramic plates with micro-conditioners for smooth, shiny results.",
-    fullReview: `The Remington Pearl Pro sits at a sweet spot between budget and premium flat irons, offering genuine quality at a mid-range price. The pearl ceramic plates are infused with micro-conditioners that release during styling to add moisture and shine — a unique feature that sets it apart from standard ceramic irons.
+    fullReview: `The Remington Pearl Pro sits at a sweet spot between budget and premium flat irons, offering genuine quality at a mid-range price. The pearl ceramic plates are infused with micro-conditioners that release during styling to add moisture and shine - a unique feature that sets it apart from standard ceramic irons.
 
-We tested this on dry, medium-thickness hair and found the micro-conditioner claim to be more than marketing — hair genuinely felt more conditioned after styling compared to standard ceramic irons. The results were smooth and shiny, with noticeably less static than competing irons at this price.
+We tested this on dry, medium-thickness hair and found the micro-conditioner claim to be more than marketing - hair genuinely felt more conditioned after styling compared to standard ceramic irons. The results were smooth and shiny, with noticeably less static than competing irons at this price.
 
 At $50, it offers better value than the T3 or ghd while delivering a unique benefit that justifies the step up from budget options. This is our top mid-range pick for those who want more than a basic flat iron without the premium price.`,
     pros: ["Pearl ceramic plates with micro-conditioners", "Reduces static effectively", "Good mid-range value", "Smooth glide"],
@@ -894,13 +894,13 @@ At $50, it offers better value than the T3 or ghd while delivering a unique bene
     imageUrl: "https://m.media-amazon.com/images/I/6142UG+9zqL._SL1500_.jpg",
     amazonImageUrl: "https://m.media-amazon.com/images/I/6142UG+9zqL._SL1500_.jpg",
     shortDescription: "Ultra-thin nano titanium plates for precise styling and maximum heat transfer.",
-    fullReview: `BaBylissPRO's Ultra-Thin Titanium Straightener is a professional tool that excels at precision styling. The ultra-thin titanium plates heat up to maximum temperature in seconds and maintain consistent heat throughout styling — critical for achieving smooth results on thick or resistant hair.
+    fullReview: `BaBylissPRO's Ultra-Thin Titanium Straightener is a professional tool that excels at precision styling. The ultra-thin titanium plates heat up to maximum temperature in seconds and maintain consistent heat throughout styling - critical for achieving smooth results on thick or resistant hair.
 
 We tested this on thick, coarse hair and found it one of the most effective flat irons for this hair type. The titanium plates glide smoothly even through the thickest sections, and the far-infrared heat penetrates deeply for long-lasting results. The slim profile makes it easier to get close to the roots.
 
-At $70, it's well-priced for a professional-grade tool. The main caveat is that titanium irons can be too hot for fine or damaged hair — the high heat that makes them effective on thick hair can be damaging to more delicate hair types.`,
+At $70, it's well-priced for a professional-grade tool. The main caveat is that titanium irons can be too hot for fine or damaged hair - the high heat that makes them effective on thick hair can be damaging to more delicate hair types.`,
     pros: ["Exceptional for thick, coarse hair", "Ultra-fast heat-up time", "Consistent heat throughout styling", "Slim profile for root access"],
-    cons: ["Can be too hot for fine or damaged hair", "No automatic temperature control", "Professional tool — requires some skill"],
+    cons: ["Can be too hot for fine or damaged hair", "No automatic temperature control", "Professional tool - requires some skill"],
     bestFor: "Thick, coarse, or resistant hair; professional users",
     publishDate: "2025-02-19",
     slug: "babyliss-ultra-thin-titanium-review",
@@ -908,7 +908,7 @@ At $70, it's well-priced for a professional-grade tool. The main caveat is that 
 ];
 
 // ============================================================
-// PRODUCTS — CURLING IRONS & WANDS (6)
+// PRODUCTS - CURLING IRONS & WANDS (6)
 // ============================================================
 const curlingIronProducts: Product[] = [
   {
@@ -925,11 +925,11 @@ const curlingIronProducts: Product[] = [
     imageUrl: "https://m.media-amazon.com/images/I/61uM6EQMzML._SL1500_.jpg",
     amazonImageUrl: "https://m.media-amazon.com/images/I/61uM6EQMzML._SL1500_.jpg",
     shortDescription: "Revolutionary multi-styler that uses air to curl, wave, smooth, and dry simultaneously.",
-    fullReview: `The Dyson Airwrap is the most innovative hair styling tool of the past decade. Using the Coanda effect — the same aerodynamic principle that keeps aircraft in the air — it attracts and wraps hair around the barrel using air rather than extreme heat. The result is beautiful curls and waves with dramatically less heat damage than conventional curling irons.
+    fullReview: `The Dyson Airwrap is the most innovative hair styling tool of the past decade. Using the Coanda effect - the same aerodynamic principle that keeps aircraft in the air - it attracts and wraps hair around the barrel using air rather than extreme heat. The result is beautiful curls and waves with dramatically less heat damage than conventional curling irons.
 
 We tested this on multiple hair types and found the results genuinely impressive. The curls created by the Airwrap are soft and natural-looking, with a bounce and movement that's difficult to achieve with conventional curling irons. The multiple attachments (curling barrels, smoothing brushes, round volumizing brush) make it a genuine all-in-one styling system.
 
-At $600, it's the most expensive tool we've reviewed. The learning curve is real — it takes practice to master the wrapping technique. But for those who want the most innovative, damage-reducing styling experience available, the Airwrap is in a category of its own.`,
+At $600, it's the most expensive tool we've reviewed. The learning curve is real - it takes practice to master the wrapping technique. But for those who want the most innovative, damage-reducing styling experience available, the Airwrap is in a category of its own.`,
     pros: ["Revolutionary Coanda effect technology", "Dramatically less heat damage", "Multiple attachments for versatile styling", "Natural-looking curls and waves"],
     cons: ["Very expensive", "Significant learning curve", "Not ideal for very thick or very fine hair", "Results can be inconsistent initially"],
     bestFor: "Medium-thickness hair; those prioritizing hair health; versatile styling",
@@ -951,7 +951,7 @@ At $600, it's the most expensive tool we've reviewed. The learning curve is real
     imageUrl: "https://m.media-amazon.com/images/I/61tEN+BEbtL._AC_SL1500_.jpg",
     amazonImageUrl: "https://m.media-amazon.com/images/I/61tEN+BEbtL._AC_SL1500_.jpg",
     shortDescription: "Automatic rotating barrel creates perfect curls without manual wrapping technique.",
-    fullReview: `The TYMO CurlPro Plus is the most impressive budget curling tool we've tested. The automatic rotating barrel eliminates the skill barrier of traditional curling irons — you simply feed sections of hair into the barrel, and it automatically wraps and curls them. The result is consistently beautiful curls without the risk of burning your hands or creating uneven results.
+    fullReview: `The TYMO CurlPro Plus is the most impressive budget curling tool we've tested. The automatic rotating barrel eliminates the skill barrier of traditional curling irons - you simply feed sections of hair into the barrel, and it automatically wraps and curls them. The result is consistently beautiful curls without the risk of burning your hands or creating uneven results.
 
 We tested this on long, medium-thickness hair and found it genuinely impressive. The curls were consistent, bouncy, and lasted through an entire day. The anti-scald design and tangle-free technology address the two most common complaints about automatic curlers. The dual voltage makes it travel-friendly.
 
@@ -981,9 +981,9 @@ At $50 with a 4.6-star rating from nearly 8,000 reviews, this is exceptional val
 
 We tested this on medium-length, medium-thickness hair and found it delivered some of the longest-lasting curls of any iron we tested. The gold barrel heats evenly from base to tip, eliminating the hot spots that cause inconsistent results with cheaper irons. The rheostat control allows precise temperature adjustment.
 
-At $35, it's exceptional value for a professional-grade tool. The main limitation is that the Marcel design requires some practice — it's not as beginner-friendly as clip-style curling irons. But for those willing to learn the technique, the results are exceptional.`,
+At $35, it's exceptional value for a professional-grade tool. The main limitation is that the Marcel design requires some practice - it's not as beginner-friendly as clip-style curling irons. But for those willing to learn the technique, the results are exceptional.`,
     pros: ["24K gold barrel for even heat distribution", "Long-lasting curls", "Professional Marcel design", "Excellent value for professional quality"],
-    cons: ["Marcel design requires practice", "No clip — less beginner-friendly", "Basic design without modern features"],
+    cons: ["Marcel design requires practice", "No clip - less beginner-friendly", "Basic design without modern features"],
     bestFor: "Medium to thick hair; those willing to learn Marcel technique; long-lasting curls",
     publishDate: "2025-01-29",
     slug: "hot-tools-24k-gold-curling-iron-review",
@@ -1031,7 +1031,7 @@ At $60, it's slightly more expensive than the original but worth the upgrade for
 
 We tested this on fine, medium-length hair and found it effective and easy to use. The clip design makes it beginner-friendly, and the multiple heat settings (from 265°F to 400°F) provide adequate range for different hair types. The curls created were bouncy and held well through the day.
 
-At $20, expectations should be calibrated accordingly — it won't match the performance of professional tools, but for occasional use or as a starter curling iron, it's entirely competent. The 42,000+ reviews and 4.4-star rating speak to its reliability.`,
+At $20, expectations should be calibrated accordingly - it won't match the performance of professional tools, but for occasional use or as a starter curling iron, it's entirely competent. The 42,000+ reviews and 4.4-star rating speak to its reliability.`,
     pros: ["Exceptional value at $20", "Double ceramic for even heat", "Beginner-friendly clip design", "Multiple heat settings"],
     cons: ["Not as durable as professional options", "Heats unevenly at maximum temperature", "Basic design"],
     bestFor: "Budget shoppers; beginners; occasional use; fine to medium hair",
@@ -1056,7 +1056,7 @@ At $20, expectations should be calibrated accordingly — it won't match the per
 
 We tested this on long, medium-thickness hair and found it excellent for creating the effortless wave look. The clipless design requires wrapping hair manually, which takes practice but delivers more natural-looking results than clip-style irons. The heat glove included in the kit makes the process safer.
 
-At $49, it's competitively priced for a quality wand. The main limitation is the learning curve — clipless wands require more skill than clip-style irons. But for those who've mastered the technique, the results are beautiful.`,
+At $49, it's competitively priced for a quality wand. The main limitation is the learning curve - clipless wands require more skill than clip-style irons. But for those who've mastered the technique, the results are beautiful.`,
     pros: ["Clipless design for natural-looking waves", "Tourmaline ceramic for frizz-free results", "Tapered barrel for varied curl sizes", "Includes heat glove"],
     cons: ["Learning curve for clipless technique", "Risk of burning fingers without glove", "Not ideal for beginners"],
     bestFor: "Medium to long hair; beachy wave styling; intermediate to advanced users",
@@ -1165,7 +1165,7 @@ At $60, it's excellent value for a professional-grade tool. The BaBylissPRO Ultr
     amazonImageUrl: "https://m.media-amazon.com/images/I/71vJkGBHGiL._SL1500_.jpg",
     hairTypes: ["fine","normal","medium"],
     shortDescription: "All-in-one styling system that dries, curls, waves, and smooths using the Coanda effect.",
-    fullReview: `The Dyson Airwrap Complete Long is the most versatile hair styling system available — a single tool that dries, curls, waves, and smooths using Dyson's proprietary Coanda effect technology. The Coanda effect uses air pressure to attract and wrap hair around the barrel without extreme heat, reducing heat damage while delivering salon-quality results.
+    fullReview: `The Dyson Airwrap Complete Long is the most versatile hair styling system available - a single tool that dries, curls, waves, and smooths using Dyson's proprietary Coanda effect technology. The Coanda effect uses air pressure to attract and wrap hair around the barrel without extreme heat, reducing heat damage while delivering salon-quality results.
 
 We tested this on medium-thickness hair and found it genuinely impressive across all its styling functions. The curling barrels create beautiful, bouncy curls; the smoothing brushes deliver a blowout-quality finish; and the drying function is fast and efficient. The intelligent heat control ensures hair is never exposed to excessive temperatures.
 
@@ -1194,7 +1194,7 @@ At $600, it's a significant investment that requires justification. For those wh
     shortDescription: "Italian-made professional dryer with 2150W power and exceptional durability.",
     fullReview: `Parlux 385 PowerLight is a professional salon dryer that has been trusted by stylists worldwide for decades. Made in Italy, it combines 2150W of power with ionic and ceramic technology to deliver fast, smooth drying results with exceptional durability.
 
-We tested this on thick, long hair and found it one of the most powerful and reliable dryers we've reviewed. The motor is designed for continuous professional use, and the build quality is exceptional — this dryer is built to last years of daily use. The ionic technology generates abundant negative ions for frizz-free results.
+We tested this on thick, long hair and found it one of the most powerful and reliable dryers we've reviewed. The motor is designed for continuous professional use, and the build quality is exceptional - this dryer is built to last years of daily use. The ionic technology generates abundant negative ions for frizz-free results.
 
 At $199, it's a significant investment, but for those who blow-dry daily and want a dryer that will last for years, the Parlux 385 is an excellent choice. It's the professional's workhorse.`,
     pros: ["Italian-made professional quality","2150W for fast drying","Exceptional durability for daily use","Abundant ionic output"],
@@ -1219,12 +1219,12 @@ At $199, it's a significant investment, but for those who blow-dry daily and wan
     amazonImageUrl: "https://m.media-amazon.com/images/I/71Hb0FXJHPL._SL1500_.jpg",
     hairTypes: ["fine","normal","color-treated"],
     shortDescription: "Lightweight, weightless hair oil for shine and frizz control without buildup.",
-    fullReview: `Verb Ghost Oil is the clean beauty answer to the luxury hair oil category — a lightweight, silicone-free formula that delivers genuine shine and frizz control without the buildup that plagues many conventional hair oils. The formula is built around a blend of marula, jojoba, and baobab oils that nourish without heaviness.
+    fullReview: `Verb Ghost Oil is the clean beauty answer to the luxury hair oil category - a lightweight, silicone-free formula that delivers genuine shine and frizz control without the buildup that plagues many conventional hair oils. The formula is built around a blend of marula, jojoba, and baobab oils that nourish without heaviness.
 
-We tested this on fine, color-treated hair and found it one of the best lightweight oils available at any price. A single pump applied to damp or dry hair added noticeable shine and smoothness without any visible oiliness. The formula is also free of sulfates, parabens, and silicones — a genuine clean beauty achievement.
+We tested this on fine, color-treated hair and found it one of the best lightweight oils available at any price. A single pump applied to damp or dry hair added noticeable shine and smoothness without any visible oiliness. The formula is also free of sulfates, parabens, and silicones - a genuine clean beauty achievement.
 
 At $22, it's exceptional value for a clean beauty hair oil. Verb Ghost Oil is our top recommendation for those who want the benefits of a hair oil without any of the typical downsides.`,
-    pros: ["Truly lightweight — no buildup","Clean formula: silicone-free, sulfate-free","Excellent value for clean beauty","Works on damp or dry hair"],
+    pros: ["Truly lightweight - no buildup","Clean formula: silicone-free, sulfate-free","Excellent value for clean beauty","Works on damp or dry hair"],
     cons: ["Not moisturizing enough for very dry or coarse hair","Small bottle","Subtle results compared to heavier oils"],
     bestFor: "Fine hair; clean beauty enthusiasts; those wanting lightweight shine",
     editorPick: false,
@@ -1246,12 +1246,12 @@ At $22, it's exceptional value for a clean beauty hair oil. Verb Ghost Oil is ou
     amazonImageUrl: "https://m.media-amazon.com/images/I/71BmqTVGEkL._SL1500_.jpg",
     hairTypes: ["fine","normal","color-treated"],
     shortDescription: "6-oil blend that primes, protects, and perfects hair with a weightless, invisible finish.",
-    fullReview: `Bumble and bumble Hairdresser's Invisible Oil has become one of the most iconic hair oils in the professional beauty space, and after extensive testing, we understand why. The blend of six weightless oils — coconut, argan, maize, sweet almond, safflower, and sunflower — creates a formula that nourishes without any visible residue or weight.
+    fullReview: `Bumble and bumble Hairdresser's Invisible Oil has become one of the most iconic hair oils in the professional beauty space, and after extensive testing, we understand why. The blend of six weightless oils - coconut, argan, maize, sweet almond, safflower, and sunflower - creates a formula that nourishes without any visible residue or weight.
 
-We tested this on fine, color-treated hair and found it exceptional. The "invisible" claim is accurate — even on fine hair, there's no visible oiliness or heaviness. Hair looks naturally shiny and feels smooth and manageable. The heat protection up to 450°F makes it a versatile pre-styling treatment.
+We tested this on fine, color-treated hair and found it exceptional. The "invisible" claim is accurate - even on fine hair, there's no visible oiliness or heaviness. Hair looks naturally shiny and feels smooth and manageable. The heat protection up to 450°F makes it a versatile pre-styling treatment.
 
 At $42 for 3.4 oz, it's a premium purchase, but the formula's versatility and the quality of results make it worth the investment for fine hair types that struggle with traditional oils.`,
-    pros: ["Truly weightless — invisible on fine hair","6-oil blend for comprehensive nourishment","Heat protection up to 450°F","Versatile pre-styling treatment"],
+    pros: ["Truly weightless - invisible on fine hair","6-oil blend for comprehensive nourishment","Heat protection up to 450°F","Versatile pre-styling treatment"],
     cons: ["Expensive for the size","May not be moisturizing enough for very dry hair","Strong scent"],
     bestFor: "Fine hair; those wanting oil benefits without weight; pre-styling treatment",
     editorPick: false,
@@ -1273,7 +1273,7 @@ At $42 for 3.4 oz, it's a premium purchase, but the formula's versatility and th
     amazonImageUrl: "https://m.media-amazon.com/images/I/61h5lFhkFGL._SL1500_.jpg",
     hairTypes: ["dry","thick","coarse","color-treated"],
     shortDescription: "Ultra-luxury regenerating mask with rare prickly pear oil for severely dry or damaged hair.",
-    fullReview: `Christophe Robin Regenerating Mask is the most luxurious hair mask we've reviewed, and it earns its premium price through genuinely exceptional results. The rare prickly pear oil — one of the most expensive botanical oils available — is rich in vitamin E and essential fatty acids that deeply regenerate and restore severely dry or damaged hair.
+    fullReview: `Christophe Robin Regenerating Mask is the most luxurious hair mask we've reviewed, and it earns its premium price through genuinely exceptional results. The rare prickly pear oil - one of the most expensive botanical oils available - is rich in vitamin E and essential fatty acids that deeply regenerate and restore severely dry or damaged hair.
 
 We tested this on thick, color-treated hair that had been significantly damaged by bleaching. The results after a single 10-minute treatment were dramatic: hair was visibly softer, shinier, and felt genuinely restored rather than just temporarily coated. The scent is a sophisticated floral that lingers beautifully.
 
@@ -1300,9 +1300,9 @@ At $68 for 8.4 oz, it's the most expensive mask we've reviewed. But for those wi
     amazonImageUrl: "https://m.media-amazon.com/images/I/71Hb0FXJHPL._SL1500_.jpg",
     hairTypes: ["dry","fine","color-treated"],
     shortDescription: "Pre-shampoo treatment with castor oil and hydrolyzed elastin for elasticity and shine.",
-    fullReview: `Philip Kingsley Elasticizer is a legendary pre-shampoo treatment that has been a cult favorite since the 1970s — and for good reason. The formula, originally created for Audrey Hepburn, uses castor oil and hydrolyzed elastin to restore elasticity and shine to dry, brittle hair.
+    fullReview: `Philip Kingsley Elasticizer is a legendary pre-shampoo treatment that has been a cult favorite since the 1970s - and for good reason. The formula, originally created for Audrey Hepburn, uses castor oil and hydrolyzed elastin to restore elasticity and shine to dry, brittle hair.
 
-We tested this on fine, color-treated hair that had lost elasticity from over-processing. The results were remarkable: after just two treatments, hair was noticeably more elastic (it stretched without breaking), shinier, and easier to manage. The pre-shampoo application method — applied before washing — is unconventional but highly effective.
+We tested this on fine, color-treated hair that had lost elasticity from over-processing. The results were remarkable: after just two treatments, hair was noticeably more elastic (it stretched without breaking), shinier, and easier to manage. The pre-shampoo application method - applied before washing - is unconventional but highly effective.
 
 At $46 for 4.2 oz, it's a luxury purchase, but the concentrated formula means a little goes a long way. For those with fine or color-treated hair that has lost elasticity, Elasticizer is genuinely transformative.`,
     pros: ["Restores elasticity to brittle hair","Pre-shampoo method is highly effective","Legendary formula with decades of results","Excellent for fine, color-treated hair"],
@@ -1327,7 +1327,7 @@ At $46 for 4.2 oz, it's a luxury purchase, but the concentrated formula means a 
     amazonImageUrl: "https://m.media-amazon.com/images/I/61RVqMbVqEL._SL1500_.jpg",
     hairTypes: ["dry","normal","all"],
     shortDescription: "Aloe vera-infused moisturizing shampoo for dry hair with a refreshing, clean formula.",
-    fullReview: `Matrix Biolage HydraSource is a professional-quality shampoo that delivers genuine hydration at an accessible price. The aloe vera-based formula is inspired by the plant's natural moisture-binding properties, and the results reflect this — hair feels hydrated and refreshed without the heavy, coated feeling that some moisturizing shampoos leave behind.
+    fullReview: `Matrix Biolage HydraSource is a professional-quality shampoo that delivers genuine hydration at an accessible price. The aloe vera-based formula is inspired by the plant's natural moisture-binding properties, and the results reflect this - hair feels hydrated and refreshed without the heavy, coated feeling that some moisturizing shampoos leave behind.
 
 We tested this on normal-to-dry hair over four weeks and found it consistently effective. The lather is generous, the rinse is clean, and hair feels noticeably softer and more manageable after each wash. The fresh, clean scent is a bonus.
 
@@ -1356,7 +1356,7 @@ At $18, it's excellent value for a professional formula. Matrix Biolage HydraSou
     shortDescription: "Purple pigment shampoo that neutralizes brassy and yellow tones in blonde and gray hair.",
     fullReview: `Joico Color Balance Purple Shampoo is one of the most effective toning shampoos available at this price point. The purple pigments neutralize yellow and brassy tones in blonde, highlighted, and gray hair, keeping color looking fresh and vibrant between salon visits.
 
-We tested this on highlighted blonde hair that had developed significant brassiness and found it dramatically effective. After just two uses, the yellow tones were visibly neutralized and the hair looked closer to its freshly highlighted color. The key is timing — leaving it on for 3–5 minutes delivers noticeable results without over-toning.
+We tested this on highlighted blonde hair that had developed significant brassiness and found it dramatically effective. After just two uses, the yellow tones were visibly neutralized and the hair looked closer to its freshly highlighted color. The key is timing - leaving it on for 3–5 minutes delivers noticeable results without over-toning.
 
 At $20, it's excellent value for a professional toning shampoo. The formula is gentle enough for regular use (2–3 times per week) and doesn't dry out hair like some purple shampoos. This is our top pick for maintaining blonde and highlighted hair at home.`,
     pros: ["Highly effective at neutralizing brassiness","Gentle enough for regular use","Excellent value for professional quality","Works on blonde, highlighted, and gray hair"],
@@ -1387,7 +1387,7 @@ export function getEditorPicks(): Product[] {
 }
 
 // ============================================================
-// COMPARISONS (6 — one per category)
+// COMPARISONS (6 - one per category)
 // ============================================================
 export const comparisons: Comparison[] = [
   {
@@ -1399,7 +1399,7 @@ export const comparisons: Comparison[] = [
     product1Id: "hot-tools-one-shot-curling-iron",
     product2Id: "sultra-bombshell-curling-rod",
     winnerId: "sultra-bombshell-curling-rod",
-    winnerReason: "Sultra Bombshell wins for natural-looking results and eliminating clip marks. Hot Tools wins for ease of use and value — the clip design is more beginner-friendly at a lower price.",
+    winnerReason: "Sultra Bombshell wins for natural-looking results and eliminating clip marks. Hot Tools wins for ease of use and value - the clip design is more beginner-friendly at a lower price.",
     verdict: "Sultra Bombshell is the winner for those who want the most natural-looking curls without clip marks. Hot Tools One-Shot is the better choice for beginners or those who prefer the ease and control of a clip-style iron at a much lower price.",
     publishDate: "2026-04-25",
     slug: "hot-tools-one-shot-vs-sultra-bombshell",
@@ -1413,8 +1413,8 @@ export const comparisons: Comparison[] = [
     product1Id: "babyliss-pro-nano-titanium-flat",
     product2Id: "remington-s9500-pearl-pro",
     winnerId: "babyliss-pro-nano-titanium-flat",
-    winnerReason: "BaBylissPRO wins for precision styling capability and professional-grade durability. Remington Pearl Pro wins for value — it delivers excellent results at $10 less.",
-    verdict: "BaBylissPRO Ultra-Thin is the winner for those who need precision styling or professional durability. Remington Pearl Pro is the better value for everyday straightening — it delivers excellent results at a lower price, though it won't match the precision or longevity of the BaBylissPRO.",
+    winnerReason: "BaBylissPRO wins for precision styling capability and professional-grade durability. Remington Pearl Pro wins for value - it delivers excellent results at $10 less.",
+    verdict: "BaBylissPRO Ultra-Thin is the winner for those who need precision styling or professional durability. Remington Pearl Pro is the better value for everyday straightening - it delivers excellent results at a lower price, though it won't match the precision or longevity of the BaBylissPRO.",
     publishDate: "2026-04-25",
     slug: "babyliss-pro-ultra-thin-vs-remington-pearl-pro",
   },
@@ -1427,8 +1427,8 @@ export const comparisons: Comparison[] = [
     product1Id: "parlux-385-powerlight",
     product2Id: "dyson-airwrap-complete",
     winnerId: "dyson-airwrap-complete",
-    winnerReason: "Dyson Airwrap wins for versatility — it replaces multiple styling tools. Parlux wins for pure drying power, durability, and value as a dedicated dryer.",
-    verdict: "The winner depends on your needs. Dyson Airwrap is the better choice if you want one tool that dries, curls, and smooths. Parlux 385 is the better choice if you specifically need a powerful, durable dryer for daily use — it's a third of the price and built to last years of professional use.",
+    winnerReason: "Dyson Airwrap wins for versatility - it replaces multiple styling tools. Parlux wins for pure drying power, durability, and value as a dedicated dryer.",
+    verdict: "The winner depends on your needs. Dyson Airwrap is the better choice if you want one tool that dries, curls, and smooths. Parlux 385 is the better choice if you specifically need a powerful, durable dryer for daily use - it's a third of the price and built to last years of professional use.",
     publishDate: "2026-04-25",
     slug: "parlux-385-vs-dyson-airwrap-complete",
   },
@@ -1441,8 +1441,8 @@ export const comparisons: Comparison[] = [
     product1Id: "bumble-hairdressers-invisible-oil",
     product2Id: "verb-ghost-oil",
     winnerId: "verb-ghost-oil",
-    winnerReason: "Verb Ghost Oil wins for value and clean formula — it delivers comparable weightless results to Bumble at half the price, with a cleaner ingredient list. Bumble wins for the prestige experience and heat protection.",
-    verdict: "Verb Ghost Oil is the smarter purchase for most users — it delivers comparable lightweight shine results to Bumble and bumble at half the price, with a cleaner formula. Bumble and bumble Invisible Oil is worth the premium for those who prioritize the prestige experience or need the higher heat protection (450°F vs. 400°F).",
+    winnerReason: "Verb Ghost Oil wins for value and clean formula - it delivers comparable weightless results to Bumble at half the price, with a cleaner ingredient list. Bumble wins for the prestige experience and heat protection.",
+    verdict: "Verb Ghost Oil is the smarter purchase for most users - it delivers comparable lightweight shine results to Bumble and bumble at half the price, with a cleaner formula. Bumble and bumble Invisible Oil is worth the premium for those who prioritize the prestige experience or need the higher heat protection (450°F vs. 400°F).",
     publishDate: "2026-04-25",
     slug: "bumble-invisible-oil-vs-verb-ghost-oil",
   },
@@ -1456,7 +1456,7 @@ export const comparisons: Comparison[] = [
     product2Id: "christophe-robin-mask",
     winnerId: "christophe-robin-mask",
     winnerReason: "Christophe Robin wins for severely damaged hair due to its rare prickly pear oil that delivers more intensive regeneration. Philip Kingsley wins for fine hair that needs elasticity restoration without heaviness.",
-    verdict: "Christophe Robin Regenerating Mask is the winner for severely damaged or bleached hair — the prickly pear oil delivers more intensive repair. Philip Kingsley Elasticizer is the better choice for fine hair that has lost elasticity but isn't severely damaged.",
+    verdict: "Christophe Robin Regenerating Mask is the winner for severely damaged or bleached hair - the prickly pear oil delivers more intensive repair. Philip Kingsley Elasticizer is the better choice for fine hair that has lost elasticity but isn't severely damaged.",
     publishDate: "2026-04-25",
     slug: "philip-kingsley-elasticizer-vs-christophe-robin-mask",
   },
@@ -1469,7 +1469,7 @@ export const comparisons: Comparison[] = [
     product1Id: "joico-color-balance-shampoo",
     product2Id: "matrix-biolage-hydrasource",
     winnerId: "joico-color-balance-shampoo",
-    winnerReason: "Joico Color Balance wins for blonde and gray hair that needs toning — it's the most effective purple shampoo at this price point. Matrix Biolage wins for those who need hydration rather than toning.",
+    winnerReason: "Joico Color Balance wins for blonde and gray hair that needs toning - it's the most effective purple shampoo at this price point. Matrix Biolage wins for those who need hydration rather than toning.",
     verdict: "These shampoos serve different purposes. Joico Color Balance is the winner for blonde, highlighted, or gray hair that needs brassiness control. Matrix Biolage HydraSource is the better choice for those whose primary concern is hydration rather than color maintenance.",
     publishDate: "2026-04-25",
     slug: "joico-color-balance-vs-matrix-biolage-hydrasource",
@@ -1512,7 +1512,7 @@ export const comparisons: Comparison[] = [
     product2Id: "olaplex-no7-bonding-oil",
     winnerId: "moroccanoil-treatment-original",
     winnerReason: "Moroccanoil Treatment wins for immediate results, versatility, and value per use. Olaplex No. 7 is the better choice for damaged hair that needs bond-building benefits, but its high cost per ounce makes Moroccanoil the better overall value.",
-    verdict: "Moroccanoil Treatment is our overall winner for most users — it delivers immediate, visible results on all hair types and offers better value per use. Olaplex No. 7 is worth the premium specifically for damaged, bleached, or chemically processed hair where bond-building benefits are needed. Many users benefit from using both.",
+    verdict: "Moroccanoil Treatment is our overall winner for most users - it delivers immediate, visible results on all hair types and offers better value per use. Olaplex No. 7 is worth the premium specifically for damaged, bleached, or chemically processed hair where bond-building benefits are needed. Many users benefit from using both.",
     publishDate: "2025-01-29",
     slug: "moroccanoil-vs-olaplex-no7-oil",
   },
@@ -1540,7 +1540,7 @@ export const comparisons: Comparison[] = [
     product2Id: "t3-singlepass-luxe",
     winnerId: "ghd-platinum-plus",
     winnerReason: "The ghd Platinum+ wins for its superior predictive temperature technology and consistently smoother results. The T3 SinglePass Luxe is excellent but the ghd's automatic temperature optimization gives it an edge for hair health and results consistency.",
-    verdict: "The ghd Platinum+ is the better flat iron for most users — the predictive temperature technology delivers more consistent results and better hair health protection. The T3 SinglePass Luxe is the better choice for those who want manual temperature control and are willing to sacrifice some consistency for customization. At $50 less, the T3 is also the better value for those on a tighter budget.",
+    verdict: "The ghd Platinum+ is the better flat iron for most users - the predictive temperature technology delivers more consistent results and better hair health protection. The T3 SinglePass Luxe is the better choice for those who want manual temperature control and are willing to sacrifice some consistency for customization. At $50 less, the T3 is also the better value for those on a tighter budget.",
     publishDate: "2025-02-12",
     slug: "ghd-platinum-vs-t3-singlepass",
   },

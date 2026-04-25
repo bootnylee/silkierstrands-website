@@ -1,4 +1,4 @@
-// SilkierStrands.com — Shared FilterPanel Component
+// SilkierStrands.com - Shared FilterPanel Component
 // Design: Bold magazine aesthetic with Burgundy (#8B1A2F) + Amber (#D4822A) + Cream (#FDF6EE)
 // Features: Dual-handle price range slider + hair type checkboxes + category pills
 

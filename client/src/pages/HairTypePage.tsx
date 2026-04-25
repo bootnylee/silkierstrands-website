@@ -1,5 +1,5 @@
-// SilkierStrands.com — Hair Type Page
-// Design: Bold magazine aesthetic — Burgundy (#8B1A2F) + Amber (#D4822A) + Cream (#FDF6EE)
+// SilkierStrands.com - Hair Type Page
+// Design: Bold magazine aesthetic - Burgundy (#8B1A2F) + Amber (#D4822A) + Cream (#FDF6EE)
 // SEO: Optimized for "best hair products for [type] hair" keywords
 
 import { useEffect, useState, useMemo } from "react";

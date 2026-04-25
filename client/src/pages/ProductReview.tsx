@@ -1,4 +1,4 @@
-// SilkierStrands.com — Product Review Page
+// SilkierStrands.com - Product Review Page
 
 import { useEffect } from "react";
 import { useParams, Link } from "wouter";
@@ -105,7 +105,7 @@ export default function ProductReview() {
                 View on Amazon <ExternalLink size={14} />
               </a>
               <p className="font-body text-xs text-center mt-2" style={{ color: "#B8A99A" }}>
-                Affiliate link — we earn a commission at no extra cost to you
+                Affiliate link - we earn a commission at no extra cost to you
               </p>
             </div>
 

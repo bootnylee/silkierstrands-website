@@ -1,4 +1,4 @@
-// SilkierStrands.com — Product Card Component
+// SilkierStrands.com - Product Card Component
 // Design: Refined Magazine Meets Bold Lifestyle
 // Features: Editor's Pick badge, Price Drop badge, Star ratings, Amazon affiliate links
 
@@ -154,7 +154,7 @@ export default function ProductCard({
                 "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=400&auto=format&fit=crop";
             }}
           />
-          {/* Badges — stacked top-left */}
+          {/* Badges - stacked top-left */}
           <div className="absolute top-3 left-3 flex flex-col gap-1.5">
             {product.editorPick && (
               <span className="editor-pick-badge text-xs px-2 py-1">
@@ -239,7 +239,7 @@ export default function ProductCard({
               "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=400&auto=format&fit=crop";
           }}
         />
-        {/* Badges — stacked top-left */}
+        {/* Badges - stacked top-left */}
         <div className="absolute top-2 left-2 flex flex-col gap-1">
           {product.editorPick && (
             <span className="editor-pick-badge text-xs px-2 py-0.5">

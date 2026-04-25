@@ -1,4 +1,4 @@
-// SilkierStrands.com — Comparison Card Component
+// SilkierStrands.com - Comparison Card Component
 
 import { Link } from "wouter";
 import { Trophy, ExternalLink } from "lucide-react";

@@ -1,4 +1,4 @@
-// SilkierStrands.com — Comparison Page
+// SilkierStrands.com - Comparison Page
 
 import { useEffect } from "react";
 import { useParams, Link } from "wouter";
@@ -161,7 +161,7 @@ export default function ComparisonPage() {
 
         <p className="font-body text-xs mt-6" style={{ color: "#B8A99A" }}>
           Published: {new Date(comparison.publishDate).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })} · 
-          Prices subject to change. Amazon affiliate links — we earn a commission at no extra cost to you.
+          Prices subject to change. Amazon affiliate links - we earn a commission at no extra cost to you.
         </p>
       </div>
     </SiteLayout>

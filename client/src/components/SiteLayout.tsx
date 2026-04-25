@@ -1,4 +1,4 @@
-// SilkierStrands.com — Site Layout
+// SilkierStrands.com - Site Layout
 // Design: Refined Magazine Meets Bold Lifestyle
 // Burgundy primary, Amber accent, Cream background, Cormorant Garamond display font
 
@@ -227,7 +227,7 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
           <div className="border-t mt-8 pt-6 flex flex-col md:flex-row justify-between items-center gap-4"
             style={{ borderColor: "#3C3C3C" }}>
             <p className="font-body text-xs" style={{ color: "#8C8C8C" }}>
-              © {new Date().getFullYear()} SilkierStrands.com — All rights reserved.
+              © {new Date().getFullYear()} SilkierStrands.com - All rights reserved.
             </p>
             <div className="flex gap-6">
               <Link href="/about">

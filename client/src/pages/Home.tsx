@@ -1,4 +1,4 @@
-// SilkierStrands.com — Home Page
+// SilkierStrands.com - Home Page
 // Design: Refined Magazine Meets Bold Lifestyle
 // Hero: Split-screen with editorial headline and product photography
 
@@ -18,7 +18,7 @@ const HERO_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663596051047/8Zc
 export default function Home() {
   useEffect(() => {
     updateDocumentMeta({
-      title: "SilkierStrands — Expert Hair Product Reviews & Recommendations",
+      title: "SilkierStrands - Expert Hair Product Reviews & Recommendations",
       description: "Expert hair product reviews, head-to-head comparisons, and recommendations for the best shampoos, conditioners, hair masks, serums, and styling tools for women.",
       keywords: "hair product reviews, best shampoo, best conditioner, hair mask, hair serum, hair dryer reviews, flat iron, curling iron, hair care women",
       canonical: "https://silkierstrands.com/",
@@ -178,7 +178,7 @@ export default function Home() {
         <div className="container max-w-3xl mx-auto text-center">
           <blockquote className="font-display font-medium italic leading-relaxed"
             style={{ fontSize: "clamp(1.4rem, 3vw, 2rem)", color: "#2C2C2C" }}>
-            "We believe every woman deserves to know exactly what she's putting on her hair — and whether it's actually worth it."
+            "We believe every woman deserves to know exactly what she's putting on her hair - and whether it's actually worth it."
           </blockquote>
           <div className="mt-6 flex items-center justify-center gap-3">
             <hr className="editorial-rule w-12" />

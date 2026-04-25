@@ -1,4 +1,4 @@
-// SilkierStrands.com — Price History & Price Drop Badge System
+// SilkierStrands.com - Price History & Price Drop Badge System
 // Tracks historical prices per product ASIN and determines if current price is a deal
 // Updated weekly by the GitHub Actions workflow (scripts/weekly-update.mjs)
 
@@ -188,7 +188,7 @@ export function getPriceBadge(asin: string, currentPrice?: number): PriceBadge {
     return {
       type: "all-time-low",
       savingsPercent,
-      label: `All-Time Low${savingsPercent > 0 ? ` — ${savingsPercent}% off avg` : ""}`,
+      label: `All-Time Low${savingsPercent > 0 ? ` - ${savingsPercent}% off avg` : ""}`,
     };
   }
 
@@ -209,7 +209,7 @@ export function getPriceBadge(asin: string, currentPrice?: number): PriceBadge {
     return {
       type: "good-deal",
       savingsPercent,
-      label: `Good Deal — ${savingsPercent}% off avg`,
+      label: `Good Deal - ${savingsPercent}% off avg`,
     };
   }
 

@@ -1,4 +1,4 @@
-// SilkierStrands.com — About Page
+// SilkierStrands.com - About Page
 
 import { useEffect } from "react";
 import SiteLayout from "@/components/SiteLayout";
@@ -28,11 +28,11 @@ export default function About() {
           </p>
 
           <p className="font-body leading-relaxed" style={{ color: "#2C2C2C" }}>
-            We test every product we review — from drugstore staples to salon-grade formulas — and give you our honest assessment based on real-world results. Our reviews cover shampoos and conditioners, deep conditioning masks, hair serums and oils, and styling tools including hair dryers, flat irons, and curling irons.
+            We test every product we review - from drugstore staples to salon-grade formulas - and give you our honest assessment based on real-world results. Our reviews cover shampoos and conditioners, deep conditioning masks, hair serums and oils, and styling tools including hair dryers, flat irons, and curling irons.
           </p>
 
           <blockquote className="pull-quote my-8">
-            "We believe the best hair product is the one that works for your specific hair — not the one with the biggest marketing budget."
+            "We believe the best hair product is the one that works for your specific hair - not the one with the biggest marketing budget."
           </blockquote>
 
           <h2 className="font-display font-bold mt-8 mb-4" style={{ fontSize: "1.6rem", color: "#2C2C2C" }}>
@@ -44,7 +44,7 @@ export default function About() {
           </p>
 
           <p className="font-body leading-relaxed" style={{ color: "#2C2C2C" }}>
-            For head-to-head comparisons, we test both products simultaneously on the same hair type to ensure a fair comparison. Our winner recommendations are based on overall performance, value, and suitability for the target hair type — not on price alone.
+            For head-to-head comparisons, we test both products simultaneously on the same hair type to ensure a fair comparison. Our winner recommendations are based on overall performance, value, and suitability for the target hair type - not on price alone.
           </p>
 
           <h2 className="font-display font-bold mt-8 mb-4" style={{ fontSize: "1.6rem", color: "#2C2C2C" }}>
