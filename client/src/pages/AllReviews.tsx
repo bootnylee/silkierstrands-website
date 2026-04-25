@@ -1,24 +1,20 @@
 // SilkierStrands.com — All Reviews Page
 // Design: Bold magazine aesthetic with Burgundy (#8B1A2F) + Amber (#D4822A) + Cream (#FDF6EE)
-// Features: Category filter + Hair Type filter + Sort + Search
+// Features: Sidebar FilterPanel (price range + hair type + category) + Sort + Search
 
 import { useEffect, useState, useMemo } from "react";
 import SiteLayout from "@/components/SiteLayout";
 import ProductCard from "@/components/ProductCard";
+import FilterPanel, {
+  FilterState,
+  getDefaultFilters,
+  hasActiveFilters,
+  applyFilters,
+  HAIR_TYPES,
+} from "@/components/FilterPanel";
 import { allProducts, categories } from "@/lib/products";
 import { updateDocumentMeta } from "@/lib/seo";
 import { Search, SlidersHorizontal, X, ChevronDown } from "lucide-react";
-
-const HAIR_TYPES = [
-  { id: "fine", label: "Fine" },
-  { id: "thick", label: "Thick" },
-  { id: "curly", label: "Curly" },
-  { id: "coarse", label: "Coarse" },
-  { id: "dry", label: "Dry" },
-  { id: "normal", label: "Normal" },
-  { id: "color-treated", label: "Color-Treated" },
-  { id: "all", label: "All Hair Types" },
-];
 
 const SORT_OPTIONS = [
   { id: "default", label: "Featured" },
@@ -30,59 +26,51 @@ const SORT_OPTIONS = [
 
 export default function AllReviews() {
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
-  const [selectedHairTypes, setSelectedHairTypes] = useState<string[]>([]);
+  const [filters, setFilters] = useState<FilterState>(getDefaultFilters());
   const [sortBy, setSortBy] = useState<string>("default");
   const [searchQuery, setSearchQuery] = useState<string>("");
-  const [showFilters, setShowFilters] = useState<boolean>(false);
+  const [showMobileFilters, setShowMobileFilters] = useState<boolean>(false);
   const [sortOpen, setSortOpen] = useState(false);
 
   useEffect(() => {
     updateDocumentMeta({
       title: "All Hair Product Reviews | SilkierStrands",
       description:
-        "Browse all expert hair product reviews across shampoos, conditioners, hair masks, serums, hair dryers, flat irons, and curling irons. Filter by hair type.",
+        "Browse all expert hair product reviews across shampoos, conditioners, hair masks, serums, hair dryers, flat irons, and curling irons. Filter by price and hair type.",
       canonical: "https://silkierstrands.com/reviews",
     });
   }, []);
 
-  const toggleHairType = (typeId: string) => {
-    setSelectedHairTypes((prev) =>
-      prev.includes(typeId) ? prev.filter((t) => t !== typeId) : [...prev, typeId]
-    );
-  };
-
-  const clearFilters = () => {
+  const clearAll = () => {
     setSelectedCategory("all");
-    setSelectedHairTypes([]);
+    setFilters(getDefaultFilters());
     setSortBy("default");
     setSearchQuery("");
   };
 
-  const hasActiveFilters =
+  const anyActive =
     selectedCategory !== "all" ||
-    selectedHairTypes.length > 0 ||
+    hasActiveFilters(filters) ||
     sortBy !== "default" ||
     searchQuery.length > 0;
+
+  const activeFilterCount =
+    (selectedCategory !== "all" ? 1 : 0) +
+    (filters.priceMin > 0 || filters.priceMax < 600 ? 1 : 0) +
+    filters.hairTypes.length;
 
   const filtered = useMemo(() => {
     let result = [...allProducts];
 
-    // Category filter
+    // Category
     if (selectedCategory !== "all") {
       result = result.filter((p) => p.categorySlug === selectedCategory);
     }
 
-    // Hair type filter
-    if (selectedHairTypes.length > 0) {
-      result = result.filter((p) => {
-        if (!p.hairTypes || p.hairTypes.length === 0) return true;
-        return selectedHairTypes.some(
-          (ht) => p.hairTypes!.includes(ht) || p.hairTypes!.includes("all")
-        );
-      });
-    }
+    // Price + Hair Type via shared utility
+    result = applyFilters(result, filters);
 
-    // Search filter
+    // Search
     if (searchQuery.trim()) {
       const q = searchQuery.toLowerCase();
       result = result.filter(
@@ -112,7 +100,6 @@ export default function AllReviews() {
         );
         break;
       default:
-        // Featured: editor picks first, then by rating
         result.sort((a, b) => {
           if (a.editorPick && !b.editorPick) return -1;
           if (!a.editorPick && b.editorPick) return 1;
@@ -121,7 +108,7 @@ export default function AllReviews() {
     }
 
     return result;
-  }, [selectedCategory, selectedHairTypes, sortBy, searchQuery]);
+  }, [selectedCategory, filters, sortBy, searchQuery]);
 
   const activeSortLabel =
     SORT_OPTIONS.find((o) => o.id === sortBy)?.label || "Featured";
@@ -194,26 +181,26 @@ export default function AllReviews() {
               )}
             </div>
 
-            {/* Filter Toggle */}
+            {/* Mobile Filter Toggle */}
             <button
-              onClick={() => setShowFilters((v) => !v)}
-              className="flex items-center gap-2 px-4 py-2 text-xs font-label font-semibold rounded-sm border transition-colors"
+              onClick={() => setShowMobileFilters((v) => !v)}
+              className="lg:hidden flex items-center gap-2 px-4 py-2 text-xs font-label font-semibold rounded-sm border transition-colors"
               style={{
-                borderColor: showFilters ? "#8B1A2F" : "#D4C5B5",
-                backgroundColor: showFilters ? "#8B1A2F" : "transparent",
-                color: showFilters ? "#FDF6EE" : "#8B1A2F",
+                borderColor: showMobileFilters ? "#8B1A2F" : "#D4C5B5",
+                backgroundColor: showMobileFilters ? "#8B1A2F" : "transparent",
+                color: showMobileFilters ? "#FDF6EE" : "#8B1A2F",
                 letterSpacing: "0.08em",
                 textTransform: "uppercase",
               }}
             >
               <SlidersHorizontal size={13} />
               Filters
-              {(selectedCategory !== "all" || selectedHairTypes.length > 0) && (
+              {activeFilterCount > 0 && (
                 <span
                   className="ml-1 w-4 h-4 rounded-full text-xs flex items-center justify-center"
                   style={{ backgroundColor: "#D4822A", color: "#FFF" }}
                 >
-                  {(selectedCategory !== "all" ? 1 : 0) + selectedHairTypes.length}
+                  {activeFilterCount}
                 </span>
               )}
             </button>
@@ -237,19 +224,12 @@ export default function AllReviews() {
               {sortOpen && (
                 <div
                   className="absolute right-0 top-full mt-1 rounded-sm border shadow-lg z-50"
-                  style={{
-                    backgroundColor: "#FFF",
-                    borderColor: "#E8DDD0",
-                    minWidth: "180px",
-                  }}
+                  style={{ backgroundColor: "#FFF", borderColor: "#E8DDD0", minWidth: "180px" }}
                 >
                   {SORT_OPTIONS.map((opt) => (
                     <button
                       key={opt.id}
-                      onClick={() => {
-                        setSortBy(opt.id);
-                        setSortOpen(false);
-                      }}
+                      onClick={() => { setSortBy(opt.id); setSortOpen(false); }}
                       className="w-full text-left px-4 py-2.5 text-xs font-label font-semibold hover:bg-amber-50 transition-colors"
                       style={{
                         color: sortBy === opt.id ? "#8B1A2F" : "#2C2C2C",
@@ -265,10 +245,10 @@ export default function AllReviews() {
               )}
             </div>
 
-            {/* Clear Filters */}
-            {hasActiveFilters && (
+            {/* Clear All */}
+            {anyActive && (
               <button
-                onClick={clearFilters}
+                onClick={clearAll}
                 className="flex items-center gap-1 text-xs font-label font-semibold"
                 style={{ color: "#D4822A", letterSpacing: "0.06em", textTransform: "uppercase" }}
               >
@@ -277,151 +257,48 @@ export default function AllReviews() {
             )}
 
             {/* Results count */}
-            <span
-              className="ml-auto text-xs font-body"
-              style={{ color: "#999" }}
-            >
+            <span className="ml-auto text-xs font-body" style={{ color: "#999" }}>
               {filtered.length} result{filtered.length !== 1 ? "s" : ""}
             </span>
           </div>
         </div>
       </section>
 
-      {/* ── Expandable Filter Panel ── */}
-      {showFilters && (
-        <section
-          className="border-b py-5"
-          style={{ borderColor: "#E8DDD0", backgroundColor: "#FFF8F0" }}
-        >
-          <div className="container">
-            <div className="flex flex-col gap-5 md:flex-row md:gap-10">
-              {/* Category Filter */}
-              <div>
-                <p
-                  className="font-label font-semibold text-xs mb-3"
-                  style={{
-                    color: "#8B1A2F",
-                    letterSpacing: "0.1em",
-                    textTransform: "uppercase",
-                  }}
-                >
-                  Category
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  <button
-                    onClick={() => setSelectedCategory("all")}
-                    className="px-3 py-1.5 text-xs font-label font-semibold rounded-sm border transition-colors"
-                    style={{
-                      backgroundColor: selectedCategory === "all" ? "#8B1A2F" : "transparent",
-                      color: selectedCategory === "all" ? "#FDF6EE" : "#8B1A2F",
-                      border: "1px solid #8B1A2F",
-                      letterSpacing: "0.06em",
-                      textTransform: "uppercase",
-                    }}
-                  >
-                    All
-                  </button>
-                  {categories.map((cat) => (
-                    <button
-                      key={cat.id}
-                      onClick={() => setSelectedCategory(cat.slug)}
-                      className="px-3 py-1.5 text-xs font-label font-semibold rounded-sm border transition-colors"
-                      style={{
-                        backgroundColor:
-                          selectedCategory === cat.slug ? "#8B1A2F" : "transparent",
-                        color: selectedCategory === cat.slug ? "#FDF6EE" : "#8B1A2F",
-                        border: "1px solid #8B1A2F",
-                        letterSpacing: "0.06em",
-                        textTransform: "uppercase",
-                      }}
-                    >
-                      {cat.name}
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              {/* Hair Type Filter */}
-              <div>
-                <p
-                  className="font-label font-semibold text-xs mb-3"
-                  style={{
-                    color: "#8B1A2F",
-                    letterSpacing: "0.1em",
-                    textTransform: "uppercase",
-                  }}
-                >
-                  Hair Type
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  {HAIR_TYPES.map((ht) => {
-                    const active = selectedHairTypes.includes(ht.id);
-                    return (
-                      <button
-                        key={ht.id}
-                        onClick={() => toggleHairType(ht.id)}
-                        className="px-3 py-1.5 text-xs font-label font-semibold rounded-sm transition-colors"
-                        style={{
-                          backgroundColor: active ? "#D4822A" : "transparent",
-                          color: active ? "#FFF" : "#D4822A",
-                          border: `1px solid #D4822A`,
-                          letterSpacing: "0.06em",
-                          textTransform: "uppercase",
-                        }}
-                      >
-                        {ht.label}
-                      </button>
-                    );
-                  })}
-                </div>
-                {selectedHairTypes.length > 0 && (
-                  <p className="text-xs font-body mt-2" style={{ color: "#999" }}>
-                    Showing products suitable for:{" "}
-                    <strong style={{ color: "#D4822A" }}>
-                      {selectedHairTypes
-                        .map((id) => HAIR_TYPES.find((h) => h.id === id)?.label)
-                        .join(", ")}
-                    </strong>
-                  </p>
-                )}
-              </div>
-            </div>
-          </div>
-        </section>
-      )}
-
       {/* ── Active Filter Chips ── */}
-      {hasActiveFilters && !showFilters && (
+      {anyActive && (
         <section
           className="py-3 border-b"
           style={{ borderColor: "#E8DDD0", backgroundColor: "#FFF8F0" }}
         >
           <div className="container">
             <div className="flex flex-wrap items-center gap-2">
-              <span className="text-xs font-body" style={{ color: "#999" }}>
-                Active filters:
-              </span>
+              <span className="text-xs font-body" style={{ color: "#999" }}>Active:</span>
               {selectedCategory !== "all" && (
                 <span
                   className="flex items-center gap-1 px-2.5 py-1 text-xs font-label font-semibold rounded-full"
                   style={{ backgroundColor: "#8B1A2F", color: "#FDF6EE" }}
                 >
                   {categories.find((c) => c.slug === selectedCategory)?.name}
-                  <button onClick={() => setSelectedCategory("all")}>
-                    <X size={11} />
-                  </button>
+                  <button onClick={() => setSelectedCategory("all")}><X size={11} /></button>
                 </span>
               )}
-              {selectedHairTypes.map((ht) => (
+              {(filters.priceMin > 0 || filters.priceMax < 600) && (
+                <span
+                  className="flex items-center gap-1 px-2.5 py-1 text-xs font-label font-semibold rounded-full"
+                  style={{ backgroundColor: "#8B1A2F", color: "#FDF6EE" }}
+                >
+                  ${filters.priceMin}–{filters.priceMax >= 600 ? "$600+" : `$${filters.priceMax}`}
+                  <button onClick={() => setFilters(f => ({ ...f, priceMin: 0, priceMax: 600 }))}><X size={11} /></button>
+                </span>
+              )}
+              {filters.hairTypes.map((ht) => (
                 <span
                   key={ht}
                   className="flex items-center gap-1 px-2.5 py-1 text-xs font-label font-semibold rounded-full"
                   style={{ backgroundColor: "#D4822A", color: "#FFF" }}
                 >
                   {HAIR_TYPES.find((h) => h.id === ht)?.label}
-                  <button onClick={() => toggleHairType(ht)}>
-                    <X size={11} />
-                  </button>
+                  <button onClick={() => setFilters(f => ({ ...f, hairTypes: f.hairTypes.filter(t => t !== ht) }))}><X size={11} /></button>
                 </span>
               ))}
               {sortBy !== "default" && (
@@ -430,9 +307,7 @@ export default function AllReviews() {
                   style={{ backgroundColor: "#6C6C6C", color: "#FFF" }}
                 >
                   {activeSortLabel}
-                  <button onClick={() => setSortBy("default")}>
-                    <X size={11} />
-                  </button>
+                  <button onClick={() => setSortBy("default")}><X size={11} /></button>
                 </span>
               )}
             </div>
@@ -440,91 +315,117 @@ export default function AllReviews() {
         </section>
       )}
 
-      {/* ── Products Grid ── */}
-      <section className="py-12">
+      {/* ── Main Layout: Sidebar + Grid ── */}
+      <section className="py-10">
         <div className="container">
-          {filtered.length === 0 ? (
-            <div className="text-center py-20">
-              <p
-                className="font-display text-2xl font-semibold mb-3"
-                style={{ color: "#2C2C2C" }}
-              >
-                No products found
-              </p>
-              <p className="font-body text-base mb-6" style={{ color: "#6C6C6C" }}>
-                Try adjusting your filters or search terms.
-              </p>
-              <button
-                onClick={clearFilters}
-                className="px-6 py-3 font-label font-semibold text-xs rounded-sm"
-                style={{
-                  backgroundColor: "#8B1A2F",
-                  color: "#FDF6EE",
-                  letterSpacing: "0.1em",
-                  textTransform: "uppercase",
-                }}
-              >
-                Clear All Filters
-              </button>
-            </div>
-          ) : (
-            <>
-              {/* Editor's Picks section (only when no active filters) */}
-              {!hasActiveFilters && (
-                <div className="mb-10">
-                  <div className="flex items-center gap-3 mb-6">
-                    <div
-                      className="w-1 h-6 rounded-sm"
-                      style={{ backgroundColor: "#D4822A" }}
-                    />
-                    <h2
-                      className="font-label font-semibold text-sm"
-                      style={{
-                        color: "#8B1A2F",
-                        letterSpacing: "0.12em",
-                        textTransform: "uppercase",
-                      }}
-                    >
-                      Editor's Picks
-                    </h2>
-                  </div>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
-                    {filtered
-                      .filter((p) => p.editorPick)
-                      .map((p) => (
-                        <ProductCard key={p.id} product={p} variant="featured" />
-                      ))}
-                  </div>
-                  <div
-                    className="border-t mb-10"
-                    style={{ borderColor: "#E8DDD0" }}
-                  />
-                  <div className="flex items-center gap-3 mb-6">
-                    <div
-                      className="w-1 h-6 rounded-sm"
-                      style={{ backgroundColor: "#8B1A2F" }}
-                    />
-                    <h2
-                      className="font-label font-semibold text-sm"
-                      style={{
-                        color: "#8B1A2F",
-                        letterSpacing: "0.12em",
-                        textTransform: "uppercase",
-                      }}
-                    >
-                      All Reviews
-                    </h2>
-                  </div>
-                </div>
-              )}
+          <div className="flex gap-8 items-start">
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                {filtered.map((p) => (
-                  <ProductCard key={p.id} product={p} variant="featured" />
-                ))}
+            {/* ── Desktop Sidebar Filter ── */}
+            <aside className="hidden lg:block flex-shrink-0" style={{ width: "260px" }}>
+              <div className="sticky top-[130px]">
+                <div className="flex items-center justify-between mb-4">
+                  <h2
+                    className="font-label font-semibold text-xs"
+                    style={{ color: "#8B1A2F", letterSpacing: "0.12em", textTransform: "uppercase" }}
+                  >
+                    Filter Products
+                  </h2>
+                  {anyActive && (
+                    <button
+                      onClick={clearAll}
+                      className="text-xs font-label font-semibold"
+                      style={{ color: "#D4822A" }}
+                    >
+                      Clear All
+                    </button>
+                  )}
+                </div>
+                <FilterPanel
+                  filters={filters}
+                  onChange={setFilters}
+                  showCategoryFilter
+                  categories={categories}
+                  selectedCategory={selectedCategory}
+                  onCategoryChange={setSelectedCategory}
+                  productCount={filtered.length}
+                />
               </div>
-            </>
-          )}
+            </aside>
+
+            {/* ── Mobile Filter Panel (collapsible) ── */}
+            {showMobileFilters && (
+              <div className="lg:hidden w-full mb-6">
+                <FilterPanel
+                  filters={filters}
+                  onChange={setFilters}
+                  showCategoryFilter
+                  categories={categories}
+                  selectedCategory={selectedCategory}
+                  onCategoryChange={setSelectedCategory}
+                  productCount={filtered.length}
+                />
+              </div>
+            )}
+
+            {/* ── Products Grid ── */}
+            <div className="flex-1 min-w-0">
+              {filtered.length === 0 ? (
+                <div className="text-center py-20">
+                  <p className="font-display text-2xl font-semibold mb-3" style={{ color: "#2C2C2C" }}>
+                    No products found
+                  </p>
+                  <p className="font-body text-base mb-6" style={{ color: "#6C6C6C" }}>
+                    Try adjusting your price range, hair type, or search terms.
+                  </p>
+                  <button
+                    onClick={clearAll}
+                    className="px-6 py-3 font-label font-semibold text-xs rounded-sm"
+                    style={{ backgroundColor: "#8B1A2F", color: "#FDF6EE", letterSpacing: "0.1em", textTransform: "uppercase" }}
+                  >
+                    Clear All Filters
+                  </button>
+                </div>
+              ) : (
+                <>
+                  {/* Editor's Picks (only when no active filters) */}
+                  {!anyActive && (
+                    <div className="mb-10">
+                      <div className="flex items-center gap-3 mb-6">
+                        <div className="w-1 h-6 rounded-sm" style={{ backgroundColor: "#D4822A" }} />
+                        <h2
+                          className="font-label font-semibold text-sm"
+                          style={{ color: "#8B1A2F", letterSpacing: "0.12em", textTransform: "uppercase" }}
+                        >
+                          Editor's Picks
+                        </h2>
+                      </div>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 mb-10">
+                        {filtered.filter((p) => p.editorPick).map((p) => (
+                          <ProductCard key={p.id} product={p} variant="featured" />
+                        ))}
+                      </div>
+                      <div className="border-t mb-10" style={{ borderColor: "#E8DDD0" }} />
+                      <div className="flex items-center gap-3 mb-6">
+                        <div className="w-1 h-6 rounded-sm" style={{ backgroundColor: "#8B1A2F" }} />
+                        <h2
+                          className="font-label font-semibold text-sm"
+                          style={{ color: "#8B1A2F", letterSpacing: "0.12em", textTransform: "uppercase" }}
+                        >
+                          All Reviews
+                        </h2>
+                      </div>
+                    </div>
+                  )}
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
+                    {filtered.map((p) => (
+                      <ProductCard key={p.id} product={p} variant="featured" />
+                    ))}
+                  </div>
+                </>
+              )}
+            </div>
+          </div>
         </div>
       </section>
     </SiteLayout>
