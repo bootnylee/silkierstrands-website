@@ -5,47 +5,119 @@
  * Form ID: aeb1d42c-40de-11f1-aa22-35d9c85d0d35
  */
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const EMAILOCTOPUS_FORM_ID = "aeb1d42c-40de-11f1-aa22-35d9c85d0d35";
 const EMAILOCTOPUS_SCRIPT_SRC = `https://eocampaign1.com/form/${EMAILOCTOPUS_FORM_ID}.js`;
+
+// Singleton: only load the script once across all component instances
+let scriptStatus: "idle" | "loading" | "loaded" | "error" = "idle";
+const scriptCallbacks: Array<(success: boolean) => void> = [];
+
+function loadEmailOctopusScript(): Promise<boolean> {
+  return new Promise((resolve) => {
+    if (scriptStatus === "loaded") {
+      resolve(true);
+      return;
+    }
+    if (scriptStatus === "error") {
+      resolve(false);
+      return;
+    }
+
+    scriptCallbacks.push(resolve);
+
+    if (scriptStatus === "loading") return;
+
+    scriptStatus = "loading";
+
+    const script = document.createElement("script");
+    script.src = EMAILOCTOPUS_SCRIPT_SRC;
+    script.async = true;
+    script.setAttribute("data-form", EMAILOCTOPUS_FORM_ID);
+    // crossOrigin allows the browser to report actual errors instead of masking them
+    script.crossOrigin = "anonymous";
+
+    script.onload = () => {
+      scriptStatus = "loaded";
+      scriptCallbacks.forEach((cb) => cb(true));
+      scriptCallbacks.length = 0;
+    };
+
+    script.onerror = () => {
+      scriptStatus = "error";
+      scriptCallbacks.forEach((cb) => cb(false));
+      scriptCallbacks.length = 0;
+    };
+
+    document.body.appendChild(script);
+  });
+}
 
 interface NewsletterSignupProps {
   variant?: "banner" | "footer" | "inline";
   className?: string;
 }
 
-function useEmailOctopusEmbed() {
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    // Remove any stale script first
-    const existing = document.querySelector(
-      `script[data-eo-form="${EMAILOCTOPUS_FORM_ID}"]`
-    );
-    if (existing) existing.remove();
-
-    const script = document.createElement("script");
-    script.src = EMAILOCTOPUS_SCRIPT_SRC;
-    script.async = true;
-    script.setAttribute("data-form", EMAILOCTOPUS_FORM_ID);
-    script.setAttribute("data-eo-form", EMAILOCTOPUS_FORM_ID);
-    document.body.appendChild(script);
-
-    return () => {
-      const s = document.querySelector(`script[data-eo-form="${EMAILOCTOPUS_FORM_ID}"]`);
-      if (s) s.remove();
-    };
-  }, []);
-
-  return containerRef;
-}
-
 export default function NewsletterSignup({
   variant = "banner",
   className = "",
 }: NewsletterSignupProps) {
-  const containerRef = useEmailOctopusEmbed();
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [scriptLoaded, setScriptLoaded] = useState(scriptStatus === "loaded");
+  const [scriptFailed, setScriptFailed] = useState(scriptStatus === "error");
+
+  useEffect(() => {
+    if (scriptStatus === "loaded") {
+      setScriptLoaded(true);
+      return;
+    }
+    if (scriptStatus === "error") {
+      setScriptFailed(true);
+      return;
+    }
+
+    loadEmailOctopusScript().then((success) => {
+      if (success) {
+        setScriptLoaded(true);
+      } else {
+        setScriptFailed(true);
+      }
+    });
+  }, []);
+
+  // Fallback form shown if EmailOctopus script fails to load
+  const FallbackForm = () => (
+    <form
+      action={`https://emailoctopus.com/lists/${EMAILOCTOPUS_FORM_ID}/members/embedded/1.3s/add`}
+      method="post"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="flex gap-2 max-w-md mx-auto"
+    >
+      <input
+        type="email"
+        name="member[email_address]"
+        placeholder="Your email address"
+        required
+        className="flex-1 px-4 py-3 text-sm rounded-sm border"
+        style={{
+          borderColor: "rgba(255,255,255,0.3)",
+          backgroundColor: "rgba(255,255,255,0.15)",
+          color: "#FDF6EE",
+          outline: "none",
+        }}
+      />
+      <input type="hidden" name="hpc_1" value="" />
+      <button
+        type="submit"
+        className="px-6 py-3 rounded-sm font-semibold text-sm uppercase tracking-wider flex-shrink-0"
+        style={{ backgroundColor: "#D4822A", color: "#fff" }}
+      >
+        Subscribe
+      </button>
+    </form>
+  );
 
   if (variant === "banner") {
     return (
@@ -89,13 +161,16 @@ export default function NewsletterSignup({
             exclusive deals, and expert styling advice every week.
           </p>
 
-          {/* EmailOctopus renders the form here */}
-          <div
-            ref={containerRef}
-            data-form={EMAILOCTOPUS_FORM_ID}
-            className="max-w-lg mx-auto eo-form-container"
-            style={{ minHeight: "60px" }}
-          />
+          {scriptFailed ? (
+            <FallbackForm />
+          ) : (
+            <div
+              ref={containerRef}
+              data-form={EMAILOCTOPUS_FORM_ID}
+              className="max-w-lg mx-auto"
+              style={{ minHeight: scriptLoaded ? "auto" : "60px" }}
+            />
+          )}
 
           <p
             className="text-xs mt-4"
@@ -123,12 +198,44 @@ export default function NewsletterSignup({
         >
           New reviews every Monday. No spam, ever.
         </p>
-        <div
-          ref={containerRef}
-          data-form={EMAILOCTOPUS_FORM_ID}
-          className="eo-form-container"
-          style={{ minHeight: "50px" }}
-        />
+        {scriptFailed ? (
+          <form
+            action={`https://emailoctopus.com/lists/${EMAILOCTOPUS_FORM_ID}/members/embedded/1.3s/add`}
+            method="post"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex gap-2"
+          >
+            <input
+              type="email"
+              name="member[email_address]"
+              placeholder="Your email"
+              required
+              className="flex-1 px-3 py-2 text-sm rounded-sm border"
+              style={{
+                borderColor: "rgba(255,255,255,0.15)",
+                backgroundColor: "rgba(255,255,255,0.08)",
+                color: "#FDF6EE",
+                outline: "none",
+                minWidth: 0,
+              }}
+            />
+            <input type="hidden" name="hpc_1" value="" />
+            <button
+              type="submit"
+              className="px-4 py-2 rounded-sm flex-shrink-0 font-semibold text-xs uppercase tracking-wider"
+              style={{ backgroundColor: "#8B1A2F", color: "#FDF6EE" }}
+            >
+              Join
+            </button>
+          </form>
+        ) : (
+          <div
+            ref={containerRef}
+            data-form={EMAILOCTOPUS_FORM_ID}
+            style={{ minHeight: "50px" }}
+          />
+        )}
       </div>
     );
   }
@@ -145,18 +252,46 @@ export default function NewsletterSignup({
       >
         Stay Updated
       </p>
-      <p
-        className="text-sm mb-4 leading-relaxed"
-        style={{ color: "#4A4A4A" }}
-      >
+      <p className="text-sm mb-4 leading-relaxed" style={{ color: "#4A4A4A" }}>
         Get new reviews and comparisons in your inbox every Monday.
       </p>
-      <div
-        ref={containerRef}
-        data-form={EMAILOCTOPUS_FORM_ID}
-        className="eo-form-container"
-        style={{ minHeight: "50px" }}
-      />
+      {scriptFailed ? (
+        <form
+          action={`https://emailoctopus.com/lists/${EMAILOCTOPUS_FORM_ID}/members/embedded/1.3s/add`}
+          method="post"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex gap-2"
+        >
+          <input
+            type="email"
+            name="member[email_address]"
+            placeholder="Your email address"
+            required
+            className="flex-1 px-3 py-2 text-sm rounded-sm border"
+            style={{
+              borderColor: "#D4C5B5",
+              backgroundColor: "#FFFFFF",
+              color: "#2C2C2C",
+              outline: "none",
+            }}
+          />
+          <input type="hidden" name="hpc_1" value="" />
+          <button
+            type="submit"
+            className="px-4 py-2 rounded-sm flex-shrink-0 font-semibold text-xs uppercase tracking-wider"
+            style={{ backgroundColor: "#8B1A2F", color: "#FDF6EE" }}
+          >
+            Subscribe
+          </button>
+        </form>
+      ) : (
+        <div
+          ref={containerRef}
+          data-form={EMAILOCTOPUS_FORM_ID}
+          style={{ minHeight: "50px" }}
+        />
+      )}
     </div>
   );
 }
