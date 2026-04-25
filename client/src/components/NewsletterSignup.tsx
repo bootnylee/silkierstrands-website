@@ -1,42 +1,101 @@
 // SilkierStrands.com — Newsletter Signup Component
 // Design: Bold magazine aesthetic — Burgundy (#8B1A2F) + Amber (#D4822A) + Cream (#FDF6EE)
-// Integration: Works with Mailchimp embed forms or ConvertKit
-// Usage: <NewsletterSignup variant="banner" /> or <NewsletterSignup variant="footer" /> or <NewsletterSignup variant="inline" />
+// Integration: EmailOctopus (primary), Mailchimp, or ConvertKit
+// Usage: <NewsletterSignup variant="banner" /> | <NewsletterSignup variant="footer" /> | <NewsletterSignup variant="inline" />
 
 import { useState } from "react";
 import { Mail, ArrowRight, CheckCircle, Loader2 } from "lucide-react";
 
 type Variant = "banner" | "footer" | "inline";
-
 interface NewsletterSignupProps {
   variant?: Variant;
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// CONFIGURATION — Update these values when you connect your email provider
+// CONFIGURATION — Paste your email provider URL here to activate the form
 // ─────────────────────────────────────────────────────────────────────────────
 //
-// Option A — Mailchimp:
-//   1. Go to Mailchimp → Audience → Signup forms → Embedded forms
-//   2. Copy the action URL from the <form> tag (looks like:
-//      https://silkierstrands.us1.list-manage.com/subscribe/post?u=XXXX&id=YYYY)
-//   3. Replace MAILCHIMP_ACTION_URL below with that URL
+// ✅ EmailOctopus (recommended — free up to 2,500 subscribers):
+//   1. Log in to emailoctopus.com
+//   2. Go to Lists → your list → Forms → Embedded form
+//   3. Copy the action URL from the <form> tag. It looks like:
+//      https://emailoctopus.com/lists/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/members/embedded/1.3s/add
+//   4. Paste it below as EMAIL_PROVIDER_ACTION_URL
+//   5. Leave EMAIL_FIELD_NAME as "member[email_address]"
 //
-// Option B — ConvertKit:
-//   1. Go to ConvertKit → Grow → Landing Pages & Forms → your form → Embed
-//   2. Copy the form action URL (looks like:
-//      https://app.convertkit.com/forms/XXXXXXX/subscriptions)
-//   3. Replace MAILCHIMP_ACTION_URL below with that URL
+// ✅ Mailchimp:
+//   1. Go to Audience → Signup forms → Embedded forms
+//   2. Copy the action URL from the <form> tag
+//   3. Paste it below and set EMAIL_FIELD_NAME = "EMAIL"
 //
-// Option C — Leave as-is for now:
-//   The form will show a success message without actually submitting.
-//   Replace the URL when you're ready to connect your email provider.
+// ✅ ConvertKit:
+//   1. Go to Grow → Landing Pages & Forms → your form → Embed
+//   2. Copy the form action URL
+//   3. Paste it below and set EMAIL_FIELD_NAME = "email_address"
 //
-const EMAIL_PROVIDER_ACTION_URL: string = ""; // ← Paste your Mailchimp or ConvertKit URL here
-const EMAIL_FIELD_NAME = "EMAIL"; // Mailchimp uses "EMAIL"; ConvertKit uses "email_address"
+// ⚠️  Leave EMAIL_PROVIDER_ACTION_URL as "" to run in demo mode (shows success without sending)
+//
+const EMAIL_PROVIDER_ACTION_URL: string = ""; // ← Paste your EmailOctopus URL here
+const EMAIL_FIELD_NAME = "member[email_address]"; // EmailOctopus field name
 // ─────────────────────────────────────────────────────────────────────────────
 
 type SubmitState = "idle" | "loading" | "success" | "error";
+
+/**
+ * Detects which email provider is being used based on the action URL
+ */
+function detectProvider(url: string): "emailoctopus" | "mailchimp" | "convertkit" | "unknown" {
+  if (url.includes("emailoctopus.com")) return "emailoctopus";
+  if (url.includes("list-manage.com") || url.includes("mailchimp.com")) return "mailchimp";
+  if (url.includes("convertkit.com") || url.includes("ck.page")) return "convertkit";
+  return "unknown";
+}
+
+/**
+ * Submit to EmailOctopus via a hidden iframe (avoids CORS issues on static sites)
+ */
+function submitViaIframe(actionUrl: string, fieldName: string, emailValue: string): Promise<void> {
+  return new Promise((resolve) => {
+    const iframeName = `eo-iframe-${Date.now()}`;
+    const iframe = document.createElement("iframe");
+    iframe.style.display = "none";
+    iframe.name = iframeName;
+    document.body.appendChild(iframe);
+
+    const form = document.createElement("form");
+    form.method = "POST";
+    form.action = actionUrl;
+    form.target = iframeName;
+
+    // Email field
+    const emailInput = document.createElement("input");
+    emailInput.type = "hidden";
+    emailInput.name = fieldName;
+    emailInput.value = emailValue;
+    form.appendChild(emailInput);
+
+    // EmailOctopus requires a hidden field to confirm it's an embedded form
+    const hpInput = document.createElement("input");
+    hpInput.type = "hidden";
+    hpInput.name = "hpc_1";
+    hpInput.value = "";
+    form.appendChild(hpInput);
+
+    document.body.appendChild(form);
+    form.submit();
+
+    // Give the form 2 seconds to submit, then resolve
+    setTimeout(() => {
+      try {
+        document.body.removeChild(form);
+        document.body.removeChild(iframe);
+      } catch {
+        // Elements may already be removed
+      }
+      resolve();
+    }, 2000);
+  });
+}
 
 export default function NewsletterSignup({ variant = "banner" }: NewsletterSignupProps) {
   const [email, setEmail] = useState("");
@@ -49,72 +108,42 @@ export default function NewsletterSignup({ variant = "banner" }: NewsletterSignu
       setErrorMessage("Please enter a valid email address.");
       return;
     }
-
     setSubmitState("loading");
     setErrorMessage("");
 
-    // If no provider URL is configured, simulate success
+    // Demo mode — no provider configured
     if (!EMAIL_PROVIDER_ACTION_URL) {
       setTimeout(() => setSubmitState("success"), 800);
       return;
     }
 
     try {
-      // Use a hidden iframe trick for Mailchimp CORS-free submission
-      const formData = new FormData();
-      formData.append(EMAIL_FIELD_NAME, email);
+      const provider = detectProvider(EMAIL_PROVIDER_ACTION_URL);
 
-      // For ConvertKit, use fetch with JSON
-      if (EMAIL_PROVIDER_ACTION_URL.includes("convertkit")) {
+      if (provider === "convertkit") {
+        // ConvertKit supports CORS — use fetch with JSON
         const response = await fetch(EMAIL_PROVIDER_ACTION_URL, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ email_address: email }),
         });
-        if (response.ok || response.status === 200) {
+        if (response.ok) {
           setSubmitState("success");
         } else {
           throw new Error("Subscription failed");
         }
       } else {
-        // For Mailchimp — submit via hidden form to avoid CORS
-        const mailchimpUrl = EMAIL_PROVIDER_ACTION_URL.replace(
-          "/post?",
-          "/post-json?"
-        ) + `&${EMAIL_FIELD_NAME}=${encodeURIComponent(email)}&c=?`;
-
-        // Create a hidden iframe for submission
-        const iframe = document.createElement("iframe");
-        iframe.style.display = "none";
-        iframe.name = "mc-iframe";
-        document.body.appendChild(iframe);
-
-        const form = document.createElement("form");
-        form.method = "POST";
-        form.action = EMAIL_PROVIDER_ACTION_URL;
-        form.target = "mc-iframe";
-
-        const input = document.createElement("input");
-        input.type = "hidden";
-        input.name = EMAIL_FIELD_NAME;
-        input.value = email;
-        form.appendChild(input);
-
-        document.body.appendChild(form);
-        form.submit();
-
-        setTimeout(() => {
-          setSubmitState("success");
-          document.body.removeChild(form);
-          document.body.removeChild(iframe);
-        }, 1500);
+        // EmailOctopus and Mailchimp — use hidden iframe to avoid CORS
+        await submitViaIframe(EMAIL_PROVIDER_ACTION_URL, EMAIL_FIELD_NAME, email);
+        setSubmitState("success");
       }
     } catch {
       setSubmitState("error");
-      setErrorMessage("Something went wrong. Please try again.");
+      setErrorMessage("Something went wrong. Please try again or email us directly.");
     }
   };
 
+  // ── Footer Variant ──────────────────────────────────────────────────────────
   if (variant === "footer") {
     return (
       <div>
@@ -122,18 +151,17 @@ export default function NewsletterSignup({ variant = "banner" }: NewsletterSignu
           className="font-label font-semibold text-xs mb-3"
           style={{ color: "#D4822A", letterSpacing: "0.12em", textTransform: "uppercase" }}
         >
-          Weekly Updates
+          The SilkierStrands Weekly
         </p>
-        <p className="font-body text-sm mb-4" style={{ color: "#C8B8C0" }}>
-          New reviews and comparisons every Monday.
+        <p className="font-body text-sm mb-4 leading-relaxed" style={{ color: "#9A7A8A" }}>
+          New reviews every Monday. No spam, ever.
         </p>
-
         {submitState === "success" ? (
           <div className="flex items-center gap-2">
             <CheckCircle size={16} style={{ color: "#D4822A" }} />
-            <span className="font-body text-sm" style={{ color: "#D4822A" }}>
+            <p className="font-body text-sm font-semibold" style={{ color: "#FDF6EE" }}>
               You're subscribed!
-            </span>
+            </p>
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="flex gap-2">
@@ -145,8 +173,8 @@ export default function NewsletterSignup({ variant = "banner" }: NewsletterSignu
               required
               className="flex-1 px-3 py-2 text-sm font-body rounded-sm border"
               style={{
-                backgroundColor: "rgba(255,255,255,0.08)",
                 borderColor: "rgba(255,255,255,0.15)",
+                backgroundColor: "rgba(255,255,255,0.08)",
                 color: "#FDF6EE",
                 outline: "none",
                 minWidth: 0,
@@ -155,10 +183,10 @@ export default function NewsletterSignup({ variant = "banner" }: NewsletterSignu
             <button
               type="submit"
               disabled={submitState === "loading"}
-              className="px-4 py-2 rounded-sm flex-shrink-0 flex items-center gap-1.5 font-label font-semibold text-xs transition-opacity hover:opacity-90"
+              className="px-4 py-2 rounded-sm flex-shrink-0 font-label font-semibold text-xs transition-opacity hover:opacity-90"
               style={{
-                backgroundColor: "#D4822A",
-                color: "#FFF",
+                backgroundColor: "#8B1A2F",
+                color: "#FDF6EE",
                 letterSpacing: "0.06em",
                 textTransform: "uppercase",
               }}
@@ -166,7 +194,7 @@ export default function NewsletterSignup({ variant = "banner" }: NewsletterSignu
               {submitState === "loading" ? (
                 <Loader2 size={13} className="animate-spin" />
               ) : (
-                <ArrowRight size={13} />
+                "Join"
               )}
             </button>
           </form>
@@ -180,31 +208,31 @@ export default function NewsletterSignup({ variant = "banner" }: NewsletterSignu
     );
   }
 
+  // ── Inline Variant ──────────────────────────────────────────────────────────
   if (variant === "inline") {
     return (
       <div
         className="rounded-sm p-6"
         style={{ backgroundColor: "#FFF8F0", border: "1px solid #E8DDD0" }}
       >
-        <div className="flex items-center gap-2 mb-3">
+        <div className="flex items-center gap-2 mb-2">
           <Mail size={16} style={{ color: "#8B1A2F" }} />
           <p
             className="font-label font-semibold text-xs"
             style={{ color: "#8B1A2F", letterSpacing: "0.12em", textTransform: "uppercase" }}
           >
-            Get Weekly Reviews
+            Stay Updated
           </p>
         </div>
-        <p className="font-body text-sm mb-4" style={{ color: "#4A4A4A" }}>
-          New reviews and comparisons delivered every Monday.
+        <p className="font-body text-sm mb-4 leading-relaxed" style={{ color: "#4A4A4A" }}>
+          Get new reviews and comparisons in your inbox every Monday.
         </p>
-
         {submitState === "success" ? (
-          <div className="flex items-center gap-2 py-2">
+          <div className="flex items-center gap-2">
             <CheckCircle size={16} style={{ color: "#D4822A" }} />
-            <span className="font-body text-sm font-semibold" style={{ color: "#D4822A" }}>
+            <p className="font-body text-sm font-semibold" style={{ color: "#2C2C2C" }}>
               You're subscribed — see you Monday!
-            </span>
+            </p>
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="flex gap-2">
@@ -212,12 +240,12 @@ export default function NewsletterSignup({ variant = "banner" }: NewsletterSignu
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="Enter your email"
+              placeholder="Your email address"
               required
               className="flex-1 px-3 py-2 text-sm font-body rounded-sm border"
               style={{
-                backgroundColor: "#FFF",
                 borderColor: "#D4C5B5",
+                backgroundColor: "#FFFFFF",
                 color: "#2C2C2C",
                 outline: "none",
               }}
@@ -250,13 +278,13 @@ export default function NewsletterSignup({ variant = "banner" }: NewsletterSignu
     );
   }
 
-  // Banner variant (default) — full-width section for homepage
+  // ── Banner Variant (default) — full-width section for homepage ──────────────
   return (
     <section
       className="py-16 relative overflow-hidden"
       style={{ backgroundColor: "#8B1A2F" }}
     >
-      {/* Decorative background pattern */}
+      {/* Decorative background */}
       <div
         className="absolute inset-0 opacity-5"
         style={{
@@ -264,7 +292,6 @@ export default function NewsletterSignup({ variant = "banner" }: NewsletterSignu
                             radial-gradient(circle at 80% 50%, #D4822A 0%, transparent 50%)`,
         }}
       />
-
       <div className="relative container">
         <div className="max-w-2xl mx-auto text-center">
           <div className="flex items-center justify-center gap-2 mb-4">
@@ -276,14 +303,12 @@ export default function NewsletterSignup({ variant = "banner" }: NewsletterSignu
               The SilkierStrands Weekly
             </p>
           </div>
-
           <h2
             className="font-display font-bold mb-4"
             style={{ fontSize: "clamp(1.75rem, 3.5vw, 2.5rem)", color: "#FDF6EE" }}
           >
             New Reviews Every Monday
           </h2>
-
           <p
             className="font-body text-base mb-8 leading-relaxed"
             style={{ color: "#E8C8D0", maxWidth: "480px", margin: "0 auto 2rem" }}
@@ -354,12 +379,11 @@ export default function NewsletterSignup({ variant = "banner" }: NewsletterSignu
               {errorMessage}
             </p>
           )}
-
           <p
             className="font-body text-xs mt-4"
             style={{ color: "rgba(255,255,255,0.4)" }}
           >
-            No spam, ever. Unsubscribe anytime.
+            No spam, ever. Unsubscribe anytime. Free weekly newsletter.
           </p>
         </div>
       </div>
