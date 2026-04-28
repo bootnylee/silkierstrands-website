@@ -8,13 +8,13 @@ import { Menu, X, ChevronDown } from "lucide-react";
 import NewsletterSignup from "./NewsletterSignup";
 
 const navHairTypes = [
-  { label: "🌾 Fine Hair", href: "/hair-type/fine" },
-  { label: "🌿 Thick Hair", href: "/hair-type/thick" },
-  { label: "🌀 Curly Hair", href: "/hair-type/curly" },
-  { label: "🪨 Coarse Hair", href: "/hair-type/coarse" },
-  { label: "💧 Dry Hair", href: "/hair-type/dry" },
-  { label: "✨ Normal Hair", href: "/hair-type/normal" },
-  { label: "🎨 Color-Treated", href: "/hair-type/color-treated" },
+  { label: "Fine Hair", href: "/hair-type/fine" },
+  { label: "Thick Hair", href: "/hair-type/thick" },
+  { label: "Curly Hair", href: "/hair-type/curly" },
+  { label: "Coarse Hair", href: "/hair-type/coarse" },
+  { label: "Dry Hair", href: "/hair-type/dry" },
+  { label: "Normal Hair", href: "/hair-type/normal" },
+  { label: "Color-Treated", href: "/hair-type/color-treated" },
 ];
 
 const navCategories = [
