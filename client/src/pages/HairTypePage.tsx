@@ -21,6 +21,45 @@ import { updateDocumentMeta } from "@/lib/seo";
 import { ArrowRight, CheckCircle, Lightbulb, ChevronRight, SlidersHorizontal, X, Star, Award } from "lucide-react";
 import { categories } from "@/lib/products";
 
+// Map each hair type to its most relevant head-to-head comparison
+const HAIR_TYPE_FEATURED_COMPARISON: Record<string, { slug: string; title: string; subtitle: string }> = {
+  coarse: {
+    slug: "olaplex-no8-vs-moroccanoil-mask",
+    title: "Olaplex No. 8 vs. Moroccanoil Intense Hydrating Mask",
+    subtitle: "Which deep conditioning mask wins for coarse, resistant hair?",
+  },
+  dry: {
+    slug: "pureology-hydrate-vs-redken-all-soft",
+    title: "Pureology Hydrate vs. Redken All Soft",
+    subtitle: "Premium moisturizing shampoos head-to-head for dry hair.",
+  },
+  fine: {
+    slug: "bumble-invisible-oil-vs-verb-ghost-oil",
+    title: "Bumble and bumble Invisible Oil vs. Verb Ghost Oil",
+    subtitle: "Lightweight oils that won't weigh fine hair down — compared.",
+  },
+  thick: {
+    slug: "dyson-supersonic-vs-shark-hyperair",
+    title: "Dyson Supersonic vs. Shark HyperAIR",
+    subtitle: "Which premium dryer handles thick, dense hair better?",
+  },
+  curly: {
+    slug: "philip-kingsley-elasticizer-vs-christophe-robin-mask",
+    title: "Philip Kingsley Elasticizer vs. Christophe Robin Regenerating Mask",
+    subtitle: "Pre-shampoo treatment vs. luxury mask for curly hair.",
+  },
+  normal: {
+    slug: "moroccanoil-vs-olaplex-no7-oil",
+    title: "Moroccanoil Treatment vs. Olaplex No. 7 Bonding Oil",
+    subtitle: "Two iconic finishing oils — which is worth it for normal hair?",
+  },
+  "color-treated": {
+    slug: "joico-color-balance-vs-matrix-biolage-hydrasource",
+    title: "Joico Color Balance Purple vs. Matrix Biolage HydraSource",
+    subtitle: "Toning vs. hydrating: the right shampoo for color-treated hair.",
+  },
+};
+
 export default function HairTypePage() {
   const { slug } = useParams<{ slug: string }>();
   const hairType = getHairTypeBySlug(slug || "");
@@ -268,9 +307,15 @@ export default function HairTypePage() {
                       <h3 className="font-display font-bold mb-1 leading-snug" style={{ fontSize: "1.05rem", color: "#2C2C2C" }}>
                         {product.name}
                       </h3>
-                      <p className="font-body text-xs mb-3" style={{ color: "#8B6A5A" }}>
+                      <p className="font-body text-xs mb-1" style={{ color: "#8B6A5A" }}>
                         {product.brand}
                       </p>
+                      {product.bestFor && (
+                        <p className="inline-flex items-center gap-1 font-label font-semibold text-xs px-2 py-0.5 rounded-sm mb-3"
+                          style={{ backgroundColor: "#FFF8F0", color: "#8B1A2F", border: "1px solid #E8C8B0", letterSpacing: "0.04em" }}>
+                          <span style={{ color: "#D4822A" }}>✦</span> Best for: {product.bestFor}
+                        </p>
+                      )}
 
                       {/* Rating row */}
                       <div className="flex items-center gap-2 mb-3">
@@ -315,11 +360,50 @@ export default function HairTypePage() {
                 </Link>
               ))}
             </div>
+
+            {/* Compare These Two CTA */}
+            {HAIR_TYPE_FEATURED_COMPARISON[slug || ""] && (() => {
+              const fc = HAIR_TYPE_FEATURED_COMPARISON[slug || ""];
+              return (
+                <Link href={`/comparison/${fc.slug}`}>
+                  <div
+                    className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 px-6 py-5 rounded-sm cursor-pointer group transition-all duration-200 hover:shadow-md"
+                    style={{ backgroundColor: "#1A0A0F", border: "1px solid rgba(212,130,42,0.3)" }}
+                  >
+                    <div className="flex items-start gap-4">
+                      <div
+                        className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center"
+                        style={{ backgroundColor: "rgba(212,130,42,0.15)", border: "1px solid rgba(212,130,42,0.4)" }}
+                      >
+                        <span style={{ fontSize: "1.1rem" }}>⚖️</span>
+                      </div>
+                      <div>
+                        <p className="font-label font-semibold text-xs mb-1" style={{ color: "#D4822A", letterSpacing: "0.1em", textTransform: "uppercase" }}>
+                          Compare These Two
+                        </p>
+                        <p className="font-display font-bold leading-snug" style={{ fontSize: "1rem", color: "#FDF6EE" }}>
+                          {fc.title}
+                        </p>
+                        <p className="font-body text-xs mt-0.5" style={{ color: "rgba(253,246,238,0.55)" }}>
+                          {fc.subtitle}
+                        </p>
+                      </div>
+                    </div>
+                    <span
+                      className="flex-shrink-0 flex items-center gap-2 font-label font-semibold text-xs px-4 py-2 rounded-sm transition-colors"
+                      style={{ backgroundColor: "#D4822A", color: "#FFF", letterSpacing: "0.08em", textTransform: "uppercase" }}
+                    >
+                      Read Comparison <ArrowRight size={13} />
+                    </span>
+                  </div>
+                </Link>
+              );
+            })()}
           </div>
         </section>
       )}
 
-      {/* ── About This Hair Type ── */}
+       {/* ── About This Hair Type ── */}
       <section className="py-14 border-b" style={{ borderColor: "#E8DDD0", backgroundColor: "#FFF8F0" }}>
         <div className="container">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
