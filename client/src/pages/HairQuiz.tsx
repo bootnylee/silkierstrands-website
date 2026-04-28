@@ -2,7 +2,7 @@
 // Burgundy primary, Amber accent, Cream background, Cormorant Garamond display font
 // Hair Type Quiz — multi-step questionnaire with scoring and personalized product recommendations
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "wouter";
 import { ChevronRight, ChevronLeft, RotateCcw, ExternalLink, Star, Share2, Check, Trash2, Mail } from "lucide-react";
 
@@ -10,37 +10,68 @@ import SiteLayout from "@/components/SiteLayout";
 import { allProducts } from "@/lib/products";
 
 // ─── Quiz Email Capture ────────────────────────────────────────────────────────
-const EMAILOCTOPUS_FORM_ID = "aeb1d42c-40de-11f1-aa22-35d9c85d0d35";
-let quizScriptStatus: "idle" | "loading" | "loaded" | "error" = "idle";
-const quizScriptCallbacks: Array<(ok: boolean) => void> = [];
-
-function loadQuizEmailScript(): Promise<boolean> {
-  return new Promise((resolve) => {
-    if (quizScriptStatus === "loaded") { resolve(true); return; }
-    if (quizScriptStatus === "error") { resolve(false); return; }
-    quizScriptCallbacks.push(resolve);
-    if (quizScriptStatus === "loading") return;
-    quizScriptStatus = "loading";
-    const s = document.createElement("script");
-    s.src = `https://eocampaign1.com/form/${EMAILOCTOPUS_FORM_ID}.js`;
-    s.async = true;
-    s.setAttribute("data-form", EMAILOCTOPUS_FORM_ID);
-    s.onload = () => { quizScriptStatus = "loaded"; quizScriptCallbacks.forEach(cb => cb(true)); quizScriptCallbacks.length = 0; };
-    s.onerror = () => { quizScriptStatus = "error"; quizScriptCallbacks.forEach(cb => cb(false)); quizScriptCallbacks.length = 0; };
-    document.body.appendChild(s);
-  });
-}
+// Uses the EmailOctopus embedded form POST endpoint directly (no JS widget).
+// The EmailOctopus JS widget is incompatible with React SPAs — it appends the
+// form to <body> instead of into the target div, causing it to render outside
+// the styled card. We use a controlled React form that POSTs via a hidden iframe
+// so the page doesn't navigate away on submit.
+const EMAILOCTOPUS_LIST_ID = "aeb1d42c-40de-11f1-aa22-35d9c85d0d35";
 
 function QuizEmailCapture({ hairTypeLabel, accentColor, hairTypeId }: { hairTypeLabel: string; accentColor: string; hairTypeId: string }) {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [scriptLoaded, setScriptLoaded] = useState(quizScriptStatus === "loaded");
-  const [scriptFailed, setScriptFailed] = useState(quizScriptStatus === "error");
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [errorMsg, setErrorMsg] = useState("");
 
-  useEffect(() => {
-    if (quizScriptStatus === "loaded") { setScriptLoaded(true); return; }
-    if (quizScriptStatus === "error") { setScriptFailed(true); return; }
-    loadQuizEmailScript().then(ok => ok ? setScriptLoaded(true) : setScriptFailed(true));
-  }, []);
+  function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    if (!email || status === "submitting") return;
+    setStatus("submitting");
+    setErrorMsg("");
+
+    try {
+      // Ensure the hidden iframe exists to absorb the redirect response
+      let iframe = document.getElementById("eo_hidden_frame") as HTMLIFrameElement | null;
+      if (!iframe) {
+        iframe = document.createElement("iframe");
+        iframe.id = "eo_hidden_frame";
+        iframe.name = "eo_hidden_frame";
+        iframe.style.display = "none";
+        document.body.appendChild(iframe);
+      }
+
+      // Build and submit a temporary hidden form targeting the iframe
+      const form = document.createElement("form");
+      form.method = "POST";
+      form.action = `https://emailoctopus.com/lists/${EMAILOCTOPUS_LIST_ID}/members/embedded/1.3s/add`;
+      form.target = "eo_hidden_frame";
+      form.style.display = "none";
+
+      const addHidden = (name: string, value: string) => {
+        const input = document.createElement("input");
+        input.type = "hidden";
+        input.name = name;
+        input.value = value;
+        form.appendChild(input);
+      };
+
+      addHidden("member[email_address]", email);
+      addHidden("hpc_1", "");
+      if (hairTypeId) addHidden("member[fields][HairType]", hairTypeId);
+
+      document.body.appendChild(form);
+      form.submit();
+      document.body.removeChild(form);
+
+      // Optimistically show success after a short delay
+      setTimeout(() => {
+        setStatus("success");
+        setEmail("");
+      }, 800);
+    } catch {
+      setStatus("error");
+      setErrorMsg("Something went wrong. Please try again.");
+    }
+  }
 
   return (
     <div
@@ -61,41 +92,40 @@ function QuizEmailCapture({ hairTypeLabel, accentColor, hairTypeId }: { hairType
       <p className="font-body text-sm mb-6 leading-relaxed" style={{ color: "#6B5B6E", maxWidth: "420px", margin: "0 auto 1.5rem" }}>
         We'll email you your personalized hair type profile, top product picks, and weekly expert tips — curated for {hairTypeLabel}.
       </p>
-      {scriptFailed ? (
-        <form
-          action={`https://emailoctopus.com/lists/${EMAILOCTOPUS_FORM_ID}/members/embedded/1.3s/add`}
-          method="post"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex gap-2 max-w-sm mx-auto"
-        >
+
+      {status === "success" ? (
+        <div className="flex flex-col items-center gap-2 py-4">
+          <div className="w-10 h-10 rounded-full flex items-center justify-center" style={{ backgroundColor: `${accentColor}22` }}>
+            <Check size={20} style={{ color: accentColor }} />
+          </div>
+          <p className="font-body font-semibold text-sm" style={{ color: accentColor }}>You're on the list!</p>
+          <p className="font-body text-xs" style={{ color: "#6B5B6E" }}>Check your inbox for your {hairTypeLabel} guide.</p>
+        </div>
+      ) : (
+        <form onSubmit={handleSubmit} className="flex gap-2 max-w-sm mx-auto">
           <input
             type="email"
-            name="member[email_address]"
+            value={email}
+            onChange={e => setEmail(e.target.value)}
             placeholder="Your email address"
             required
+            disabled={status === "submitting"}
             className="flex-1 px-4 py-3 text-sm rounded-sm border"
             style={{ borderColor: `${accentColor}44`, backgroundColor: "#FFFFFF", color: "#2C2C2C", outline: "none" }}
           />
-          <input type="hidden" name="hpc_1" value="" />
-          {/* Pass hair type as a custom field so subscribers are tagged in EmailOctopus */}
-          <input type="hidden" name="member[fields][HairType]" value={hairTypeId} />
           <button
             type="submit"
-            className="px-5 py-3 rounded-sm font-body font-semibold text-sm flex-shrink-0"
-            style={{ backgroundColor: accentColor, color: "#FDF6EE" }}
+            disabled={status === "submitting"}
+            className="px-5 py-3 rounded-sm font-body font-semibold text-sm flex-shrink-0 transition-opacity"
+            style={{ backgroundColor: accentColor, color: "#FDF6EE", opacity: status === "submitting" ? 0.7 : 1 }}
           >
-            Send
+            {status === "submitting" ? "..." : "Send"}
           </button>
         </form>
-      ) : (
-        <div
-          ref={containerRef}
-          data-form={EMAILOCTOPUS_FORM_ID}
-          data-hair-type={hairTypeId}
-          className="max-w-sm mx-auto"
-          style={{ minHeight: scriptLoaded ? "auto" : "60px" }}
-        />
+      )}
+
+      {errorMsg && (
+        <p className="font-body text-xs mt-2" style={{ color: "#C0392B" }}>{errorMsg}</p>
       )}
       <p className="font-body text-xs mt-3" style={{ color: "#B8A99A" }}>No spam, ever. Unsubscribe at any time.</p>
     </div>
