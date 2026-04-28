@@ -2,10 +2,17 @@
 // Design: Refined Magazine Meets Bold Lifestyle
 // Burgundy primary, Amber accent, Cream background, Cormorant Garamond display font
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, Sparkles } from "lucide-react";
 import NewsletterSignup from "./NewsletterSignup";
+import { QUIZ_RESULT_KEY } from "../pages/HairQuiz";
+
+const HAIR_TYPE_LABELS: Record<string, string> = {
+  fine: "Fine Hair", thick: "Thick Hair", curly: "Curly Hair",
+  coarse: "Coarse Hair", dry: "Dry Hair", normal: "Normal Hair",
+  "color-treated": "Color-Treated",
+};
 
 const navHairTypes = [
   { label: "Fine Hair", href: "/hair-type/fine" },
@@ -31,6 +38,28 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
   const [categoriesOpen, setCategoriesOpen] = useState(false);
   const [hairTypeOpen, setHairTypeOpen] = useState(false);
   const [location] = useLocation();
+  const [savedHairType, setSavedHairType] = useState<string | null>(null);
+
+  useEffect(() => {
+    const saved = localStorage.getItem(QUIZ_RESULT_KEY);
+    if (saved) {
+      try {
+        const data = JSON.parse(saved);
+        setSavedHairType(data.primary || null);
+      } catch {}
+    }
+    // Listen for storage changes (e.g. quiz completed in same tab)
+    const onStorage = () => {
+      const s = localStorage.getItem(QUIZ_RESULT_KEY);
+      if (s) {
+        try { setSavedHairType(JSON.parse(s).primary || null); } catch {}
+      } else {
+        setSavedHairType(null);
+      }
+    };
+    window.addEventListener("storage", onStorage);
+    return () => window.removeEventListener("storage", onStorage);
+  }, []);
 
   return (
     <div className="min-h-screen flex flex-col" style={{ backgroundColor: "#FDF6EE" }}>
@@ -116,14 +145,27 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
                   </div>
                 )}
               </div>
-              <Link href="/hair-quiz">
-                <span
-                  className="nav-link font-semibold px-3 py-1.5 rounded transition-all duration-200"
-                  style={{ backgroundColor: "#8B1A2F", color: "#FDF6EE", letterSpacing: "0.04em", fontSize: "0.78rem" }}
-                >
-                  Hair Quiz
-                </span>
-              </Link>
+              {savedHairType ? (
+                <Link href="/hair-quiz">
+                  <span
+                    className="inline-flex items-center gap-1.5 font-body font-semibold px-3 py-1.5 rounded transition-all duration-200 hover:opacity-90"
+                    style={{ backgroundColor: "#FFF5E6", color: "#8B1A2F", border: "1.5px solid #D4822A", fontSize: "0.78rem", letterSpacing: "0.03em" }}
+                    title="Your saved hair type — click to view your quiz results"
+                  >
+                    <Sparkles size={12} style={{ color: "#D4822A" }} />
+                    {HAIR_TYPE_LABELS[savedHairType] ?? "My Hair Type"}
+                  </span>
+                </Link>
+              ) : (
+                <Link href="/hair-quiz">
+                  <span
+                    className="nav-link font-semibold px-3 py-1.5 rounded transition-all duration-200"
+                    style={{ backgroundColor: "#8B1A2F", color: "#FDF6EE", letterSpacing: "0.04em", fontSize: "0.78rem" }}
+                  >
+                    Hair Quiz
+                  </span>
+                </Link>
+              )}
               <Link href="/about">
                 <span className="nav-link">About</span>
               </Link>

@@ -3,17 +3,117 @@
 // Hero: Split-screen with editorial headline and product photography
 
 import { Link } from "wouter";
-import { ArrowRight, ExternalLink } from "lucide-react";
+import { ArrowRight, ExternalLink, Sparkles, RefreshCw } from "lucide-react";
 import SiteLayout from "@/components/SiteLayout";
 import ProductCard from "@/components/ProductCard";
 import ComparisonCard from "@/components/ComparisonCard";
 import NewsletterSignup from "@/components/NewsletterSignup";
 import { categories, getEditorPicks, comparisons, allProducts } from "@/lib/products";
 import { hairTypes } from "@/lib/hairTypes";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { updateDocumentMeta } from "@/lib/seo";
+import { QUIZ_RESULT_KEY } from "./HairQuiz";
+
+const HAIR_TYPE_META: Record<string, { label: string; tagline: string; color: string; bg: string }> = {
+  fine:           { label: "Fine Hair",          tagline: "Light, weightless formulas that add volume without drag.",        color: "#8B6914", bg: "#FFF8E7" },
+  thick:          { label: "Thick Hair",          tagline: "Rich, smoothing products that tame and define your density.",    color: "#5C3D8F", bg: "#F5F0FF" },
+  curly:          { label: "Curly Hair",          tagline: "Moisture-first picks that enhance curl definition and bounce.",  color: "#1A6B4A", bg: "#EDFAF3" },
+  coarse:         { label: "Coarse Hair",         tagline: "Deeply nourishing treatments that soften and strengthen.",       color: "#7A3B1E", bg: "#FFF3EE" },
+  dry:            { label: "Dry Hair",            tagline: "Intense hydration heroes that restore softness and shine.",      color: "#1A5C8B", bg: "#EEF6FF" },
+  normal:         { label: "Normal Hair",         tagline: "Balanced, everyday essentials that keep your hair at its best.", color: "#2C6B2F", bg: "#EDFAEE" },
+  "color-treated":{ label: "Color-Treated Hair", tagline: "Color-safe formulas that protect vibrancy and prevent fade.",    color: "#8B1A2F", bg: "#FFF5F7" },
+};
 
 const HERO_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663596051047/8Zc7R6kvi3WyqwPfKsGujc/hero_banner-mpcLHZ6E4Ht3HkvUJsAi4e.webp";
+
+// ─── Personalized Quiz CTA ────────────────────────────────────────────────────
+function QuizCtaSection() {
+  const [savedResult, setSavedResult] = useState<{ primary: string; topProducts: string[] } | null>(null);
+
+  useEffect(() => {
+    const saved = localStorage.getItem(QUIZ_RESULT_KEY);
+    if (saved) {
+      try { setSavedResult(JSON.parse(saved)); } catch {}
+    }
+  }, []);
+
+  // Returning visitor: personalized card
+  if (savedResult?.primary && HAIR_TYPE_META[savedResult.primary]) {
+    const meta = HAIR_TYPE_META[savedResult.primary];
+    const topProducts = allProducts
+      .filter(p => Array.isArray(p.hairTypes) && p.hairTypes.includes(savedResult.primary))
+      .slice(0, 3);
+
+    return (
+      <section className="py-16 px-6" style={{ backgroundColor: meta.bg }}>
+        <div className="max-w-4xl mx-auto">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
+            <div>
+              <p className="font-body text-xs tracking-widest uppercase mb-2" style={{ color: meta.color, letterSpacing: "0.18em" }}>
+                Welcome Back
+              </p>
+              <h2 className="font-display font-bold leading-tight" style={{ fontSize: "clamp(1.8rem, 4vw, 2.6rem)", color: "#2C2C2C" }}>
+                Your {meta.label} Picks
+              </h2>
+              <p className="font-body text-sm mt-2" style={{ color: "#6B5B4E" }}>{meta.tagline}</p>
+            </div>
+            <div className="flex gap-3 flex-shrink-0">
+              <Link href={`/hair-type/${savedResult.primary}`}>
+                <button
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded font-body font-semibold text-sm transition-all duration-200 hover:opacity-90"
+                  style={{ backgroundColor: meta.color, color: "#FDF6EE" }}
+                >
+                  <Sparkles size={14} /> View All {meta.label} Products
+                </button>
+              </Link>
+              <Link href="/hair-quiz">
+                <button
+                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded font-body text-sm transition-all duration-200 hover:opacity-80"
+                  style={{ border: `1.5px solid ${meta.color}`, color: meta.color, backgroundColor: "transparent" }}
+                >
+                  <RefreshCw size={13} /> Retake Quiz
+                </button>
+              </Link>
+            </div>
+          </div>
+          {topProducts.length > 0 && (
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+              {topProducts.map(p => (
+                <ProductCard key={p.id} product={p} variant="default" />
+              ))}
+            </div>
+          )}
+        </div>
+      </section>
+    );
+  }
+
+  // First-time visitor: generic quiz CTA
+  return (
+    <section className="py-16 px-6" style={{ background: "linear-gradient(135deg, #2C1810 0%, #8B1A2F 60%, #5C2D44 100%)" }}>
+      <div className="max-w-3xl mx-auto text-center">
+        <p className="font-body text-xs tracking-widest uppercase mb-3" style={{ color: "#D4822A", letterSpacing: "0.18em" }}>
+          Personalized Recommendations
+        </p>
+        <h2 className="font-display font-bold mb-4 leading-tight" style={{ fontSize: "clamp(2rem, 5vw, 3rem)", color: "#FDF6EE" }}>
+          Not Sure What Your Hair Needs?
+        </h2>
+        <p className="font-body text-base mb-8 leading-relaxed" style={{ color: "rgba(253,246,238,0.75)", maxWidth: "520px", margin: "0 auto 2rem" }}>
+          Take our 2-minute hair type quiz and get personalized product recommendations matched to your exact hair profile.
+        </p>
+        <Link href="/hair-quiz">
+          <button
+            className="inline-flex items-center gap-2 px-10 py-4 rounded font-body font-semibold text-base transition-all duration-200 hover:opacity-90 hover:gap-3"
+            style={{ backgroundColor: "#D4822A", color: "#FDF6EE", letterSpacing: "0.06em" }}
+          >
+            Take the Hair Type Quiz <ArrowRight size={18} />
+          </button>
+        </Link>
+        <p className="font-body text-xs mt-4" style={{ color: "rgba(253,246,238,0.45)" }}>8 questions · 2 minutes · No sign-up required</p>
+      </div>
+    </section>
+  );
+}
 
 export default function Home() {
   useEffect(() => {
@@ -243,29 +343,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Hair Quiz CTA */}
-      <section className="py-16 px-6" style={{ background: "linear-gradient(135deg, #2C1810 0%, #8B1A2F 60%, #5C2D44 100%)" }}>
-        <div className="max-w-3xl mx-auto text-center">
-          <p className="font-body text-xs tracking-widest uppercase mb-3" style={{ color: "#D4822A", letterSpacing: "0.18em" }}>
-            Personalized Recommendations
-          </p>
-          <h2 className="font-display font-bold mb-4 leading-tight" style={{ fontSize: "clamp(2rem, 5vw, 3rem)", color: "#FDF6EE" }}>
-            Not Sure What Your Hair Needs?
-          </h2>
-          <p className="font-body text-base mb-8 leading-relaxed" style={{ color: "rgba(253,246,238,0.75)", maxWidth: "520px", margin: "0 auto 2rem" }}>
-            Take our 2-minute hair type quiz and get personalized product recommendations matched to your exact hair profile.
-          </p>
-          <Link href="/hair-quiz">
-            <button
-              className="inline-flex items-center gap-2 px-10 py-4 rounded font-body font-semibold text-base transition-all duration-200 hover:opacity-90 hover:gap-3"
-              style={{ backgroundColor: "#D4822A", color: "#FDF6EE", letterSpacing: "0.06em" }}
-            >
-              Take the Hair Type Quiz <ArrowRight size={18} />
-            </button>
-          </Link>
-          <p className="font-body text-xs mt-4" style={{ color: "rgba(253,246,238,0.45)" }}>8 questions · 2 minutes · No sign-up required</p>
-        </div>
-      </section>
+      {/* Hair Quiz CTA — personalized for returning visitors */}
+      <QuizCtaSection />
 
       {/* Newsletter Signup */}
       <NewsletterSignup variant="banner" />

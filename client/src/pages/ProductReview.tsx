@@ -66,7 +66,34 @@ function QuizPromptBanner() {
 export default function ProductReview() {
   const { slug } = useParams<{ slug: string }>();
   const product = allProducts.find(p => p.slug === slug);
-  const relatedProducts = product ? getProductsByCategory(product.categorySlug).filter(p => p.id !== product.id).slice(0, 3) : [];
+  const [savedHairType, setSavedHairType] = useState<string | null>(null);
+
+  useEffect(() => {
+    const saved = localStorage.getItem(QUIZ_RESULT_KEY);
+    if (saved) {
+      try { setSavedHairType(JSON.parse(saved).primary || null); } catch {}
+    }
+  }, []);
+
+  // Build related products: prioritize those matching the user's saved hair type
+  const relatedProducts = (() => {
+    if (!product) return [];
+    const sameCategory = getProductsByCategory(product.categorySlug).filter(p => p.id !== product.id);
+    if (savedHairType) {
+      const hairTypeMatches = sameCategory.filter(p =>
+        Array.isArray(p.hairTypes) && p.hairTypes.includes(savedHairType)
+      );
+      const rest = sameCategory.filter(p =>
+        !(Array.isArray(p.hairTypes) && p.hairTypes.includes(savedHairType))
+      );
+      return [...hairTypeMatches, ...rest].slice(0, 3);
+    }
+    return sameCategory.slice(0, 3);
+  })();
+
+  const relatedLabel = savedHairType && relatedProducts.some(p =>
+    Array.isArray(p.hairTypes) && p.hairTypes.includes(savedHairType)
+  ) ? `Recommended for ${savedHairType.charAt(0).toUpperCase() + savedHairType.slice(1).replace("-", "-").replace("treated", "Treated")} Hair` : null;
 
   useEffect(() => {
     if (product) {
@@ -246,9 +273,11 @@ export default function ProductReview() {
         {/* Related Products */}
         {relatedProducts.length > 0 && (
           <section className="mt-16 pt-10 border-t" style={{ borderColor: "#E8DDD0" }}>
-            <p className="section-label mb-2">More in {product.category}</p>
+            <p className="section-label mb-2">
+              {relatedLabel ? "Personalized for You" : `More in ${product.category}`}
+            </p>
             <h2 className="font-display font-bold mb-8" style={{ fontSize: "1.8rem", color: "#2C2C2C" }}>
-              Related Reviews
+              {relatedLabel ?? "Related Reviews"}
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
               {relatedProducts.map(p => <ProductCard key={p.id} product={p} variant="default" />)}
