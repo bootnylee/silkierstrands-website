@@ -3,9 +3,38 @@
 // Features: Editor's Pick badge, Price Drop badge, Star ratings, Amazon affiliate links
 
 import { Link } from "wouter";
-import { ExternalLink, Star, TrendingDown, Flame } from "lucide-react";
+import { ExternalLink, Star, TrendingDown, Flame, Sparkles } from "lucide-react";
 import { type Product, amazonLink } from "@/lib/products";
 import { getPriceBadge, type PriceBadge } from "@/lib/priceHistory";
+
+// Returns true if the product was published within the last 14 days
+function isNewThisWeek(publishDate: string): boolean {
+  const published = new Date(publishDate);
+  const now = new Date();
+  const diffMs = now.getTime() - published.getTime();
+  const diffDays = diffMs / (1000 * 60 * 60 * 24);
+  return diffDays <= 14;
+}
+
+// ─── New This Week Badge ──────────────────────────────────────────────────────
+function NewBadge({ size = "sm" }: { size?: "sm" | "xs" }) {
+  return (
+    <span
+      className="inline-flex items-center gap-1 font-label font-semibold rounded-sm"
+      style={{
+        backgroundColor: "#2D6A4F",
+        color: "#FFF",
+        fontSize: size === "xs" ? "0.62rem" : "0.68rem",
+        padding: size === "xs" ? "2px 6px" : "3px 8px",
+        letterSpacing: "0.05em",
+        textTransform: "uppercase",
+      }}
+    >
+      <Sparkles size={size === "xs" ? 8 : 9} />
+      New
+    </span>
+  );
+}
 
 interface ProductCardProps {
   product: Product;
@@ -81,10 +110,16 @@ export default function ProductCard({
   variant = "default",
 }: ProductCardProps) {
   const priceBadge = getPriceBadge(product.asin, product.price);
+  const isNew = isNewThisWeek(product.publishDate);
 
   if (variant === "compact") {
     return (
-      <div className="product-card flex gap-4 p-4 rounded-sm">
+      <div className="product-card flex gap-4 p-4 rounded-sm relative">
+        {isNew && (
+          <div className="absolute top-2 right-2">
+            <NewBadge size="xs" />
+          </div>
+        )}
         <div
           className="flex-shrink-0 w-20 h-20 overflow-hidden rounded-sm"
           style={{ backgroundColor: "#F5EBE0" }}
@@ -161,6 +196,7 @@ export default function ProductCard({
                 Editor's Pick
               </span>
             )}
+            {isNew && <NewBadge />}
             {priceBadge && <PriceDropBadge badge={priceBadge} />}
           </div>
         </div>
@@ -246,6 +282,7 @@ export default function ProductCard({
               Editor's Pick
             </span>
           )}
+          {isNew && <NewBadge size="xs" />}
           {priceBadge && <PriceDropBadge badge={priceBadge} size="xs" />}
         </div>
       </div>

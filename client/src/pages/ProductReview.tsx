@@ -258,10 +258,34 @@ export default function ProductReview() {
               ))}
             </div>
 
-            {/* Pull Quote */}
-            <blockquote className="pull-quote my-8">
-              {product.shortDescription}
-            </blockquote>
+            {/* Editor's Note */}
+            {product.editorNote ? (
+              <div className="my-8 relative" style={{ borderLeft: "4px solid #8B1A2F", paddingLeft: "1.5rem" }}>
+                <div
+                  className="absolute -top-2 -left-3 w-6 h-6 rounded-full flex items-center justify-center"
+                  style={{ backgroundColor: "#8B1A2F" }}
+                >
+                  <span style={{ color: "#FDF6EE", fontSize: "0.65rem", fontWeight: 700, letterSpacing: "0.05em" }}>Ed</span>
+                </div>
+                <p
+                  className="font-label text-xs font-semibold mb-2"
+                  style={{ color: "#8B1A2F", letterSpacing: "0.1em", textTransform: "uppercase" }}
+                >
+                  Editor's Note
+                </p>
+                <blockquote
+                  className="font-body italic leading-relaxed"
+                  style={{ color: "#3D2B1F", fontSize: "1.05rem", fontStyle: "italic" }}
+                >
+                  &ldquo;{product.editorNote}&rdquo;
+                </blockquote>
+                <p className="font-body text-xs mt-2" style={{ color: "#B8A99A" }}>— SilkierStrands Editorial Team</p>
+              </div>
+            ) : (
+              <blockquote className="pull-quote my-8">
+                {product.shortDescription}
+              </blockquote>
+            )}
 
             {/* Final Verdict */}
             <div className="p-6 rounded-sm mt-8" style={{ backgroundColor: "#FFF8F0", border: "2px solid #D4822A" }}>
