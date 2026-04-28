@@ -2,7 +2,7 @@
 // Burgundy primary, Amber accent, Cream background, Cormorant Garamond display font
 // Hair Type Quiz — multi-step questionnaire with scoring and personalized product recommendations
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link } from "wouter";
 import { ChevronRight, ChevronLeft, RotateCcw, ExternalLink, Star, Share2, Check, Trash2, Mail } from "lucide-react";
 
@@ -10,68 +10,40 @@ import SiteLayout from "@/components/SiteLayout";
 import { allProducts } from "@/lib/products";
 
 // ─── Quiz Email Capture ────────────────────────────────────────────────────────
-// Uses the EmailOctopus embedded form POST endpoint directly (no JS widget).
-// The EmailOctopus JS widget is incompatible with React SPAs — it appends the
-// form to <body> instead of into the target div, causing it to render outside
-// the styled card. We use a controlled React form that POSTs via a hidden iframe
-// so the page doesn't navigate away on submit.
-const EMAILOCTOPUS_LIST_ID = "aeb1d42c-40de-11f1-aa22-35d9c85d0d35";
+// The EmailOctopus JS widget works by finding a <script data-form="..."> tag in
+// the DOM and inserting the form HTML immediately after it (nextSibling), then
+// removing the script tag itself. To keep the form inside our styled card, we
+// inject the <script> tag into the card's container div via useEffect, so the
+// widget inserts the form HTML inside the card rather than at the body level.
+const EMAILOCTOPUS_FORM_ID = "aeb1d42c-40de-11f1-aa22-35d9c85d0d35";
+const EMAILOCTOPUS_SCRIPT_SRC = `https://eocampaign1.com/form/${EMAILOCTOPUS_FORM_ID}.js`;
 
-function QuizEmailCapture({ hairTypeLabel, accentColor, hairTypeId }: { hairTypeLabel: string; accentColor: string; hairTypeId: string }) {
-  const [email, setEmail] = useState("");
-  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
-  const [errorMsg, setErrorMsg] = useState("");
+function QuizEmailCapture({ hairTypeLabel, accentColor }: { hairTypeLabel: string; accentColor: string; hairTypeId: string }) {
+  const containerRef = useRef<HTMLDivElement>(null);
 
-  function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    if (!email || status === "submitting") return;
-    setStatus("submitting");
-    setErrorMsg("");
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
 
-    try {
-      // Ensure the hidden iframe exists to absorb the redirect response
-      let iframe = document.getElementById("eo_hidden_frame") as HTMLIFrameElement | null;
-      if (!iframe) {
-        iframe = document.createElement("iframe");
-        iframe.id = "eo_hidden_frame";
-        iframe.name = "eo_hidden_frame";
-        iframe.style.display = "none";
-        document.body.appendChild(iframe);
-      }
+    // Remove any previously injected widget (e.g. on hot-reload)
+    container.innerHTML = "";
 
-      // Build and submit a temporary hidden form targeting the iframe
-      const form = document.createElement("form");
-      form.method = "POST";
-      form.action = `https://emailoctopus.com/lists/${EMAILOCTOPUS_LIST_ID}/members/embedded/1.3s/add`;
-      form.target = "eo_hidden_frame";
-      form.style.display = "none";
+    // Inject the <script data-form="..."> tag directly inside our container div.
+    // The EmailOctopus widget scans for this tag, inserts the form HTML right
+    // after it (parentNode.insertBefore(form, script.nextSibling)), then removes
+    // the script tag. Because the script tag is inside our card div, the form
+    // HTML ends up inside the card — not appended to <body>.
+    const script = document.createElement("script");
+    script.src = EMAILOCTOPUS_SCRIPT_SRC;
+    script.async = true;
+    script.setAttribute("data-form", EMAILOCTOPUS_FORM_ID);
+    container.appendChild(script);
 
-      const addHidden = (name: string, value: string) => {
-        const input = document.createElement("input");
-        input.type = "hidden";
-        input.name = name;
-        input.value = value;
-        form.appendChild(input);
-      };
-
-      addHidden("member[email_address]", email);
-      addHidden("hpc_1", "");
-      if (hairTypeId) addHidden("member[fields][HairType]", hairTypeId);
-
-      document.body.appendChild(form);
-      form.submit();
-      document.body.removeChild(form);
-
-      // Optimistically show success after a short delay
-      setTimeout(() => {
-        setStatus("success");
-        setEmail("");
-      }, 800);
-    } catch {
-      setStatus("error");
-      setErrorMsg("Something went wrong. Please try again.");
-    }
-  }
+    return () => {
+      // Clean up on unmount
+      if (container.contains(script)) container.removeChild(script);
+    };
+  }, []);
 
   return (
     <div
@@ -92,41 +64,9 @@ function QuizEmailCapture({ hairTypeLabel, accentColor, hairTypeId }: { hairType
       <p className="font-body text-sm mb-6 leading-relaxed" style={{ color: "#6B5B6E", maxWidth: "420px", margin: "0 auto 1.5rem" }}>
         We'll email you your personalized hair type profile, top product picks, and weekly expert tips — curated for {hairTypeLabel}.
       </p>
-
-      {status === "success" ? (
-        <div className="flex flex-col items-center gap-2 py-4">
-          <div className="w-10 h-10 rounded-full flex items-center justify-center" style={{ backgroundColor: `${accentColor}22` }}>
-            <Check size={20} style={{ color: accentColor }} />
-          </div>
-          <p className="font-body font-semibold text-sm" style={{ color: accentColor }}>You're on the list!</p>
-          <p className="font-body text-xs" style={{ color: "#6B5B6E" }}>Check your inbox for your {hairTypeLabel} guide.</p>
-        </div>
-      ) : (
-        <form onSubmit={handleSubmit} className="flex gap-2 max-w-sm mx-auto">
-          <input
-            type="email"
-            value={email}
-            onChange={e => setEmail(e.target.value)}
-            placeholder="Your email address"
-            required
-            disabled={status === "submitting"}
-            className="flex-1 px-4 py-3 text-sm rounded-sm border"
-            style={{ borderColor: `${accentColor}44`, backgroundColor: "#FFFFFF", color: "#2C2C2C", outline: "none" }}
-          />
-          <button
-            type="submit"
-            disabled={status === "submitting"}
-            className="px-5 py-3 rounded-sm font-body font-semibold text-sm flex-shrink-0 transition-opacity"
-            style={{ backgroundColor: accentColor, color: "#FDF6EE", opacity: status === "submitting" ? 0.7 : 1 }}
-          >
-            {status === "submitting" ? "..." : "Send"}
-          </button>
-        </form>
-      )}
-
-      {errorMsg && (
-        <p className="font-body text-xs mt-2" style={{ color: "#C0392B" }}>{errorMsg}</p>
-      )}
+      {/* The EmailOctopus widget injects the form HTML right after the <script> tag
+          that we insert into this div via useEffect. */}
+      <div ref={containerRef} className="max-w-sm mx-auto" />
       <p className="font-body text-xs mt-3" style={{ color: "#B8A99A" }}>No spam, ever. Unsubscribe at any time.</p>
     </div>
   );

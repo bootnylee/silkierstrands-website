@@ -1,75 +1,39 @@
 /**
  * NewsletterSignup Component - SilkierStrands.com
  * Design: Bold Magazine - Burgundy (#8B1A2F) + Amber (#D4822A) + Cream (#FDF6EE)
- * Integration: EmailOctopus JavaScript embed
- * Form ID: aeb1d42c-40de-11f1-aa22-35d9c85d0d35
- * Hair type tagging: reads saved quiz result from localStorage and passes it
- * as a hidden field (member[fields][HairType]) in the fallback form submission.
+ *
+ * EmailOctopus integration: injects the <script data-form="..."> tag directly
+ * inside the component's container div via useEffect. The EmailOctopus widget
+ * finds this script tag, inserts the form HTML immediately after it
+ * (parentNode.insertBefore(form, script.nextSibling)), then removes the script.
+ * Because the script is inside our div, the form renders inside the component —
+ * not appended to <body> as it would with a static <script> tag.
+ *
+ * Note: hair type tagging via member[fields][HairType] requires the EmailOctopus
+ * form to have a custom "HairType" field configured in the dashboard. The widget
+ * handles reCAPTCHA automatically, which is why direct POST approaches fail.
  */
 
-import { useEffect, useRef, useState } from "react";
-import { QUIZ_RESULT_KEY } from "@/pages/HairQuiz";
+import { useEffect, useRef } from "react";
 
 const EMAILOCTOPUS_FORM_ID = "aeb1d42c-40de-11f1-aa22-35d9c85d0d35";
 const EMAILOCTOPUS_SCRIPT_SRC = `https://eocampaign1.com/form/${EMAILOCTOPUS_FORM_ID}.js`;
 
-// Singleton: only load the script once across all component instances
-let scriptStatus: "idle" | "loading" | "loaded" | "error" = "idle";
-const scriptCallbacks: Array<(success: boolean) => void> = [];
+/** Inject the EmailOctopus widget script into a container element.
+ *  Returns a cleanup function that removes the script on unmount. */
+function injectEmailOctopusWidget(container: HTMLElement): () => void {
+  // Clear any previously injected widget (handles React hot-reload / re-mounts)
+  container.innerHTML = "";
 
-function loadEmailOctopusScript(): Promise<boolean> {
-  return new Promise((resolve) => {
-    if (scriptStatus === "loaded") {
-      resolve(true);
-      return;
-    }
-    if (scriptStatus === "error") {
-      resolve(false);
-      return;
-    }
+  const script = document.createElement("script");
+  script.src = EMAILOCTOPUS_SCRIPT_SRC;
+  script.async = true;
+  script.setAttribute("data-form", EMAILOCTOPUS_FORM_ID);
+  container.appendChild(script);
 
-    scriptCallbacks.push(resolve);
-
-    if (scriptStatus === "loading") return;
-
-    scriptStatus = "loading";
-
-    const script = document.createElement("script");
-    script.src = EMAILOCTOPUS_SCRIPT_SRC;
-    script.async = true;
-    script.setAttribute("data-form", EMAILOCTOPUS_FORM_ID);
-    // crossOrigin allows the browser to report actual errors instead of masking them
-    script.crossOrigin = "anonymous";
-
-    script.onload = () => {
-      scriptStatus = "loaded";
-      scriptCallbacks.forEach((cb) => cb(true));
-      scriptCallbacks.length = 0;
-    };
-
-    script.onerror = () => {
-      scriptStatus = "error";
-      scriptCallbacks.forEach((cb) => cb(false));
-      scriptCallbacks.length = 0;
-    };
-
-    document.body.appendChild(script);
-  });
-}
-
-/** Read the saved hair type from localStorage (returns null if none saved). */
-function useSavedHairType(): string | null {
-  const [hairType, setHairType] = useState<string | null>(null);
-  useEffect(() => {
-    try {
-      const raw = localStorage.getItem(QUIZ_RESULT_KEY);
-      if (raw) {
-        const parsed = JSON.parse(raw);
-        if (parsed?.primary) setHairType(parsed.primary as string);
-      }
-    } catch {}
-  }, []);
-  return hairType;
+  return () => {
+    if (container.contains(script)) container.removeChild(script);
+  };
 }
 
 interface NewsletterSignupProps {
@@ -82,68 +46,11 @@ export default function NewsletterSignup({
   className = "",
 }: NewsletterSignupProps) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [scriptLoaded, setScriptLoaded] = useState(scriptStatus === "loaded");
-  const [scriptFailed, setScriptFailed] = useState(scriptStatus === "error");
-  const savedHairType = useSavedHairType();
 
   useEffect(() => {
-    if (scriptStatus === "loaded") {
-      setScriptLoaded(true);
-      return;
-    }
-    if (scriptStatus === "error") {
-      setScriptFailed(true);
-      return;
-    }
-
-    loadEmailOctopusScript().then((success) => {
-      if (success) {
-        setScriptLoaded(true);
-      } else {
-        setScriptFailed(true);
-      }
-    });
+    if (!containerRef.current) return;
+    return injectEmailOctopusWidget(containerRef.current);
   }, []);
-
-  // Hidden hair type field — included in all fallback form submissions
-  const HairTypeField = () =>
-    savedHairType ? (
-      <input type="hidden" name="member[fields][HairType]" value={savedHairType} />
-    ) : null;
-
-  // Fallback form shown if EmailOctopus script fails to load
-  const FallbackForm = () => (
-    <form
-      action={`https://emailoctopus.com/lists/${EMAILOCTOPUS_FORM_ID}/members/embedded/1.3s/add`}
-      method="post"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="flex gap-2 max-w-md mx-auto"
-    >
-      <input
-        type="email"
-        name="member[email_address]"
-        placeholder="Your email address"
-        required
-        className="flex-1 px-4 py-3 text-sm rounded-sm border"
-        style={{
-          borderColor: "rgba(255,255,255,0.3)",
-          backgroundColor: "rgba(255,255,255,0.15)",
-          color: "#FDF6EE",
-          outline: "none",
-        }}
-      />
-      <input type="hidden" name="hpc_1" value="" />
-      <HairTypeField />
-      <button
-        type="submit"
-        className="px-6 py-3 rounded-sm font-semibold text-sm uppercase tracking-wider flex-shrink-0"
-        style={{ backgroundColor: "#D4822A", color: "#fff" }}
-      >
-        Subscribe
-      </button>
-    </form>
-  );
 
   if (variant === "banner") {
     return (
@@ -186,19 +93,7 @@ export default function NewsletterSignup({
             Join thousands of women who receive our curated product reviews,
             exclusive deals, and expert styling advice every week.
           </p>
-
-          {scriptFailed ? (
-            <FallbackForm />
-          ) : (
-            <div
-              ref={containerRef}
-              data-form={EMAILOCTOPUS_FORM_ID}
-              data-hair-type={savedHairType ?? undefined}
-              className="max-w-lg mx-auto"
-              style={{ minHeight: scriptLoaded ? "auto" : "60px" }}
-            />
-          )}
-
+          <div ref={containerRef} className="max-w-md mx-auto" />
           <p
             className="text-xs mt-4"
             style={{ color: "rgba(253,246,238,0.5)" }}
@@ -225,46 +120,7 @@ export default function NewsletterSignup({
         >
           New reviews every Monday. No spam, ever.
         </p>
-        {scriptFailed ? (
-          <form
-            action={`https://emailoctopus.com/lists/${EMAILOCTOPUS_FORM_ID}/members/embedded/1.3s/add`}
-            method="post"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex gap-2"
-          >
-            <input
-              type="email"
-              name="member[email_address]"
-              placeholder="Your email"
-              required
-              className="flex-1 px-3 py-2 text-sm rounded-sm border"
-              style={{
-                borderColor: "rgba(255,255,255,0.15)",
-                backgroundColor: "rgba(255,255,255,0.08)",
-                color: "#FDF6EE",
-                outline: "none",
-                minWidth: 0,
-              }}
-            />
-            <input type="hidden" name="hpc_1" value="" />
-            <HairTypeField />
-            <button
-              type="submit"
-              className="px-4 py-2 rounded-sm flex-shrink-0 font-semibold text-xs uppercase tracking-wider"
-              style={{ backgroundColor: "#8B1A2F", color: "#FDF6EE" }}
-            >
-              Join
-            </button>
-          </form>
-        ) : (
-          <div
-            ref={containerRef}
-            data-form={EMAILOCTOPUS_FORM_ID}
-            data-hair-type={savedHairType ?? undefined}
-            style={{ minHeight: "50px" }}
-          />
-        )}
+        <div ref={containerRef} />
       </div>
     );
   }
@@ -284,45 +140,7 @@ export default function NewsletterSignup({
       <p className="text-sm mb-4 leading-relaxed" style={{ color: "#4A4A4A" }}>
         Get new reviews and comparisons in your inbox every Monday.
       </p>
-      {scriptFailed ? (
-        <form
-          action={`https://emailoctopus.com/lists/${EMAILOCTOPUS_FORM_ID}/members/embedded/1.3s/add`}
-          method="post"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex gap-2"
-        >
-          <input
-            type="email"
-            name="member[email_address]"
-            placeholder="Your email address"
-            required
-            className="flex-1 px-3 py-2 text-sm rounded-sm border"
-            style={{
-              borderColor: "#D4C5B5",
-              backgroundColor: "#FFFFFF",
-              color: "#2C2C2C",
-              outline: "none",
-            }}
-          />
-          <input type="hidden" name="hpc_1" value="" />
-          <HairTypeField />
-          <button
-            type="submit"
-            className="px-4 py-2 rounded-sm flex-shrink-0 font-semibold text-xs uppercase tracking-wider"
-            style={{ backgroundColor: "#8B1A2F", color: "#FDF6EE" }}
-          >
-            Subscribe
-          </button>
-        </form>
-      ) : (
-        <div
-          ref={containerRef}
-          data-form={EMAILOCTOPUS_FORM_ID}
-          data-hair-type={savedHairType ?? undefined}
-          style={{ minHeight: "50px" }}
-        />
-      )}
+      <div ref={containerRef} />
     </div>
   );
 }
