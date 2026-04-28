@@ -2,12 +2,102 @@
 // Burgundy primary, Amber accent, Cream background, Cormorant Garamond display font
 // Hair Type Quiz — multi-step questionnaire with scoring and personalized product recommendations
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link } from "wouter";
-import { ChevronRight, ChevronLeft, RotateCcw, ExternalLink, Star, Share2, Check, Trash2 } from "lucide-react";
+import { ChevronRight, ChevronLeft, RotateCcw, ExternalLink, Star, Share2, Check, Trash2, Mail } from "lucide-react";
 
 import SiteLayout from "@/components/SiteLayout";
 import { allProducts } from "@/lib/products";
+
+// ─── Quiz Email Capture ────────────────────────────────────────────────────────
+const EMAILOCTOPUS_FORM_ID = "aeb1d42c-40de-11f1-aa22-35d9c85d0d35";
+let quizScriptStatus: "idle" | "loading" | "loaded" | "error" = "idle";
+const quizScriptCallbacks: Array<(ok: boolean) => void> = [];
+
+function loadQuizEmailScript(): Promise<boolean> {
+  return new Promise((resolve) => {
+    if (quizScriptStatus === "loaded") { resolve(true); return; }
+    if (quizScriptStatus === "error") { resolve(false); return; }
+    quizScriptCallbacks.push(resolve);
+    if (quizScriptStatus === "loading") return;
+    quizScriptStatus = "loading";
+    const s = document.createElement("script");
+    s.src = `https://eocampaign1.com/form/${EMAILOCTOPUS_FORM_ID}.js`;
+    s.async = true;
+    s.setAttribute("data-form", EMAILOCTOPUS_FORM_ID);
+    s.onload = () => { quizScriptStatus = "loaded"; quizScriptCallbacks.forEach(cb => cb(true)); quizScriptCallbacks.length = 0; };
+    s.onerror = () => { quizScriptStatus = "error"; quizScriptCallbacks.forEach(cb => cb(false)); quizScriptCallbacks.length = 0; };
+    document.body.appendChild(s);
+  });
+}
+
+function QuizEmailCapture({ hairTypeLabel, accentColor }: { hairTypeLabel: string; accentColor: string }) {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [scriptLoaded, setScriptLoaded] = useState(quizScriptStatus === "loaded");
+  const [scriptFailed, setScriptFailed] = useState(quizScriptStatus === "error");
+
+  useEffect(() => {
+    if (quizScriptStatus === "loaded") { setScriptLoaded(true); return; }
+    if (quizScriptStatus === "error") { setScriptFailed(true); return; }
+    loadQuizEmailScript().then(ok => ok ? setScriptLoaded(true) : setScriptFailed(true));
+  }, []);
+
+  return (
+    <div
+      className="rounded-xl px-8 py-10 text-center"
+      style={{ background: `linear-gradient(135deg, ${accentColor}18 0%, ${accentColor}08 100%)`, border: `1.5px solid ${accentColor}33` }}
+    >
+      <div className="flex justify-center mb-4">
+        <div className="w-10 h-10 rounded-full flex items-center justify-center" style={{ backgroundColor: `${accentColor}22` }}>
+          <Mail size={18} style={{ color: accentColor }} />
+        </div>
+      </div>
+      <p className="font-body text-xs tracking-widest uppercase mb-2" style={{ color: accentColor, letterSpacing: "0.16em" }}>
+        Save Your Results
+      </p>
+      <h3 className="font-display text-2xl font-bold mb-2" style={{ color: "#2C2C2C" }}>
+        Get Your {hairTypeLabel} Guide
+      </h3>
+      <p className="font-body text-sm mb-6 leading-relaxed" style={{ color: "#6B5B6E", maxWidth: "420px", margin: "0 auto 1.5rem" }}>
+        We'll email you your personalized hair type profile, top product picks, and weekly expert tips — curated for {hairTypeLabel}.
+      </p>
+      {scriptFailed ? (
+        <form
+          action={`https://emailoctopus.com/lists/${EMAILOCTOPUS_FORM_ID}/members/embedded/1.3s/add`}
+          method="post"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex gap-2 max-w-sm mx-auto"
+        >
+          <input
+            type="email"
+            name="member[email_address]"
+            placeholder="Your email address"
+            required
+            className="flex-1 px-4 py-3 text-sm rounded-sm border"
+            style={{ borderColor: `${accentColor}44`, backgroundColor: "#FFFFFF", color: "#2C2C2C", outline: "none" }}
+          />
+          <input type="hidden" name="hpc_1" value="" />
+          <button
+            type="submit"
+            className="px-5 py-3 rounded-sm font-body font-semibold text-sm flex-shrink-0"
+            style={{ backgroundColor: accentColor, color: "#FDF6EE" }}
+          >
+            Send
+          </button>
+        </form>
+      ) : (
+        <div
+          ref={containerRef}
+          data-form={EMAILOCTOPUS_FORM_ID}
+          className="max-w-sm mx-auto"
+          style={{ minHeight: scriptLoaded ? "auto" : "60px" }}
+        />
+      )}
+      <p className="font-body text-xs mt-3" style={{ color: "#B8A99A" }}>No spam, ever. Unsubscribe at any time.</p>
+    </div>
+  );
+}
 
 // ─── Quiz Questions ────────────────────────────────────────────────────────────
 
@@ -772,6 +862,11 @@ export default function HairQuiz() {
                   See all products for {resultInfo.title} <ChevronRight size={15} />
                 </Link>
               </div>
+            </div>
+
+            {/* Email capture */}
+            <div className="mt-12 mb-4">
+              <QuizEmailCapture hairTypeLabel={resultInfo.title} accentColor={resultInfo.accentColor} />
             </div>
           </div>
         </div>
