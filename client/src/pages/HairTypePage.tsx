@@ -18,7 +18,7 @@ import {
   getProductsForHairType,
 } from "@/lib/hairTypes";
 import { updateDocumentMeta } from "@/lib/seo";
-import { ArrowRight, CheckCircle, Lightbulb, ChevronRight, SlidersHorizontal, X } from "lucide-react";
+import { ArrowRight, CheckCircle, Lightbulb, ChevronRight, SlidersHorizontal, X, Star, Award } from "lucide-react";
 import { categories } from "@/lib/products";
 
 export default function HairTypePage() {
@@ -44,6 +44,18 @@ export default function HairTypePage() {
     () => applyFilters(allMatchingProducts, filters),
     [allMatchingProducts, filters]
   );
+
+  // Top 3 highest-rated products for the editorial spotlight (unfiltered, sorted by rating then editorPick)
+  const top3Picks = useMemo(() => {
+    return [...allMatchingProducts]
+      .sort((a, b) => {
+        // Editor picks first, then by rating descending
+        if (a.editorPick && !b.editorPick) return -1;
+        if (!a.editorPick && b.editorPick) return 1;
+        return b.rating - a.rating;
+      })
+      .slice(0, 3);
+  }, [allMatchingProducts]);
 
   const topProducts = filteredProducts.slice(0, 6);
   const anyActive = hasActiveFilters(filters);
@@ -178,6 +190,134 @@ export default function HairTypePage() {
           </div>
         </div>
       </section>
+
+      {/* ── Top 3 Editorial Spotlight ── */}
+      {top3Picks.length > 0 && (
+        <section className="py-14 border-b" style={{ borderColor: "#E8DDD0", backgroundColor: "#FDF6EE" }}>
+          <div className="container">
+            {/* Section header */}
+            <div className="flex items-center justify-between mb-8">
+              <div>
+                <div className="flex items-center gap-3 mb-2">
+                  <Award size={16} style={{ color: "#D4822A" }} />
+                  <p className="font-label font-semibold text-xs" style={{ color: "#D4822A", letterSpacing: "0.14em", textTransform: "uppercase" }}>
+                    Our Top Picks
+                  </p>
+                </div>
+                <h2 className="font-display font-bold" style={{ fontSize: "1.75rem", color: "#2C2C2C" }}>
+                  Best {hairType.name} Products Right Now
+                </h2>
+                <p className="font-body text-sm mt-1" style={{ color: "#6C6C6C" }}>
+                  Hand-tested and ranked by our editors — the three products we'd reach for first.
+                </p>
+              </div>
+              <Link href={`/reviews?hairType=${hairType.id}`}>
+                <button className="hidden md:flex items-center gap-2 font-label font-semibold text-xs" style={{ color: "#8B1A2F", letterSpacing: "0.08em", textTransform: "uppercase" }}>
+                  See All Products <ArrowRight size={14} />
+                </button>
+              </Link>
+            </div>
+
+            {/* Top 3 cards — horizontal editorial layout */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {top3Picks.map((product, index) => (
+                <Link key={product.id} href={`/review/${product.slug}`}>
+                  <div
+                    className="group relative flex flex-col h-full rounded-sm overflow-hidden cursor-pointer transition-all duration-300 hover:-translate-y-1"
+                    style={{
+                      backgroundColor: "#FFFFFF",
+                      border: index === 0 ? "2px solid #8B1A2F" : "1px solid #E8DDD0",
+                      boxShadow: index === 0 ? "0 8px 32px rgba(139,26,47,0.12)" : "0 2px 12px rgba(0,0,0,0.06)",
+                    }}
+                  >
+                    {/* Rank badge */}
+                    <div
+                      className="absolute top-3 left-3 z-10 w-8 h-8 rounded-full flex items-center justify-center font-label font-bold text-sm"
+                      style={{
+                        backgroundColor: index === 0 ? "#8B1A2F" : index === 1 ? "#D4822A" : "#B8A99A",
+                        color: "#FFF",
+                      }}
+                    >
+                      #{index + 1}
+                    </div>
+
+                    {/* Editor's Pick ribbon for #1 */}
+                    {index === 0 && (
+                      <div
+                        className="absolute top-3 right-3 z-10 flex items-center gap-1 px-2 py-0.5 rounded-sm font-label font-bold text-xs"
+                        style={{ backgroundColor: "#8B1A2F", color: "#FDF6EE", letterSpacing: "0.06em", textTransform: "uppercase" }}
+                      >
+                        <Award size={10} /> Editor's Pick
+                      </div>
+                    )}
+
+                    {/* Product image */}
+                    <div className="relative overflow-hidden" style={{ height: "200px", backgroundColor: "#F5EBE0" }}>
+                      <img
+                        src={product.imageUrl || product.amazonImageUrl}
+                        alt={product.name}
+                        className="w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-105"
+                      />
+                    </div>
+
+                    {/* Content */}
+                    <div className="flex flex-col flex-1 p-5">
+                      <p className="font-label font-semibold text-xs mb-1" style={{ color: "#D4822A", letterSpacing: "0.08em", textTransform: "uppercase" }}>
+                        {product.category}
+                      </p>
+                      <h3 className="font-display font-bold mb-1 leading-snug" style={{ fontSize: "1.05rem", color: "#2C2C2C" }}>
+                        {product.name}
+                      </h3>
+                      <p className="font-body text-xs mb-3" style={{ color: "#8B6A5A" }}>
+                        {product.brand}
+                      </p>
+
+                      {/* Rating row */}
+                      <div className="flex items-center gap-2 mb-3">
+                        <div className="flex items-center gap-0.5">
+                          {[1,2,3,4,5].map(star => (
+                            <Star
+                              key={star}
+                              size={12}
+                              fill={star <= Math.round(product.rating) ? "#D4822A" : "none"}
+                              style={{ color: "#D4822A" }}
+                            />
+                          ))}
+                        </div>
+                        <span className="font-label font-bold text-xs" style={{ color: "#D4822A" }}>{product.rating.toFixed(1)}</span>
+                        <span className="font-body text-xs" style={{ color: "#9E8E84" }}>({product.reviewCount.toLocaleString()})</span>
+                      </div>
+
+                      <p className="font-body text-sm leading-relaxed flex-1" style={{ color: "#4A4A4A" }}>
+                        {product.shortDescription}
+                      </p>
+
+                      {/* Price + CTA */}
+                      <div className="flex items-center justify-between mt-4 pt-4 border-t" style={{ borderColor: "#E8DDD0" }}>
+                        <span className="font-display font-bold" style={{ fontSize: "1.1rem", color: "#2C2C2C" }}>
+                          {product.priceDisplay}
+                        </span>
+                        <span
+                          className="font-label font-semibold text-xs px-3 py-1.5 rounded-sm transition-colors"
+                          style={{
+                            backgroundColor: index === 0 ? "#8B1A2F" : "transparent",
+                            color: index === 0 ? "#FDF6EE" : "#8B1A2F",
+                            border: index === 0 ? "none" : "1px solid #8B1A2F",
+                            letterSpacing: "0.06em",
+                            textTransform: "uppercase",
+                          }}
+                        >
+                          Read Review
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* ── About This Hair Type ── */}
       <section className="py-14 border-b" style={{ borderColor: "#E8DDD0", backgroundColor: "#FFF8F0" }}>
