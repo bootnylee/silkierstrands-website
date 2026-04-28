@@ -4,7 +4,8 @@
 
 import { useState, useEffect } from "react";
 import { Link } from "wouter";
-import { ChevronRight, ChevronLeft, RotateCcw, ExternalLink, Star } from "lucide-react";
+import { ChevronRight, ChevronLeft, RotateCcw, ExternalLink, Star, Share2, Check } from "lucide-react";
+
 import SiteLayout from "@/components/SiteLayout";
 import { allProducts } from "@/lib/products";
 
@@ -23,6 +24,10 @@ interface Question {
 }
 
 type HairTypeId = "fine" | "thick" | "curly" | "coarse" | "dry" | "normal" | "color-treated";
+
+// ─── localStorage key ────────────────────────────────────────────────────────
+export const QUIZ_RESULT_KEY = "silkierstrands_quiz_result";
+export type QuizResultData = { primary: HairTypeId; secondary: HairTypeId; completedAt: string };
 
 const questions: Question[] = [
   {
@@ -384,6 +389,20 @@ export default function HairQuiz() {
   const [animating, setAnimating] = useState(false);
   const [result, setResult] = useState<HairTypeId | null>(null);
   const [secondary, setSecondary] = useState<HairTypeId | null>(null);
+  const [copied, setCopied] = useState(false);
+
+  // Load saved result from localStorage on mount
+  useEffect(() => {
+    const saved = localStorage.getItem(QUIZ_RESULT_KEY);
+    if (saved) {
+      try {
+        const data: QuizResultData = JSON.parse(saved);
+        setResult(data.primary);
+        setSecondary(data.secondary);
+        setStep("results");
+      } catch {}
+    }
+  }, []);
 
   // Reset selected when question changes
   useEffect(() => {
@@ -412,6 +431,9 @@ export default function HairQuiz() {
       setResult(primary);
       setSecondary(sec);
       setStep("results");
+      // Persist result to localStorage
+      const quizSaveData: QuizResultData = { primary, secondary: sec, completedAt: new Date().toISOString() };
+      localStorage.setItem(QUIZ_RESULT_KEY, JSON.stringify(quizSaveData));
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
   }
@@ -429,6 +451,7 @@ export default function HairQuiz() {
   }
 
   function handleRestart() {
+    localStorage.removeItem(QUIZ_RESULT_KEY);
     setStep("intro");
     setCurrentQ(0);
     setAnswers({});
@@ -436,6 +459,21 @@ export default function HairQuiz() {
     setResult(null);
     setSecondary(null);
     window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  function handleShare() {
+    if (!result) return;
+    const info = resultData[result];
+    const url = `${window.location.origin}/hair-quiz`;
+    const text = `I just took the SilkierStrands Hair Type Quiz and found out I have ${info.title}! ${info.tagline} Take the quiz to find your hair type and get personalized product recommendations.`;
+    if (navigator.share) {
+      navigator.share({ title: `My Hair Type: ${info.title}`, text, url }).catch(() => {});
+    } else {
+      navigator.clipboard.writeText(`${text}\n${url}`).then(() => {
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2500);
+      });
+    }
   }
 
   const q = questions[currentQ];
@@ -645,6 +683,13 @@ export default function HairQuiz() {
                   style={{ border: `1.5px solid ${resultInfo.accentColor}`, color: resultInfo.accentColor, backgroundColor: "transparent" }}
                 >
                   <RotateCcw size={14} /> Retake Quiz
+                </button>
+                <button
+                  onClick={handleShare}
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded font-body font-semibold text-sm transition-all duration-200 hover:opacity-80"
+                  style={{ border: `1.5px solid ${resultInfo.accentColor}44`, color: resultInfo.accentColor, backgroundColor: `${resultInfo.accentColor}11` }}
+                >
+                  {copied ? <><Check size={14} /> Copied!</> : <><Share2 size={14} /> Share Results</>}
                 </button>
               </div>
             </div>

@@ -1,13 +1,67 @@
 // SilkierStrands.com - Product Review Page
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useParams, Link } from "wouter";
-import { ExternalLink, ArrowLeft, CheckCircle, XCircle } from "lucide-react";
+import { ExternalLink, ArrowLeft, CheckCircle, XCircle, Sparkles } from "lucide-react";
+import { QUIZ_RESULT_KEY } from "./HairQuiz";
 import SiteLayout from "@/components/SiteLayout";
 import { StarRatingDisplay } from "@/components/ProductCard";
 import { allProducts, amazonLink, getProductsByCategory } from "@/lib/products";
 import { updateDocumentMeta, buildProductSchema, buildReviewSchema, injectStructuredData } from "@/lib/seo";
 import ProductCard from "@/components/ProductCard";
+
+// ─── Quiz Prompt Banner ──────────────────────────────────────────────────────
+function QuizPromptBanner() {
+  const [hasResult, setHasResult] = useState(false);
+  const [hairTypeName, setHairTypeName] = useState("");
+
+  useEffect(() => {
+    const saved = localStorage.getItem(QUIZ_RESULT_KEY);
+    if (saved) {
+      try {
+        const data = JSON.parse(saved);
+        const names: Record<string, string> = {
+          fine: "Fine Hair", thick: "Thick Hair", curly: "Curly Hair",
+          coarse: "Coarse Hair", dry: "Dry Hair", normal: "Normal Hair",
+          "color-treated": "Color-Treated Hair"
+        };
+        setHairTypeName(names[data.primary] || "");
+        setHasResult(true);
+      } catch {}
+    }
+  }, []);
+
+  return (
+    <div
+      className="mt-14 rounded-xl p-7 flex flex-col sm:flex-row items-center justify-between gap-5"
+      style={{ background: "linear-gradient(135deg, #2C1810 0%, #8B1A2F 100%)", border: "1px solid #8B1A2F44" }}
+    >
+      <div className="flex items-start gap-4">
+        <Sparkles size={28} style={{ color: "#D4822A", flexShrink: 0, marginTop: "2px" }} />
+        <div>
+          <p className="font-display font-bold text-lg leading-tight" style={{ color: "#FDF6EE" }}>
+            {hasResult && hairTypeName
+              ? `Not sure this is right for your ${hairTypeName}?`
+              : "Not sure this product is right for your hair?"}
+          </p>
+          <p className="font-body text-sm mt-1" style={{ color: "rgba(253,246,238,0.7)" }}>
+            {hasResult
+              ? "Retake the quiz to refresh your personalized recommendations."
+              : "Take our 2-minute quiz to get personalized product recommendations for your exact hair type."}
+          </p>
+        </div>
+      </div>
+      <Link href="/hair-quiz">
+        <button
+          className="flex-shrink-0 inline-flex items-center gap-2 px-6 py-3 rounded font-body font-semibold text-sm whitespace-nowrap transition-all duration-200 hover:opacity-90"
+          style={{ backgroundColor: "#D4822A", color: "#FDF6EE" }}
+        >
+          {hasResult ? <><Sparkles size={14} /> Retake Quiz</> : <><Sparkles size={14} /> Take the Hair Quiz</>}
+        </button>
+      </Link>
+    </div>
+  );
+}
 
 export default function ProductReview() {
   const { slug } = useParams<{ slug: string }>();
@@ -201,6 +255,9 @@ export default function ProductReview() {
             </div>
           </section>
         )}
+
+        {/* Quiz CTA */}
+        <QuizPromptBanner />
       </div>
     </SiteLayout>
   );
