@@ -243,6 +243,30 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Hair Quiz CTA */}
+      <section className="py-16 px-6" style={{ background: "linear-gradient(135deg, #2C1810 0%, #8B1A2F 60%, #5C2D44 100%)" }}>
+        <div className="max-w-3xl mx-auto text-center">
+          <p className="font-body text-xs tracking-widest uppercase mb-3" style={{ color: "#D4822A", letterSpacing: "0.18em" }}>
+            Personalized Recommendations
+          </p>
+          <h2 className="font-display font-bold mb-4 leading-tight" style={{ fontSize: "clamp(2rem, 5vw, 3rem)", color: "#FDF6EE" }}>
+            Not Sure What Your Hair Needs?
+          </h2>
+          <p className="font-body text-base mb-8 leading-relaxed" style={{ color: "rgba(253,246,238,0.75)", maxWidth: "520px", margin: "0 auto 2rem" }}>
+            Take our 2-minute hair type quiz and get personalized product recommendations matched to your exact hair profile.
+          </p>
+          <Link href="/hair-quiz">
+            <button
+              className="inline-flex items-center gap-2 px-10 py-4 rounded font-body font-semibold text-base transition-all duration-200 hover:opacity-90 hover:gap-3"
+              style={{ backgroundColor: "#D4822A", color: "#FDF6EE", letterSpacing: "0.06em" }}
+            >
+              Take the Hair Type Quiz <ArrowRight size={18} />
+            </button>
+          </Link>
+          <p className="font-body text-xs mt-4" style={{ color: "rgba(253,246,238,0.45)" }}>8 questions · 2 minutes · No sign-up required</p>
+        </div>
+      </section>
+
       {/* Newsletter Signup */}
       <NewsletterSignup variant="banner" />
     </SiteLayout>

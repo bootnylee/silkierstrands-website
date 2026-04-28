@@ -99,17 +99,31 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
                 {hairTypeOpen && (
                   <div className="absolute top-full left-0 mt-1 w-52 bg-white border shadow-lg z-50"
                     style={{ borderColor: "#E8DDD0" }}>
-                    {navHairTypes.map(ht => (
-                      <Link key={ht.href} href={ht.href}>
-                        <div className="px-4 py-2.5 hover:bg-amber-50 font-body text-sm cursor-pointer"
-                          style={{ color: "#2C2C2C", borderBottom: "1px solid #F5EBE0" }}>
-                          {ht.label}
-                        </div>
-                      </Link>
-                    ))}
+                {navHairTypes.map(ht => (
+                  <Link key={ht.href} href={ht.href}>
+                    <div className="px-4 py-2.5 hover:bg-amber-50 font-body text-sm cursor-pointer"
+                      style={{ color: "#2C2C2C", borderBottom: "1px solid #F5EBE0" }}>
+                      {ht.label}
+                    </div>
+                  </Link>
+                ))}
+                <Link href="/hair-quiz">
+                  <div className="px-4 py-2.5 font-body text-sm font-semibold cursor-pointer"
+                    style={{ color: "#8B1A2F", backgroundColor: "#FFF5F7" }}>
+                    Not sure? Take the Quiz
+                  </div>
+                </Link>
                   </div>
                 )}
               </div>
+              <Link href="/hair-quiz">
+                <span
+                  className="nav-link font-semibold px-3 py-1.5 rounded transition-all duration-200"
+                  style={{ backgroundColor: "#8B1A2F", color: "#FDF6EE", letterSpacing: "0.04em", fontSize: "0.78rem" }}
+                >
+                  Hair Quiz
+                </span>
+              </Link>
               <Link href="/about">
                 <span className="nav-link">About</span>
               </Link>
@@ -152,6 +166,12 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
                   </Link>
                 ))}
               </div>
+              <Link href="/hair-quiz" onClick={() => setMobileOpen(false)}>
+                <div className="py-2.5 px-4 rounded font-body text-sm font-semibold my-1"
+                  style={{ backgroundColor: "#8B1A2F", color: "#FDF6EE" }}>
+                  Take the Hair Type Quiz
+                </div>
+              </Link>
               <Link href="/about" onClick={() => setMobileOpen(false)}>
                 <span className="nav-link block py-2">About</span>
               </Link>
@@ -230,6 +250,9 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
               © {new Date().getFullYear()} SilkierStrands.com - All rights reserved.
             </p>
             <div className="flex gap-6">
+              <Link href="/hair-quiz">
+                <span className="font-body text-xs cursor-pointer" style={{ color: "#D4822A" }}>Hair Quiz</span>
+              </Link>
               <Link href="/about">
                 <span className="font-body text-xs cursor-pointer" style={{ color: "#8C8C8C" }}>About</span>
               </Link>

@@ -171,6 +171,7 @@ The scent is light and clean, fading quickly - ideal for those who prefer their 
     bestFor: "Dry, brittle, or coarse hair; color-treated hair",
     publishDate: "2025-01-15",
     slug: "redken-all-soft-shampoo-review",
+    hairTypes: ["dry", "coarse", "normal"],
   },
   {
     id: "loreal-elvive-hyaluron-set",
@@ -197,6 +198,7 @@ At under $17 for the set, this is exceptional value. The formulas are lightweigh
     editorPick: true,
     publishDate: "2025-01-22",
     slug: "loreal-elvive-hyaluron-plump-review",
+    hairTypes: ["dry", "normal", "color-treated"],
   },
   {
     id: "pantene-moisture-renewal-set",
@@ -222,6 +224,7 @@ The value proposition is strong - you get a large set for $22, and both formulas
     bestFor: "Normal to dry hair; everyday use; multiple hair types",
     publishDate: "2025-01-29",
     slug: "pantene-daily-moisture-renewal-review",
+    hairTypes: ["dry", "normal", "all"],
   },
   {
     id: "nexxus-therappe-humectress",
@@ -247,6 +250,7 @@ The conditioner is particularly noteworthy - it's lightweight enough for fine ha
     bestFor: "Fine hair needing strength and moisture; silicone-sensitive scalps",
     publishDate: "2025-02-05",
     slug: "nexxus-therappe-humectress-review",
+    hairTypes: ["dry", "coarse", "normal"],
   },
   {
     id: "native-coconut-vanilla-set",
@@ -272,6 +276,7 @@ At $20 for the set, it's competitively priced for a clean beauty formula. The ma
     bestFor: "Normal to dry hair; clean beauty enthusiasts; color-treated hair",
     publishDate: "2025-02-12",
     slug: "native-coconut-vanilla-shampoo-review",
+    hairTypes: ["thick", "coarse", "normal"],
   },
 ];
 
@@ -304,6 +309,7 @@ The 3-5 minute processing time makes it practical for regular use. At $30 for 3.
     editorPick: true,
     publishDate: "2025-01-15",
     slug: "olaplex-no8-bond-mask-review",
+    hairTypes: ["color-treated", "dry", "all"],
   },
   {
     id: "moroccanoil-intense-hydrating-mask",
@@ -329,6 +335,7 @@ At $34 for 8.5 oz, it's a luxury purchase, but the results and longevity justify
     bestFor: "Thick, coarse, frizzy, or very dry hair",
     publishDate: "2025-01-22",
     slug: "moroccanoil-intense-hydrating-mask-review",
+    hairTypes: ["dry", "coarse", "thick"],
   },
   {
     id: "its-a-10-miracle-mask",
@@ -354,6 +361,7 @@ The 17.5 oz size offers excellent value at $30, and the formula is versatile eno
     bestFor: "Multiple hair concerns; color-treated hair; everyday maintenance",
     publishDate: "2025-01-29",
     slug: "its-a-10-miracle-mask-review",
+    hairTypes: ["dry", "color-treated", "all"],
   },
   {
     id: "briogeo-dont-despair-mask",
@@ -380,6 +388,7 @@ At $38 for a multi-pack, it's excellent value for a keratin-infused shampoo. OGX
     editorPick: true,
     publishDate: "2025-02-05",
     slug: "briogeo-dont-despair-repair-mask-review",
+    hairTypes: ["thick", "coarse", "normal"],
   },
   {
     id: "karseell-collagen-mask",
@@ -405,6 +414,7 @@ At $19.99, it's outstanding value for a keratin-infused formula. OGX Brazilian K
     bestFor: "Frizz-prone and thick hair; those wanting progressive smoothing; budget shoppers",
     publishDate: "2025-02-12",
     slug: "karseell-collagen-hair-mask-review",
+    hairTypes: ["thick", "coarse", "normal"],
   },
   {
     id: "sunatoria-keratin-mask",
@@ -430,6 +440,7 @@ At $25, it's well-priced for a professional-quality hair oil. Amika Water Sign i
     bestFor: "Fine to medium hair; color-treated hair; those wanting lightweight hydration and shine",
     publishDate: "2025-02-19",
     slug: "sunatoria-korean-keratin-mask-review",
+    hairTypes: ["dry", "color-treated", "normal"],
   },
 ];
 
@@ -462,6 +473,7 @@ At $46 for 3.4 oz, it's a luxury purchase, but the formula is highly concentrate
     editorPick: true,
     publishDate: "2025-01-15",
     slug: "moroccanoil-treatment-original-review",
+    hairTypes: ["dry", "coarse", "thick", "color-treated"],
   },
   {
     id: "olaplex-no7-bonding-oil",
@@ -487,6 +499,7 @@ At $30 for 1 oz, it's expensive per ounce, but the formula is extraordinarily co
     bestFor: "Fine, damaged, or color-treated hair; Olaplex routine users",
     publishDate: "2025-01-22",
     slug: "olaplex-no7-bonding-oil-review",
+    hairTypes: ["color-treated", "dry", "fine"],
   },
   {
     id: "alfaparf-cristalli-liquidi",
@@ -513,6 +526,7 @@ At $50, it's a luxury purchase, but the professional-grade formula justifies the
     editorPick: true,
     publishDate: "2025-01-29",
     slug: "alfaparf-cristalli-liquidi-review",
+    hairTypes: ["dry", "color-treated", "normal"],
   },
   {
     id: "ogx-argan-oil-morocco",
@@ -538,6 +552,7 @@ At $13 for a pack of two, the value is exceptional. This is our top budget pick 
     bestFor: "Budget-conscious shoppers; everyday shine and frizz control",
     publishDate: "2025-02-05",
     slug: "ogx-argan-oil-morocco-review",
+    hairTypes: ["dry", "coarse", "thick"],
   },
   {
     id: "maree-hair-oil",
@@ -563,6 +578,7 @@ At under $10, it's one of the best value hair masks available. Arvazallia Argan 
     bestFor: "Dry, damaged hair; budget shoppers; those wanting a simple, effective deep conditioner",
     publishDate: "2025-02-12",
     slug: "maree-hair-oil-review",
+    hairTypes: ["dry", "coarse", "thick"],
   },
   {
     id: "john-frieda-frizz-ease",
@@ -588,6 +604,7 @@ The trade-off is that silicone can cause buildup over time, requiring a clarifyi
     bestFor: "Frizz-prone hair; humid climates; everyday anti-frizz protection",
     publishDate: "2025-02-19",
     slug: "john-frieda-frizz-ease-serum-review",
+    hairTypes: ["thick", "coarse", "curly"],
   },
 ];
 
@@ -620,6 +637,7 @@ At $430, it's a significant investment, but for those who blow-dry daily, the co
     editorPick: true,
     publishDate: "2025-01-15",
     slug: "dyson-supersonic-hair-dryer-review",
+    hairTypes: ["fine", "normal", "color-treated", "all"],
   },
   {
     id: "shark-hyperair-hd113",
@@ -645,6 +663,7 @@ At $225, it's a significant purchase but offers genuine value compared to the Dy
     bestFor: "Wavy to curly hair; those wanting premium performance at mid-range price",
     publishDate: "2025-01-22",
     slug: "shark-hyperair-hair-dryer-review",
+    hairTypes: ["thick", "coarse", "normal", "all"],
   },
   {
     id: "hot-tools-tourmaline-2000",
@@ -670,6 +689,7 @@ At $88, it represents excellent value for a professional-grade tool. The build q
     bestFor: "Thick, coarse hair; those who value quiet operation; professional results",
     publishDate: "2025-01-29",
     slug: "hot-tools-tourmaline-2000-review",
+    hairTypes: ["thick", "coarse", "normal"],
   },
   {
     id: "revlon-one-step-volumizer",
@@ -696,6 +716,7 @@ At $50, it's exceptional value. The main limitation is that it works best on med
     editorPick: true,
     publishDate: "2025-02-05",
     slug: "revlon-one-step-volumizer-review",
+    hairTypes: ["fine", "normal", "thick"],
   },
   {
     id: "conair-infiniti-pro",
@@ -721,6 +742,7 @@ At $42, it's a solid choice for anyone who wants a reliable, no-frills dryer tha
     bestFor: "Everyday use; curly hair (with diffuser); budget-conscious shoppers",
     publishDate: "2025-02-12",
     slug: "conair-infiniti-pro-hair-dryer-review",
+    hairTypes: ["curly", "thick", "normal"],
   },
   {
     id: "babyliss-nano-titanium-dryer",
@@ -746,6 +768,7 @@ At $80, it's well-priced for a professional-grade tool. The build quality is exc
     bestFor: "Thick, long hair; professional users; those wanting maximum power",
     publishDate: "2025-02-19",
     slug: "babyliss-nano-titanium-dryer-review",
+    hairTypes: ["thick", "coarse", "normal"],
   },
 ];
 
@@ -778,6 +801,7 @@ At $249, it's a premium investment, but for those who straighten regularly, the 
     editorPick: true,
     publishDate: "2025-01-15",
     slug: "ghd-platinum-plus-straightener-review",
+    hairTypes: ["fine", "normal", "color-treated", "all"],
   },
   {
     id: "t3-singlepass-luxe",
@@ -803,6 +827,7 @@ At $199, it's a significant investment but $50 less than the ghd Platinum+. For 
     bestFor: "Medium-thickness hair; those wanting temperature control; daily use",
     publishDate: "2025-01-22",
     slug: "t3-singlepass-luxe-review",
+    hairTypes: ["fine", "normal", "color-treated"],
   },
   {
     id: "tymo-ring-straightener-brush",
@@ -829,6 +854,7 @@ At $40, it's exceptional value. The main limitation is that it won't achieve the
     editorPick: true,
     publishDate: "2025-01-29",
     slug: "tymo-ring-straightener-brush-review",
+    hairTypes: ["thick", "coarse", "normal"],
   },
   {
     id: "hsi-professional-glider",
@@ -854,6 +880,7 @@ At $30, it's an outstanding value. The build quality is adequate rather than exc
     bestFor: "Budget shoppers; occasional use; travel; beginners",
     publishDate: "2025-02-05",
     slug: "hsi-professional-glider-review",
+    hairTypes: ["normal", "thick", "color-treated"],
   },
   {
     id: "remington-s9500pp",
@@ -879,6 +906,7 @@ At $50, it offers better value than the T3 or ghd while delivering a unique bene
     bestFor: "Dry, medium-thickness hair; mid-range budget; everyday use",
     publishDate: "2025-02-12",
     slug: "remington-pearl-pro-flat-iron-review",
+    hairTypes: ["fine", "normal", "color-treated"],
   },
   {
     id: "babyliss-ultra-thin-titanium",
@@ -904,6 +932,7 @@ At $70, it's well-priced for a professional-grade tool. The main caveat is that 
     bestFor: "Thick, coarse, or resistant hair; professional users",
     publishDate: "2025-02-19",
     slug: "babyliss-ultra-thin-titanium-review",
+    hairTypes: ["fine", "normal", "color-treated"],
   },
 ];
 
@@ -936,6 +965,7 @@ At $600, it's the most expensive tool we've reviewed. The learning curve is real
     editorPick: true,
     publishDate: "2025-01-15",
     slug: "dyson-airwrap-multi-styler-review",
+    hairTypes: ["fine", "normal", "color-treated"],
   },
   {
     id: "tymo-curlpro-plus",
@@ -962,6 +992,7 @@ At $50 with a 4.6-star rating from nearly 8,000 reviews, this is exceptional val
     editorPick: true,
     publishDate: "2025-01-22",
     slug: "tymo-curlpro-plus-review",
+    hairTypes: ["normal", "thick", "fine"],
   },
   {
     id: "hot-tools-24k-gold-curling",
@@ -987,6 +1018,7 @@ At $35, it's exceptional value for a professional-grade tool. The main limitatio
     bestFor: "Medium to thick hair; those willing to learn Marcel technique; long-lasting curls",
     publishDate: "2025-01-29",
     slug: "hot-tools-24k-gold-curling-iron-review",
+    hairTypes: ["normal", "thick", "coarse"],
   },
   {
     id: "revlon-salon-one-step-plus",
@@ -1012,6 +1044,7 @@ At $60, it's slightly more expensive than the original but worth the upgrade for
     bestFor: "Medium-length, medium-thickness hair; volume and wave styling; time-conscious users",
     publishDate: "2025-02-05",
     slug: "revlon-salon-one-step-plus-review",
+    hairTypes: ["fine", "normal", "thick"],
   },
   {
     id: "conair-double-ceramic-curling",
@@ -1037,6 +1070,7 @@ At $20, expectations should be calibrated accordingly - it won't match the perfo
     bestFor: "Budget shoppers; beginners; occasional use; fine to medium hair",
     publishDate: "2025-02-12",
     slug: "conair-double-ceramic-curling-iron-review",
+    hairTypes: ["fine", "normal", "thick"],
   },
   {
     id: "nume-classic-curling-wand",
@@ -1062,6 +1096,7 @@ At $49, it's competitively priced for a quality wand. The main limitation is the
     bestFor: "Medium to long hair; beachy wave styling; intermediate to advanced users",
     publishDate: "2025-02-19",
     slug: "nume-classic-curling-wand-review",
+    hairTypes: ["normal", "fine", "color-treated"],
   },
 ];
 
