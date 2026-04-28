@@ -10,6 +10,20 @@ import { allProducts, amazonLink, getProductsByCategory } from "@/lib/products";
 import { updateDocumentMeta, buildProductSchema, buildReviewSchema, injectStructuredData } from "@/lib/seo";
 import ProductCard from "@/components/ProductCard";
 
+// ─── Recently Viewed Key ────────────────────────────────────────────────────
+export const RECENTLY_VIEWED_KEY = "silkierstrands_recently_viewed";
+const MAX_RECENTLY_VIEWED = 4;
+
+/** Record a product slug as recently viewed (keeps the last MAX_RECENTLY_VIEWED unique slugs). */
+export function trackRecentlyViewed(slug: string) {
+  try {
+    const raw = localStorage.getItem(RECENTLY_VIEWED_KEY);
+    const existing: string[] = raw ? JSON.parse(raw) : [];
+    const updated = [slug, ...existing.filter(s => s !== slug)].slice(0, MAX_RECENTLY_VIEWED);
+    localStorage.setItem(RECENTLY_VIEWED_KEY, JSON.stringify(updated));
+  } catch {}
+}
+
 // ─── Quiz Prompt Banner ──────────────────────────────────────────────────────
 function QuizPromptBanner() {
   const [hasResult, setHasResult] = useState(false);
@@ -94,6 +108,11 @@ export default function ProductReview() {
   const relatedLabel = savedHairType && relatedProducts.some(p =>
     Array.isArray(p.hairTypes) && p.hairTypes.includes(savedHairType)
   ) ? `Recommended for ${savedHairType.charAt(0).toUpperCase() + savedHairType.slice(1).replace("-", "-").replace("treated", "Treated")} Hair` : null;
+
+  // Track this product as recently viewed
+  useEffect(() => {
+    if (product) trackRecentlyViewed(product.slug);
+  }, [product]);
 
   useEffect(() => {
     if (product) {

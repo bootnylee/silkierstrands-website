@@ -3,7 +3,7 @@
 // Hero: Split-screen with editorial headline and product photography
 
 import { Link } from "wouter";
-import { ArrowRight, ExternalLink, Sparkles, RefreshCw } from "lucide-react";
+import { ArrowRight, Sparkles, RefreshCw, Clock } from "lucide-react";
 import SiteLayout from "@/components/SiteLayout";
 import ProductCard from "@/components/ProductCard";
 import ComparisonCard from "@/components/ComparisonCard";
@@ -13,6 +13,7 @@ import { hairTypes } from "@/lib/hairTypes";
 import { useEffect, useState } from "react";
 import { updateDocumentMeta } from "@/lib/seo";
 import { QUIZ_RESULT_KEY } from "./HairQuiz";
+import { RECENTLY_VIEWED_KEY } from "./ProductReview";
 
 const HAIR_TYPE_META: Record<string, { label: string; tagline: string; color: string; bg: string }> = {
   fine:           { label: "Fine Hair",          tagline: "Light, weightless formulas that add volume without drag.",        color: "#8B6914", bg: "#FFF8E7" },
@@ -25,6 +26,55 @@ const HAIR_TYPE_META: Record<string, { label: string; tagline: string; color: st
 };
 
 const HERO_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663596051047/8Zc7R6kvi3WyqwPfKsGujc/hero_banner-mpcLHZ6E4Ht3HkvUJsAi4e.webp";
+
+// ─── Recently Viewed Section ─────────────────────────────────────────────────
+function RecentlyViewedSection() {
+  const [recentProducts, setRecentProducts] = useState<typeof allProducts>([]);
+
+  useEffect(() => {
+    try {
+      const raw = localStorage.getItem(RECENTLY_VIEWED_KEY);
+      if (raw) {
+        const slugs: string[] = JSON.parse(raw);
+        const products = slugs
+          .map(slug => allProducts.find(p => p.slug === slug))
+          .filter((p): p is (typeof allProducts)[number] => p !== undefined);
+        setRecentProducts(products);
+      }
+    } catch {}
+  }, []);
+
+  if (recentProducts.length === 0) return null;
+
+  return (
+    <section className="py-14 border-b" style={{ borderColor: "#E8DDD0" }}>
+      <div className="container">
+        <div className="flex items-end justify-between mb-8">
+          <div>
+            <div className="flex items-center gap-2 mb-1">
+              <Clock size={14} style={{ color: "#D4822A" }} />
+              <p className="section-label">Your Browsing History</p>
+            </div>
+            <h2 className="font-display font-bold" style={{ fontSize: "2rem", color: "#2C2C2C" }}>
+              Recently Viewed
+            </h2>
+          </div>
+          <Link href="/reviews">
+            <button className="font-label font-semibold text-xs flex items-center gap-1 hover:text-red-800 transition-colors"
+              style={{ color: "#8B1A2F", letterSpacing: "0.08em", textTransform: "uppercase" }}>
+              All Reviews <ArrowRight size={14} />
+            </button>
+          </Link>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {recentProducts.map(product => (
+            <ProductCard key={product.id} product={product} variant="default" />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
 
 // ─── Personalized Quiz CTA ────────────────────────────────────────────────────
 function QuizCtaSection() {
@@ -356,6 +406,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Recently Viewed — only shown to returning visitors who have browsed products */}
+      <RecentlyViewedSection />
 
       {/* Hair Quiz CTA — personalized for returning visitors */}
       <QuizCtaSection />

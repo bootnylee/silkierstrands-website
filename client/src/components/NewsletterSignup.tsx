@@ -3,9 +3,12 @@
  * Design: Bold Magazine - Burgundy (#8B1A2F) + Amber (#D4822A) + Cream (#FDF6EE)
  * Integration: EmailOctopus JavaScript embed
  * Form ID: aeb1d42c-40de-11f1-aa22-35d9c85d0d35
+ * Hair type tagging: reads saved quiz result from localStorage and passes it
+ * as a hidden field (member[fields][HairType]) in the fallback form submission.
  */
 
 import { useEffect, useRef, useState } from "react";
+import { QUIZ_RESULT_KEY } from "@/pages/HairQuiz";
 
 const EMAILOCTOPUS_FORM_ID = "aeb1d42c-40de-11f1-aa22-35d9c85d0d35";
 const EMAILOCTOPUS_SCRIPT_SRC = `https://eocampaign1.com/form/${EMAILOCTOPUS_FORM_ID}.js`;
@@ -54,6 +57,21 @@ function loadEmailOctopusScript(): Promise<boolean> {
   });
 }
 
+/** Read the saved hair type from localStorage (returns null if none saved). */
+function useSavedHairType(): string | null {
+  const [hairType, setHairType] = useState<string | null>(null);
+  useEffect(() => {
+    try {
+      const raw = localStorage.getItem(QUIZ_RESULT_KEY);
+      if (raw) {
+        const parsed = JSON.parse(raw);
+        if (parsed?.primary) setHairType(parsed.primary as string);
+      }
+    } catch {}
+  }, []);
+  return hairType;
+}
+
 interface NewsletterSignupProps {
   variant?: "banner" | "footer" | "inline";
   className?: string;
@@ -66,6 +84,7 @@ export default function NewsletterSignup({
   const containerRef = useRef<HTMLDivElement>(null);
   const [scriptLoaded, setScriptLoaded] = useState(scriptStatus === "loaded");
   const [scriptFailed, setScriptFailed] = useState(scriptStatus === "error");
+  const savedHairType = useSavedHairType();
 
   useEffect(() => {
     if (scriptStatus === "loaded") {
@@ -85,6 +104,12 @@ export default function NewsletterSignup({
       }
     });
   }, []);
+
+  // Hidden hair type field — included in all fallback form submissions
+  const HairTypeField = () =>
+    savedHairType ? (
+      <input type="hidden" name="member[fields][HairType]" value={savedHairType} />
+    ) : null;
 
   // Fallback form shown if EmailOctopus script fails to load
   const FallbackForm = () => (
@@ -109,6 +134,7 @@ export default function NewsletterSignup({
         }}
       />
       <input type="hidden" name="hpc_1" value="" />
+      <HairTypeField />
       <button
         type="submit"
         className="px-6 py-3 rounded-sm font-semibold text-sm uppercase tracking-wider flex-shrink-0"
@@ -167,6 +193,7 @@ export default function NewsletterSignup({
             <div
               ref={containerRef}
               data-form={EMAILOCTOPUS_FORM_ID}
+              data-hair-type={savedHairType ?? undefined}
               className="max-w-lg mx-auto"
               style={{ minHeight: scriptLoaded ? "auto" : "60px" }}
             />
@@ -221,6 +248,7 @@ export default function NewsletterSignup({
               }}
             />
             <input type="hidden" name="hpc_1" value="" />
+            <HairTypeField />
             <button
               type="submit"
               className="px-4 py-2 rounded-sm flex-shrink-0 font-semibold text-xs uppercase tracking-wider"
@@ -233,6 +261,7 @@ export default function NewsletterSignup({
           <div
             ref={containerRef}
             data-form={EMAILOCTOPUS_FORM_ID}
+            data-hair-type={savedHairType ?? undefined}
             style={{ minHeight: "50px" }}
           />
         )}
@@ -277,6 +306,7 @@ export default function NewsletterSignup({
             }}
           />
           <input type="hidden" name="hpc_1" value="" />
+          <HairTypeField />
           <button
             type="submit"
             className="px-4 py-2 rounded-sm flex-shrink-0 font-semibold text-xs uppercase tracking-wider"
@@ -289,6 +319,7 @@ export default function NewsletterSignup({
         <div
           ref={containerRef}
           data-form={EMAILOCTOPUS_FORM_ID}
+          data-hair-type={savedHairType ?? undefined}
           style={{ minHeight: "50px" }}
         />
       )}

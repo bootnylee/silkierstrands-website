@@ -31,7 +31,7 @@ function loadQuizEmailScript(): Promise<boolean> {
   });
 }
 
-function QuizEmailCapture({ hairTypeLabel, accentColor }: { hairTypeLabel: string; accentColor: string }) {
+function QuizEmailCapture({ hairTypeLabel, accentColor, hairTypeId }: { hairTypeLabel: string; accentColor: string; hairTypeId: string }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [scriptLoaded, setScriptLoaded] = useState(quizScriptStatus === "loaded");
   const [scriptFailed, setScriptFailed] = useState(quizScriptStatus === "error");
@@ -78,6 +78,8 @@ function QuizEmailCapture({ hairTypeLabel, accentColor }: { hairTypeLabel: strin
             style={{ borderColor: `${accentColor}44`, backgroundColor: "#FFFFFF", color: "#2C2C2C", outline: "none" }}
           />
           <input type="hidden" name="hpc_1" value="" />
+          {/* Pass hair type as a custom field so subscribers are tagged in EmailOctopus */}
+          <input type="hidden" name="member[fields][HairType]" value={hairTypeId} />
           <button
             type="submit"
             className="px-5 py-3 rounded-sm font-body font-semibold text-sm flex-shrink-0"
@@ -90,6 +92,7 @@ function QuizEmailCapture({ hairTypeLabel, accentColor }: { hairTypeLabel: strin
         <div
           ref={containerRef}
           data-form={EMAILOCTOPUS_FORM_ID}
+          data-hair-type={hairTypeId}
           className="max-w-sm mx-auto"
           style={{ minHeight: scriptLoaded ? "auto" : "60px" }}
         />
@@ -866,7 +869,7 @@ export default function HairQuiz() {
 
             {/* Email capture */}
             <div className="mt-12 mb-4">
-              <QuizEmailCapture hairTypeLabel={resultInfo.title} accentColor={resultInfo.accentColor} />
+              <QuizEmailCapture hairTypeLabel={resultInfo.title} accentColor={resultInfo.accentColor} hairTypeId={result!} />
             </div>
           </div>
         </div>

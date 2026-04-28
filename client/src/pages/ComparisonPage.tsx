@@ -1,12 +1,156 @@
 // SilkierStrands.com - Comparison Page
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useParams, Link } from "wouter";
-import { Trophy, ExternalLink, CheckCircle, XCircle } from "lucide-react";
+import { Trophy, ExternalLink, CheckCircle, XCircle, Sparkles, ArrowRight } from "lucide-react";
 import SiteLayout from "@/components/SiteLayout";
 import { StarRatingDisplay } from "@/components/ProductCard";
 import { comparisons, getProductById, amazonLink } from "@/lib/products";
 import { updateDocumentMeta } from "@/lib/seo";
+import { QUIZ_RESULT_KEY } from "@/pages/HairQuiz";
+
+// Hair type metadata for contextual tips
+const HAIR_META: Record<string, { label: string; color: string; bg: string }> = {
+  fine:            { label: "Fine Hair",          color: "#6B4E9B", bg: "#F5F0FF" },
+  thick:           { label: "Thick Hair",         color: "#2C6B2F", bg: "#EDFAEE" },
+  curly:           { label: "Curly Hair",         color: "#D4822A", bg: "#FFF8EE" },
+  coarse:          { label: "Coarse Hair",        color: "#8B4513", bg: "#FFF5EE" },
+  dry:             { label: "Dry Hair",           color: "#C0392B", bg: "#FFF5F5" },
+  normal:          { label: "Normal Hair",        color: "#2C6B2F", bg: "#EDFAEE" },
+  "color-treated": { label: "Color-Treated Hair", color: "#8B1A2F", bg: "#FFF5F7" },
+};
+
+// Contextual tips per hair type per product category
+const CATEGORY_TIPS: Record<string, Record<string, string>> = {
+  fine: {
+    "Shampoo & Conditioner": "Fine hair benefits most from lightweight, volumizing formulas — look for the option with fewer heavy silicones.",
+    "Hair Masks & Treatments": "For fine hair, a lighter rinse-out mask beats a heavy leave-in — less weight means more lift.",
+    "Serums & Oils": "Fine hair needs just a drop — choose the lighter-weight oil to avoid limpness.",
+    "Styling Tools": "Fine hair is heat-sensitive — the tool with adjustable lower heat settings is the safer pick.",
+    default: "Fine hair tends to weigh down easily — the lighter-formula or lower-heat option is usually the better fit.",
+  },
+  thick: {
+    "Shampoo & Conditioner": "Thick hair needs deeper moisture — look for the richer, more hydrating formula in this comparison.",
+    "Hair Masks & Treatments": "Thick hair thrives with intensive masks — the heavier treatment option will penetrate better.",
+    "Serums & Oils": "Thick hair can handle richer oils — the heavier option in this comparison will tame frizz more effectively.",
+    "Styling Tools": "Thick hair needs more power — the higher-wattage or higher-heat tool will cut drying time significantly.",
+    default: "Thick hair needs more product and more heat — the more powerful or richer option is usually the better fit.",
+  },
+  curly: {
+    "Shampoo & Conditioner": "Curly hair craves moisture and curl definition — look for the sulfate-free, hydrating option.",
+    "Hair Masks & Treatments": "Curly hair benefits from deep conditioning — the more intensive mask will enhance curl pattern and reduce frizz.",
+    "Serums & Oils": "Curly hair needs frizz control and shine — choose the oil with better humidity resistance.",
+    "Styling Tools": "Curly hair benefits from diffusers and lower heat — look for the tool with a diffuser attachment or ionic technology.",
+    default: "Curly hair needs extra moisture and gentle heat — the more hydrating or lower-heat option tends to win for curls.",
+  },
+  coarse: {
+    "Shampoo & Conditioner": "Coarse hair needs smoothing and moisture — the richer, more emollient formula will tame texture better.",
+    "Hair Masks & Treatments": "Coarse hair responds well to protein-rich treatments — look for the option with keratin or protein in its formula.",
+    "Serums & Oils": "Coarse hair needs a heavier oil to smooth the cuticle — the richer serum will deliver better results.",
+    "Styling Tools": "Coarse hair needs high heat and ionic technology to smooth — the higher-powered tool is the better pick.",
+    default: "Coarse hair needs smoothing power — the more intensive or higher-heat option typically works better.",
+  },
+  dry: {
+    "Shampoo & Conditioner": "Dry hair needs maximum hydration — the more moisturizing formula with fewer sulfates is the clear winner for you.",
+    "Hair Masks & Treatments": "Dry hair needs intensive moisture replenishment — the richer, longer-leave-in mask will make the biggest difference.",
+    "Serums & Oils": "Dry hair needs a nourishing oil — look for the option richest in fatty acids for lasting moisture.",
+    "Styling Tools": "Dry hair is prone to heat damage — the tool with better heat protection or lower temperature settings is the safer choice.",
+    default: "Dry hair needs extra moisture and gentle heat — the more hydrating or lower-heat option is usually the better fit.",
+  },
+  normal: {
+    default: "Normal hair is versatile — either option should work well, but the higher-rated one for overall performance is your best bet.",
+  },
+  "color-treated": {
+    "Shampoo & Conditioner": "Color-treated hair needs sulfate-free, color-safe formulas — look for the option specifically designed to protect color.",
+    "Hair Masks & Treatments": "Color-treated hair benefits from bond-building treatments — look for the option with Olaplex-style bonding technology.",
+    "Serums & Oils": "Color-treated hair needs UV protection and shine — choose the serum with better color-protecting ingredients.",
+    "Styling Tools": "Color-treated hair is more fragile — the tool with lower heat settings or infrared technology is the safer pick.",
+    default: "Color-treated hair is more fragile — the gentler, more protective option is usually the better fit.",
+  },
+};
+
+function ComparisonQuizBanner({ category }: { category: string }) {
+  const [savedHairType, setSavedHairType] = useState<string | null>(null);
+  const [dismissed, setDismissed] = useState(false);
+
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem(QUIZ_RESULT_KEY);
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        if (parsed?.primary) setSavedHairType(parsed.primary);
+      }
+    } catch {}
+  }, []);
+
+  if (dismissed) return null;
+
+  const meta = savedHairType ? HAIR_META[savedHairType] : null;
+  const tips = savedHairType ? CATEGORY_TIPS[savedHairType] : null;
+  const tip = tips ? (tips[category] ?? tips["default"]) : null;
+
+  if (meta && tip) {
+    // Returning visitor with saved hair type — show personalized tip
+    return (
+      <div
+        className="rounded-lg px-5 py-4 mb-8 flex items-start gap-3"
+        style={{ backgroundColor: meta.bg, border: `1.5px solid ${meta.color}33` }}
+      >
+        <Sparkles size={16} className="flex-shrink-0 mt-0.5" style={{ color: meta.color }} />
+        <div className="flex-1">
+          <p className="font-body font-semibold text-sm mb-0.5" style={{ color: meta.color }}>
+            Tip for {meta.label}
+          </p>
+          <p className="font-body text-sm leading-relaxed" style={{ color: "#4A3A3A" }}>
+            {tip}
+          </p>
+        </div>
+        <button
+          onClick={() => setDismissed(true)}
+          className="flex-shrink-0 hover:opacity-50 transition-opacity mt-0.5"
+          style={{ background: "none", border: "none", padding: 0, color: "#8C8C8C", cursor: "pointer" }}
+          aria-label="Dismiss"
+        >
+          ✕
+        </button>
+      </div>
+    );
+  }
+
+  // First-time visitor — invite to take quiz
+  return (
+    <div
+      className="rounded-lg px-5 py-4 mb-8 flex items-center gap-3 justify-between"
+      style={{ backgroundColor: "#FFF8F0", border: "1.5px solid #E8DDD0" }}
+    >
+      <div className="flex items-center gap-3">
+        <Sparkles size={15} className="flex-shrink-0" style={{ color: "#8B1A2F" }} />
+        <p className="font-body text-sm" style={{ color: "#4A3A3A" }}>
+          <span className="font-semibold" style={{ color: "#8B1A2F" }}>Not sure which is right for your hair?</span>
+          {" "}Take our 2-minute quiz to get a personalized recommendation.
+        </p>
+      </div>
+      <div className="flex items-center gap-2 flex-shrink-0">
+        <Link href="/hair-quiz">
+          <span
+            className="inline-flex items-center gap-1 px-4 py-2 rounded font-body font-semibold text-xs cursor-pointer transition-opacity hover:opacity-90"
+            style={{ backgroundColor: "#8B1A2F", color: "#FDF6EE" }}
+          >
+            Take Quiz <ArrowRight size={11} />
+          </span>
+        </Link>
+        <button
+          onClick={() => setDismissed(true)}
+          className="hover:opacity-50 transition-opacity"
+          style={{ background: "none", border: "none", padding: 0, color: "#8C8C8C", cursor: "pointer" }}
+          aria-label="Dismiss"
+        >
+          ✕
+        </button>
+      </div>
+    </div>
+  );
+}
 
 export default function ComparisonPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -58,6 +202,9 @@ export default function ComparisonPage() {
         </h1>
         <p className="font-body text-lg mb-6" style={{ color: "#6C6C6C" }}>{comparison.subtitle}</p>
         <hr className="editorial-rule w-16 mb-10" />
+
+        {/* Quiz-aware contextual banner */}
+        <ComparisonQuizBanner category={comparison.category} />
 
         {/* Side-by-Side Comparison */}
         <div className="grid grid-cols-2 gap-6 mb-10">
