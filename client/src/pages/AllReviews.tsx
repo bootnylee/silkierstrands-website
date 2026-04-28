@@ -3,6 +3,7 @@
 // Features: Sidebar FilterPanel (price range + hair type + category) + Sort + Search
 
 import { useEffect, useState, useMemo } from "react";
+import { Link } from "wouter";
 import SiteLayout from "@/components/SiteLayout";
 import ProductCard from "@/components/ProductCard";
 import FilterPanel, {
@@ -14,7 +15,83 @@ import FilterPanel, {
 } from "@/components/FilterPanel";
 import { allProducts, categories } from "@/lib/products";
 import { updateDocumentMeta } from "@/lib/seo";
-import { Search, SlidersHorizontal, X, ChevronDown } from "lucide-react";
+import { Search, SlidersHorizontal, X, ChevronDown, Sparkles, ArrowRight } from "lucide-react";
+import { QUIZ_RESULT_KEY } from "@/pages/HairQuiz";
+
+// Hair type meta for the personalized banner
+const HAIR_TYPE_LABELS: Record<string, { label: string; color: string; bg: string; tagline: string }> = {
+  fine:          { label: "Fine Hair",         color: "#6B4E9B", bg: "#F5F0FF", tagline: "Lightweight formulas that add volume without weighing strands down." },
+  thick:         { label: "Thick Hair",        color: "#2C6B2F", bg: "#EDFAEE", tagline: "Rich, moisturizing formulas that tame and smooth thick strands." },
+  curly:         { label: "Curly Hair",        color: "#D4822A", bg: "#FFF8EE", tagline: "Curl-defining products that enhance pattern and fight frizz." },
+  coarse:        { label: "Coarse Hair",       color: "#8B4513", bg: "#FFF5EE", tagline: "Intensive hydration and smoothing treatments for coarse texture." },
+  dry:           { label: "Dry Hair",          color: "#C0392B", bg: "#FFF5F5", tagline: "Deep moisture and repair formulas for parched, brittle hair." },
+  normal:        { label: "Normal Hair",       color: "#2C6B2F", bg: "#EDFAEE", tagline: "Balanced, everyday essentials that keep your hair at its best." },
+  "color-treated": { label: "Color-Treated Hair", color: "#8B1A2F", bg: "#FFF5F7", tagline: "Color-safe formulas that protect vibrancy and prevent fade." },
+};
+
+// Personalized banner shown at top of reviews when quiz result is saved
+function PicksForYouBanner({ onApplyFilter }: { onApplyFilter: (hairType: string) => void }) {
+  const [savedHairType, setSavedHairType] = useState<string | null>(null);
+  const [dismissed, setDismissed] = useState(false);
+
+  useEffect(() => {
+    const saved = localStorage.getItem(QUIZ_RESULT_KEY);
+    if (saved) {
+      try {
+        const parsed = JSON.parse(saved);
+        if (parsed?.primary) setSavedHairType(parsed.primary);
+      } catch {}
+    }
+  }, []);
+
+  if (!savedHairType || dismissed || !HAIR_TYPE_LABELS[savedHairType]) return null;
+
+  const meta = HAIR_TYPE_LABELS[savedHairType];
+  const matchCount = allProducts.filter(
+    p => Array.isArray(p.hairTypes) && p.hairTypes.includes(savedHairType)
+  ).length;
+
+  return (
+    <div
+      className="border-b px-6 py-4"
+      style={{ backgroundColor: meta.bg, borderColor: `${meta.color}33` }}
+    >
+      <div className="container flex flex-col sm:flex-row sm:items-center gap-3 justify-between">
+        <div className="flex items-center gap-3">
+          <Sparkles size={16} style={{ color: meta.color, flexShrink: 0 }} />
+          <div>
+            <span className="font-body font-semibold text-sm" style={{ color: meta.color }}>
+              {matchCount} Picks for Your {meta.label}
+            </span>
+            <span className="font-body text-xs ml-2 hidden sm:inline" style={{ color: "#6B5B4E" }}>
+              {meta.tagline}
+            </span>
+          </div>
+        </div>
+        <div className="flex items-center gap-3 flex-shrink-0">
+          <button
+            onClick={() => onApplyFilter(savedHairType)}
+            className="inline-flex items-center gap-1.5 px-4 py-2 rounded font-body font-semibold text-xs transition-all duration-200 hover:opacity-90"
+            style={{ backgroundColor: meta.color, color: "#FDF6EE" }}
+          >
+            Show My Picks <ArrowRight size={12} />
+          </button>
+          <Link href="/hair-quiz">
+            <span className="font-body text-xs cursor-pointer hover:underline" style={{ color: meta.color }}>Retake Quiz</span>
+          </Link>
+          <button
+            onClick={() => setDismissed(true)}
+            className="font-body text-xs hover:opacity-60 transition-opacity"
+            style={{ color: "#8C8C8C", background: "none", border: "none", padding: 0 }}
+            aria-label="Dismiss"
+          >
+            <X size={14} />
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 const SORT_OPTIONS = [
   { id: "default", label: "Featured" },
@@ -113,8 +190,20 @@ export default function AllReviews() {
   const activeSortLabel =
     SORT_OPTIONS.find((o) => o.id === sortBy)?.label || "Featured";
 
+  function applyHairTypeFilter(hairType: string) {
+    setFilters(prev => ({ ...prev, hairTypes: [hairType] }));
+    // Scroll to the product grid
+    setTimeout(() => {
+      const grid = document.getElementById("reviews-grid");
+      if (grid) grid.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 100);
+  }
+
   return (
     <SiteLayout>
+      {/* ── Personalized Picks Banner ── */}
+      <PicksForYouBanner onApplyFilter={applyHairTypeFilter} />
+
       {/* ── Page Header ── */}
       <section
         className="py-14 border-b"
@@ -144,6 +233,8 @@ export default function AllReviews() {
       </section>
 
       {/* ── Search + Sort Bar ── */}
+      {/* id anchor for scroll-to */}
+      <div id="reviews-grid" />
       <section
         className="py-4 border-b sticky top-[73px] z-40"
         style={{ borderColor: "#E8DDD0", backgroundColor: "#FDF6EE" }}

@@ -4,7 +4,7 @@
 
 import { useState, useEffect } from "react";
 import { Link } from "wouter";
-import { ChevronRight, ChevronLeft, RotateCcw, ExternalLink, Star, Share2, Check } from "lucide-react";
+import { ChevronRight, ChevronLeft, RotateCcw, ExternalLink, Star, Share2, Check, Trash2 } from "lucide-react";
 
 import SiteLayout from "@/components/SiteLayout";
 import { allProducts } from "@/lib/products";
@@ -690,6 +690,17 @@ export default function HairQuiz() {
                   style={{ border: `1.5px solid ${resultInfo.accentColor}44`, color: resultInfo.accentColor, backgroundColor: `${resultInfo.accentColor}11` }}
                 >
                   {copied ? <><Check size={14} /> Copied!</> : <><Share2 size={14} /> Share Results</>}
+                </button>
+                <button
+                  onClick={() => {
+                    localStorage.removeItem(QUIZ_RESULT_KEY);
+                    handleRestart();
+                  }}
+                  className="inline-flex items-center gap-2 px-5 py-3 rounded font-body text-sm transition-all duration-200 hover:opacity-80"
+                  style={{ border: "1.5px solid #E8DDD0", color: "#8C8C8C", backgroundColor: "transparent" }}
+                  title="Remove your saved hair profile and start fresh"
+                >
+                  <Trash2 size={13} /> Clear My Profile
                 </button>
               </div>
             </div>

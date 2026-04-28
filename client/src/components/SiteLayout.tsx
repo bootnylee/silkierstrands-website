@@ -291,7 +291,7 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
             <p className="font-body text-xs" style={{ color: "#8C8C8C" }}>
               © {new Date().getFullYear()} SilkierStrands.com - All rights reserved.
             </p>
-            <div className="flex gap-6">
+            <div className="flex gap-6 items-center">
               <Link href="/hair-quiz">
                 <span className="font-body text-xs cursor-pointer" style={{ color: "#D4822A" }}>Hair Quiz</span>
               </Link>
@@ -299,6 +299,19 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
                 <span className="font-body text-xs cursor-pointer" style={{ color: "#8C8C8C" }}>About</span>
               </Link>
               <a href="mailto:hello@silkierstrands.com" className="font-body text-xs" style={{ color: "#8C8C8C" }}>Contact</a>
+              {savedHairType && (
+                <button
+                  onClick={() => {
+                    localStorage.removeItem(QUIZ_RESULT_KEY);
+                    setSavedHairType(null);
+                  }}
+                  className="font-body text-xs cursor-pointer transition-colors hover:text-white"
+                  style={{ color: "#8C8C8C", background: "none", border: "none", padding: 0 }}
+                  title="Remove your saved hair type profile"
+                >
+                  Clear My Profile
+                </button>
+              )}
             </div>
           </div>
         </div>

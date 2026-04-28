@@ -110,6 +110,20 @@ function QuizCtaSection() {
           </button>
         </Link>
         <p className="font-body text-xs mt-4" style={{ color: "rgba(253,246,238,0.45)" }}>8 questions · 2 minutes · No sign-up required</p>
+
+        {/* Social proof */}
+        <div className="flex items-center justify-center gap-3 mt-8 pt-6" style={{ borderTop: "1px solid rgba(253,246,238,0.12)" }}>
+          <div className="flex gap-0.5">
+            {[...Array(5)].map((_, i) => (
+              <svg key={i} width="14" height="14" viewBox="0 0 24 24" fill="#D4822A" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+              </svg>
+            ))}
+          </div>
+          <p className="font-body text-xs" style={{ color: "rgba(253,246,238,0.55)" }}>
+            Trusted by <span style={{ color: "rgba(253,246,238,0.85)", fontWeight: 600 }}>12,400+ women</span> who found their perfect hair routine
+          </p>
+        </div>
       </div>
     </section>
   );
