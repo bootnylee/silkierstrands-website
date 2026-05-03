@@ -467,3 +467,20 @@ footer .emailoctopus-form .mastfoot p,
 footer .emailoctopus-form .mastfoot a {
   color: rgba(253, 246, 238, 0.3) !important;
 }
+
+/* Override the widget's own high-specificity [data-form] rule for the mastfoot link.
+ * The widget injects: [data-form="aeb1d42c-40de-11f1-aa22-35d9c85d0d35"] .mastfoot a { color: rgb(110,84,215) }
+ * Match the exact same specificity + !important to win. */
+[data-form="aeb1d42c-40de-11f1-aa22-35d9c85d0d35"] .mastfoot a {
+  color: rgba(253, 246, 238, 0.35) !important;
+  font-family: 'Inter', sans-serif !important;
+}
+
+footer [data-form="aeb1d42c-40de-11f1-aa22-35d9c85d0d35"] .mastfoot a {
+  color: rgba(253, 246, 238, 0.3) !important;
+}
+
+/* Desaturate the EmailOctopus logo icon in the ::before pseudo-element */
+[data-form="aeb1d42c-40de-11f1-aa22-35d9c85d0d35"] .mastfoot a::before {
+  filter: grayscale(1) opacity(0.3) !important;
+}

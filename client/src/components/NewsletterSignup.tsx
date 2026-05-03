@@ -31,6 +31,31 @@ function injectEmailOctopusWidget(container: HTMLElement): () => void {
   script.setAttribute("data-form", EMAILOCTOPUS_FORM_ID);
   container.appendChild(script);
 
+  // Inject a late-loading <style> tag to override the widget's own stylesheet
+  // which sets .mastfoot a { color: rgb(110,84,215) } — the purple EmailOctopus brand color.
+  // This style tag is appended AFTER the widget script so it always wins in cascade order.
+  const styleId = "eo-override-styles";
+  if (!document.getElementById(styleId)) {
+    const style = document.createElement("style");
+    style.id = styleId;
+    style.textContent = `
+      /* Override EmailOctopus widget's purple mastfoot link color */
+      [data-form="${EMAILOCTOPUS_FORM_ID}"] .mastfoot a,
+      [data-form="${EMAILOCTOPUS_FORM_ID}"] .mastfoot p {
+        color: rgba(253, 246, 238, 0.35) !important;
+        font-family: 'Inter', sans-serif !important;
+      }
+      footer [data-form="${EMAILOCTOPUS_FORM_ID}"] .mastfoot a,
+      footer [data-form="${EMAILOCTOPUS_FORM_ID}"] .mastfoot p {
+        color: rgba(253, 246, 238, 0.28) !important;
+      }
+      [data-form="${EMAILOCTOPUS_FORM_ID}"] .mastfoot a::before {
+        filter: grayscale(1) opacity(0.3) !important;
+      }
+    `;
+    document.head.appendChild(style);
+  }
+
   return () => {
     if (container.contains(script)) container.removeChild(script);
   };
