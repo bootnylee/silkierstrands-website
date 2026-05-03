@@ -246,7 +246,7 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
 
             {/* Product Categories */}
             <div>
-              <p className="font-label font-bold text-xs mb-4" style={{ letterSpacing: "0.15em", textTransform: "uppercase", color: "#D4822A" }}>
+              <p className="font-label font-bold text-xs mb-4" style={{ letterSpacing: "0.15em", textTransform: "uppercase", color: "#F2C4CE" }}>
                 Hair Products
               </p>
               <div className="flex flex-col gap-2">
@@ -264,7 +264,7 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
 
             {/* Styling Tools */}
             <div>
-              <p className="font-label font-bold text-xs mb-4" style={{ letterSpacing: "0.15em", textTransform: "uppercase", color: "#D4822A" }}>
+              <p className="font-label font-bold text-xs mb-4" style={{ letterSpacing: "0.15em", textTransform: "uppercase", color: "#F2C4CE" }}>
                 Styling Tools
               </p>
               <div className="flex flex-col gap-2">
@@ -293,7 +293,7 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
             </p>
             <div className="flex gap-6 items-center">
               <Link href="/hair-quiz">
-                <span className="font-body text-xs cursor-pointer" style={{ color: "#D4822A" }}>Hair Quiz</span>
+                <span className="font-body text-xs cursor-pointer" style={{ color: "#B8A99A" }}>Hair Quiz</span>
               </Link>
               <Link href="/about">
                 <span className="font-body text-xs cursor-pointer" style={{ color: "#8C8C8C" }}>About</span>

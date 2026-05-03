@@ -52,6 +52,16 @@ function injectEmailOctopusWidget(container: HTMLElement): () => void {
       [data-form="${EMAILOCTOPUS_FORM_ID}"] .mastfoot a::before {
         filter: grayscale(1) opacity(0.3) !important;
       }
+      /* Footer subscribe button — burgundy instead of amber */
+      footer [data-form="${EMAILOCTOPUS_FORM_ID}"] input[type="submit"],
+      footer [data-form="${EMAILOCTOPUS_FORM_ID}"] .btn-primary {
+        background-color: #8B1A2F !important;
+        color: #FDF6EE !important;
+      }
+      footer [data-form="${EMAILOCTOPUS_FORM_ID}"] input[type="submit"]:hover,
+      footer [data-form="${EMAILOCTOPUS_FORM_ID}"] .btn-primary:hover {
+        background-color: #6B1224 !important;
+      }
     `;
     document.head.appendChild(style);
   }
@@ -135,7 +145,7 @@ export default function NewsletterSignup({
       <div className={className}>
         <p
           className="font-semibold text-xs mb-3 uppercase tracking-widest"
-          style={{ color: "#D4822A" }}
+          style={{ color: "#F2C4CE" }}
         >
           The SilkierStrands Weekly
         </p>

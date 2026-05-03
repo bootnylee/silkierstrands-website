@@ -454,13 +454,13 @@ footer .emailoctopus-form input.form-control::placeholder {
 
 footer .emailoctopus-form input[type="submit"],
 footer .emailoctopus-form .btn-primary {
-  background-color: #D4822A !important;
+  background-color: #8B1A2F !important;
   color: #FDF6EE !important;
 }
 
 footer .emailoctopus-form input[type="submit"]:hover,
 footer .emailoctopus-form .btn-primary:hover {
-  background-color: #B86E20 !important;
+  background-color: #6B1224 !important;
 }
 
 footer .emailoctopus-form .mastfoot p,
