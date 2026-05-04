@@ -1336,9 +1336,9 @@ At $68 for 8.4 oz, it's the most expensive mask we've reviewed. But for those wi
   },
   {
     id: "philip-kingsley-elasticizer",
-    name: "Philip Kingsley Elasticizer Deep-Conditioning Treatment",
+    name: "Philip Kingsley Elasticizer",
     brand: "Philip Kingsley",
-    asin: "B0BTJ33K3Q",
+    asin: "B00ATT883S", // Updated 2026-05-04: kit bundle B0BTJ33K3Q returned 500; switched to standard listing
     price: 48,
     priceDisplay: "$48.00",
     rating: 4.6,
@@ -1421,6 +1421,84 @@ At $20, it's excellent value for a professional toning shampoo. The formula is g
   ...hairDryerProducts,
   ...flatIronProducts,
   ...curlingIronProducts,
+  // ── Weekly additions 2026-05-04 ──
+  {
+    id: "redken-one-united-leave-in",
+    name: "Redken One United All-In-One Leave-In Conditioner",
+    brand: "Redken",
+    asin: "B00YO38G4Q",
+    price: 25,
+    priceDisplay: "$25.00",
+    rating: 4.5,
+    reviewCount: 18700,
+    category: "Shampoo & Conditioner",
+    categorySlug: "shampoo-conditioner",
+    imageUrl: "https://m.media-amazon.com/images/I/61nWMJpbJOL._SL1500_.jpg",
+    amazonImageUrl: "https://m.media-amazon.com/images/I/61nWMJpbJOL._SL1500_.jpg",
+    hairTypes: ["fine", "normal", "thick", "curly", "color-treated"],
+    shortDescription: "A 25-benefit leave-in treatment that detangles, protects against heat up to 450°F, adds shine, and reduces frizz — all in one lightweight spray.",
+    fullReview: `Redken One United is one of the most versatile leave-in conditioners on the market, delivering 25 hair benefits in a single lightweight spray. It's a genuinely multi-functional product: part heat protectant, part detangler, part frizz tamer, part shine enhancer — and it performs credibly in every role.
+
+We tested it on fine, color-treated hair that struggles with frizz and heat damage. The spray applies evenly and dries quickly without leaving any residue or weighing strands down. As a heat protectant it's rated to 450°F, which covers all standard blow-dryers, flat irons, and curling wands. Hair felt noticeably smoother after blow-drying compared to using no product.
+
+The formula is sulfate-free, paraben-free, and free of heavy waxes — a thoughtful choice for color-treated hair that can't afford product buildup. At $25 for 13.5 oz, it's exceptional value for a professional-grade leave-in. With over 18,000 Amazon reviews averaging 4.5 stars, it's one of the most trusted products in its category.
+
+The only limitation is that it's not a deep conditioner — if your hair is severely damaged or very dry, you'll want to pair it with a weekly mask. But as an everyday leave-in for all hair types, it's hard to beat.`,
+    pros: [
+      "25 benefits in one product — detangles, protects, smooths, and shines",
+      "Lightweight formula works on fine hair without weighing it down",
+      "Heat protection up to 450°F covers all styling tools",
+      "Sulfate-free and paraben-free — safe for color-treated hair",
+      "Exceptional value at $25 for 13.5 oz",
+    ],
+    cons: [
+      "Not a substitute for a deep conditioning treatment on severely damaged hair",
+      "Scent is mild but may not appeal to everyone",
+    ],
+    bestFor: "All hair types needing a lightweight everyday leave-in with heat protection and detangling",
+    editorPick: true,
+    editorNote: "Our top pick for an all-in-one leave-in — the best value multi-benefit treatment we've tested.",
+    publishDate: "2026-05-04",
+    slug: "redken-one-united-leave-in-review",
+  },
+  {
+    id: "olaplex-no4p-purple-shampoo",
+    name: "Olaplex No.4P Blonde Enhancer Purple Toning Shampoo",
+    brand: "Olaplex",
+    asin: "B09FYK7FKR",
+    price: 34,
+    priceDisplay: "$34.00",
+    rating: 4.4,
+    reviewCount: 8200,
+    category: "Shampoo & Conditioner",
+    categorySlug: "shampoo-conditioner",
+    imageUrl: "https://m.media-amazon.com/images/I/51ePFbMOJAL._SL1500_.jpg",
+    amazonImageUrl: "https://m.media-amazon.com/images/I/51ePFbMOJAL._SL1500_.jpg",
+    hairTypes: ["color-treated", "fine", "normal"],
+    shortDescription: "Olaplex's bond-building technology meets purple toning in a shampoo that neutralizes brassiness while actively repairing damage in blonde and lightened hair.",
+    fullReview: `Olaplex No.4P is the only purple toning shampoo that also repairs hair bonds — making it uniquely suited for blonde and lightened hair that is both brassy and damaged. Most purple shampoos only tone; this one tones and treats simultaneously.
+
+The toning performance is strong but measured. Unlike some aggressive purple shampoos that can over-tone in minutes, No.4P is forgiving — leaving it on for 3–5 minutes delivers a noticeable cool-down of brassiness without the risk of a lavender cast. We found it most effective on highlighted hair with moderate brassiness; for very brassy hair, a dedicated purple mask may be needed alongside it.
+
+The bond-building component (Olaplex's patented Bis-Aminopropyl Diglycol Dimaleate) works cumulatively. After 4–6 weeks of regular use, hair feels stronger and less prone to breakage — a benefit no other purple shampoo can claim. This makes it especially valuable for heavily processed hair that undergoes frequent lightening.
+
+At $34 it's a premium price for a shampoo, but the dual toning-and-repair functionality justifies the cost for anyone already committed to the Olaplex system. For those who only need toning, Joico Color Balance Purple at $20 delivers comparable toning at a lower price point.`,
+    pros: [
+      "Tones and repairs bonds simultaneously — unique in the purple shampoo category",
+      "Forgiving formula — won't over-tone with normal use",
+      "Cumulative bond-strengthening benefit with regular use",
+      "Gentle enough for fine, fragile hair",
+    ],
+    cons: [
+      "Premium price at $34 vs. comparable toning-only alternatives",
+      "May need supplementing with a purple mask for very brassy hair",
+      "Results build gradually — not a one-wash fix",
+    ],
+    bestFor: "Blonde, highlighted, or lightened hair that is both brassy and damaged; ideal for those already using Olaplex",
+    editorPick: false,
+    publishDate: "2026-05-04",
+    slug: "olaplex-no4p-purple-shampoo-review",
+  },
 ];
 
 export function getProductsByCategory(categorySlug: string): Product[] {
@@ -1618,6 +1696,37 @@ export const comparisons: Comparison[] = [
     publishDate: "2025-02-19",
     slug: "dyson-airwrap-vs-tymo-curlpro",
     hairTypes: ["curly", "normal", "fine"],
+  },
+  // ── Weekly additions 2026-05-04 ──
+  {
+    id: "redken-one-united-vs-its-a-10",
+    title: "Redken One United vs. It's a 10 Miracle Leave-In",
+    subtitle: "25-Benefit Professional Leave-In vs. Cult-Classic 10-in-1 Spray",
+    category: "Shampoo & Conditioner",
+    categorySlug: "shampoo-conditioner",
+    product1Id: "redken-one-united-leave-in",
+    product2Id: "its-a-10-miracle-mask",
+    winnerId: "redken-one-united-leave-in",
+    winnerReason: "Redken One United wins for its broader 25-benefit formula, superior heat protection (450°F), and better value at $25 for 13.5 oz. It's a 10 wins for its lighter feel on very fine hair and its cult following among those who prefer a simpler, no-fuss formula.",
+    verdict: "Redken One United is the better all-around leave-in for most hair types — it offers more benefits, stronger heat protection, and better value per ounce. It's a 10 Miracle Leave-In remains a strong choice for those with very fine hair who want the lightest possible product, or for those who love its iconic formula. Both are excellent; the Redken edges ahead on versatility and value.",
+    publishDate: "2026-05-04",
+    slug: "redken-one-united-vs-its-a-10-miracle-leave-in",
+    hairTypes: ["fine", "normal", "color-treated", "curly"],
+  },
+  {
+    id: "olaplex-no4p-vs-joico-color-balance",
+    title: "Olaplex No.4P vs. Joico Color Balance Purple",
+    subtitle: "Bond-Building Toning Shampoo vs. Best-Value Purple Shampoo",
+    category: "Shampoo & Conditioner",
+    categorySlug: "shampoo-conditioner",
+    product1Id: "olaplex-no4p-purple-shampoo",
+    product2Id: "joico-color-balance-shampoo",
+    winnerId: "joico-color-balance-shampoo",
+    winnerReason: "Joico Color Balance wins for pure toning performance and value — it delivers stronger brassiness neutralization at $20 vs. $34. Olaplex No.4P wins for damaged hair that needs both toning and bond repair simultaneously.",
+    verdict: "For most blonde and highlighted hair, Joico Color Balance Purple is the smarter purchase — it tones more aggressively and costs $14 less. Olaplex No.4P is the better choice only if your hair is both brassy and significantly damaged from bleaching or chemical processing, where the bond-repair benefit justifies the premium. If you already use other Olaplex products, No.4P integrates naturally into your routine.",
+    publishDate: "2026-05-04",
+    slug: "olaplex-no4p-vs-joico-color-balance-purple",
+    hairTypes: ["color-treated", "fine", "normal"],
   },
 ];
 
