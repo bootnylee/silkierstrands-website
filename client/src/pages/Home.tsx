@@ -268,10 +268,8 @@ export default function Home() {
                         (e.target as HTMLImageElement).src = `https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=300&auto=format&fit=crop`;
                       }}
                     />
-                    <div className="absolute inset-0 flex items-center justify-center"
-                      style={{ background: "rgba(139,26,47,0.15)" }}>
-                      <span style={{ fontSize: "2rem" }}>{cat.icon}</span>
-                    </div>
+                    <div className="absolute inset-0"
+                      style={{ background: "rgba(139,26,47,0.08)" }} />
                   </div>
                   <p className="font-label font-semibold text-xs leading-tight group-hover:text-red-800 transition-colors"
                     style={{ color: "#2C2C2C", letterSpacing: "0.05em" }}>
@@ -396,7 +394,6 @@ export default function Home() {
               <Link key={ht.id} href={`/hair-type/${ht.slug}`}>
                 <div className="p-4 rounded-sm cursor-pointer transition-all hover:shadow-md group"
                   style={{ backgroundColor: "#FDF6EE", border: "1px solid #E8DDD0" }}>
-                  <span className="text-2xl mb-2 block">{ht.icon}</span>
                   <p className="font-display font-semibold leading-tight group-hover:text-red-800 transition-colors"
                     style={{ fontSize: "0.9rem", color: "#2C2C2C" }}>{ht.name}</p>
                   <p className="font-body text-xs mt-1" style={{ color: "#B8A99A" }}>{ht.tagline.split(' ').slice(0,4).join(' ')}…</p>
