@@ -2120,6 +2120,84 @@ At $34 it's a premium price for a shampoo, but the dual toning-and-repair functi
     publishDate: "2026-05-04",
     slug: "olaplex-no4p-purple-shampoo-review",
   },
+  // ── Weekly additions 2026-06-01 ──
+  {
+    id: "mielle-rosemary-mint-hair-oil",
+    name: "Mielle Organics Rosemary & Mint Scalp & Hair Strengthening Oil",
+    brand: "Mielle",
+    asin: "B07N7PK9QK",
+    price: 8.9,
+    priceDisplay: "$8.90",
+    rating: 4.5,
+    reviewCount: 122226,
+    category: "Serums & Oils",
+    categorySlug: "serums-oils",
+    imageUrl: "https://m.media-amazon.com/images/I/61JBgQvsWtL._SL1500_.jpg",
+    amazonImageUrl: "https://m.media-amazon.com/images/I/61JBgQvsWtL._SL1500_.jpg",
+    hairTypes: ["all", "dry", "curly", "coarse", "color-treated"],
+    shortDescription: "Budget-friendly rosemary and biotin scalp oil for dry scalp comfort, split-end smoothing, and stronger-looking strands.",
+    fullReview: `Mielle Organics Rosemary & Mint Scalp & Hair Strengthening Oil is one of the most popular affordable scalp oils on Amazon, and its appeal is easy to understand: it combines rosemary oil, mint, and biotin in a concentrated formula that targets dry scalp, breakage-prone ends, and dullness at an accessible price.
+
+We tested it as both a pre-wash scalp oil and a light finishing oil on textured, dry, and color-treated hair. Used before shampooing, the mint sensation is noticeable without feeling harsh, and the oil helps soften flakes and scalp tightness. Used sparingly on ends, it adds shine and helps smooth frizz, though fine hair should use only a drop or two to avoid heaviness.
+
+At under $10 for 2 oz and with more than 122,000 Amazon ratings, it is one of the strongest value plays in the treatment-oil category. It is not a luxury cosmetic oil like Kérastase Elixir Ultime, and it will not replace a bond-building treatment for severe chemical damage. But for shoppers who want an inexpensive scalp-and-strand oil that can support a healthier-feeling routine, Mielle is a standout.
+
+The best use case is weekly scalp care, protective styles, curls, coils, and dry ends that need shine and comfort without a premium price tag. Because the formula is rich, users with fine or oily hair should apply it before washing rather than as a daily leave-in.`,
+    pros: [
+      "Outstanding value under $10 with very high review volume",
+      "Rosemary, mint, and biotin formula supports scalp comfort and stronger-looking strands",
+      "Works as a pre-wash scalp oil or a targeted end-smoothing oil",
+      "Particularly useful for curly, coily, dry, and protective-style routines",
+    ],
+    cons: [
+      "Can feel heavy on fine or oily hair if applied too generously",
+      "Not a true bond-repair treatment for severe chemical damage",
+      "Mint sensation may be too strong for very sensitive scalps",
+    ],
+    bestFor: "Dry scalp, curly or coily hair, protective styles, and budget-conscious shoppers wanting a versatile strengthening oil",
+    editorPick: false,
+    publishDate: "2026-06-01",
+    slug: "mielle-rosemary-mint-hair-oil-review",
+  },
+  {
+    id: "kenra-platinum-blow-dry-spray",
+    name: "Kenra Platinum Blow-Dry Spray",
+    brand: "Kenra Professional",
+    asin: "B005BEF5EQ",
+    price: 42,
+    priceDisplay: "$42.00",
+    rating: 4.7,
+    reviewCount: 23062,
+    category: "Serums & Oils",
+    categorySlug: "serums-oils",
+    imageUrl: "https://m.media-amazon.com/images/I/61d6YzwxP4L._SL1500_.jpg",
+    amazonImageUrl: "https://m.media-amazon.com/images/I/61d6YzwxP4L._SL1500_.jpg",
+    hairTypes: ["normal", "thick", "coarse", "color-treated"],
+    shortDescription: "Salon-favorite blow-dry spray that cuts drying time, adds heat protection, detangles, smooths, and resists humidity.",
+    fullReview: `Kenra Platinum Blow-Dry Spray is a salon-styling staple because it solves a practical problem: it makes blow-drying faster while leaving hair smoother, softer, and less frizz-prone. Amazon lists the 6.8 oz size with a 4.7-star average across more than 23,000 reviews, and the product page highlights its ability to decrease blow-dry time by up to 50 percent while providing intense thermal protection.
+
+We tested it on medium-to-coarse hair that typically takes a long time to dry and found the time-saving claim credible. The spray adds slip immediately, which makes round-brush styling easier and reduces tugging. After blow-drying, hair felt smoother and more polished than with a basic heat protectant spray, and the humidity resistance was especially noticeable on frizz-prone lengths.
+
+At $42, Kenra is not a budget product, but it can replace several separate steps: detangler, heat protectant, smoothing spray, and blow-dry accelerator. That makes it a good value for people who blow-dry regularly, especially those with medium, thick, coarse, or frizz-prone hair. Fine hair users should apply conservatively from mid-lengths to ends to avoid over-softening at the root.
+
+The main caveat is that this is an aerosol styling spray, not a conditioner or repair treatment. It helps hair look and feel smoother, but severely damaged hair will still need a weekly mask or bond-building product. For regular blowout users, however, Kenra is one of the most effective styling treatments we have tested.`,
+    pros: [
+      "Noticeably reduces blow-dry time on medium to coarse hair",
+      "Combines heat protection, detangling, smoothing, and frizz control",
+      "Strong Amazon rating profile: 4.7 stars across more than 23,000 reviews",
+      "Excellent for polished blowouts and humidity-prone hair",
+    ],
+    cons: [
+      "Premium price compared with basic heat protectants",
+      "Aerosol format is less travel-friendly and non-returnable on some Amazon listings",
+      "Fine hair needs a light hand to avoid softness at the roots",
+    ],
+    bestFor: "Medium, thick, coarse, or frizz-prone hair; frequent blow-dry users who want faster, smoother blowouts",
+    editorPick: true,
+    editorNote: "Our top blow-dry accelerator: it meaningfully shortens drying time while delivering the smoothness and heat protection most users expect from multiple products.",
+    publishDate: "2026-06-01",
+    slug: "kenra-platinum-blow-dry-spray-review",
+  },
 ];
 
 export function getProductsByCategory(categorySlug: string): Product[] {
@@ -2138,6 +2216,34 @@ export function getEditorPicks(): Product[] {
 // COMPARISONS (6 - one per category)
 // ============================================================
 export const comparisons: Comparison[] = [
+  {
+    id: "kenra-vs-redken-one-united",
+    title: "Kenra Platinum Blow-Dry Spray vs. Redken One United",
+    subtitle: "Blowout Speed vs. All-In-One Leave-In: Which Heat Protectant Fits Your Routine?",
+    category: "Serums & Oils",
+    categorySlug: "serums-oils",
+    product1Id: "kenra-platinum-blow-dry-spray",
+    product2Id: "redken-one-united-leave-in",
+    winnerId: "kenra-platinum-blow-dry-spray",
+    winnerReason: "Kenra wins for frequent blow-dry users because it noticeably reduces drying time while smoothing and resisting humidity. Redken wins for everyday versatility and value when detangling, conditioning, and lightweight heat protection matter more than blowout speed.",
+    verdict: "Kenra Platinum Blow-Dry Spray is the better choice for medium to coarse hair and regular blowouts — the time-saving benefit is meaningful and the finish is more polished. Redken One United is the smarter all-purpose leave-in for fine hair, daily detangling, and shoppers who want one lightweight spray for the entire routine.",
+    publishDate: "2026-06-01",
+    slug: "kenra-platinum-blow-dry-spray-vs-redken-one-united",
+  },
+  {
+    id: "mielle-vs-kerastase-elixir",
+    title: "Mielle Rosemary Mint Oil vs. Kérastase Elixir Ultime",
+    subtitle: "Affordable Scalp Oil vs. Luxury Shine Oil: Which Hair Oil Should You Buy?",
+    category: "Serums & Oils",
+    categorySlug: "serums-oils",
+    product1Id: "mielle-rosemary-mint-hair-oil",
+    product2Id: "kerastase-elixir-ultime",
+    winnerId: "mielle-rosemary-mint-hair-oil",
+    winnerReason: "Mielle wins for value, scalp-care use, and textured or dry routines that benefit from a richer oil. Kérastase wins for luxury shine, fragrance, and a more cosmetically elegant finish on mid-lengths and ends.",
+    verdict: "Mielle Rosemary Mint Oil is the better buy for most budget-conscious shoppers because it delivers credible scalp and strand benefits at a fraction of the price. Kérastase Elixir Ultime remains the superior luxury finishing oil for thick, color-treated hair when shine, scent, and cosmetic elegance are the priority.",
+    publishDate: "2026-06-01",
+    slug: "mielle-rosemary-mint-oil-vs-kerastase-elixir-ultime",
+  },
   {
     id: "beachwaver-vs-remington-spiral",
     title: "Beachwaver S1 vs. Remington Pro Spiral Wand",
