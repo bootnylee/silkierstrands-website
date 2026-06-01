@@ -1,5 +1,5 @@
 {
-  "auditDate": "2026-05-25",
+  "auditDate": "2026-06-01",
   "summary": {
     "passed": 8,
     "warnings": 1,
@@ -17,7 +17,7 @@
     "index.html has canonical URL"
   ],
   "warnings": [
-    "98 products may be missing slug field"
+    "102 products may be missing slug field"
   ],
   "issues": [],
   "recommendations": [
