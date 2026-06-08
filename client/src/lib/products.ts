@@ -780,6 +780,44 @@ At $80, it's well-priced for a professional-grade tool. The build quality is exc
     slug: "babyliss-nano-titanium-dryer-review",
     hairTypes: ["thick", "coarse", "normal"],
   },
+  {
+    id: "wavytalk-ionic-hair-dryer",
+    name: "Wavytalk Professional Ionic Hair Dryer",
+    brand: "Wavytalk",
+    asin: "B09CP8SSGP",
+    price: 39.99,
+    priceDisplay: "$39.99",
+    rating: 4.5,
+    reviewCount: 8000,
+    category: "Hair Dryers",
+    categorySlug: "hair-dryers",
+    imageUrl: "https://m.media-amazon.com/images/I/61HPrdaKbTL._SL1500_.jpg",
+    amazonImageUrl: "https://m.media-amazon.com/images/I/61HPrdaKbTL._SL1500_.jpg",
+    shortDescription: "Fast-drying 1875W ionic dryer with diffuser, concentrator, comb, and detangling brush for flexible styling across hair types.",
+    fullReview: `Wavytalk Professional Ionic Hair Dryer is a strong under-$50 alternative for shoppers who want more attachment versatility than a basic drugstore dryer. The 1875W motor is designed for fast drying, while the built-in negative-ion system helps reduce static and smooth frizz-prone lengths.
+
+We prioritized this dryer because it broadens SilkierStrands' coverage for curly, coily, thick, and family-use routines. The accessory set is the differentiator: a diffuser for curl definition, a concentrator for sleek blowouts, a comb nozzle for stretching thicker textures, and a detangling brush attachment for pre-styling control. That makes it more flexible than many budget dryers that include only one nozzle.
+
+In use, the Wavytalk is best for people who want practical everyday performance without spending salon-tool money. It will not match the refinement or durability of premium dryers like Dyson or ghd, but it delivers the right feature set for the price: multiple heat and speed settings, cool shot, overheat protection, and enough power for medium to thick hair.
+
+The main caveat is that the compact housing and attachment set feel more consumer-grade than professional. Still, with Amazon-facing search results showing a 4.5-star rating profile across thousands of reviewers, it is one of the most compelling value additions in the dryer category this week.`,
+    pros: [
+      "1875W motor with ionic smoothing for faster, less frizzy blowouts",
+      "Includes diffuser, concentrator, comb, and detangling brush attachments",
+      "Strong value under $50 for users who need styling versatility",
+      "Useful for curly, coily, thick, and everyday family hair routines",
+    ],
+    cons: [
+      "Not as refined or durable as premium salon dryers",
+      "Attachment fit and finish are more consumer-grade than professional",
+      "Very fine hair may need the lowest heat and speed settings",
+    ],
+    bestFor: "Curly, coily, thick, or frizz-prone hair; budget-conscious shoppers wanting one dryer with multiple attachments",
+    editorPick: false,
+    publishDate: "2026-06-08",
+    slug: "wavytalk-professional-ionic-hair-dryer-review",
+    hairTypes: ["curly", "thick", "coarse", "normal"],
+  },
 ];
 
 // ============================================================
@@ -945,6 +983,45 @@ At $70, it's well-priced for a professional-grade tool. The main caveat is that 
     publishDate: "2025-02-19",
     slug: "babyliss-ultra-thin-titanium-review",
     hairTypes: ["fine", "normal", "color-treated"],
+  },
+  {
+    id: "remington-shine-therapy-flat-iron",
+    name: "Remington Shine Therapy 2 inch Hair Straightener",
+    brand: "Remington",
+    asin: "B09RTLFV3F",
+    price: 34.99,
+    priceDisplay: "$34.99",
+    rating: 4.6,
+    reviewCount: 10000,
+    category: "Flat Irons & Straighteners",
+    categorySlug: "flat-irons",
+    imageUrl: "https://m.media-amazon.com/images/I/71GmGDV20QL._SL1500_.jpg",
+    amazonImageUrl: "https://m.media-amazon.com/images/I/71GmGDV20QL._SL1500_.jpg",
+    shortDescription: "Affordable ceramic flat iron with argan oil and keratin-infused plates for shinier, smoother straightening on medium to long hair.",
+    fullReview: `Remington Shine Therapy 2 inch Hair Straightener is the kind of value tool that deserves more attention in the flat-iron category. It pairs wide ceramic plates with argan oil, keratin, and micro-conditioner infusion to create smoother glide and a shinier finish than a basic low-cost straightener.
+
+We selected the 2-inch version because it fills a practical gap for shoppers with medium, long, thick, or wavy hair who want faster passes through larger sections. The broader plates are less precise at roots than a 1-inch iron, but they are much more efficient for smoothing length and reducing styling time.
+
+The strongest argument for Remington Shine Therapy is the balance of affordability and real performance. Independent editorial testing from Wirecutter praised the Shine Therapy platform for speedy straightening across multiple hair textures, and Amazon-facing search results show strong review volume above the 1,000-review threshold. The 450°F maximum temperature gives enough power for coarse or resistant hair, while lower settings make it usable on normal and color-treated strands.
+
+This is not a luxury tool: the housing feels lighter than premium irons, and the conditioning infusion is not a substitute for heat protectant. But for shoppers who want visible shine, quick smoothing, and a low price point, it is one of the most compelling flat irons to add to the SilkierStrands catalog.`,
+    pros: [
+      "Excellent value for a wide-plate straightener",
+      "Argan oil and keratin-infused ceramic plates improve glide and shine",
+      "2-inch plates speed up styling on long, thick, or wavy hair",
+      "Up to 450°F with adjustable heat for different textures",
+    ],
+    cons: [
+      "Wide plates are less precise near roots and short layers",
+      "Build quality is lighter than premium salon irons",
+      "Still requires heat protectant for frequent styling",
+    ],
+    bestFor: "Long, thick, wavy, or frizz-prone hair needing fast smoothing at a budget price",
+    editorPick: true,
+    editorNote: "Best budget wide-plate straightener this week: strong shine, quick smoothing, and practical heat range at a price most shoppers can justify.",
+    publishDate: "2026-06-08",
+    slug: "remington-shine-therapy-2-inch-flat-iron-review",
+    hairTypes: ["normal", "thick", "coarse", "color-treated"],
   },
 ];
 
@@ -2216,6 +2293,37 @@ export function getEditorPicks(): Product[] {
 // COMPARISONS (6 - one per category)
 // ============================================================
 export const comparisons: Comparison[] = [
+  // ── Weekly additions 2026-06-08 ──
+  {
+    id: "remington-shine-vs-pearl-pro",
+    title: "Remington Shine Therapy vs. Remington Pearl Pro",
+    subtitle: "Wide-Plate Shine Tool vs. Pearl Ceramic Classic: Which Budget Flat Iron Wins?",
+    category: "Flat Irons & Straighteners",
+    categorySlug: "flat-irons",
+    product1Id: "remington-shine-therapy-flat-iron",
+    product2Id: "remington-s9500pp",
+    winnerId: "remington-shine-therapy-flat-iron",
+    winnerReason: "Remington Shine Therapy wins for most long, thick, or frizz-prone hair because its 2-inch plates cover more surface area and the argan oil and keratin-infused ceramic plates deliver a noticeably smoother, shinier finish. Pearl Pro remains a good choice for shoppers who want a narrower, more maneuverable iron.",
+    verdict: "Choose Remington Shine Therapy if your priority is fast smoothing, shine, and better efficiency on medium-to-long hair. Choose Remington Pearl Pro if you style shorter layers, need more root precision, or prefer a slimmer iron for travel. For the broadest SilkierStrands audience, Shine Therapy is the better current buy.",
+    publishDate: "2026-06-08",
+    slug: "remington-shine-therapy-vs-remington-pearl-pro",
+    hairTypes: ["normal", "thick", "coarse", "color-treated"],
+  },
+  {
+    id: "wavytalk-vs-conair-infiniti-pro",
+    title: "Wavytalk Ionic Hair Dryer vs. Conair Infiniti PRO",
+    subtitle: "Attachment-Rich Value Dryer vs. Reliable Budget Workhorse",
+    category: "Hair Dryers",
+    categorySlug: "hair-dryers",
+    product1Id: "wavytalk-ionic-hair-dryer",
+    product2Id: "conair-infiniti-pro",
+    winnerId: "wavytalk-ionic-hair-dryer",
+    winnerReason: "Wavytalk wins for versatility because it includes a diffuser, concentrator, comb, and detangling brush, making it more useful for curly, coily, thick, and frizz-prone routines. Conair remains a dependable everyday dryer, but Wavytalk offers more styling options at a comparable budget price.",
+    verdict: "Wavytalk is the better pick for households with multiple hair textures or anyone who wants one affordable dryer that can diffuse curls, smooth blowouts, and stretch thicker hair. Conair Infiniti PRO is still a solid low-risk choice for basic drying, but its simpler attachment set makes it less flexible for textured-hair routines.",
+    publishDate: "2026-06-08",
+    slug: "wavytalk-ionic-hair-dryer-vs-conair-infiniti-pro",
+    hairTypes: ["curly", "thick", "coarse", "normal"],
+  },
   {
     id: "kenra-vs-redken-one-united",
     title: "Kenra Platinum Blow-Dry Spray vs. Redken One United",
