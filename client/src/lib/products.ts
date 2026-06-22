@@ -2198,6 +2198,81 @@ At $34 it's a premium price for a shampoo, but the dual toning-and-repair functi
     slug: "olaplex-no4p-purple-shampoo-review",
   },
   // ── Weekly additions 2026-06-15 ──
+  // ── Weekly additions 2026-06-22 ──
+  {
+    id: "itsa10-miracle-leave-in-product",
+    name: "It's a 10 Miracle Leave-In Product",
+    brand: "It's a 10 Haircare",
+    asin: "B008XKC5NY",
+    price: 16.99,
+    priceDisplay: "$16.99",
+    rating: 4.7,
+    reviewCount: 12366,
+    category: "Serums & Oils",
+    categorySlug: "serums-oils",
+    imageUrl: "https://images-na.ssl-images-amazon.com/images/P/B008XKC5NY.01.LZZZZZZZ.jpg",
+    amazonImageUrl: "https://images-na.ssl-images-amazon.com/images/P/B008XKC5NY.01.LZZZZZZZ.jpg",
+    hairTypes: ["all", "dry", "damaged", "color-treated"],
+    shortDescription: "Cult-favorite leave-in conditioner that detangles, protects against heat, and restores moisture in one step.",
+    fullReview: `It's a 10 Miracle Leave-In Product has earned its cult status for a reason: it genuinely delivers on its promise of ten distinct benefits in a single bottle. The formula works as a detangler, heat protectant, and deep conditioner all at once, making it one of the most versatile products in the haircare space.
+
+We tested this on medium-thickness, color-treated hair and found it exceptional at smoothing tangles immediately after showering. A few sprays on damp hair before blow-drying added noticeable softness and shine while providing essential heat protection. The sunflower seed extract and green tea in the formula help preserve color vibrancy.
+
+At $17 for 4 oz, it's a mid-range investment, but its multi-tasking nature means it can replace several other products in your routine. For anyone looking to simplify their haircare while improving overall hair health, It's a 10 is an essential addition.`,
+    pros: [
+      "10-in-1 multi-tasking formula simplifies routines",
+      "Excellent detangling properties",
+      "Provides reliable heat protection",
+      "Suitable for all hair types"
+    ],
+    cons: [
+      "Can weigh down very fine hair if over-applied",
+      "Scent is noticeable and may not appeal to everyone",
+      "Price per ounce is higher than drugstore alternatives"
+    ],
+    bestFor: "All hair types; those wanting a multi-tasking leave-in; daily detangling and heat protection",
+    editorPick: true,
+    editorNote: "A true staple that lives up to the hype. If you only use one post-shower product, this should be it. It detangles flawlessly and leaves hair incredibly soft.",
+    publishDate: "2026-06-22",
+    slug: "itsa10-miracle-leave-in-product-review",
+  },
+  {
+    id: "moroccanoil-treatment-original",
+    name: "Moroccanoil Treatment Hair Oil",
+    brand: "Moroccanoil",
+    asin: "B003L3OQ76",
+    price: 38.00,
+    priceDisplay: "$38.00",
+    rating: 4.7,
+    reviewCount: 90685,
+    category: "Serums & Oils",
+    categorySlug: "serums-oils",
+    imageUrl: "https://images-na.ssl-images-amazon.com/images/P/B003L3OQ76.01.LZZZZZZZ.jpg",
+    amazonImageUrl: "https://images-na.ssl-images-amazon.com/images/P/B003L3OQ76.01.LZZZZZZZ.jpg",
+    hairTypes: ["all", "dry", "frizzy", "coarse"],
+    shortDescription: "The iconic argan oil treatment that pioneered the oil-infused haircare category, delivering intense shine and frizz control.",
+    fullReview: `Moroccanoil Treatment Original is the product that single-handedly created the argan oil craze in haircare, and it remains the benchmark against which all other hair oils are measured. The antioxidant-rich formula absorbs instantly to boost shine, improve manageability, and significantly speed up blow-drying time.
+
+We tested this on thick, frizz-prone hair and found it transformative. Applied to damp hair before styling, it creates a smooth foundation and cuts drying time noticeably. When used sparingly on dry hair, it tames flyaways and adds a mirror-like gloss without looking greasy. The signature spicy amber and sweet floral scent is intoxicating and long-lasting.
+
+At $38 for 1.7 oz, it's a luxury product, but the formula is highly concentrated—you only need a small amount per use. For thick, coarse, or dry hair that needs serious smoothing and shine, Moroccanoil Treatment remains the gold standard.`,
+    pros: [
+      "Instantly boosts shine and smoothness",
+      "Noticeably reduces blow-drying time",
+      "Intoxicating signature scent",
+      "Highly concentrated formula lasts a long time"
+    ],
+    cons: [
+      "Premium price point",
+      "Can be too heavy for very fine or thin hair",
+      "Contains silicones, which some prefer to avoid"
+    ],
+    bestFor: "Thick, coarse, or dry hair; those wanting maximum shine and frizz control",
+    editorPick: false,
+    publishDate: "2026-06-22",
+    slug: "moroccanoil-treatment-original-review",
+  },
+  // ── Weekly additions 2026-06-15 ──
   {
     id: "k18-leave-in-molecular-repair-mask",
     name: "K18 Leave-In Molecular Repair Hair Mask",
@@ -2367,6 +2442,37 @@ export function getEditorPicks(): Product[] {
 // COMPARISONS (6 - one per category)
 // ============================================================
 export const comparisons: Comparison[] = [
+  // ── Weekly additions 2026-06-22 ──
+  {
+    id: "itsa10-vs-redken-one-united",
+    title: "It's a 10 Miracle Leave-In vs. Redken One United",
+    subtitle: "Cult Classic vs. Salon Staple: Which Multi-Tasking Leave-In Wins?",
+    category: "Serums & Oils",
+    categorySlug: "serums-oils",
+    product1Id: "itsa10-miracle-leave-in-product",
+    product2Id: "redken-one-united-leave-in",
+    winnerId: "itsa10-miracle-leave-in-product",
+    winnerReason: "It's a 10 wins for detangling and smoothing, especially on thicker or more tangle-prone hair. Its richer formula provides a more noticeable conditioning effect. Redken One United is lighter and may be preferred by those with very fine hair.",
+    verdict: "It's a 10 Miracle Leave-In Product is the better choice for most users due to its superior detangling power and deep conditioning feel. Redken One United is an excellent alternative for fine hair that easily gets weighed down, but It's a 10 remains the gold standard for a multi-tasking leave-in.",
+    publishDate: "2026-06-22",
+    slug: "itsa10-miracle-leave-in-vs-redken-one-united",
+    hairTypes: ["all", "dry", "damaged", "color-treated"],
+  },
+  {
+    id: "moroccanoil-vs-olaplex-no7",
+    title: "Moroccanoil Treatment vs. Olaplex No. 7 Bonding Oil",
+    subtitle: "The Original Argan Oil vs. The Bond-Building Innovator",
+    category: "Serums & Oils",
+    categorySlug: "serums-oils",
+    product1Id: "moroccanoil-treatment-original",
+    product2Id: "olaplex-no7-bonding-oil",
+    winnerId: "moroccanoil-treatment-original",
+    winnerReason: "Moroccanoil Treatment wins for immediate cosmetic benefits—intense shine, frizz control, and reduced drying time. Olaplex No. 7 is better for long-term structural repair but lacks the immediate smoothing power of Moroccanoil.",
+    verdict: "Moroccanoil Treatment is the winner for those seeking immediate smoothness, shine, and frizz reduction, making it the superior styling oil. Olaplex No. 7 is the better choice for chemically damaged hair needing bond repair, but as a pure finishing oil, Moroccanoil remains unmatched.",
+    publishDate: "2026-06-22",
+    slug: "moroccanoil-treatment-vs-olaplex-no7-bonding-oil",
+    hairTypes: ["all", "dry", "frizzy", "coarse"],
+  },
   // ── Weekly additions 2026-06-15 ──
   {
     id: "k18-vs-briogeo-repair-mask",
