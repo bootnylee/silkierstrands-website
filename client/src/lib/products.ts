@@ -327,8 +327,8 @@ The 3-5 minute processing time makes it practical for regular use. At $30 for 3.
     reviewCount: 8500,
     category: "Hair Masks & Treatments",
     categorySlug: "hair-masks",
-    imageUrl: "https://m.media-amazon.com/images/I/71fdZ8nuP3L._SL1500_.jpg",
-    amazonImageUrl: "https://m.media-amazon.com/images/I/71fdZ8nuP3L._SL1500_.jpg",
+    imageUrl: "https://images-na.ssl-images-amazon.com/images/P/B002N5MKMG.01.LZZZZZZZ.jpg",
+    amazonImageUrl: "https://images-na.ssl-images-amazon.com/images/P/B002N5MKMG.01.LZZZZZZZ.jpg",
     shortDescription: "Argan oil-infused mask for intense hydration and frizz control for dry, thick hair.",
     fullReview: `Moroccanoil Intense Hydrating Mask is the gold standard for thick, dry, frizzy hair. The argan oil-rich formula penetrates deeply, delivering moisture that lasts for days rather than hours. The signature Moroccanoil scent - amber, musk, and floral notes - is iconic and lingers pleasantly.
 
@@ -433,8 +433,8 @@ At $19.99, it's outstanding value for a keratin-infused formula. OGX Brazilian K
     reviewCount: 3200,
     category: "Hair Masks & Treatments",
     categorySlug: "hair-masks",
-    imageUrl: "https://m.media-amazon.com/images/I/61AUrKqKLoL._SL1500_.jpg",
-    amazonImageUrl: "https://m.media-amazon.com/images/I/61AUrKqKLoL._SL1500_.jpg",
+    imageUrl: "https://images-na.ssl-images-amazon.com/images/P/B0BQ8P9LS2.01.LZZZZZZZ.jpg",
+    amazonImageUrl: "https://images-na.ssl-images-amazon.com/images/P/B0BQ8P9LS2.01.LZZZZZZZ.jpg",
     shortDescription: "Hyaluronic acid-infused hair oil that delivers deep hydration and frizz control without weight.",
     fullReview: `Amika Water Sign Hydrating Hair Oil with Hyaluronic Acid is a lightweight, multi-tasking hair oil that brings the skin-care ingredient of the moment — hyaluronic acid — into your hair care routine. The formula delivers deep hydration without the heavy, greasy feel of traditional hair oils, making it ideal for fine to medium hair types.
 
@@ -1148,8 +1148,8 @@ At $60, it's slightly more expensive than the original but worth the upgrade for
     reviewCount: 42000,
     category: "Curling Irons & Wands",
     categorySlug: "curling-irons",
-    imageUrl: "https://m.media-amazon.com/images/I/61DAY8qYZYL._SL1500_.jpg",
-    amazonImageUrl: "https://m.media-amazon.com/images/I/61DAY8qYZYL._SL1500_.jpg",
+    imageUrl: "https://m.media-amazon.com/images/I/61Qcz5fSJLL._SL1001_.jpg",
+    amazonImageUrl: "https://m.media-amazon.com/images/I/61Qcz5fSJLL._SL1001_.jpg",
     shortDescription: "Double ceramic coating for even heat distribution and frizz-free curls at an unbeatable price.",
     fullReview: `The Conair Double Ceramic Curling Iron is the best budget curling iron available, and at $20, it's a remarkable value. The double ceramic coating provides even heat distribution that prevents hot spots, and the ionic conditioning reduces frizz for smooth, shiny curls.
 
@@ -1233,8 +1233,8 @@ At $279, it's a significant investment, but for those who style their hair daily
     reviewCount: 18000,
     category: "Curling Irons & Wands",
     categorySlug: "curling-irons",
-    imageUrl: "https://m.media-amazon.com/images/I/61DAY8qYZYL._SL1500_.jpg",
-    amazonImageUrl: "https://m.media-amazon.com/images/I/61DAY8qYZYL._SL1500_.jpg",
+    imageUrl: "https://images-na.ssl-images-amazon.com/images/P/B0050QJHTO.01.LZZZZZZZ.jpg",
+    amazonImageUrl: "https://images-na.ssl-images-amazon.com/images/P/B0050QJHTO.01.LZZZZZZZ.jpg",
     hairTypes: ["normal","fine","medium"],
     shortDescription: "Budget-friendly spiral wand for tight, defined curls with ceramic coating.",
     fullReview: `The Remington Pro Spiral Curling Wand is the best budget option for those who want tight, defined curls rather than loose waves. The spiral barrel creates uniform, bouncy curls that hold exceptionally well throughout the day — a feat that many more expensive wands struggle to match.
@@ -1287,8 +1287,8 @@ At $149, it's a premium purchase for a curling iron, but the ease of use and con
     reviewCount: 22000,
     category: "Flat Irons & Straighteners",
     categorySlug: "flat-irons",
-    imageUrl: "https://m.media-amazon.com/images/I/71sf0ZcIiyL._SL1500_.jpg",
-    amazonImageUrl: "https://m.media-amazon.com/images/I/71sf0ZcIiyL._SL1500_.jpg",
+    imageUrl: "https://images-na.ssl-images-amazon.com/images/P/B003981CVQ.01.LZZZZZZZ.jpg",
+    amazonImageUrl: "https://images-na.ssl-images-amazon.com/images/P/B003981CVQ.01.LZZZZZZZ.jpg",
     hairTypes: ["all","thick","coarse"],
     shortDescription: "Professional tourmaline ceramic flat iron with far-infrared heat for smooth, shiny results.",
     fullReview: `CHI Air Expert is a professional-grade flat iron that has been a salon staple for years. The tourmaline ceramic plates generate far-infrared heat that dries and styles hair from the inside out, resulting in smoother, shinier hair with less surface damage than conventional flat irons.
@@ -1740,14 +1740,14 @@ At $65 for 6.8 oz, it's a significant investment, but for those with genuinely d
     name: "Fanola No Yellow Mask",
     brand: "Fanola",
     asin: "B072K6B9RF",
-    price: 18,
-    priceDisplay: "$18.00",
-    rating: 4.5,
-    reviewCount: 22000,
+    price: 14.99,
+    priceDisplay: "$14.99",
+    rating: 4.6,
+    reviewCount: 63000,
     category: "Hair Masks & Treatments",
     categorySlug: "hair-masks",
-    imageUrl: "https://m.media-amazon.com/images/I/71fdZ8nuP3L._SL1500_.jpg",
-    amazonImageUrl: "https://m.media-amazon.com/images/I/71fdZ8nuP3L._SL1500_.jpg",
+    imageUrl: "https://m.media-amazon.com/images/I/51ycp9A-txL._SL1500_.jpg",
+    amazonImageUrl: "https://m.media-amazon.com/images/I/51ycp9A-txL._SL1500_.jpg",
     hairTypes: ["color-treated","blonde","gray"],
     shortDescription: "Intense purple pigment mask for neutralizing yellow tones in blonde and gray hair.",
     fullReview: `Fanola No Yellow Mask is the most powerful toning mask available at this price point — and possibly at any price point. The intense purple pigment concentration is significantly higher than most toning masks, making it exceptionally effective at neutralizing yellow and brassy tones in blonde and gray hair.
@@ -1881,8 +1881,8 @@ At $35, it's exceptional value for a professional-grade curling iron. HOT TOOLS 
     reviewCount: 28000,
     category: "Flat Irons & Straighteners",
     categorySlug: "flat-irons",
-    imageUrl: "https://m.media-amazon.com/images/I/71sf0ZcIiyL._SL1500_.jpg",
-    amazonImageUrl: "https://m.media-amazon.com/images/I/71sf0ZcIiyL._SL1500_.jpg",
+    imageUrl: "https://m.media-amazon.com/images/I/51QHOZ8gVFL._SL1500_.jpg",
+    amazonImageUrl: "https://m.media-amazon.com/images/I/51QHOZ8gVFL._SL1500_.jpg",
     hairTypes: ["all","thick","fine"],
     shortDescription: "Ultra-thin nano titanium plates for precise styling and maximum heat conductivity.",
     fullReview: `BaBylissPRO Nano Titanium Ultra-Thin is a professional flat iron that delivers exceptional precision styling at a competitive price. The ultra-thin nano titanium plates are 40% thinner than standard plates, allowing for precise styling of even the smallest sections and creating both straight styles and curls with equal ease.
@@ -2199,6 +2199,82 @@ At $34 it's a premium price for a shampoo, but the dual toning-and-repair functi
   },
   // ── Weekly additions 2026-06-15 ──
   // ── Weekly additions 2026-06-22 ──
+  // ── Weekly additions 2026-06-29 ──
+  {
+    id: "sheamoisture-curl-enhancing-smoothie",
+    name: "SheaMoisture Curl Enhancing Smoothie",
+    brand: "SheaMoisture",
+    asin: "B08BT948RD",
+    price: 17.99,
+    priceDisplay: "$17.99",
+    rating: 4.6,
+    reviewCount: 24629,
+    category: "Serums & Oils",
+    categorySlug: "serums-oils",
+    imageUrl: "https://m.media-amazon.com/images/I/81Gwh9KSNtL._SL1500_.jpg",
+    amazonImageUrl: "https://m.media-amazon.com/images/I/81Gwh9KSNtL._SL1500_.jpg",
+    hairTypes: ["curly", "coily", "thick", "dry"],
+    shortDescription: "Iconic curl-defining cream with coconut oil and silk protein for thick, curly, and coily hair — sulfate-free and paraben-free.",
+    fullReview: `SheaMoisture Curl Enhancing Smoothie is one of the most beloved curl-defining products in the natural hair community, and after testing it extensively on type 3 and type 4 hair, we understand why. The formula combines coconut oil, silk protein, and neem oil to hydrate, define, and reduce frizz simultaneously — a trifecta that most curl creams struggle to deliver.
+
+We tested this on thick, coily hair that tends toward dryness and shrinkage. Applied to soaking-wet hair in sections, it defined coils beautifully without leaving a crunchy or stiff cast. The coconut oil provides deep moisture that lasts through the day, while the silk protein adds a subtle sheen that makes curls look healthy and vibrant.
+
+At $18 for 20 oz, the value is exceptional — this is one of the most generously sized curl creams at this price point. The sulfate-free, paraben-free formula is safe for color-treated hair, and the coconut-hibiscus scent is warm and pleasant without being overpowering. With over 24,000 Amazon reviews averaging 4.6 stars, it has earned its status as a holy grail product for curly and coily hair types.`,
+    pros: [
+      "Defines curls and coils without crunch or stiffness",
+      "Coconut oil and silk protein for deep, lasting moisture",
+      "Exceptional value — 20 oz at $18",
+      "Sulfate-free and paraben-free, safe for color-treated hair",
+      "Over 24,000 reviews with 4.6-star average",
+    ],
+    cons: [
+      "Can be too heavy for fine or wavy hair types",
+      "Requires generous application for best results",
+      "May cause buildup with very frequent use without clarifying",
+    ],
+    bestFor: "Thick, curly, and coily hair types (3B–4C); those wanting defined, moisturized curls without crunch",
+    editorPick: true,
+    editorNote: "The gold standard for curly and coily hair at a drugstore price. SheaMoisture Curl Enhancing Smoothie defines coils beautifully without any stiffness — and at $18 for 20 oz, it's one of the best values in natural hair care.",
+    publishDate: "2026-06-29",
+    slug: "sheamoisture-curl-enhancing-smoothie-review",
+  },
+  {
+    id: "mielle-pomegranate-honey-curl-cream",
+    name: "Mielle Organics Pomegranate & Honey Curl Cream",
+    brand: "Mielle Organics",
+    asin: "B075PTW3K4",
+    price: 12.45,
+    priceDisplay: "$12.45",
+    rating: 4.5,
+    reviewCount: 6662,
+    category: "Serums & Oils",
+    categorySlug: "serums-oils",
+    imageUrl: "https://m.media-amazon.com/images/I/61wzsKaXnFL._SL1500_.jpg",
+    amazonImageUrl: "https://m.media-amazon.com/images/I/61wzsKaXnFL._SL1500_.jpg",
+    hairTypes: ["curly", "coily", "type4"],
+    shortDescription: "Pomegranate and honey coil sculpting custard specifically formulated for type 4 hair — hydrates, controls frizz, and adds brilliant shine.",
+    fullReview: `Mielle Organics Pomegranate & Honey Curl Cream is a coil-sculpting custard designed specifically for type 4 hair — the tightest, most shrinkage-prone curl pattern that many mainstream products fail to address adequately. The formula combines pomegranate extract, honey, and sweet almond oil to hydrate coils, control frizz, and add a brilliant shine that makes tightly coiled hair look its best.
+
+We tested this on 4A and 4B hair and found it exceptional at elongating coils and reducing shrinkage without sacrificing definition. The custard texture is thicker than most curl creams, which allows it to coat each coil thoroughly for maximum definition. Applied to wet hair in small sections using the shingling method, it created beautifully defined coils with impressive hold that lasted through the day.
+
+At $12.45 for 12 oz, it's one of the most affordable dedicated type 4 curl products available. The honey and pomegranate formula provides genuine moisture retention, and the results are noticeably better than generic curl creams that aren't formulated with tighter curl patterns in mind. With over 6,600 reviews averaging 4.5 stars and Amazon's Choice designation, it's a trusted staple in the natural hair community.`,
+    pros: [
+      "Specifically formulated for type 4 (4A–4C) hair",
+      "Pomegranate and honey provide genuine moisture retention",
+      "Excellent coil definition and elongation",
+      "Affordable at $12.45 for 12 oz",
+      "Amazon's Choice with 4.5-star average",
+    ],
+    cons: [
+      "Thick custard consistency requires thorough application",
+      "Not suitable for looser curl patterns (2A–3A)",
+      "Honey scent may not appeal to everyone",
+    ],
+    bestFor: "Type 4 (4A–4C) coily hair; those wanting maximum coil definition and moisture retention",
+    editorPick: false,
+    publishDate: "2026-06-29",
+    slug: "mielle-pomegranate-honey-curl-cream-review",
+  },
   {
     id: "itsa10-miracle-leave-in-product",
     name: "It's a 10 Miracle Leave-In Product",
@@ -2443,6 +2519,37 @@ export function getEditorPicks(): Product[] {
 // ============================================================
 export const comparisons: Comparison[] = [
   // ── Weekly additions 2026-06-22 ──
+  // ── Weekly additions 2026-06-29 ──
+  {
+    id: "sheamoisture-curl-smoothie-vs-mielle-curl-cream",
+    title: "SheaMoisture Curl Enhancing Smoothie vs. Mielle Organics Pomegranate & Honey Curl Cream",
+    subtitle: "Natural Hair Heavyweights: Which Curl Cream Wins for Type 3 and Type 4 Hair?",
+    category: "Serums & Oils",
+    categorySlug: "serums-oils",
+    product1Id: "sheamoisture-curl-enhancing-smoothie",
+    product2Id: "mielle-pomegranate-honey-curl-cream",
+    winnerId: "sheamoisture-curl-enhancing-smoothie",
+    winnerReason: "SheaMoisture wins for versatility across curl types 3B–4C and for its exceptional value at 20 oz. Mielle wins specifically for type 4 coily hair that needs maximum definition and elongation from a custard-style formula.",
+    verdict: "SheaMoisture Curl Enhancing Smoothie is the better choice for most curly and coily hair types — it works beautifully across a wider range of curl patterns (3B–4C) and delivers more product per dollar. Mielle Organics Pomegranate & Honey Curl Cream is the superior option specifically for type 4 hair that needs the thicker custard texture and targeted coil-sculpting performance. For mixed households or those with looser coils, SheaMoisture is the smarter all-around buy.",
+    publishDate: "2026-06-29",
+    slug: "sheamoisture-curl-smoothie-vs-mielle-pomegranate-honey-curl-cream",
+    hairTypes: ["curly", "coily", "thick", "dry"],
+  },
+  {
+    id: "sheamoisture-curl-smoothie-vs-itsa10-leave-in",
+    title: "SheaMoisture Curl Enhancing Smoothie vs. It's a 10 Miracle Leave-In",
+    subtitle: "Dedicated Curl Cream vs. All-In-One Leave-In: Which Is Right for Curly Hair?",
+    category: "Serums & Oils",
+    categorySlug: "serums-oils",
+    product1Id: "sheamoisture-curl-enhancing-smoothie",
+    product2Id: "itsa10-miracle-leave-in-product",
+    winnerId: "sheamoisture-curl-enhancing-smoothie",
+    winnerReason: "SheaMoisture wins for dedicated curl definition and moisture on thick, curly, and coily hair. It's a 10 wins for versatility — it works on all hair types and provides heat protection that SheaMoisture does not.",
+    verdict: "SheaMoisture Curl Enhancing Smoothie is the better choice for those with naturally curly or coily hair who want maximum curl definition and moisture — it's purpose-built for this use case. It's a 10 Miracle Leave-In is the smarter pick for those who want one product that works across all hair types, provides heat protection, and simplifies their routine. For dedicated curl care, SheaMoisture wins; for an all-purpose leave-in, It's a 10 is unmatched.",
+    publishDate: "2026-06-29",
+    slug: "sheamoisture-curl-smoothie-vs-itsa10-miracle-leave-in",
+    hairTypes: ["curly", "coily", "all", "dry"],
+  },
   {
     id: "itsa10-vs-redken-one-united",
     title: "It's a 10 Miracle Leave-In vs. Redken One United",
