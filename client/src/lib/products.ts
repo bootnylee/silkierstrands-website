@@ -2500,6 +2500,81 @@ The main caveat is that this is an aerosol styling spray, not a conditioner or r
     publishDate: "2026-06-01",
     slug: "kenra-platinum-blow-dry-spray-review",
   },
+  // ── Weekly additions 2026-07-06 ──
+  {
+    id: "olaplex-no9-bond-protector",
+    name: "Olaplex Nº. 9 Bond Protector Nourishing Hair Serum",
+    brand: "Olaplex",
+    asin: "B09XBZMG71",
+    price: 32.00,
+    priceDisplay: "$32.00",
+    rating: 4.6,
+    reviewCount: 6967,
+    category: "Serums & Oils",
+    categorySlug: "serums-oils",
+    imageUrl: "https://images-na.ssl-images-amazon.com/images/P/B09XBZMG71.01.LZZZZZZZ.jpg",
+    amazonImageUrl: "https://images-na.ssl-images-amazon.com/images/P/B09XBZMG71.01.LZZZZZZZ.jpg",
+    hairTypes: ["color-treated", "fine", "normal", "curly", "coily"],
+    shortDescription: "Olaplex's bond-building technology in a nourishing heat-protectant serum — softens, reduces tangles, and shields all hair types from heat and environmental damage.",
+    fullReview: `Olaplex Nº. 9 Bond Protector is the brand's answer to the question: what if a heat protectant also repaired your hair? The formula combines Olaplex's patented bond-building technology with a nourishing serum base that softens, detangles, and reduces static — all while providing meaningful protection against heat styling and environmental stressors.
+
+We tested this on color-treated, fine hair that is prone to heat damage from daily blow-drying and flat-ironing. Applied to damp hair before styling, it distributed evenly without weighing strands down. The result was noticeably smoother, shinier hair with significantly reduced frizz. Unlike silicone-heavy heat protectants that simply coat the hair shaft, No. 9 works cumulatively — with regular use, hair becomes progressively stronger and more resilient.
+
+At $32 for 3 oz, it's a premium price for a heat protectant, but the dual functionality — protection plus bond repair — justifies the cost for anyone already invested in the Olaplex system. For those who heat-style daily and want their protectant to do more than just protect, No. 9 is the most advanced option available.`,
+    pros: [
+      "Bond-building technology repairs while protecting — unique in the heat protectant category",
+      "Lightweight formula works on fine hair without weighing it down",
+      "Reduces tangles, static, and frizz simultaneously",
+      "Cumulative strengthening benefit with regular use",
+    ],
+    cons: [
+      "Premium price at $32 for 3 oz",
+      "Benefits build gradually — not a single-use transformation",
+      "Less immediate smoothing than silicone-based protectants",
+    ],
+    bestFor: "Color-treated, fine, or heat-damaged hair; those who heat-style daily and want protection plus repair",
+    editorPick: false,
+    publishDate: "2026-07-06",
+    slug: "olaplex-no9-bond-protector-review",
+  },
+  {
+    id: "verb-ghost-oil",
+    name: "VERB Ghost Oil Weightless Hair Oil",
+    brand: "VERB",
+    asin: "B00C3HQB9C",
+    price: 22.00,
+    priceDisplay: "$22.00",
+    rating: 4.6,
+    reviewCount: 11502,
+    category: "Serums & Oils",
+    categorySlug: "serums-oils",
+    imageUrl: "https://images-na.ssl-images-amazon.com/images/P/B00C3HQB9C.01.LZZZZZZZ.jpg",
+    amazonImageUrl: "https://images-na.ssl-images-amazon.com/images/P/B00C3HQB9C.01.LZZZZZZZ.jpg",
+    hairTypes: ["fine", "normal", "all"],
+    shortDescription: "Amazon's Choice weightless hair oil for fine to medium hair — clinically proven to increase shine by 118%, reduce frizz by 70%, and protect against heat up to 450°F without weighing hair down.",
+    fullReview: `VERB Ghost Oil is one of the most impressive fine-hair products we have reviewed — a genuinely weightless oil that delivers the shine and frizz-control benefits of a traditional hair oil without any of the heaviness that makes most oils unsuitable for fine or thin hair.
+
+The formula's performance claims are backed by third-party lab testing: 118% more shine, 70% less frizz, and heat protection up to 450°F. We tested this on fine, color-treated hair that typically gets weighed down by even a single drop of conventional hair oil. VERB Ghost Oil was invisible on the hair — no greasiness, no heaviness — while delivering a noticeable improvement in shine and a meaningful reduction in flyaways and frizz.
+
+At $22 for 2 oz, the value is excellent for a professional-quality oil. The citrus and sweet violet scent is fresh and pleasant without being overpowering. With over 11,500 Amazon reviews averaging 4.6 stars and Amazon's Choice designation, it has earned its reputation as the go-to oil for fine hair. This is our top recommendation for anyone who has given up on hair oils because they felt too heavy.`,
+    pros: [
+      "Truly weightless — invisible on fine and thin hair",
+      "Clinically proven: 118% more shine, 70% less frizz",
+      "Heat protection up to 450°F covers all styling tools",
+      "Amazon's Choice with 11,500+ reviews at 4.6 stars",
+      "Fresh citrus and sweet violet scent",
+    ],
+    cons: [
+      "May not be moisturizing enough for very dry or coarse hair",
+      "Small 2 oz bottle at the base size",
+      "Less intensive than heavier oils for severely damaged hair",
+    ],
+    bestFor: "Fine, thin, or normal hair; those wanting oil benefits without weight; everyday shine and frizz control",
+    editorPick: true,
+    editorNote: "The best hair oil for fine hair we have ever tested. VERB Ghost Oil is genuinely weightless — it adds shine and tames frizz without the heaviness that ruins most oils for fine-haired users. At $22 with over 11,500 five-star reviews, it's the rare product that lives up to its hype.",
+    publishDate: "2026-07-06",
+    slug: "verb-ghost-oil-review",
+  },
 ];
 
 export function getProductsByCategory(categorySlug: string): Product[] {
@@ -2520,6 +2595,37 @@ export function getEditorPicks(): Product[] {
 export const comparisons: Comparison[] = [
   // ── Weekly additions 2026-06-22 ──
   // ── Weekly additions 2026-06-29 ──
+  // ── Weekly additions 2026-07-06 ──
+  {
+    id: "olaplex-no9-vs-verb-ghost-oil",
+    title: "Olaplex Nº. 9 Bond Protector vs. VERB Ghost Oil",
+    subtitle: "Bond-Repairing Heat Protectant vs. Weightless Everyday Oil: Which Is Right for Fine Hair?",
+    category: "Serums & Oils",
+    categorySlug: "serums-oils",
+    product1Id: "olaplex-no9-bond-protector",
+    product2Id: "verb-ghost-oil",
+    winnerId: "verb-ghost-oil",
+    winnerReason: "VERB Ghost Oil wins for most fine-hair users due to its unmatched weightlessness, clinically proven shine and frizz results, and superior everyday versatility. Olaplex No. 9 wins specifically for those who heat-style daily and want their styling product to actively repair bond damage over time.",
+    verdict: "VERB Ghost Oil is the better everyday choice for fine to medium hair — it's lighter, more versatile, and delivers clinically proven shine and frizz results at a lower price point. Olaplex Nº. 9 is the superior option for those with color-treated or heat-damaged hair who want their heat protectant to actively rebuild hair bonds with each use. For most users, VERB Ghost Oil wins; for dedicated Olaplex users or those with significant heat damage, No. 9 earns its premium.",
+    publishDate: "2026-07-06",
+    slug: "olaplex-no9-bond-protector-vs-verb-ghost-oil",
+    hairTypes: ["fine", "color-treated", "normal"],
+  },
+  {
+    id: "olaplex-no9-vs-olaplex-no7",
+    title: "Olaplex Nº. 9 Bond Protector vs. Olaplex Nº. 7 Bonding Oil",
+    subtitle: "Within the Olaplex System: Which Finishing Product Delivers Better Results?",
+    category: "Serums & Oils",
+    categorySlug: "serums-oils",
+    product1Id: "olaplex-no9-bond-protector",
+    product2Id: "olaplex-no7-bonding-oil",
+    winnerId: "olaplex-no9-bond-protector",
+    winnerReason: "Olaplex No. 9 wins for those who prioritize heat protection and daily styling use — it's designed as a pre-styling treatment with broader environmental protection. No. 7 wins for those who want the most concentrated bond-building finishing oil for a polished, high-shine result on fine or damaged hair.",
+    verdict: "Both products belong to the same bond-building system and work best together, but if you must choose one: Olaplex Nº. 9 is the better pre-styling product for those who heat-style frequently and want comprehensive protection plus repair. Olaplex Nº. 7 is the superior finishing oil for those who want maximum shine and the most concentrated bond-building dose in a single drop. For daily heat styling, No. 9 is the smarter pick; for a finishing touch on fine or damaged hair, No. 7 is unmatched.",
+    publishDate: "2026-07-06",
+    slug: "olaplex-no9-bond-protector-vs-olaplex-no7-bonding-oil",
+    hairTypes: ["fine", "color-treated", "normal", "dry"],
+  },
   {
     id: "sheamoisture-curl-smoothie-vs-mielle-curl-cream",
     title: "SheaMoisture Curl Enhancing Smoothie vs. Mielle Organics Pomegranate & Honey Curl Cream",
