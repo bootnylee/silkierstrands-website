@@ -13,6 +13,7 @@ import AllComparisons from "./pages/AllComparisons";
 import About from "./pages/About";
 import HairTypePage from "./pages/HairTypePage";
 import HairQuiz from "./pages/HairQuiz";
+import HowWeTest from "./pages/HowWeTest";
 
 function Router() {
   return (
@@ -26,6 +27,7 @@ function Router() {
       <Route path="/comparison/:slug" component={ComparisonPage} />
       <Route path="/hair-type/:slug" component={HairTypePage} />
       <Route path="/hair-quiz" component={HairQuiz} />
+      <Route path="/how-we-test" component={HowWeTest} />
       <Route path="/404" component={NotFound} />
       <Route component={NotFound} />
     </Switch>

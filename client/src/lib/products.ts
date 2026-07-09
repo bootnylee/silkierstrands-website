@@ -3164,3 +3164,8 @@ export function getComparisonsByCategory(categorySlug: string): Comparison[] {
 export function getComparisonById(id: string): Comparison | undefined {
   return comparisons.find(c => c.id === id);
 }
+
+/** Returns comparisons that feature a specific product (by product ID). */
+export function getComparisonsForProduct(productId: string): Comparison[] {
+  return comparisons.filter(c => c.product1Id === productId || c.product2Id === productId);
+}

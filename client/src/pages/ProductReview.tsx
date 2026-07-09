@@ -6,7 +6,7 @@ import { ExternalLink, ArrowLeft, CheckCircle, XCircle, Sparkles } from "lucide-
 import { QUIZ_RESULT_KEY } from "./HairQuiz";
 import SiteLayout from "@/components/SiteLayout";
 import { StarRatingDisplay } from "@/components/ProductCard";
-import { allProducts, amazonLink, getProductsByCategory } from "@/lib/products";
+import { allProducts, amazonLink, getProductsByCategory, getComparisonsForProduct } from "@/lib/products";
 import { updateDocumentMeta, buildProductSchema, buildReviewSchema, injectStructuredData } from "@/lib/seo";
 import ProductCard from "@/components/ProductCard";
 
@@ -116,10 +116,17 @@ export default function ProductReview() {
 
   useEffect(() => {
     if (product) {
+      // Priority 5: long-tail title targeting hair-type + product + concern
+      const htLabel = product.hairTypes && product.hairTypes.length > 0
+        ? ` for ${product.hairTypes[0].replace('-', '-').replace('color-treated', 'Color-Treated').replace(/^\w/, c => c.toUpperCase())} Hair`
+        : '';
+      const rawTitle = `${product.name} Review${htLabel}`;
+      const title = rawTitle.length <= 55 ? `${rawTitle} | SilkierStrands` : `${product.name} Review | SilkierStrands`;
+      const desc = `${product.shortDescription} Expert-tested for ${product.category.toLowerCase()}. Pros, cons, and our verdict.`.substring(0, 155);
       updateDocumentMeta({
-        title: `${product.name} Review | SilkierStrands`,
-        description: `Expert review of ${product.name} by ${product.brand}. ${product.shortDescription}`,
-        keywords: `${product.name} review, ${product.brand}, ${product.category}`,
+        title,
+        description: desc,
+        keywords: `${product.name} review, ${product.brand}, ${product.category}${product.hairTypes ? ', ' + product.hairTypes.join(', ') + ' hair' : ''}`,
         canonical: `https://silkierstrands.com/review/${product.slug}`,
         ogImage: product.imageUrl,
         ogType: "article",
@@ -243,6 +250,18 @@ export default function ProductReview() {
             <h1 className="font-display font-bold mb-4 leading-tight" style={{ fontSize: "clamp(1.8rem, 3vw, 2.5rem)", color: "#2C2C2C" }}>
               {product.name}
             </h1>
+            {/* Author byline + last-updated date — Priority 4: E-E-A-T */}
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-1 mb-4">
+              <span className="font-body text-xs" style={{ color: "#6C6C6C" }}>
+                By <strong style={{ color: "#2C2C2C" }}>SilkierStrands Editorial Team</strong>
+              </span>
+              <span style={{ color: "#E8DDD0" }}>|</span>
+              <time dateTime={product.publishDate} className="font-body text-xs" style={{ color: "#6C6C6C" }}>
+                Last updated {new Date(product.publishDate).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}
+              </time>
+              <span style={{ color: "#E8DDD0" }}>|</span>
+              <Link href="/how-we-test"><span className="font-body text-xs underline cursor-pointer" style={{ color: "#D4822A" }}>How we test</span></Link>
+            </div>
             <hr className="editorial-rule w-16 mb-6" />
 
             <p className="font-body text-lg leading-relaxed mb-8" style={{ color: "#6C6C6C" }}>
@@ -307,8 +326,12 @@ export default function ProductReview() {
             </div>
 
             <p className="font-body text-xs mt-4" style={{ color: "#B8A99A" }}>
-              Published: {new Date(product.publishDate).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })} · 
-              Prices and availability subject to change. Last verified on Amazon.
+              Reviewed by the SilkierStrands Editorial Team ·{" "}
+              <time dateTime={product.publishDate}>
+                Last updated {new Date(product.publishDate).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}
+              </time>{" "}
+              · Prices and availability subject to change. ·{" "}
+              <Link href="/how-we-test"><span className="underline cursor-pointer" style={{ color: "#D4822A" }}>How we test</span></Link>
             </p>
           </div>
         </div>
@@ -328,6 +351,52 @@ export default function ProductReview() {
           </section>
         )}
 
+        {/* Priority 5: Internal links — comparisons featuring this product + hair-type pages */}
+        {(() => {
+          const productComparisons = getComparisonsForProduct(product.id);
+          const hairTypeLinks = product.hairTypes && product.hairTypes.length > 0
+            ? product.hairTypes.slice(0, 3)
+            : [];
+          if (productComparisons.length === 0 && hairTypeLinks.length === 0) return null;
+          return (
+            <section className="mt-10 pt-8 border-t" style={{ borderColor: "#E8DDD0" }}>
+              <div className="flex flex-wrap gap-8">
+                {productComparisons.length > 0 && (
+                  <div className="flex-1 min-w-[200px]">
+                    <p className="section-label text-xs mb-3">Head-to-Head Comparisons</p>
+                    <ul className="space-y-2">
+                      {productComparisons.map(c => (
+                        <li key={c.id}>
+                          <Link href={`/comparison/${c.slug}`}>
+                            <span className="font-body text-sm underline cursor-pointer" style={{ color: "#8B1A2F" }}>
+                              {c.title}
+                            </span>
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+                {hairTypeLinks.length > 0 && (
+                  <div className="flex-1 min-w-[200px]">
+                    <p className="section-label text-xs mb-3">Best For Hair Type</p>
+                    <ul className="space-y-2">
+                      {hairTypeLinks.map(ht => (
+                        <li key={ht}>
+                          <Link href={`/hair-type/${ht}`}>
+                            <span className="font-body text-sm underline cursor-pointer" style={{ color: "#8B1A2F" }}>
+                              Best products for {ht.replace('-', '-').replace('color-treated', 'color-treated').replace(/^\w/, c => c.toUpperCase())} hair
+                            </span>
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </div>
+            </section>
+          );
+        })()}
         {/* Quiz CTA */}
         <QuizPromptBanner />
       </div>

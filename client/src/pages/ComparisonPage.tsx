@@ -160,9 +160,13 @@ export default function ComparisonPage() {
 
   useEffect(() => {
     if (comparison) {
+      // Priority 5: title ≤60 chars, description ≤155 chars, long-tail X vs Y pattern
+      const compTitle = `${comparison.title} | SilkierStrands`;
+      const safeTitle = compTitle.length <= 60 ? compTitle : `${comparison.title.substring(0, 45)}... | SilkierStrands`;
+      const compDesc = `${comparison.subtitle} See our hands-on verdict.`.substring(0, 155);
       updateDocumentMeta({
-        title: `${comparison.title} | SilkierStrands`,
-        description: `${comparison.subtitle}. ${comparison.verdict.substring(0, 150)}`,
+        title: safeTitle,
+        description: compDesc,
         canonical: `https://silkierstrands.com/comparison/${comparison.slug}`,
         ogType: "article",
       });
@@ -201,6 +205,18 @@ export default function ComparisonPage() {
           {comparison.title}
         </h1>
         <p className="font-body text-lg mb-6" style={{ color: "#6C6C6C" }}>{comparison.subtitle}</p>
+        {/* Author byline + last-updated date — Priority 4: E-E-A-T */}
+        <div className="flex flex-wrap items-center gap-x-4 gap-y-1 mb-6">
+          <span className="font-body text-xs" style={{ color: "#6C6C6C" }}>
+            By <strong style={{ color: "#2C2C2C" }}>SilkierStrands Editorial Team</strong>
+          </span>
+          <span style={{ color: "#E8DDD0" }}>|</span>
+          <time dateTime={comparison.publishDate} className="font-body text-xs" style={{ color: "#6C6C6C" }}>
+            Last updated {new Date(comparison.publishDate).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}
+          </time>
+          <span style={{ color: "#E8DDD0" }}>|</span>
+          <Link href="/how-we-test"><span className="font-body text-xs underline cursor-pointer" style={{ color: "#D4822A" }}>How we test</span></Link>
+        </div>
         <hr className="editorial-rule w-16 mb-10" />
 
         {/* Quiz-aware contextual banner */}
@@ -307,8 +323,12 @@ export default function ComparisonPage() {
         </div>
 
         <p className="font-body text-xs mt-6" style={{ color: "#B8A99A" }}>
-          Published: {new Date(comparison.publishDate).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })} · 
-          Prices subject to change. Amazon affiliate links - we earn a commission at no extra cost to you.
+          Reviewed by the SilkierStrands Editorial Team ·{" "}
+          <time dateTime={comparison.publishDate}>
+            Last updated {new Date(comparison.publishDate).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}
+          </time>{" "}
+          · Prices subject to change. Amazon affiliate links - we earn a commission at no extra cost to you. ·{" "}
+          <Link href="/how-we-test"><span className="underline cursor-pointer" style={{ color: "#D4822A" }}>How we test</span></Link>
         </p>
       </div>
     </SiteLayout>

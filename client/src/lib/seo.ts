@@ -88,12 +88,27 @@ export function buildProductSchema(product: {
         name: "Amazon",
       },
     },
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: product.rating,
-      reviewCount: product.reviewCount,
-      bestRating: 5,
-      worstRating: 1,
+    // NOTE: aggregateRating intentionally omitted — we only have editorial ratings,
+    // not genuine user-submitted reviews. Using reviewCount as aggregateRating would
+    // violate Google's review-snippet guidelines.
+    review: {
+      "@type": "Review",
+      reviewRating: {
+        "@type": "Rating",
+        ratingValue: product.rating,
+        bestRating: 5,
+        worstRating: 1,
+      },
+      author: {
+        "@type": "Organization",
+        name: "SilkierStrands Editorial Team",
+        url: "https://silkierstrands.com",
+      },
+      publisher: {
+        "@type": "Organization",
+        name: "SilkierStrands",
+        url: "https://silkierstrands.com",
+      },
     },
   };
 }
@@ -121,8 +136,30 @@ export function buildReviewSchema(review: {
     author: {
       "@type": "Organization",
       name: "SilkierStrands Editorial Team",
+      url: "https://silkierstrands.com",
     },
     publisher: {
+      "@type": "Organization",
+      name: "SilkierStrands",
+      url: "https://silkierstrands.com",
+    },
+  };
+}
+
+export function buildPersonSchema(author: {
+  name: string;
+  jobTitle: string;
+  url: string;
+  description: string;
+}): object {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: author.name,
+    jobTitle: author.jobTitle,
+    url: author.url,
+    description: author.description,
+    worksFor: {
       "@type": "Organization",
       name: "SilkierStrands",
       url: "https://silkierstrands.com",

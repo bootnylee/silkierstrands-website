@@ -17,6 +17,7 @@ const staticPages = [
   { url: "/reviews", priority: "0.9", changefreq: "weekly" },
   { url: "/comparisons", priority: "0.9", changefreq: "weekly" },
   { url: "/about", priority: "0.5", changefreq: "monthly" },
+  { url: "/how-we-test", priority: "0.6", changefreq: "monthly" },
   { url: "/category/shampoo-conditioner", priority: "0.8", changefreq: "weekly" },
   { url: "/category/hair-masks", priority: "0.8", changefreq: "weekly" },
   { url: "/category/serums-oils", priority: "0.8", changefreq: "weekly" },

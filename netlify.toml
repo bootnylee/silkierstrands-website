@@ -1,14 +1,29 @@
 # SilkierStrands.com — Netlify Configuration
 
 [build]
-  command = "pnpm install && node scripts/generate-sitemap.mjs && pnpm build"
+  # Priority 1: Build then run static prerender to generate per-route HTML with correct SEO tags
+  command = "pnpm install && node scripts/generate-sitemap.mjs && pnpm build && node scripts/prerender.mjs"
   publish = "dist/public"
 
 [build.environment]
   NODE_VERSION = "20"
   PNPM_VERSION = "10"
 
-# SPA routing — serve index.html for all routes
+# Priority 2: www → non-www (301 permanent redirect)
+[[redirects]]
+  from = "https://www.silkierstrands.com/*"
+  to = "https://silkierstrands.com/:splat"
+  status = 301
+  force = true
+
+# Priority 2: http → https (belt-and-suspenders; Netlify enforces HTTPS automatically)
+[[redirects]]
+  from = "http://silkierstrands.com/*"
+  to = "https://silkierstrands.com/:splat"
+  status = 301
+  force = true
+
+# SPA routing — serve index.html for any route not matched by a prerendered file
 [[redirects]]
   from = "/*"
   to = "/index.html"
