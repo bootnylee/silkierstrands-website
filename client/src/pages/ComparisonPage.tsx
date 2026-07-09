@@ -6,7 +6,8 @@ import { Trophy, ExternalLink, CheckCircle, XCircle, Sparkles, ArrowRight } from
 import SiteLayout from "@/components/SiteLayout";
 import { StarRatingDisplay } from "@/components/ProductCard";
 import { comparisons, getProductById, amazonLink } from "@/lib/products";
-import { updateDocumentMeta } from "@/lib/seo";
+import { updateDocumentMeta, injectStructuredData } from "@/lib/seo";
+import { getAuthorForComparison } from "@/lib/authors";
 import { QUIZ_RESULT_KEY } from "@/pages/HairQuiz";
 
 // Hair type metadata for contextual tips
@@ -158,6 +159,8 @@ export default function ComparisonPage() {
   const product1 = comparison ? getProductById(comparison.product1Id) : undefined;
   const product2 = comparison ? getProductById(comparison.product2Id) : undefined;
 
+  const compAuthor = comparison ? getAuthorForComparison(comparison.slug) : null;
+
   useEffect(() => {
     if (comparison) {
       // Priority 5: title ≤60 chars, description ≤155 chars, long-tail X vs Y pattern
@@ -170,6 +173,30 @@ export default function ComparisonPage() {
         canonical: `https://silkierstrands.com/comparison/${comparison.slug}`,
         ogType: "article",
       });
+
+      // Inject Article schema with named Person author
+      const resolvedAuthor = getAuthorForComparison(comparison.slug);
+      const articleSchema = {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        headline: comparison.title,
+        description: comparison.subtitle,
+        datePublished: comparison.publishDate,
+        dateModified: comparison.publishDate,
+        author: {
+          "@type": "Person",
+          name: resolvedAuthor.name,
+          jobTitle: resolvedAuthor.role,
+          url: resolvedAuthor.url,
+        },
+        publisher: {
+          "@type": "Organization",
+          name: "SilkierStrands",
+          url: "https://silkierstrands.com",
+        },
+        url: `https://silkierstrands.com/comparison/${comparison.slug}`,
+      };
+      injectStructuredData(articleSchema, "comparison-schema");
     }
   }, [comparison]);
 
@@ -205,10 +232,20 @@ export default function ComparisonPage() {
           {comparison.title}
         </h1>
         <p className="font-body text-lg mb-6" style={{ color: "#6C6C6C" }}>{comparison.subtitle}</p>
-        {/* Author byline + last-updated date — Priority 4: E-E-A-T */}
+        {/* Author byline + last-updated date — named pen-name author */}
         <div className="flex flex-wrap items-center gap-x-4 gap-y-1 mb-6">
           <span className="font-body text-xs" style={{ color: "#6C6C6C" }}>
-            By <strong style={{ color: "#2C2C2C" }}>SilkierStrands Editorial Team</strong>
+            By{" "}
+            {compAuthor ? (
+              <Link href={`/author/${compAuthor.slug}`}>
+                <strong className="underline cursor-pointer" style={{ color: "#2C2C2C" }}>{compAuthor.name}</strong>
+              </Link>
+            ) : (
+              <strong style={{ color: "#2C2C2C" }}>SilkierStrands Editorial Team</strong>
+            )}
+            {compAuthor && (
+              <span style={{ color: "#B8A99A" }}>, {compAuthor.role}</span>
+            )}
           </span>
           <span style={{ color: "#E8DDD0" }}>|</span>
           <time dateTime={comparison.publishDate} className="font-body text-xs" style={{ color: "#6C6C6C" }}>

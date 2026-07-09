@@ -14,6 +14,7 @@ import About from "./pages/About";
 import HairTypePage from "./pages/HairTypePage";
 import HairQuiz from "./pages/HairQuiz";
 import HowWeTest from "./pages/HowWeTest";
+import AuthorPage from "./pages/AuthorPage";
 
 function Router() {
   return (
@@ -28,6 +29,7 @@ function Router() {
       <Route path="/hair-type/:slug" component={HairTypePage} />
       <Route path="/hair-quiz" component={HairQuiz} />
       <Route path="/how-we-test" component={HowWeTest} />
+      <Route path="/author/:slug" component={AuthorPage} />
       <Route path="/404" component={NotFound} />
       <Route component={NotFound} />
     </Switch>

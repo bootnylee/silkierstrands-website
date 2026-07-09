@@ -31,6 +31,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://silkierstrands.com/hair-quiz</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://silkierstrands.com/category/shampoo-conditioner</loc>
     <lastmod>2026-07-09</lastmod>
     <changefreq>weekly</changefreq>
@@ -67,6 +73,60 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://silkierstrands.com/author/renata-cole</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://silkierstrands.com/author/jamie-lin</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://silkierstrands.com/hair-type/fine</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://silkierstrands.com/hair-type/thick</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://silkierstrands.com/hair-type/curly</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://silkierstrands.com/hair-type/coarse</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://silkierstrands.com/hair-type/dry</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://silkierstrands.com/hair-type/normal</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://silkierstrands.com/hair-type/color-treated</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://silkierstrands.com/review/pureology-hydrate-shampoo-review</loc>
     <lastmod>2026-07-09</lastmod>
     <changefreq>monthly</changefreq>
@@ -97,13 +157,13 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://silkierstrands.com/review/ogx-frizz-free-keratin-shampoo-review</loc>
+    <loc>https://silkierstrands.com/review/native-coconut-vanilla-shampoo-review</loc>
     <lastmod>2026-07-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://silkierstrands.com/review/olaplex-no8-bond-mask-review</loc>
+    <loc>https://silkierstrands.com/review/olaplex-no8-mask-review</loc>
     <lastmod>2026-07-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -121,25 +181,25 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://silkierstrands.com/review/ogx-keratin-frizz-free-smoothing-mask-review</loc>
+    <loc>https://silkierstrands.com/review/briogeo-dont-despair-mask-review</loc>
     <lastmod>2026-07-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://silkierstrands.com/review/ogx-brazilian-keratin-therapy-shampoo-review</loc>
+    <loc>https://silkierstrands.com/review/karseell-collagen-hair-mask-review</loc>
     <lastmod>2026-07-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://silkierstrands.com/review/amika-water-sign-hydrating-hair-oil-review</loc>
+    <loc>https://silkierstrands.com/review/sunatoria-korean-keratin-mask-review</loc>
     <lastmod>2026-07-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://silkierstrands.com/review/moroccanoil-treatment-original-review</loc>
+    <loc>https://silkierstrands.com/review/moroccanoil-treatment-review</loc>
     <lastmod>2026-07-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -163,7 +223,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://silkierstrands.com/review/arvazallia-argan-oil-hair-mask-review</loc>
+    <loc>https://silkierstrands.com/review/maree-hair-oil-review</loc>
     <lastmod>2026-07-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -175,7 +235,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://silkierstrands.com/review/dyson-supersonic-hair-dryer-review</loc>
+    <loc>https://silkierstrands.com/review/dyson-supersonic-review</loc>
     <lastmod>2026-07-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -211,7 +271,13 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://silkierstrands.com/review/ghd-platinum-plus-straightener-review</loc>
+    <loc>https://silkierstrands.com/review/wavytalk-professional-ionic-hair-dryer-review</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://silkierstrands.com/review/ghd-platinum-plus-review</loc>
     <lastmod>2026-07-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -247,7 +313,13 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://silkierstrands.com/review/dyson-airwrap-multi-styler-review</loc>
+    <loc>https://silkierstrands.com/review/remington-shine-therapy-2-inch-flat-iron-review</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://silkierstrands.com/review/dyson-airwrap-review</loc>
     <lastmod>2026-07-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -271,7 +343,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://silkierstrands.com/review/ghd-platinum-plus-hair-straightener-review</loc>
+    <loc>https://silkierstrands.com/review/conair-double-ceramic-curling-iron-review</loc>
     <lastmod>2026-07-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -283,13 +355,469 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://silkierstrands.com/review/ghd-platinum-plus-hair-straightener-review</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://silkierstrands.com/review/remington-pro-spiral-curling-wand-review</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://silkierstrands.com/review/beachwaver-s1-rotating-curling-iron-review</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://silkierstrands.com/review/chi-air-expert-flat-iron-review</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://silkierstrands.com/review/ghd-helios-professional-hair-dryer-review</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://silkierstrands.com/review/t3-featherweight-luxe-hair-dryer-review</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://silkierstrands.com/review/kerastase-elixir-ultime-hair-oil-review</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://silkierstrands.com/review/living-proof-perfect-hair-day-review</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://silkierstrands.com/review/amika-soulfood-nourishing-mask-review</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://silkierstrands.com/review/ouai-hair-mask-review</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://silkierstrands.com/review/wella-enrich-moisturizing-shampoo-review</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://silkierstrands.com/review/kerastase-bain-satin-shampoo-review</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://silkierstrands.com/review/kristin-ess-curling-wand-review</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://silkierstrands.com/review/t3-whirl-trio-curling-iron-review</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://silkierstrands.com/review/remington-s9500-pearl-pro-flat-iron-review</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://silkierstrands.com/review/conair-infiniti-pro-spin-air-review</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://silkierstrands.com/review/bio-ionic-goldpro-speed-dryer-review</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://silkierstrands.com/review/olaplex-no3-hair-perfector-review</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://silkierstrands.com/review/amika-nourish-and-shine-serum-review</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://silkierstrands.com/review/kerastase-resistance-masque-therapiste-review</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://silkierstrands.com/review/fanola-no-yellow-mask-review</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://silkierstrands.com/review/oribe-gold-lust-shampoo-review</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://silkierstrands.com/review/aveda-nutriplenish-deep-moisture-shampoo-review</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://silkierstrands.com/review/sultra-bombshell-curling-rod-review</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://silkierstrands.com/review/hot-tools-one-shot-curling-iron-review</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://silkierstrands.com/review/babyliss-pro-nano-titanium-flat-iron-review</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://silkierstrands.com/review/dyson-airwrap-complete-long-review</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://silkierstrands.com/review/parlux-385-powerlight-hair-dryer-review</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://silkierstrands.com/review/verb-ghost-oil-review</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://silkierstrands.com/review/bumble-hairdressers-invisible-oil-review</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://silkierstrands.com/review/christophe-robin-regenerating-mask-review</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://silkierstrands.com/review/philip-kingsley-elasticizer-review</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://silkierstrands.com/review/matrix-biolage-hydrasource-shampoo-review</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://silkierstrands.com/review/joico-color-balance-purple-shampoo-review</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://silkierstrands.com/review/redken-one-united-leave-in-review</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://silkierstrands.com/review/olaplex-no4p-purple-shampoo-review</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://silkierstrands.com/review/sheamoisture-curl-enhancing-smoothie-review</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://silkierstrands.com/review/mielle-pomegranate-honey-curl-cream-review</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://silkierstrands.com/review/itsa10-miracle-leave-in-product-review</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://silkierstrands.com/review/moroccanoil-treatment-original-review</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://silkierstrands.com/review/k18-leave-in-molecular-repair-mask-review</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://silkierstrands.com/review/briogeo-dont-despair-repair-mask-review</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://silkierstrands.com/review/mielle-rosemary-mint-hair-oil-review</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://silkierstrands.com/review/kenra-platinum-blow-dry-spray-review</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://silkierstrands.com/review/olaplex-no9-bond-protector-review</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://silkierstrands.com/review/verb-ghost-oil-review</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://silkierstrands.com/comparison/olaplex-no9-bond-protector-vs-verb-ghost-oil</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://silkierstrands.com/comparison/olaplex-no9-bond-protector-vs-olaplex-no7-bonding-oil</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://silkierstrands.com/comparison/sheamoisture-curl-smoothie-vs-mielle-pomegranate-honey-curl-cream</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://silkierstrands.com/comparison/sheamoisture-curl-smoothie-vs-itsa10-miracle-leave-in</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://silkierstrands.com/comparison/itsa10-miracle-leave-in-vs-redken-one-united</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://silkierstrands.com/comparison/moroccanoil-treatment-vs-olaplex-no7-bonding-oil</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://silkierstrands.com/comparison/k18-molecular-repair-vs-briogeo-dont-despair-repair</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://silkierstrands.com/comparison/sheamoisture-manuka-honey-vs-christophe-robin-regenerating-mask</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://silkierstrands.com/comparison/remington-shine-therapy-vs-remington-pearl-pro</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://silkierstrands.com/comparison/wavytalk-ionic-hair-dryer-vs-conair-infiniti-pro</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://silkierstrands.com/comparison/kenra-platinum-blow-dry-spray-vs-redken-one-united</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://silkierstrands.com/comparison/mielle-rosemary-mint-oil-vs-kerastase-elixir-ultime</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://silkierstrands.com/comparison/beachwaver-s1-vs-remington-pro-spiral</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://silkierstrands.com/comparison/chi-air-expert-vs-verb-ghost-flat-iron</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://silkierstrands.com/comparison/t3-featherweight-vs-ghd-helios</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://silkierstrands.com/comparison/living-proof-5in1-vs-kerastase-elixir-ultime</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://silkierstrands.com/comparison/ouai-vs-amika-soulfood-mask</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://silkierstrands.com/comparison/kerastase-bain-satin-vs-redken-all-soft</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://silkierstrands.com/comparison/kristin-ess-vs-hot-tools-24k-gold</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://silkierstrands.com/comparison/remington-pearl-pro-vs-t3-whirl-trio</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://silkierstrands.com/comparison/bio-ionic-goldpro-vs-conair-spin-air</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://silkierstrands.com/comparison/amika-nourish-shine-vs-olaplex-no3</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://silkierstrands.com/comparison/fanola-no-yellow-vs-kerastase-resistance-masque</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://silkierstrands.com/comparison/aveda-nutriplenish-vs-oribe-gold-lust</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://silkierstrands.com/comparison/hot-tools-one-shot-vs-sultra-bombshell</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://silkierstrands.com/comparison/babyliss-pro-ultra-thin-vs-remington-pearl-pro</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://silkierstrands.com/comparison/parlux-385-vs-dyson-airwrap-complete</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://silkierstrands.com/comparison/bumble-invisible-oil-vs-verb-ghost-oil</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://silkierstrands.com/comparison/philip-kingsley-elasticizer-vs-christophe-robin-mask</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://silkierstrands.com/comparison/joico-color-balance-vs-matrix-biolage-hydrasource</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://silkierstrands.com/comparison/pureology-hydrate-vs-redken-all-soft</loc>
     <lastmod>2026-07-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://silkierstrands.com/comparison/olaplex-no8-vs-its-a-10-miracle-mask</loc>
+    <loc>https://silkierstrands.com/comparison/olaplex-no8-vs-moroccanoil-mask</loc>
     <lastmod>2026-07-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -307,13 +835,25 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://silkierstrands.com/comparison/ghd-platinum-plus-vs-chi-air-expert</loc>
+    <loc>https://silkierstrands.com/comparison/ghd-platinum-vs-t3-singlepass</loc>
     <lastmod>2026-07-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://silkierstrands.com/comparison/dyson-airwrap-vs-beachwaver-s1</loc>
+    <loc>https://silkierstrands.com/comparison/dyson-airwrap-vs-tymo-curlpro</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://silkierstrands.com/comparison/redken-one-united-vs-its-a-10-miracle-leave-in</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://silkierstrands.com/comparison/olaplex-no4p-vs-joico-color-balance-purple</loc>
     <lastmod>2026-07-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

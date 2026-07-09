@@ -2,78 +2,42 @@
 // Run: node scripts/generate-sitemap.mjs
 // Generates /client/public/sitemap.xml from product data
 
-import { writeFileSync } from "fs";
+import { readFileSync, writeFileSync } from "fs";
 import { resolve, dirname } from "path";
 import { fileURLToPath } from "url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-
+const ROOT = resolve(__dirname, "..");
 const BASE_URL = "https://silkierstrands.com";
 const TODAY = new Date().toISOString().split("T")[0];
 
-// Static pages
+// ─── Read product/comparison slugs from products.ts (same approach as prerender) ─
+const productsSource = readFileSync(resolve(ROOT, "client/src/lib/products.ts"), "utf-8");
+
+const productSlugs = [...productsSource.matchAll(/slug:\s*"([^"]*-review)"/g)].map(m => m[1]);
+const comparisonSlugs = [...productsSource.matchAll(/slug:\s*"([^"]*-vs-[^"]*)"/g)].map(m => m[1]);
+
+// ─── Hair type slugs ──────────────────────────────────────────────────────────
+const hairTypesSource = readFileSync(resolve(ROOT, "client/src/lib/hairTypes.ts"), "utf-8");
+const hairTypeSlugs = [...hairTypesSource.matchAll(/slug:\s*['"]([^'"]+)['"]/g)].map(m => m[1]);
+
+// ─── Author slugs ─────────────────────────────────────────────────────────────
+const authorSlugs = ["renata-cole", "jamie-lin"];
+
+// ─── Static pages ─────────────────────────────────────────────────────────────
 const staticPages = [
-  { url: "/", priority: "1.0", changefreq: "weekly" },
-  { url: "/reviews", priority: "0.9", changefreq: "weekly" },
-  { url: "/comparisons", priority: "0.9", changefreq: "weekly" },
-  { url: "/about", priority: "0.5", changefreq: "monthly" },
-  { url: "/how-we-test", priority: "0.6", changefreq: "monthly" },
-  { url: "/category/shampoo-conditioner", priority: "0.8", changefreq: "weekly" },
-  { url: "/category/hair-masks", priority: "0.8", changefreq: "weekly" },
-  { url: "/category/serums-oils", priority: "0.8", changefreq: "weekly" },
-  { url: "/category/hair-dryers", priority: "0.8", changefreq: "weekly" },
-  { url: "/category/flat-irons", priority: "0.8", changefreq: "weekly" },
-  { url: "/category/curling-irons", priority: "0.8", changefreq: "weekly" },
-];
-
-// Import product data (we'll read from the TS file via a simple regex parse)
-// For simplicity, we hardcode the slugs here — in production this would import from the data file
-const productSlugs = [
-  "pureology-hydrate-shampoo-review",
-  "redken-all-soft-shampoo-review",
-  "loreal-elvive-hyaluron-plump-review",
-  "pantene-daily-moisture-renewal-review",
-  "nexxus-therappe-humectress-review",
-  "ogx-frizz-free-keratin-shampoo-review",
-  "olaplex-no8-bond-mask-review",
-  "moroccanoil-intense-hydrating-mask-review",
-  "its-a-10-miracle-mask-review",
-  "ogx-keratin-frizz-free-smoothing-mask-review",
-  "ogx-brazilian-keratin-therapy-shampoo-review",
-  "amika-water-sign-hydrating-hair-oil-review",
-  "moroccanoil-treatment-original-review",
-  "olaplex-no7-bonding-oil-review",
-  "alfaparf-cristalli-liquidi-review",
-  "ogx-argan-oil-morocco-review",
-  "arvazallia-argan-oil-hair-mask-review",
-  "john-frieda-frizz-ease-serum-review",
-  "dyson-supersonic-hair-dryer-review",
-  "shark-hyperair-hair-dryer-review",
-  "hot-tools-tourmaline-2000-review",
-  "revlon-one-step-volumizer-review",
-  "conair-infiniti-pro-hair-dryer-review",
-  "babyliss-nano-titanium-dryer-review",
-  "ghd-platinum-plus-straightener-review",
-  "t3-singlepass-luxe-review",
-  "tymo-ring-straightener-brush-review",
-  "hsi-professional-glider-review",
-  "remington-pearl-pro-flat-iron-review",
-  "babyliss-ultra-thin-titanium-review",
-  "dyson-airwrap-multi-styler-review",
-  "tymo-curlpro-plus-review",
-  "hot-tools-24k-gold-curling-iron-review",
-  "revlon-salon-one-step-plus-review",
-  "ghd-platinum-plus-hair-straightener-review",
-  "nume-classic-curling-wand-review",
-];
-
-const comparisonSlugs = [
-  "pureology-hydrate-vs-redken-all-soft",
-  "olaplex-no8-vs-its-a-10-miracle-mask",
-  "moroccanoil-vs-olaplex-no7-oil",
-  "dyson-supersonic-vs-shark-hyperair",
-  "ghd-platinum-plus-vs-chi-air-expert",
-  "dyson-airwrap-vs-beachwaver-s1",
+  { url: "/",                               priority: "1.0", changefreq: "weekly"  },
+  { url: "/reviews",                        priority: "0.9", changefreq: "weekly"  },
+  { url: "/comparisons",                    priority: "0.9", changefreq: "weekly"  },
+  { url: "/about",                          priority: "0.5", changefreq: "monthly" },
+  { url: "/how-we-test",                    priority: "0.6", changefreq: "monthly" },
+  { url: "/hair-quiz",                      priority: "0.6", changefreq: "monthly" },
+  { url: "/category/shampoo-conditioner",   priority: "0.8", changefreq: "weekly"  },
+  { url: "/category/hair-masks",            priority: "0.8", changefreq: "weekly"  },
+  { url: "/category/serums-oils",           priority: "0.8", changefreq: "weekly"  },
+  { url: "/category/hair-dryers",           priority: "0.8", changefreq: "weekly"  },
+  { url: "/category/flat-irons",            priority: "0.8", changefreq: "weekly"  },
+  { url: "/category/curling-irons",         priority: "0.8", changefreq: "weekly"  },
 ];
 
 function buildSitemapEntry({ url, priority, changefreq, lastmod }) {
@@ -87,6 +51,18 @@ function buildSitemapEntry({ url, priority, changefreq, lastmod }) {
 
 const entries = [
   ...staticPages.map(p => buildSitemapEntry({ ...p, lastmod: TODAY })),
+  ...authorSlugs.map(slug => buildSitemapEntry({
+    url: `/author/${slug}`,
+    priority: "0.5",
+    changefreq: "monthly",
+    lastmod: TODAY,
+  })),
+  ...hairTypeSlugs.map(slug => buildSitemapEntry({
+    url: `/hair-type/${slug}`,
+    priority: "0.7",
+    changefreq: "monthly",
+    lastmod: TODAY,
+  })),
   ...productSlugs.map(slug => buildSitemapEntry({
     url: `/review/${slug}`,
     priority: "0.7",
@@ -109,4 +85,5 @@ ${entries.join("\n")}
 const outputPath = resolve(__dirname, "../client/public/sitemap.xml");
 writeFileSync(outputPath, sitemap, "utf-8");
 console.log(`✅ Sitemap generated: ${outputPath}`);
-console.log(`   ${entries.length} URLs included`);
+console.log(`   ${entries.length} URLs total`);
+console.log(`   Static: ${staticPages.length}, Authors: ${authorSlugs.length}, Hair types: ${hairTypeSlugs.length}, Reviews: ${productSlugs.length}, Comparisons: ${comparisonSlugs.length}`);

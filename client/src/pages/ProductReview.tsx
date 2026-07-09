@@ -8,6 +8,9 @@ import SiteLayout from "@/components/SiteLayout";
 import { StarRatingDisplay } from "@/components/ProductCard";
 import { allProducts, amazonLink, getProductsByCategory, getComparisonsForProduct } from "@/lib/products";
 import { updateDocumentMeta, buildProductSchema, buildReviewSchema, injectStructuredData } from "@/lib/seo";
+import { getAuthorForProduct } from "@/lib/authors";
+import UserReviewSection from "@/components/UserReviewSection";
+import { USER_REVIEWS_ENABLED, computeAggregateRating } from "@/lib/userReviews";
 import ProductCard from "@/components/ProductCard";
 
 // ─── Recently Viewed Key ────────────────────────────────────────────────────
@@ -114,6 +117,9 @@ export default function ProductReview() {
     if (product) trackRecentlyViewed(product.slug);
   }, [product]);
 
+  // Resolve named author for this product
+  const author = product ? getAuthorForProduct(product.slug) : null;
+
   useEffect(() => {
     if (product) {
       // Priority 5: long-tail title targeting hair-type + product + concern
@@ -132,26 +138,82 @@ export default function ProductReview() {
         ogType: "article",
       });
 
-      const productSchema = buildProductSchema({
-        name: product.name,
-        description: product.shortDescription,
-        brand: product.brand,
-        price: product.price,
-        rating: product.rating,
-        reviewCount: product.reviewCount,
-        imageUrl: product.imageUrl,
-        asin: product.asin,
-      });
+      const resolvedAuthor = getAuthorForProduct(product.slug);
 
-      const reviewSchema = buildReviewSchema({
-        productName: product.name,
-        reviewBody: product.fullReview.substring(0, 500),
-        rating: product.rating,
-        datePublished: product.publishDate,
-      });
+      // Build Product schema with named Person author in the nested Review
+      const productSchema = {
+        ...buildProductSchema({
+          name: product.name,
+          description: product.shortDescription,
+          brand: product.brand,
+          price: product.price,
+          rating: product.rating,
+          reviewCount: product.reviewCount,
+          imageUrl: product.imageUrl,
+          asin: product.asin,
+        }),
+        review: {
+          "@type": "Review",
+          reviewRating: {
+            "@type": "Rating",
+            ratingValue: product.rating,
+            bestRating: 5,
+            worstRating: 1,
+          },
+          author: {
+            "@type": "Person",
+            name: resolvedAuthor.name,
+            jobTitle: resolvedAuthor.role,
+            url: resolvedAuthor.url,
+          },
+          publisher: {
+            "@type": "Organization",
+            name: "SilkierStrands",
+            url: "https://silkierstrands.com",
+          },
+          datePublished: product.publishDate,
+          reviewBody: product.shortDescription,
+        },
+      };
+
+      const reviewSchema = {
+        ...buildReviewSchema({
+          productName: product.name,
+          reviewBody: product.fullReview.substring(0, 500),
+          rating: product.rating,
+          datePublished: product.publishDate,
+        }),
+        author: {
+          "@type": "Person",
+          name: resolvedAuthor.name,
+          jobTitle: resolvedAuthor.role,
+          url: resolvedAuthor.url,
+        },
+      };
 
       injectStructuredData(productSchema, "product-schema");
       injectStructuredData(reviewSchema, "review-schema");
+
+      // AggregateRating: only injected when feature flag is ON and ≥3 genuine reviews exist.
+      // Never fabricated. Computed strictly from approved user submissions.
+      if (USER_REVIEWS_ENABLED) {
+        const agg = computeAggregateRating(product.slug);
+        if (agg) {
+          const aggSchema = {
+            "@context": "https://schema.org",
+            "@type": "Product",
+            name: product.name,
+            aggregateRating: {
+              "@type": "AggregateRating",
+              ratingValue: agg.ratingValue,
+              reviewCount: agg.reviewCount,
+              bestRating: 5,
+              worstRating: 1,
+            },
+          };
+          injectStructuredData(aggSchema, "aggregate-rating-schema");
+        }
+      }
     }
   }, [product]);
 
@@ -250,10 +312,20 @@ export default function ProductReview() {
             <h1 className="font-display font-bold mb-4 leading-tight" style={{ fontSize: "clamp(1.8rem, 3vw, 2.5rem)", color: "#2C2C2C" }}>
               {product.name}
             </h1>
-            {/* Author byline + last-updated date — Priority 4: E-E-A-T */}
+            {/* Author byline + last-updated date — named pen-name author */}
             <div className="flex flex-wrap items-center gap-x-4 gap-y-1 mb-4">
               <span className="font-body text-xs" style={{ color: "#6C6C6C" }}>
-                By <strong style={{ color: "#2C2C2C" }}>SilkierStrands Editorial Team</strong>
+                By{" "}
+                {author ? (
+                  <Link href={`/author/${author.slug}`}>
+                    <strong className="underline cursor-pointer" style={{ color: "#2C2C2C" }}>{author.name}</strong>
+                  </Link>
+                ) : (
+                  <strong style={{ color: "#2C2C2C" }}>SilkierStrands Editorial Team</strong>
+                )}
+                {author && (
+                  <span style={{ color: "#B8A99A" }}>, {author.role}</span>
+                )}
               </span>
               <span style={{ color: "#E8DDD0" }}>|</span>
               <time dateTime={product.publishDate} className="font-body text-xs" style={{ color: "#6C6C6C" }}>
@@ -298,7 +370,14 @@ export default function ProductReview() {
                 >
                   &ldquo;{product.editorNote}&rdquo;
                 </blockquote>
-                <p className="font-body text-xs mt-2" style={{ color: "#B8A99A" }}>— SilkierStrands Editorial Team</p>
+                <p className="font-body text-xs mt-2" style={{ color: "#B8A99A" }}>
+                  —{" "}
+                  {author ? (
+                    <Link href={`/author/${author.slug}`}>
+                      <span className="underline cursor-pointer">{author.name}</span>
+                    </Link>
+                  ) : "SilkierStrands Editorial Team"}
+                </p>
               </div>
             ) : (
               <blockquote className="pull-quote my-8">
@@ -326,7 +405,13 @@ export default function ProductReview() {
             </div>
 
             <p className="font-body text-xs mt-4" style={{ color: "#B8A99A" }}>
-              Reviewed by the SilkierStrands Editorial Team ·{" "}
+              Reviewed by{" "}
+              {author ? (
+                <Link href={`/author/${author.slug}`}>
+                  <span className="underline cursor-pointer">{author.name}</span>
+                </Link>
+              ) : "SilkierStrands Editorial Team"}
+              {" "}·{" "}
               <time dateTime={product.publishDate}>
                 Last updated {new Date(product.publishDate).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}
               </time>{" "}
@@ -397,6 +482,9 @@ export default function ProductReview() {
             </section>
           );
         })()}
+        {/* User Reviews — dormant until USER_REVIEWS_ENABLED = true in lib/userReviews.ts */}
+        <UserReviewSection productSlug={product.slug} />
+
         {/* Quiz CTA */}
         <QuizPromptBanner />
       </div>
