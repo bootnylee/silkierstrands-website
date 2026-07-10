@@ -12,6 +12,7 @@ import { getAuthorForProduct } from "@/lib/authors";
 import UserReviewSection from "@/components/UserReviewSection";
 import { USER_REVIEWS_ENABLED, computeAggregateRating } from "@/lib/userReviews";
 import ProductCard from "@/components/ProductCard";
+import { trackAffiliateClick } from "@/lib/analytics";
 
 // ─── Recently Viewed Key ────────────────────────────────────────────────────
 export const RECENTLY_VIEWED_KEY = "silkierstrands_recently_viewed";
@@ -270,6 +271,7 @@ export default function ProductReview() {
                 target="_blank"
                 rel="noopener noreferrer nofollow"
                 className="btn-amazon rounded-sm w-full mt-4 flex items-center justify-center gap-2 py-3"
+                onClick={() => trackAffiliateClick(product.name, amazonLink(product.asin))}
               >
                 View on Amazon <ExternalLink size={14} />
               </a>
@@ -399,6 +401,7 @@ export default function ProductReview() {
                 target="_blank"
                 rel="noopener noreferrer nofollow"
                 className="btn-amazon rounded-sm mt-4 inline-flex items-center gap-2 py-3 px-6"
+                onClick={() => trackAffiliateClick(product.name, amazonLink(product.asin))}
               >
                 Check Price on Amazon <ExternalLink size={14} />
               </a>

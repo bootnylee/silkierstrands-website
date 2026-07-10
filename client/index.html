@@ -49,6 +49,24 @@
     <!-- Google Search Console verification (permanent) -->
     <meta name="google-site-verification" content="Y42zd1i5wJpesjjxaNyZGy6Aivqaaf0T7dCeEVGyBrI" />
 
+    <!-- ═══════════════════════════════════════════════════════════════════════
+         GOOGLE ANALYTICS 4
+         ⚠️  REPLACE G-XXXXXXXXXX with your real GA4 Measurement ID.
+         Find it in: GA4 → Admin → Data Streams → [your stream] → Measurement ID
+         After replacing, commit and push — Netlify will redeploy automatically.
+         ═══════════════════════════════════════════════════════════════════════ -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      // UTM parameters are preserved automatically by GA4
+      gtag('config', 'G-XXXXXXXXXX', {
+        // Uncomment to anonymise IPs (GDPR best practice):
+        // anonymize_ip: true,
+      });
+    </script>
+
     <!-- Amazon Affiliate Disclosure (required) -->
     <meta name="amazon-affiliate" content="silkierstrands-20" />
     <script src="https://analytics.ahrefs.com/analytics.js" data-key="BkC0M2PqIlezgczZrCKLlw" async></script>

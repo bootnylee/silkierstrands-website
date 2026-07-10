@@ -2,48 +2,118 @@
 // Burgundy primary, Amber accent, Cream background, Cormorant Garamond display font
 // Hair Type Quiz — multi-step questionnaire with scoring and personalized product recommendations
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "wouter";
-import { ChevronRight, ChevronLeft, RotateCcw, ExternalLink, Star, Share2, Check, Trash2, Mail } from "lucide-react";
+import { ChevronRight, ChevronLeft, RotateCcw, ExternalLink, Star, Share2, Check, Trash2, Mail, Download, Loader2 } from "lucide-react";
 
 import SiteLayout from "@/components/SiteLayout";
 import { allProducts } from "@/lib/products";
+import { trackEmailSignup, trackQuizComplete } from "@/lib/analytics";
+
+// ─── localStorage key for persisted hair type ─────────────────────────────────
+export const HAIR_TYPE_PERSIST_KEY = "silkierstrands_hair_type";
 
 // ─── Quiz Email Capture ────────────────────────────────────────────────────────
-// The EmailOctopus JS widget works by finding a <script data-form="..."> tag in
-// the DOM and inserting the form HTML immediately after it (nextSibling), then
-// removing the script tag itself. To keep the form inside our styled card, we
-// inject the <script> tag into the card's container div via useEffect, so the
-// widget inserts the form HTML inside the card rather than at the body level.
-const EMAILOCTOPUS_FORM_ID = "aeb1d42c-40de-11f1-aa22-35d9c85d0d35";
-const EMAILOCTOPUS_SCRIPT_SRC = `https://eocampaign1.com/form/${EMAILOCTOPUS_FORM_ID}.js`;
+// Calls POST /api/subscribe (Netlify function) with email + hairType.
+// On success: persists hair type to localStorage, fires GA4 event, triggers PDF download.
+// Falls back gracefully if the API is not yet configured (still downloads PDF).
 
-function QuizEmailCapture({ hairTypeLabel, accentColor }: { hairTypeLabel: string; accentColor: string; hairTypeId: string }) {
-  const containerRef = useRef<HTMLDivElement>(null);
+type CaptureState = "idle" | "submitting" | "success" | "error";
 
-  useEffect(() => {
-    const container = containerRef.current;
-    if (!container) return;
+function QuizEmailCapture({ hairTypeLabel, accentColor, hairTypeId }: { hairTypeLabel: string; accentColor: string; hairTypeId: string }) {
+  const [email, setEmail] = useState("");
+  const [state, setState] = useState<CaptureState>("idle");
+  const [errorMsg, setErrorMsg] = useState("");
 
-    // Remove any previously injected widget (e.g. on hot-reload)
-    container.innerHTML = "";
+  const guideUrl = `/guides/${hairTypeId}-hair-routine-guide.pdf`;
+  const guideFilename = `${hairTypeId}-hair-routine-guide.pdf`;
 
-    // Inject the <script data-form="..."> tag directly inside our container div.
-    // The EmailOctopus widget scans for this tag, inserts the form HTML right
-    // after it (parentNode.insertBefore(form, script.nextSibling)), then removes
-    // the script tag. Because the script tag is inside our card div, the form
-    // HTML ends up inside the card — not appended to <body>.
-    const script = document.createElement("script");
-    script.src = EMAILOCTOPUS_SCRIPT_SRC;
-    script.async = true;
-    script.setAttribute("data-form", EMAILOCTOPUS_FORM_ID);
-    container.appendChild(script);
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email.trim() || !email.includes("@")) {
+      setErrorMsg("Please enter a valid email address.");
+      return;
+    }
+    setState("submitting");
+    setErrorMsg("");
 
-    return () => {
-      // Clean up on unmount
-      if (container.contains(script)) container.removeChild(script);
-    };
-  }, []);
+    try {
+      const res = await fetch("/api/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: email.trim(), hairType: hairTypeId }),
+      });
+
+      const data = await res.json().catch(() => ({}));
+
+      if (res.ok || data.ok) {
+        // Persist hair type to localStorage for future personalisation
+        try {
+          localStorage.setItem(HAIR_TYPE_PERSIST_KEY, JSON.stringify({
+            hairType: hairTypeId,
+            label: hairTypeLabel,
+            subscribedAt: new Date().toISOString(),
+          }));
+        } catch {}
+
+        // Fire GA4 events
+        trackEmailSignup(hairTypeId, "quiz_result");
+
+        setState("success");
+
+        // Trigger PDF download
+        const link = document.createElement("a");
+        link.href = guideUrl;
+        link.download = guideFilename;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      } else {
+        setErrorMsg(data.error ?? "Something went wrong. Please try again.");
+        setState("error");
+      }
+    } catch {
+      // Network error — still show success and trigger download
+      // (graceful degradation: don't punish the user for a backend issue)
+      setState("success");
+      try {
+        const link = document.createElement("a");
+        link.href = guideUrl;
+        link.download = guideFilename;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      } catch {}
+    }
+  };
+
+  if (state === "success") {
+    return (
+      <div
+        className="rounded-xl px-8 py-10 text-center"
+        style={{ background: `linear-gradient(135deg, ${accentColor}18 0%, ${accentColor}08 100%)`, border: `1.5px solid ${accentColor}33` }}
+      >
+        <div className="flex justify-center mb-4">
+          <div className="w-12 h-12 rounded-full flex items-center justify-center" style={{ backgroundColor: `${accentColor}22` }}>
+            <Check size={22} style={{ color: accentColor }} />
+          </div>
+        </div>
+        <h3 className="font-display text-2xl font-bold mb-2" style={{ color: "#2C2C2C" }}>You're in!</h3>
+        <p className="font-body text-sm mb-5 leading-relaxed" style={{ color: "#6B5B6E", maxWidth: "380px", margin: "0 auto 1.25rem" }}>
+          Your personalised {hairTypeLabel} routine guide is downloading now. Check your inbox for expert tips and product picks curated for your hair type.
+        </p>
+        <a
+          href={guideUrl}
+          download={guideFilename}
+          className="inline-flex items-center gap-2 px-6 py-3 rounded font-body font-semibold text-sm transition-all duration-200 hover:opacity-80"
+          style={{ backgroundColor: accentColor, color: "#FDF6EE" }}
+        >
+          <Download size={14} /> Download Guide Again
+        </a>
+        <p className="font-body text-xs mt-4" style={{ color: "#B8A99A" }}>No spam, ever. Unsubscribe at any time.</p>
+      </div>
+    );
+  }
 
   return (
     <div
@@ -56,17 +126,47 @@ function QuizEmailCapture({ hairTypeLabel, accentColor }: { hairTypeLabel: strin
         </div>
       </div>
       <p className="font-body text-xs tracking-widest uppercase mb-2" style={{ color: accentColor, letterSpacing: "0.16em" }}>
-        Save Your Results
+        Free Download
       </p>
       <h3 className="font-display text-2xl font-bold mb-2" style={{ color: "#2C2C2C" }}>
-        Get Your {hairTypeLabel} Guide
+        Get Your {hairTypeLabel} Routine Guide
       </h3>
-      <p className="font-body text-sm mb-6 leading-relaxed" style={{ color: "#6B5B6E", maxWidth: "420px", margin: "0 auto 1.5rem" }}>
-        We'll email you your personalized hair type profile, top product picks, and weekly expert tips — curated for {hairTypeLabel}.
+      <p className="font-body text-sm mb-5 leading-relaxed" style={{ color: "#6B5B6E", maxWidth: "420px", margin: "0 auto 1.25rem" }}>
+        Enter your email and we'll send your personalised step-by-step hair routine, ingredient guide, and expert product picks — curated specifically for {hairTypeLabel}.
       </p>
-      {/* The EmailOctopus widget injects the form HTML right after the <script> tag
-          that we insert into this div via useEffect. */}
-      <div ref={containerRef} className="max-w-sm mx-auto" />
+      <form onSubmit={handleSubmit} className="max-w-sm mx-auto">
+        <div className="flex gap-2">
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="your@email.com"
+            required
+            disabled={state === "submitting"}
+            className="flex-1 px-4 py-3 rounded font-body text-sm border outline-none transition-all"
+            style={{
+              borderColor: errorMsg ? "#C0392B" : `${accentColor}44`,
+              backgroundColor: "#FFFFFF",
+              color: "#2C2C2C",
+            }}
+          />
+          <button
+            type="submit"
+            disabled={state === "submitting"}
+            className="flex items-center gap-2 px-5 py-3 rounded font-body font-semibold text-sm transition-all duration-200 hover:opacity-80 disabled:opacity-60"
+            style={{ backgroundColor: accentColor, color: "#FDF6EE", whiteSpace: "nowrap" }}
+          >
+            {state === "submitting" ? (
+              <><Loader2 size={14} className="animate-spin" /> Sending...</>
+            ) : (
+              <><Download size={14} /> Get Guide</>
+            )}
+          </button>
+        </div>
+        {errorMsg && (
+          <p className="font-body text-xs mt-2 text-left" style={{ color: "#C0392B" }}>{errorMsg}</p>
+        )}
+      </form>
       <p className="font-body text-xs mt-3" style={{ color: "#B8A99A" }}>No spam, ever. Unsubscribe at any time.</p>
     </div>
   );
@@ -497,6 +597,8 @@ export default function HairQuiz() {
       // Persist result to localStorage
       const quizSaveData: QuizResultData = { primary, secondary: sec, completedAt: new Date().toISOString() };
       localStorage.setItem(QUIZ_RESULT_KEY, JSON.stringify(quizSaveData));
+      // Fire GA4 quiz_complete event
+      trackQuizComplete(primary);
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
   }

@@ -1,13 +1,25 @@
 # SilkierStrands.com — Netlify Configuration
 
 [build]
-  # Priority 1: Build then run static prerender to generate per-route HTML with correct SEO tags
+  # Build: generate sitemap → Vite build → static prerender (per-route HTML with SEO tags)
   command = "pnpm install && node scripts/generate-sitemap.mjs && pnpm build && node scripts/prerender.mjs"
   publish = "dist/public"
+  functions = "netlify/functions"
 
 [build.environment]
   NODE_VERSION = "20"
   PNPM_VERSION = "10"
+
+[functions]
+  node_bundler = "esbuild"
+
+# ─── API routes → Netlify Functions ──────────────────────────────────────────
+# POST /api/subscribe → subscribe.mjs (email capture + EmailOctopus segmentation)
+[[redirects]]
+  from = "/api/subscribe"
+  to = "/.netlify/functions/subscribe"
+  status = 200
+  force = true
 
 # Priority 2: www → non-www (301 permanent redirect)
 [[redirects]]
@@ -56,6 +68,12 @@
   for = "/robots.txt"
   [headers.values]
     Cache-Control = "public, max-age=604800"
+
+# Cache PDF guides for 30 days
+[[headers]]
+  for = "/guides/*"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000"
 
 # Affiliate link redirect (optional — for clean URLs)
 # [[redirects]]
