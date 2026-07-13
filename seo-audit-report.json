@@ -1,5 +1,5 @@
 {
-  "auditDate": "2026-07-06",
+  "auditDate": "2026-07-13",
   "summary": {
     "passed": 8,
     "warnings": 1,
@@ -8,7 +8,7 @@
   },
   "passed": [
     "robots.txt exists and references sitemap",
-    "sitemap.xml exists with 52 URLs",
+    "sitemap.xml exists with 143 URLs",
     "All products have shortDescription",
     "All products have Amazon ASINs",
     "Affiliate tag \"silkierstrands-20\" is present in products data",
