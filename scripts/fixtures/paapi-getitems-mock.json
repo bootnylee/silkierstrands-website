@@ -1,0 +1,75 @@
+{
+  "_comment": "Mocked PA-API 5.0 GetItems responses used exclusively by --dry-run. Shapes match the real API: ItemsResult.Items[] with Offers.Listings[].Price and Images.Primary.Large, plus a top-level Errors[] entry demonstrating ItemNotAccessible handling. Values are fabricated for testing only.",
+  "responses": [
+    {
+      "ItemsResult": {
+        "Items": [
+          {
+            "ASIN": "B0007X749U",
+            "Offers": {
+              "Listings": [
+                {
+                  "Price": {
+                    "Amount": 27.5,
+                    "Currency": "USD",
+                    "DisplayAmount": "$27.50"
+                  }
+                }
+              ]
+            },
+            "Images": {
+              "Primary": {
+                "Large": {
+                  "URL": "https://m.media-amazon.com/images/I/MOCK-redken-fresh._SL1500_.jpg",
+                  "Height": 1500,
+                  "Width": 1500
+                }
+              }
+            }
+          },
+          {
+            "ASIN": "B000Q30NDA",
+            "Offers": {
+              "Listings": [
+                {
+                  "Price": {
+                    "Amount": 11.99,
+                    "Currency": "USD",
+                    "DisplayAmount": "$11.99"
+                  }
+                }
+              ]
+            },
+            "Images": {
+              "Primary": {
+                "Large": {
+                  "URL": "https://m.media-amazon.com/images/I/MOCK-b000q30nda._SL1500_.jpg",
+                  "Height": 1500,
+                  "Width": 1500
+                }
+              }
+            }
+          },
+          {
+            "ASIN": "B001AO0WCG",
+            "Images": {
+              "Primary": {
+                "Large": {
+                  "URL": "https://m.media-amazon.com/images/I/MOCK-no-offer-item._SL1500_.jpg",
+                  "Height": 1500,
+                  "Width": 1500
+                }
+              }
+            }
+          }
+        ]
+      },
+      "Errors": [
+        {
+          "Code": "ItemNotAccessible",
+          "Message": "The ItemId B002N5MKMG provided in the request is not accessible through the Product Advertising API."
+        }
+      ]
+    }
+  ]
+}
