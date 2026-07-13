@@ -599,8 +599,8 @@ At under $10, it's one of the best value hair masks available. Arvazallia Argan 
     reviewCount: 22000,
     category: "Serums & Oils",
     categorySlug: "serums-oils",
-    imageUrl: "https://m.media-amazon.com/images/I/71YoMWkVpLL._SL1500_.jpg",
-    amazonImageUrl: "https://m.media-amazon.com/images/I/71YoMWkVpLL._SL1500_.jpg",
+    imageUrl: "https://m.media-amazon.com/images/I/61MDoRoD6ZL._SL1500_.jpg",
+    amazonImageUrl: "https://m.media-amazon.com/images/I/61MDoRoD6ZL._SL1500_.jpg",
     shortDescription: "Silicone-based serum specifically formulated to eliminate frizz in high humidity.",
     fullReview: `John Frieda Frizz Ease Extra Strength Serum is a drugstore classic that has been solving frizz problems for decades. The silicone-based formula creates a protective barrier around the hair shaft that blocks humidity - the primary cause of frizz - with remarkable effectiveness.
 
@@ -791,8 +791,8 @@ At $80, it's well-priced for a professional-grade tool. The build quality is exc
     reviewCount: 8000,
     category: "Hair Dryers",
     categorySlug: "hair-dryers",
-    imageUrl: "https://m.media-amazon.com/images/I/61HPrdaKbTL._SL1500_.jpg",
-    amazonImageUrl: "https://m.media-amazon.com/images/I/61HPrdaKbTL._SL1500_.jpg",
+    imageUrl: "https://m.media-amazon.com/images/I/61UkKWDVGnL._AC_SL1500_.jpg",
+    amazonImageUrl: "https://m.media-amazon.com/images/I/61UkKWDVGnL._AC_SL1500_.jpg",
     shortDescription: "Fast-drying 1875W ionic dryer with diffuser, concentrator, comb, and detangling brush for flexible styling across hair types.",
     fullReview: `Wavytalk Professional Ionic Hair Dryer is a strong under-$50 alternative for shoppers who want more attachment versatility than a basic drugstore dryer. The 1875W motor is designed for fast drying, while the built-in negative-ion system helps reduce static and smooth frizz-prone lengths.
 
@@ -863,8 +863,8 @@ At $249, it's a premium investment, but for those who straighten regularly, the 
     reviewCount: 8500,
     category: "Flat Irons & Straighteners",
     categorySlug: "flat-irons",
-    imageUrl: "https://m.media-amazon.com/images/I/71X0743ySFL._SL1500_.jpg",
-    amazonImageUrl: "https://m.media-amazon.com/images/I/71X0743ySFL._SL1500_.jpg",
+    imageUrl: "https://m.media-amazon.com/images/I/51XZulW-U-L._SL1500_.jpg",
+    amazonImageUrl: "https://m.media-amazon.com/images/I/51XZulW-U-L._SL1500_.jpg",
     shortDescription: "T3 SinglePass technology with tourmaline ceramic plates for one-pass straightening.",
     fullReview: `T3's SinglePass Luxe delivers on its name - the tourmaline ceramic plates are so effective at distributing heat evenly that most hair types can achieve smooth results in a single pass. This reduces total heat exposure, which is a meaningful benefit for hair health.
 
@@ -995,8 +995,8 @@ At $70, it's well-priced for a professional-grade tool. The main caveat is that 
     reviewCount: 10000,
     category: "Flat Irons & Straighteners",
     categorySlug: "flat-irons",
-    imageUrl: "https://m.media-amazon.com/images/I/71GmGDV20QL._SL1500_.jpg",
-    amazonImageUrl: "https://m.media-amazon.com/images/I/71GmGDV20QL._SL1500_.jpg",
+    imageUrl: "https://m.media-amazon.com/images/I/71ba-dkYuYL._SL1500_.jpg",
+    amazonImageUrl: "https://m.media-amazon.com/images/I/71ba-dkYuYL._SL1500_.jpg",
     shortDescription: "Affordable ceramic flat iron with argan oil and keratin-infused plates for shinier, smoother straightening on medium to long hair.",
     fullReview: `Remington Shine Therapy 2 inch Hair Straightener is the kind of value tool that deserves more attention in the flat-iron category. It pairs wide ceramic plates with argan oil, keratin, and micro-conditioner infusion to create smoother glide and a shinier finish than a basic low-cost straightener.
 
@@ -1199,15 +1199,15 @@ export const allProducts: Product[] = [
     id: "verb-ghost-flat-iron",
     name: "ghd Platinum+ Professional Hair Straightener",
     brand: "ghd",
-    asin: "B07BFKQXVF",
+    asin: "B07F7Q4PTN",
     price: 279,
     priceDisplay: "$279.00",
     rating: 4.7,
     reviewCount: 31000,
     category: "Flat Irons & Straighteners",
     categorySlug: "flat-irons",
-    imageUrl: "https://m.media-amazon.com/images/I/51wFfBfHFQL._SL1500_.jpg",
-    amazonImageUrl: "https://m.media-amazon.com/images/I/51wFfBfHFQL._SL1500_.jpg",
+    imageUrl: "https://m.media-amazon.com/images/I/61W6ELJKwlL._SL1500_.jpg",
+    amazonImageUrl: "https://m.media-amazon.com/images/I/61W6ELJKwlL._SL1500_.jpg",
     hairTypes: ["fine","normal","color-treated"],
     shortDescription: "Premium flat iron with predictive technology that senses and adapts to hair needs for optimal results.",
     fullReview: `ghd Platinum+ Professional Hair Straightener is the most technologically advanced flat iron we've reviewed. The predictive technology senses hair thickness and adjusts temperature 250 times per second to maintain the optimal styling temperature of 365°F — the temperature ghd identifies as ideal for styling without causing unnecessary heat damage.
@@ -1368,8 +1368,8 @@ At $249, it's competitive with the Dyson Supersonic while offering a different s
     reviewCount: 7200,
     category: "Serums & Oils",
     categorySlug: "serums-oils",
-    imageUrl: "https://m.media-amazon.com/images/I/71f23rKetZL._SL1500_.jpg",
-    amazonImageUrl: "https://m.media-amazon.com/images/I/71f23rKetZL._SL1500_.jpg",
+    imageUrl: "https://m.media-amazon.com/images/I/61sHG92PxhL._SL1500_.jpg",
+    amazonImageUrl: "https://m.media-amazon.com/images/I/61sHG92PxhL._SL1500_.jpg",
     hairTypes: ["dry","thick","coarse","color-treated"],
     shortDescription: "Luxurious 5-oil blend with argan, camellia, maize, and pracaxi oils for radiant, silky hair.",
     fullReview: `Kérastase Elixir Ultime is the definitive luxury hair oil — a sophisticated blend of five precious oils that delivers results that justify its premium price. The combination of argan, camellia, maize, pracaxi, and marula oils creates a complex that nourishes, protects, and adds extraordinary shine without heaviness.
@@ -1449,8 +1449,8 @@ At $30 for 8.5 oz, it's excellent value for the results delivered. This is our t
     reviewCount: 5500,
     category: "Hair Masks & Treatments",
     categorySlug: "hair-masks",
-    imageUrl: "https://m.media-amazon.com/images/I/71tu05eRsPL._SL1500_.jpg",
-    amazonImageUrl: "https://m.media-amazon.com/images/I/71tu05eRsPL._SL1500_.jpg",
+    imageUrl: "https://m.media-amazon.com/images/I/512vOnfhKzL._SL1500_.jpg",
+    amazonImageUrl: "https://m.media-amazon.com/images/I/512vOnfhKzL._SL1500_.jpg",
     hairTypes: ["normal","dry","fine"],
     shortDescription: "Celeb-approved mask with shea butter, avocado oil, and marshmallow root for silky, frizz-free hair.",
     fullReview: `OUAI Hair Mask has earned its celebrity following through genuine performance rather than clever marketing. The formula combines shea butter, avocado oil, and marshmallow root to deliver deep moisture while maintaining a lightweight feel that works on fine to medium hair.
@@ -1557,8 +1557,8 @@ At $35, it's excellent value for a titanium wand. The Kristin Ess Curling Wand i
     reviewCount: 3100,
     category: "Curling Irons & Wands",
     categorySlug: "curling-irons",
-    imageUrl: "https://m.media-amazon.com/images/I/51UPkD0ruML._SL1500_.jpg",
-    amazonImageUrl: "https://m.media-amazon.com/images/I/51UPkD0ruML._SL1500_.jpg",
+    imageUrl: "https://m.media-amazon.com/images/I/515sNLGhQhL._SL1500_.jpg",
+    amazonImageUrl: "https://m.media-amazon.com/images/I/515sNLGhQhL._SL1500_.jpg",
     hairTypes: ["all","normal","medium"],
     shortDescription: "Interchangeable barrel set with three sizes for versatile curl and wave styling.",
     fullReview: `T3 Whirl Trio is a premium curling system that includes three interchangeable barrels (0.75", 1.25", and 1.5") in a single handle, providing versatility that would otherwise require three separate tools. The tourmaline ceramic barrels generate negative ions for frizz-free results, and the digital temperature control ensures precise heat management.
@@ -1773,8 +1773,8 @@ At $18 for 16.9 oz, it's exceptional value for an extremely effective toning tre
     reviewCount: 3100,
     category: "Shampoo & Conditioner",
     categorySlug: "shampoo-conditioner",
-    imageUrl: "https://m.media-amazon.com/images/I/71Hb0FXJHPL._SL1500_.jpg",
-    amazonImageUrl: "https://m.media-amazon.com/images/I/71Hb0FXJHPL._SL1500_.jpg",
+    imageUrl: "https://m.media-amazon.com/images/I/614TiuhTMjL._SL1500_.jpg",
+    amazonImageUrl: "https://m.media-amazon.com/images/I/614TiuhTMjL._SL1500_.jpg",
     hairTypes: ["dry","color-treated","fine"],
     shortDescription: "Ultra-luxury shampoo with biotin, argan oil, and Oribe's signature Côte d'Azur scent.",
     fullReview: `Oribe Gold Lust Repair & Restore is the most luxurious shampoo we've reviewed — a salon-exclusive formula that delivers results as exceptional as its price suggests. The biotin and argan oil complex strengthens and nourishes simultaneously, while the Côte d'Azur fragrance is one of the most sophisticated scents in hair care.
@@ -2131,8 +2131,8 @@ At $20, it's excellent value for a professional toning shampoo. The formula is g
     reviewCount: 18700,
     category: "Shampoo & Conditioner",
     categorySlug: "shampoo-conditioner",
-    imageUrl: "https://m.media-amazon.com/images/I/61nWMJpbJOL._SL1500_.jpg",
-    amazonImageUrl: "https://m.media-amazon.com/images/I/61nWMJpbJOL._SL1500_.jpg",
+    imageUrl: "https://m.media-amazon.com/images/I/61s7rHrK8-L._SL1500_.jpg",
+    amazonImageUrl: "https://m.media-amazon.com/images/I/61s7rHrK8-L._SL1500_.jpg",
     hairTypes: ["fine", "normal", "thick", "curly", "color-treated"],
     shortDescription: "A 25-benefit leave-in treatment that detangles, protects against heat up to 450°F, adds shine, and reduces frizz — all in one lightweight spray.",
     fullReview: `Redken One United is one of the most versatile leave-in conditioners on the market, delivering 25 hair benefits in a single lightweight spray. It's a genuinely multi-functional product: part heat protectant, part detangler, part frizz tamer, part shine enhancer — and it performs credibly in every role.
@@ -2170,8 +2170,8 @@ The only limitation is that it's not a deep conditioner — if your hair is seve
     reviewCount: 8200,
     category: "Shampoo & Conditioner",
     categorySlug: "shampoo-conditioner",
-    imageUrl: "https://m.media-amazon.com/images/I/51ePFbMOJAL._SL1500_.jpg",
-    amazonImageUrl: "https://m.media-amazon.com/images/I/51ePFbMOJAL._SL1500_.jpg",
+    imageUrl: "https://m.media-amazon.com/images/I/811u2kYJObL._SL1500_.jpg",
+    amazonImageUrl: "https://m.media-amazon.com/images/I/811u2kYJObL._SL1500_.jpg",
     hairTypes: ["color-treated", "fine", "normal"],
     shortDescription: "Olaplex's bond-building technology meets purple toning in a shampoo that neutralizes brassiness while actively repairing damage in blonde and lightened hair.",
     fullReview: `Olaplex No.4P is the only purple toning shampoo that also repairs hair bonds — making it uniquely suited for blonde and lightened hair that is both brassy and damaged. Most purple shampoos only tone; this one tones and treats simultaneously.
