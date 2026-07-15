@@ -1,22 +1,36 @@
 {
-  "generatedAt": "2026-07-13T21:52:32.768Z",
-  "mode": "live",
+  "generatedAt": "2026-07-15T17:33:27.429Z",
+  "mode": "dry-run",
   "totalAsins": 81,
-  "updatedCount": 0,
-  "updated": [],
-  "flagged": [
+  "updatedCount": 3,
+  "updated": [
+    "B0007X749U",
+    "B000Q30NDA",
+    "B001AO0WCG"
+  ],
+  "proposedChanges": [
     {
       "asin": "B0007X749U",
-      "reason": "NotReturned",
-      "action": "left unchanged"
-    },
-    {
-      "asin": "B000L726BS",
-      "reason": "NotReturned",
-      "action": "left unchanged"
+      "newPrice": 27.5,
+      "newPriceDisplay": "$27.50",
+      "newImage": "https://m.media-amazon.com/images/I/MOCK-redken-fresh._SL1500_.jpg"
     },
     {
       "asin": "B000Q30NDA",
+      "newPrice": 11.99,
+      "newPriceDisplay": "$11.99",
+      "newImage": "https://m.media-amazon.com/images/I/MOCK-b000q30nda._SL1500_.jpg"
+    },
+    {
+      "asin": "B001AO0WCG",
+      "newPrice": null,
+      "newPriceDisplay": null,
+      "newImage": "https://m.media-amazon.com/images/I/MOCK-no-offer-item._SL1500_.jpg"
+    }
+  ],
+  "flagged": [
+    {
+      "asin": "B000L726BS",
       "reason": "NotReturned",
       "action": "left unchanged"
     },
@@ -27,7 +41,7 @@
     },
     {
       "asin": "B001AO0WCG",
-      "reason": "NotReturned",
+      "reason": "NoOffer",
       "action": "left unchanged"
     },
     {
@@ -42,7 +56,7 @@
     },
     {
       "asin": "B002N5MKMG",
-      "reason": "NotReturned",
+      "reason": "ItemNotAccessible",
       "action": "left unchanged"
     },
     {
@@ -186,7 +200,7 @@
       "action": "left unchanged"
     },
     {
-      "asin": "B07BFKQXVF",
+      "asin": "B07F7Q4PTN",
       "reason": "NotReturned",
       "action": "left unchanged"
     },
