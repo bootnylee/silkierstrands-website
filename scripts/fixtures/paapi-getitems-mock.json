@@ -1,73 +1,77 @@
 {
-  "_comment": "Mocked PA-API 5.0 GetItems responses used exclusively by --dry-run. Shapes match the real API: ItemsResult.Items[] with Offers.Listings[].Price and Images.Primary.Large, plus a top-level Errors[] entry demonstrating ItemNotAccessible handling. Values are fabricated for testing only.",
+  "_comment": "Mocked Amazon Creators API GetItems responses used exclusively by --dry-run. Shape matches the real Creators API: itemsResult.items[] with offersV2.listings[].price.money and images.primary.large.url (all camelCase), plus a top-level errors[] entry demonstrating ItemNotAccessible handling. Values are fabricated for testing only.",
   "responses": [
     {
-      "ItemsResult": {
-        "Items": [
+      "itemsResult": {
+        "items": [
           {
-            "ASIN": "B0007X749U",
-            "Offers": {
-              "Listings": [
+            "asin": "B0007X749U",
+            "offersV2": {
+              "listings": [
                 {
-                  "Price": {
-                    "Amount": 27.5,
-                    "Currency": "USD",
-                    "DisplayAmount": "$27.50"
+                  "price": {
+                    "money": {
+                      "amount": 27.5,
+                      "currency": "USD",
+                      "displayAmount": "$27.50"
+                    }
                   }
                 }
               ]
             },
-            "Images": {
-              "Primary": {
-                "Large": {
-                  "URL": "https://m.media-amazon.com/images/I/MOCK-redken-fresh._SL1500_.jpg",
-                  "Height": 1500,
-                  "Width": 1500
+            "images": {
+              "primary": {
+                "large": {
+                  "url": "https://m.media-amazon.com/images/I/MOCK-redken-fresh._SL1500_.jpg",
+                  "height": 1500,
+                  "width": 1500
                 }
               }
             }
           },
           {
-            "ASIN": "B000Q30NDA",
-            "Offers": {
-              "Listings": [
+            "asin": "B000Q30NDA",
+            "offersV2": {
+              "listings": [
                 {
-                  "Price": {
-                    "Amount": 11.99,
-                    "Currency": "USD",
-                    "DisplayAmount": "$11.99"
+                  "price": {
+                    "money": {
+                      "amount": 11.99,
+                      "currency": "USD",
+                      "displayAmount": "$11.99"
+                    }
                   }
                 }
               ]
             },
-            "Images": {
-              "Primary": {
-                "Large": {
-                  "URL": "https://m.media-amazon.com/images/I/MOCK-b000q30nda._SL1500_.jpg",
-                  "Height": 1500,
-                  "Width": 1500
+            "images": {
+              "primary": {
+                "large": {
+                  "url": "https://m.media-amazon.com/images/I/MOCK-b000q30nda._SL1500_.jpg",
+                  "height": 1500,
+                  "width": 1500
                 }
               }
             }
           },
           {
-            "ASIN": "B001AO0WCG",
-            "Images": {
-              "Primary": {
-                "Large": {
-                  "URL": "https://m.media-amazon.com/images/I/MOCK-no-offer-item._SL1500_.jpg",
-                  "Height": 1500,
-                  "Width": 1500
+            "asin": "B001AO0WCG",
+            "images": {
+              "primary": {
+                "large": {
+                  "url": "https://m.media-amazon.com/images/I/MOCK-no-offer-item._SL1500_.jpg",
+                  "height": 1500,
+                  "width": 1500
                 }
               }
             }
           }
         ]
       },
-      "Errors": [
+      "errors": [
         {
-          "Code": "ItemNotAccessible",
-          "Message": "The ItemId B002N5MKMG provided in the request is not accessible through the Product Advertising API."
+          "code": "ItemNotAccessible",
+          "message": "The itemId B002N5MKMG provided in the request is not accessible through the Creators API."
         }
       ]
     }
