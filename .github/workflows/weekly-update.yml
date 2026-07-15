@@ -23,7 +23,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 0
@@ -32,9 +32,9 @@ jobs:
         uses: pnpm/action-setup@v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
-          node-version: '20'
+          node-version: '24'
           cache: 'pnpm'
 
       - name: Install dependencies
@@ -65,17 +65,17 @@ jobs:
           fi
           echo "No BROKEN links. INCONCLUSIVE results (e.g. Amazon bot-blocks) do not fail the job."
 
-      - name: PA-API price sync
+      - name: Creators API price sync
         env:
-          PAAPI_ACCESS_KEY: ${{ secrets.PAAPI_ACCESS_KEY }}
-          PAAPI_SECRET_KEY: ${{ secrets.PAAPI_SECRET_KEY }}
+          CREATORS_CREDENTIAL_ID: ${{ secrets.CREATORS_CREDENTIAL_ID }}
+          CREATORS_CREDENTIAL_SECRET: ${{ secrets.CREATORS_CREDENTIAL_SECRET }}
           PAAPI_PARTNER_TAG: ${{ secrets.PAAPI_PARTNER_TAG }}
         run: |
-          if [ -n "$PAAPI_ACCESS_KEY" ]; then
-            echo "PA-API credentials present - running live price sync."
+          if [ -n "$CREATORS_CREDENTIAL_ID" ]; then
+            echo "Creators API credentials present - running live price sync."
             node scripts/fetch-prices.js
           else
-            echo "PA-API credentials not configured - running dry-run price sync with mock fixture."
+            echo "Creators API credentials not configured - running dry-run price sync with mock fixture."
             node scripts/fetch-prices.js --dry-run
           fi
 
@@ -119,7 +119,7 @@ jobs:
         run: node scripts/ping-search-engines.mjs
 
       - name: Upload SEO audit report
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: seo-audit-week-${{ steps.week.outputs.week_number }}
           path: seo-audit-report.json
