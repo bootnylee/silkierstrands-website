@@ -181,8 +181,8 @@ The scent is light and clean, fading quickly - ideal for those who prefer their 
     name: "L'Oréal Paris EverPure Moisture Sulfate Free Shampoo",
     brand: "L'Oréal Paris",
     asin: "B01N9OZ4P0",
-    price: 29.16,
-    priceDisplay: "$29.16",
+    price: 29.09,
+    priceDisplay: "$29.09",
     rating: 4.7,
     reviewCount: 5834,
     category: "Shampoo & Conditioner",
@@ -300,7 +300,7 @@ const hairMaskProducts: Product[] = [
     category: "Hair Masks & Treatments",
     categorySlug: "hair-masks",
     imageUrl: "https://m.media-amazon.com/images/I/41jn8L+ZCBL._SL500_.jpg",
-    amazonImageUrl: "https://m.media-amazon.com/images/I/31KGCFzkvWL._SL500_.jpg",
+    amazonImageUrl: "https://m.media-amazon.com/images/I/41jn8L+ZCBL._SL500_.jpg",
     shortDescription: "Bond-building moisture mask that repairs and strengthens damaged hair in one use.",
     fullReview: `Olaplex No. 8 is the brand's most accessible entry point into bond-building technology, and it delivers results that justify the hype. Unlike traditional masks that simply coat the hair, No. 8 works at the molecular level to repair broken disulfide bonds - the structural damage caused by heat, color, and chemical processing.
 
@@ -401,8 +401,8 @@ At $38 for a multi-pack, it's excellent value for a keratin-infused shampoo. OGX
     name: "OGX Brazilian Keratin Therapy Shampoo",
     brand: "OGX",
     asin: "B00GMP6O9I",
-    price: 33.84,
-    priceDisplay: "$33.84",
+    price: 33.83,
+    priceDisplay: "$33.83",
     rating: 4.5,
     reviewCount: 35000,
     category: "Hair Masks & Treatments",
@@ -740,7 +740,7 @@ At $50, it's exceptional value. The main limitation is that it works best on med
     category: "Hair Dryers",
     categorySlug: "hair-dryers",
     imageUrl: "https://m.media-amazon.com/images/I/41KHBDrHl1L._SL500_.jpg",
-    amazonImageUrl: "https://m.media-amazon.com/images/I/71CHzL2pn8L._AC_SL1500_.jpg",
+    amazonImageUrl: "https://m.media-amazon.com/images/I/41KHBDrHl1L._SL500_.jpg",
     shortDescription: "1875W tourmaline ionic dryer with diffuser and concentrator for frizz-free styling.",
     fullReview: `The Conair Infiniti PRO is the reliable workhorse of the hair dryer category - not the most exciting option, but consistently effective and excellent value. The 1875W motor with tourmaline ionic technology delivers solid performance for everyday use, and the included diffuser and concentrator attachments add versatility.
 
@@ -766,7 +766,7 @@ At $42, it's a solid choice for anyone who wants a reliable, no-frills dryer tha
     category: "Hair Dryers",
     categorySlug: "hair-dryers",
     imageUrl: "https://m.media-amazon.com/images/I/41ri4HBLNyL._SL500_.jpg",
-    amazonImageUrl: "https://m.media-amazon.com/images/I/51-ds6wcbyL._SL500_.jpg",
+    amazonImageUrl: "https://m.media-amazon.com/images/I/41ri4HBLNyL._SL500_.jpg",
     shortDescription: "Professional nano titanium dryer with 2000W power and 6 heat/speed combinations.",
     fullReview: `BaBylissPRO Nano Titanium is a professional-grade dryer that has been a salon staple for years. The nano titanium technology generates far-infrared heat that dries hair from the inside out, reducing surface damage while achieving faster drying times than conventional ceramic dryers.
 
@@ -1097,7 +1097,7 @@ At $50 with a 4.6-star rating from nearly 8,000 reviews, this is exceptional val
     category: "Curling Irons & Wands",
     categorySlug: "curling-irons",
     imageUrl: "https://m.media-amazon.com/images/I/31093J8cv2L._SL500_.jpg",
-    amazonImageUrl: "https://m.media-amazon.com/images/I/31gRdLj6adL._SL500_.jpg",
+    amazonImageUrl: "https://m.media-amazon.com/images/I/31093J8cv2L._SL500_.jpg",
     shortDescription: "Professional 24K gold barrel for long-lasting curls with even heat distribution.",
     fullReview: `Hot Tools Professional 24K Gold Marcel Curling Iron is a salon staple that has been trusted by professional stylists for decades. The 24K gold barrel provides even, consistent heat distribution that creates long-lasting curls with a beautiful shine. The Marcel-style design gives stylists precise control over curl placement.
 
@@ -1149,7 +1149,7 @@ At $60, it's slightly more expensive than the original but worth the upgrade for
     category: "Curling Irons & Wands",
     categorySlug: "curling-irons",
     imageUrl: "https://m.media-amazon.com/images/I/31+jEt6aIdL._SL500_.jpg",
-    amazonImageUrl: "https://m.media-amazon.com/images/I/41EgHD4R2wL._SL500_.jpg",
+    amazonImageUrl: "https://m.media-amazon.com/images/I/31+jEt6aIdL._SL500_.jpg",
     shortDescription: "Double ceramic coating for even heat distribution and frizz-free curls at an unbeatable price.",
     fullReview: `The Conair Double Ceramic Curling Iron is the best budget curling iron available, and at $20, it's a remarkable value. The double ceramic coating provides even heat distribution that prevents hot spots, and the ionic conditioning reduces frizz for smooth, shiny curls.
 
@@ -1261,7 +1261,7 @@ At $25, it's exceptional value. The build quality is adequate rather than premiu
     category: "Curling Irons & Wands",
     categorySlug: "curling-irons",
     imageUrl: "https://m.media-amazon.com/images/I/21ntSUGEvkL._SL500_.jpg",
-    amazonImageUrl: "https://m.media-amazon.com/images/I/21BHVMMKQZL._SL500_.jpg",
+    amazonImageUrl: "https://m.media-amazon.com/images/I/21ntSUGEvkL._SL500_.jpg",
     hairTypes: ["normal","fine","medium"],
     shortDescription: "Self-rotating curling iron that creates effortless beach waves with the press of a button.",
     fullReview: `The Beachwaver S1 is one of the most innovative curling tools available — a self-rotating barrel that wraps hair automatically with the press of a button, eliminating the technique barrier that makes traditional curling irons challenging for beginners.
@@ -1342,7 +1342,7 @@ At $279, it's the most expensive dryer we've reviewed, but for those who blow-dr
     category: "Hair Dryers",
     categorySlug: "hair-dryers",
     imageUrl: "https://m.media-amazon.com/images/I/31semnDSZRL._SL500_.jpg",
-    amazonImageUrl: "https://m.media-amazon.com/images/I/31S+GDz6myL._SL500_.jpg",
+    amazonImageUrl: "https://m.media-amazon.com/images/I/31semnDSZRL._SL500_.jpg",
     hairTypes: ["fine","normal","color-treated"],
     shortDescription: "Lightweight professional dryer with IonAir technology for smooth, frizz-free results.",
     fullReview: `T3 Featherweight 3i Professional Ionic Hair Dryer is one of the most balanced premium hair dryers available — it combines professional-grade power with a lightweight design that makes it comfortable for extended use. The IonAir technology generates a high concentration of negative ions that dramatically reduce frizz and add shine.
@@ -1369,7 +1369,7 @@ At $249, it's competitive with the Dyson Supersonic while offering a different s
     category: "Serums & Oils",
     categorySlug: "serums-oils",
     imageUrl: "https://m.media-amazon.com/images/I/310yamSvSnL._SL500_.jpg",
-    amazonImageUrl: "https://m.media-amazon.com/images/I/410+REUJ+5L._SL500_.jpg",
+    amazonImageUrl: "https://m.media-amazon.com/images/I/310yamSvSnL._SL500_.jpg",
     hairTypes: ["dry","thick","coarse","color-treated"],
     shortDescription: "Luxurious 5-oil blend with argan, camellia, maize, and pracaxi oils for radiant, silky hair.",
     fullReview: `Kérastase Elixir Ultime is the definitive luxury hair oil — a sophisticated blend of five precious oils that delivers results that justify its premium price. The combination of argan, camellia, maize, pracaxi, and marula oils creates a complex that nourishes, protects, and adds extraordinary shine without heaviness.
@@ -1612,7 +1612,7 @@ At $50, it's excellent value for a mid-range flat iron. The Remington Pearl Pro 
     category: "Hair Dryers",
     categorySlug: "hair-dryers",
     imageUrl: "https://m.media-amazon.com/images/I/31+jEt6aIdL._SL500_.jpg",
-    amazonImageUrl: "https://m.media-amazon.com/images/I/41EgHD4R2wL._SL500_.jpg",
+    amazonImageUrl: "https://m.media-amazon.com/images/I/31+jEt6aIdL._SL500_.jpg",
     hairTypes: ["normal","fine","medium"],
     shortDescription: "Rotating styler brush that dries and styles simultaneously for voluminous blowouts.",
     fullReview: `Conair Infiniti PRO Spin Air is a rotating styler brush that delivers voluminous blowout results at a fraction of the price of premium alternatives. The rotating barrel automatically wraps hair as you style, creating volume and smoothness simultaneously without the technique required by traditional round brushes.
@@ -1828,7 +1828,7 @@ At $34, it's a premium purchase for a shampoo, but the clean formula and genuine
     category: "Curling Irons & Wands",
     categorySlug: "curling-irons",
     imageUrl: "https://m.media-amazon.com/images/I/21EwnPaq5GL._SL500_.jpg",
-    amazonImageUrl: "https://m.media-amazon.com/images/I/21djSRTh-LL._SL500_.jpg",
+    amazonImageUrl: "https://m.media-amazon.com/images/I/21EwnPaq5GL._SL500_.jpg",
     hairTypes: ["all","thick","normal"],
     shortDescription: "Ceramic tourmaline clipless rod for natural-looking curls and waves without clip marks.",
     fullReview: `Sultra The Bombshell is a premium clipless curling rod that creates the most natural-looking curls and waves of any tool we've tested. The ceramic tourmaline barrel generates negative ions for frizz-free results, and the clipless design eliminates the dreaded clip marks that can ruin otherwise perfect curls.
@@ -2287,7 +2287,7 @@ At $12.45 for 12 oz, it's one of the most affordable dedicated type 4 curl produ
     category: "Serums & Oils",
     categorySlug: "serums-oils",
     imageUrl: "https://m.media-amazon.com/images/I/31EiA9yWziL._SL500_.jpg",
-    amazonImageUrl: "https://m.media-amazon.com/images/I/31f3pRQqntL._SL500_.jpg",
+    amazonImageUrl: "https://m.media-amazon.com/images/I/31EiA9yWziL._SL500_.jpg",
     hairTypes: ["all", "dry", "damaged", "color-treated"],
     shortDescription: "Cult-favorite leave-in conditioner that detangles, protects against heat, and restores moisture in one step.",
     fullReview: `It's a 10 Miracle Leave-In Product has earned its cult status for a reason: it genuinely delivers on its promise of ten distinct benefits in a single bottle. The formula works as a detangler, heat protectant, and deep conditioner all at once, making it one of the most versatile products in the haircare space.
@@ -2398,7 +2398,7 @@ At $75 for 1.7 oz, K18 is expensive by any measure. But the formula is extraordi
     category: "Hair Masks & Treatments",
     categorySlug: "hair-masks",
     imageUrl: "https://m.media-amazon.com/images/I/31SQPt48hYL._SL500_.jpg",
-    amazonImageUrl: "https://m.media-amazon.com/images/I/413KeH-CjhL._SL500_.jpg",
+    amazonImageUrl: "https://m.media-amazon.com/images/I/31SQPt48hYL._SL500_.jpg",
     hairTypes: ["dry", "color-treated", "normal", "fine", "coarse"],
     shortDescription: "15-time award-winning deep conditioning mask that balances protein and moisture to reduce breakage and restore softness in dry, damaged, or color-treated hair — vegan and cruelty-free.",
     fullReview: `Briogeo Don't Despair, Repair! Deep Conditioning Mask is one of the most decorated hair masks in the professional beauty space, having won 15 industry awards — and after testing it extensively, the recognition is deserved. The formula is built around a protein-moisture balance that addresses two of the most common causes of hair damage simultaneously: protein loss and dehydration.

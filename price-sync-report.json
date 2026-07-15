@@ -1,145 +1,22 @@
 {
-  "generatedAt": "2026-07-15T21:59:58.652Z",
+  "generatedAt": "2026-07-15T23:46:01.860Z",
   "mode": "live",
   "totalAsins": 81,
-  "updatedCount": 80,
+  "updatedCount": 13,
   "updated": [
-    "B0007X749U",
-    "B000L726BS",
-    "B000Q30NDA",
-    "B00176B9JC",
-    "B001AO0WCG",
-    "B001T0HHDS",
-    "B002BU010G",
-    "B002N5MKMG",
-    "B003981CVQ",
-    "B003L3OQ76",
-    "B003YC8NS2",
-    "B0048EZNR4",
-    "B004INUWX0",
-    "B0050QJHTO",
-    "B005BEF5EQ",
-    "B005IEK634",
-    "B005YNB6VA",
-    "B008ORT4NU",
-    "B008XKC5NY",
-    "B00ATT883S",
-    "B00BB8ZIRK",
-    "B00C3HQB9C",
-    "B00C5AHTVQ",
-    "B00EX6BVO6",
+    "B00011QUKW",
+    "B005PV0FDG",
     "B00GMP6O9I",
-    "B00I32AN4K",
-    "B00J4R760C",
-    "B00J9WZZWI",
-    "B00RYPLGOI",
-    "B00YO38G4Q",
-    "B01HFH7XKK",
-    "B01KNWQW3I",
-    "B01LSUQSB0",
+    "B010XIHC54",
     "B01N9OZ4P0",
-    "B072K6B9RF",
-    "B075PTW3K4",
-    "B07F7Q4PTN",
-    "B07GWS4BSJ",
-    "B07H3GBSC3",
-    "B07MGMD2YF",
-    "B07N7PK9QK",
-    "B07PP9MXYY",
-    "B07V2FZZ55",
-    "B07VR1NDSQ",
-    "B07XGVX19G",
-    "B08232KQHC",
-    "B082Y5J8GP",
-    "B0891843GC",
-    "B08BT948RD",
-    "B08L8D93QB",
-    "B08LZ1CQRN",
-    "B08WGJQTN1",
-    "B092DNPHC9",
-    "B0961ZS96M",
-    "B098QTS954",
-    "B09CLN86XB",
-    "B09CP8SSGP",
-    "B09FM2BFPL",
-    "B09FYK7FKR",
-    "B09P4SVXK4",
-    "B09RTLFV3F",
-    "B09VCW2SL7",
-    "B09XBZMG71",
-    "B0B4T6RTZ2",
-    "B0B61XH5YT",
-    "B0B6NVPGFP",
-    "B0B6QGWDKR",
-    "B0B8YCSSWQ",
-    "B0BJMBDYZN",
-    "B0BPQZ22R1",
-    "B0BQ8P9LS2",
-    "B0BS2D2KN7",
-    "B0BSHWKW1H",
-    "B0BZZJYKZ6",
-    "B0CJSJWTF2",
-    "B0CRG6S7W8",
-    "B0CRJRB4GS",
-    "B0DPZLWX8J",
-    "B0G5T91S3F",
-    "B0GHSXYY3Z"
+    "B07CKKGR83",
+    "B091KB6H1F",
+    "B0B3L5PY79",
+    "B0BKGZ9V1Z",
+    "B0BSJH7JKK",
+    "B0C5S6QZ6Y",
+    "B0D2LWFF2P",
+    "B0FLTGFKPR"
   ],
-  "flagged": [
-    {
-      "asin": "B000L726BS",
-      "reason": "NoOffer",
-      "action": "left unchanged"
-    },
-    {
-      "asin": "B001T0HHDS",
-      "reason": "NoOffer",
-      "action": "left unchanged"
-    },
-    {
-      "asin": "B003YC8NS2",
-      "reason": "NoOffer",
-      "action": "left unchanged"
-    },
-    {
-      "asin": "B004INUWX0",
-      "reason": "NoOffer",
-      "action": "left unchanged"
-    },
-    {
-      "asin": "B008XKC5NY",
-      "reason": "NoOffer",
-      "action": "left unchanged"
-    },
-    {
-      "asin": "B00J4R760C",
-      "reason": "NoOffer",
-      "action": "left unchanged"
-    },
-    {
-      "asin": "B07GWS4BSJ",
-      "reason": "NoOffer",
-      "action": "left unchanged"
-    },
-    {
-      "asin": "B07V2FZZ55",
-      "reason": "NoOffer",
-      "action": "left unchanged"
-    },
-    {
-      "asin": "B092DNPHC9",
-      "reason": "NoOffer",
-      "action": "left unchanged"
-    },
-    {
-      "asin": "B0CJSJWTF2",
-      "reason": "NoOffer",
-      "action": "left unchanged"
-    },
-    {
-      "asin": "B0FYD1JDRT",
-      "reason": "ItemNotAccessible",
-      "action": "left unchanged"
-    }
-  ]
+  "flagged": []
 }
