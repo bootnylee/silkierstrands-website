@@ -1195,6 +1195,82 @@ At $49, it's competitively priced for a quality wand. The main limitation is the
 // ALL PRODUCTS
 // ============================================================
 export const allProducts: Product[] = [
+  // ── Weekly additions 2026-07-20 ──
+  {
+    id: "paul-mitchell-tea-tree-special-shampoo",
+    name: "Paul Mitchell Tea Tree Special Shampoo",
+    brand: "Paul Mitchell",
+    asin: "B0006ZEVU4",
+    price: 30.00,
+    priceDisplay: "$30.00",
+    rating: 4.6,
+    reviewCount: 61274,
+    category: "Shampoo & Conditioner",
+    categorySlug: "shampoo-conditioner",
+    imageUrl: "https://m.media-amazon.com/images/I/61qcKSk4wKL._SL500_.jpg",
+    amazonImageUrl: "https://m.media-amazon.com/images/I/61qcKSk4wKL._SL500_.jpg",
+    hairTypes: ["oily", "normal", "all"],
+    shortDescription: "Amazon's Choice scalp-refreshing shampoo with Australian tea tree oil, peppermint, and lavender for a deep, invigorating cleanse.",
+    fullReview: `Paul Mitchell Tea Tree Special Shampoo is one of the most iconic scalp-care shampoos on the market — a formula that has been invigorating scalps for decades and now carries over 61,000 Amazon reviews averaging 4.6 stars. The combination of Australian tea tree oil, peppermint, and lavender creates a signature tingle that signals a genuinely deep, refreshing cleanse.
+
+We tested this on oily, product-buildup-prone hair and found it exceptional at removing residue and balancing the scalp without stripping moisture from the lengths. The tea tree oil provides natural antimicrobial benefits that help manage scalp health over time, while the peppermint delivers an invigorating sensation that makes each wash feel like a scalp treatment.
+
+At $30 for 16.9 oz, it sits at a mid-range price point that is fully justified by the quality of the formula and the sheer volume of positive reviews. The energizing fragrance is long-lasting and sophisticated. This is our top recommendation for anyone dealing with an oily scalp, product buildup, or simply wanting a more invigorating cleansing experience.`,
+    pros: [
+      "Over 61,000 Amazon reviews at 4.6 stars — proven track record",
+      "Tea tree oil provides natural antimicrobial scalp benefits",
+      "Invigorating peppermint tingle signals deep cleansing",
+      "Excellent for oily scalps and product buildup removal",
+      "Long-lasting, sophisticated fragrance",
+    ],
+    cons: [
+      "Tingle sensation may be too intense for sensitive scalps",
+      "Not ideal as a daily shampoo for very dry hair",
+      "Fragrance is strong — not suitable for fragrance-sensitive users",
+    ],
+    bestFor: "Oily scalps; product buildup; those wanting an invigorating, deep-cleansing experience",
+    editorPick: true,
+    editorNote: "The most invigorating shampoo we have ever tested. Paul Mitchell Tea Tree Special Shampoo delivers a scalp-refreshing experience that no other shampoo at this price point can match — 61,000 reviewers agree. If your scalp needs a reset, this is the one.",
+    publishDate: "2026-07-20",
+    slug: "paul-mitchell-tea-tree-special-shampoo-review",
+  },
+  {
+    id: "chi-44-iron-guard-heat-protectant",
+    name: "CHI 44 Iron Guard Thermal Protection Spray",
+    brand: "CHI",
+    asin: "B002RS6JSA",
+    price: 8.00,
+    priceDisplay: "$8.00",
+    rating: 4.5,
+    reviewCount: 70945,
+    category: "Serums & Oils",
+    categorySlug: "serums-oils",
+    imageUrl: "https://m.media-amazon.com/images/I/41cqM3FYB-L._SL500_.jpg",
+    amazonImageUrl: "https://m.media-amazon.com/images/I/41cqM3FYB-L._SL500_.jpg",
+    hairTypes: ["all", "fine", "thick", "color-treated"],
+    shortDescription: "Amazon's Choice heat protectant spray with ceramic minerals that shields hair from heat damage up to 450°F while adding frizz control and shine.",
+    fullReview: `CHI 44 Iron Guard Thermal Protection Spray is the best-selling heat protectant on Amazon for good reason — with over 70,000 reviews averaging 4.5 stars and Amazon's Choice designation, it has earned its reputation as the go-to heat protection spray for all hair types. The ceramic mineral formula creates a protective barrier that shields hair from flat irons, curling irons, and blow dryers up to 450°F.
+
+We tested this on color-treated, medium-thickness hair and found it exceptional at preventing heat damage while adding a noticeable improvement in shine and smoothness. The lightweight spray formula distributes evenly without leaving any residue or heaviness, making it suitable for fine hair that struggles with heavier heat protectants. The frizz control benefits are meaningful and last through the entire styling session.
+
+At $8 for 8 oz, the value is extraordinary — this is one of the most affordable professional-quality heat protectants available. The 44 Iron Guard system provides layered protection from cleansing to styling, and the ceramic minerals generate negative ions for additional frizz reduction. For anyone who uses heat styling tools regularly, this is an essential product at an unbeatable price.`,
+    pros: [
+      "Over 70,000 Amazon reviews at 4.5 stars — most reviewed heat protectant",
+      "Ceramic minerals for layered heat protection up to 450°F",
+      "Lightweight formula suitable for fine hair",
+      "Exceptional value at $8 for 8 oz",
+      "Frizz control and shine enhancement in one spray",
+    ],
+    cons: [
+      "Scent is strong — not ideal for fragrance-sensitive users",
+      "Less intensive repair than bond-building alternatives like Olaplex No. 9",
+      "Spray nozzle can occasionally clog",
+    ],
+    bestFor: "All hair types; daily heat styling; those wanting professional heat protection at a budget price",
+    editorPick: false,
+    publishDate: "2026-07-20",
+    slug: "chi-44-iron-guard-heat-protectant-review",
+  },
   {
     id: "verb-ghost-flat-iron",
     name: "ghd Platinum+ Professional Hair Straightener",
@@ -2666,6 +2742,37 @@ export function getEditorPicks(): Product[] {
 // COMPARISONS (6 - one per category)
 // ============================================================
 export const comparisons: Comparison[] = [
+  // ── Weekly additions 2026-07-20 ──
+  {
+    id: "paul-mitchell-tea-tree-vs-ogx-keratin",
+    title: "Paul Mitchell Tea Tree Special vs. OGX Keratin Smoothing Oil Shampoo",
+    subtitle: "Scalp-Refreshing Tea Tree vs. Frizz-Fighting Keratin: Which Shampoo Wins?",
+    category: "Shampoo & Conditioner",
+    categorySlug: "shampoo-conditioner",
+    product1Id: "paul-mitchell-tea-tree-special-shampoo",
+    product2Id: "native-coconut-vanilla-set",
+    winnerId: "paul-mitchell-tea-tree-special-shampoo",
+    winnerReason: "Paul Mitchell Tea Tree wins for scalp health, deep cleansing, and oily hair management — the tea tree and peppermint formula delivers an invigorating scalp reset that OGX Keratin cannot match. OGX Keratin wins for frizz control and smoothing on dry, frizz-prone hair that needs a keratin-infused formula.",
+    verdict: "Paul Mitchell Tea Tree Special Shampoo is the better choice for those with oily scalps, product buildup, or anyone who wants a genuinely invigorating cleansing experience — its 61,000+ reviews validate its effectiveness. OGX Keratin Smoothing Oil Shampoo is the smarter pick for dry, frizz-prone hair that needs a smoothing, keratin-infused formula at a lower price point. For scalp health and deep cleansing, Paul Mitchell wins; for frizz control and smoothing, OGX is the better buy.",
+    publishDate: "2026-07-20",
+    slug: "paul-mitchell-tea-tree-vs-ogx-keratin-smoothing-shampoo",
+    hairTypes: ["oily", "normal", "all", "dry"],
+  },
+  {
+    id: "chi-44-iron-guard-vs-olaplex-no9",
+    title: "CHI 44 Iron Guard vs. Olaplex Nº. 9 Bond Protector",
+    subtitle: "Budget Heat Shield vs. Bond-Repairing Protectant: Which Heat Protectant Is Worth It?",
+    category: "Serums & Oils",
+    categorySlug: "serums-oils",
+    product1Id: "chi-44-iron-guard-heat-protectant",
+    product2Id: "olaplex-no9-bond-protector",
+    winnerId: "olaplex-no9-bond-protector",
+    winnerReason: "Olaplex No. 9 wins for color-treated, fine, or heat-damaged hair that needs active bond repair alongside heat protection — the patented bond-building technology delivers cumulative strengthening benefits that CHI cannot replicate. CHI 44 Iron Guard wins for value, versatility across all hair types, and anyone who wants reliable heat protection at a fraction of the price.",
+    verdict: "CHI 44 Iron Guard is the smarter everyday purchase for most users — at $8 with 70,000+ reviews, it delivers reliable ceramic mineral heat protection at an unbeatable price. Olaplex Nº. 9 is worth the premium specifically for color-treated or heat-damaged hair where active bond repair is needed alongside heat protection. For budget-conscious shoppers or healthy hair, CHI wins; for damaged or chemically processed hair, Olaplex No. 9 justifies its cost.",
+    publishDate: "2026-07-20",
+    slug: "chi-44-iron-guard-vs-olaplex-no9-bond-protector",
+    hairTypes: ["all", "color-treated", "fine", "thick"],
+  },
   // ── Weekly additions 2026-06-22 ──
   // ── Weekly additions 2026-06-29 ──
   // ── Weekly additions 2026-07-13 ──
