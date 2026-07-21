@@ -4,7 +4,7 @@
 
 import { Link } from "wouter";
 import { ExternalLink, Star, TrendingDown, Flame, Sparkles } from "lucide-react";
-import { type Product, amazonLink } from "@/lib/products";
+import { type Product, amazonLink, lastSyncedAt } from "@/lib/products";
 import { getPriceBadge, type PriceBadge } from "@/lib/priceHistory";
 import { trackAffiliateClick } from "@/lib/analytics";
 
@@ -15,6 +15,52 @@ function isNewThisWeek(publishDate: string): boolean {
   const diffMs = now.getTime() - published.getTime();
   const diffDays = diffMs / (1000 * 60 * 60 * 24);
   return diffDays <= 14;
+}
+
+/**
+ * Returns true if the last price sync is within the 24-hour freshness window.
+ * Reads lastSyncedAt exported from products.ts (written by scripts/fetch-prices.js).
+ */
+function isPriceFresh(): boolean {
+  if (!lastSyncedAt) return false;
+  const age = Date.now() - new Date(lastSyncedAt).getTime();
+  return age < 24 * 60 * 60 * 1000; // 24 hours in ms
+}
+
+const PRICES_FRESH = isPriceFresh();
+
+/**
+ * Renders either the live numeric price (when fresh) or a 'Check price on Amazon'
+ * affiliate link (when stale or missing). Used in all three card variants.
+ */
+function PriceDisplay({
+  product,
+  fontSize = "1rem",
+  color = "#8B1A2F",
+}: {
+  product: Product;
+  fontSize?: string;
+  color?: string;
+}) {
+  if (PRICES_FRESH && product.price > 0) {
+    return (
+      <span className="font-label font-bold block" style={{ color, fontSize }}>
+        {product.priceDisplay}
+      </span>
+    );
+  }
+  return (
+    <a
+      href={amazonLink(product.asin)}
+      target="_blank"
+      rel="noopener noreferrer nofollow"
+      className="font-label font-bold block"
+      style={{ color, fontSize, textDecoration: "underline" }}
+      onClick={() => trackAffiliateClick(product.name, amazonLink(product.asin))}
+    >
+      Check price on Amazon
+    </a>
+  );
 }
 
 // ─── New This Week Badge ──────────────────────────────────────────────────────
@@ -152,13 +198,8 @@ export default function ProductCard({
           />
           <div className="flex items-center justify-between mt-2">
             <div className="flex flex-col gap-0.5">
-              <span
-                className="font-label font-bold"
-                style={{ color: "#8B1A2F", fontSize: "0.9rem" }}
-              >
-                {product.priceDisplay}
-              </span>
-              {priceBadge && <PriceDropBadge badge={priceBadge} size="xs" />}
+              <PriceDisplay product={product} fontSize="0.9rem" />
+              {PRICES_FRESH && priceBadge && <PriceDropBadge badge={priceBadge} size="xs" />}
             </div>
             <a
               href={amazonLink(product.asin)}
@@ -199,7 +240,7 @@ export default function ProductCard({
               </span>
             )}
             {isNew && <NewBadge />}
-            {priceBadge && <PriceDropBadge badge={priceBadge} />}
+            {PRICES_FRESH && priceBadge && <PriceDropBadge badge={priceBadge} />}
           </div>
         </div>
         <div className="p-5">
@@ -227,18 +268,15 @@ export default function ProductCard({
             style={{ borderColor: "#F0E8DE" }}
           >
             <div>
-              <span
-                className="font-label font-bold"
-                style={{ color: "#8B1A2F", fontSize: "1.1rem" }}
-              >
-                {product.priceDisplay}
-              </span>
-              <p
-                className="font-body text-xs mt-0.5"
-                style={{ color: "#B8A99A" }}
-              >
-                on Amazon
-              </p>
+              <PriceDisplay product={product} fontSize="1.1rem" />
+              {PRICES_FRESH && (
+                <p
+                  className="font-body text-xs mt-0.5"
+                  style={{ color: "#B8A99A" }}
+                >
+                  on Amazon
+                </p>
+              )}
             </div>
             <div className="flex gap-2">
               <Link href={`/review/${product.slug}`}>
@@ -286,7 +324,7 @@ export default function ProductCard({
             </span>
           )}
           {isNew && <NewBadge size="xs" />}
-          {priceBadge && <PriceDropBadge badge={priceBadge} size="xs" />}
+          {PRICES_FRESH && priceBadge && <PriceDropBadge badge={priceBadge} size="xs" />}
         </div>
       </div>
       <div className="p-4">
@@ -309,13 +347,8 @@ export default function ProductCard({
           style={{ borderColor: "#F0E8DE" }}
         >
           <div>
-            <span
-              className="font-label font-bold block"
-              style={{ color: "#8B1A2F", fontSize: "1rem" }}
-            >
-              {product.priceDisplay}
-            </span>
-            {priceBadge && (
+            <PriceDisplay product={product} />
+            {PRICES_FRESH && priceBadge && (
               <div className="mt-0.5">
                 <PriceDropBadge badge={priceBadge} size="xs" />
               </div>

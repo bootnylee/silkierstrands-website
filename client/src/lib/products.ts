@@ -3380,3 +3380,11 @@ export function getComparisonById(id: string): Comparison | undefined {
 export function getComparisonsForProduct(productId: string): Comparison[] {
   return comparisons.filter(c => c.product1Id === productId || c.product2Id === productId);
 }
+
+/**
+ * ISO timestamp of the last successful live Creators API price sync.
+ * Written by scripts/fetch-prices.js on every successful live run.
+ * If older than 24 hours (or missing), the price-rendering layer hides
+ * numeric prices and shows a 'Check price on Amazon' affiliate link instead.
+ */
+export const lastSyncedAt: string = "2026-07-18T11:05:09.894Z";
