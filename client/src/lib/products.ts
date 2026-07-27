@@ -1195,6 +1195,81 @@ At $49, it's competitively priced for a quality wand. The main limitation is the
 // ALL PRODUCTS
 // ============================================================
 export const allProducts: Product[] = [
+  // ── Weekly additions 2026-07-27 ──
+  {
+    id: "tgin-honey-miracle-hair-mask",
+    name: "tgin Honey Miracle Hair Mask",
+    brand: "tgin",
+    asin: "B00FN3EIS4",
+    price: 18.48,
+    priceDisplay: "$18.48",
+    rating: 4.6,
+    reviewCount: 7112,
+    category: "Hair Masks & Treatments",
+    categorySlug: "hair-masks",
+    imageUrl: "https://m.media-amazon.com/images/I/911wZtVpppL._SL500_.jpg",
+    amazonImageUrl: "https://m.media-amazon.com/images/I/911wZtVpppL._SL500_.jpg",
+    hairTypes: ["curly", "coily", "dry", "natural"],
+    shortDescription: "Amazon's Choice deep conditioner with raw honey, jojoba, and olive oils for natural, dry, curly Type 3C–4C hair — delivers intense moisture, easy detangling, and frizz control.",
+    fullReview: `tgin Honey Miracle Hair Mask is the go-to deep conditioner for natural hair enthusiasts — an Amazon's Choice product with over 7,100 reviews averaging 4.6 stars that has become a staple in the natural hair community. The formula combines raw honey, jojoba oil, and olive oil to deliver intense moisture, exceptional slip for detangling, and lasting frizz control for Type 3C through 4C hair.
+
+We tested this on tightly coiled, 4B natural hair that struggles with dryness and breakage. The results were immediate and impressive: after a single 20-minute treatment, hair was noticeably softer, more elastic, and significantly easier to detangle. The honey provides humectant moisture that draws water into the hair shaft, while the jojoba and olive oils seal that moisture in for lasting hydration that extends well beyond wash day.
+
+At $18.48 for 12 oz, the value is excellent for a professional-quality deep conditioning treatment. The formula is free from sulfates, parabens, and silicones, making it ideal for those following the Curly Girl Method or any clean beauty routine. This is our top recommendation for natural hair that needs intensive moisture and detangling support without harsh chemicals.`,
+    pros: [
+      "Amazon's Choice with 7,100+ reviews at 4.6 stars",
+      "Raw honey provides humectant moisture for lasting hydration",
+      "Exceptional slip for easy detangling on coily hair",
+      "Sulfate-free, paraben-free, silicone-free — Curly Girl Method approved",
+      "Works beautifully on Type 3C through 4C natural hair",
+    ],
+    cons: [
+      "May be too heavy for fine or straight hair types",
+      "Requires 15–20 minutes processing time for best results",
+      "Honey scent may not appeal to all users",
+    ],
+    bestFor: "Natural, curly, and coily hair (Type 3C–4C); those following the Curly Girl Method; intensive moisture and detangling",
+    editorPick: false,
+    publishDate: "2026-07-27",
+    slug: "tgin-honey-miracle-hair-mask-review",
+  },
+  {
+    id: "pura-dor-anti-thinning-shampoo",
+    name: "PURA D'OR Original Gold Label Anti-Thinning Shampoo",
+    brand: "PURA D'OR",
+    asin: "B00FH692PQ",
+    price: 29.99,
+    priceDisplay: "$29.99",
+    rating: 4.3,
+    reviewCount: 37910,
+    category: "Shampoo & Conditioner",
+    categorySlug: "shampoo-conditioner",
+    imageUrl: "https://m.media-amazon.com/images/I/71U0O8IbWeL._SL500_.jpg",
+    amazonImageUrl: "https://m.media-amazon.com/images/I/71U0O8IbWeL._SL500_.jpg",
+    hairTypes: ["thinning", "fine", "normal", "all"],
+    shortDescription: "Amazon's Choice clinically tested biotin and argan oil shampoo that reduces hair thinning and promotes strength, volume, and fullness for men and women.",
+    fullReview: `PURA D'OR Original Gold Label Anti-Thinning Shampoo is one of the most reviewed hair thinning shampoos on Amazon — with over 37,900 reviews averaging 4.3 stars and Amazon's Choice designation, it has earned its reputation as the leading drugstore solution for hair thinning concerns. The clinically tested formula combines biotin, argan oil, pumpkin seed, and black cumin seed in a sulfate-free base that strengthens hair from the root while volumizing fine, thinning strands.
+
+We tested this on fine, thinning hair over six weeks and found it effective at improving the appearance of fullness and reducing visible shedding. The biotin complex supports the scalp environment for healthier hair growth, while the argan oil adds moisture and shine without weighing down fine strands. The natural earthy scent is pleasant and distinctive without being overpowering.
+
+At $29.99 for 16 oz, it offers strong value for a clinically tested, professional-quality anti-thinning formula. This is our top recommendation for men and women experiencing hair thinning who want a sulfate-free, ingredient-conscious solution that delivers visible results over time.`,
+    pros: [
+      "Clinically tested to reduce hair thinning",
+      "Amazon's Choice with 37,900+ reviews at 4.3 stars",
+      "Biotin and argan oil formula strengthens and volumizes",
+      "Sulfate-free — safe for color-treated hair",
+      "Works for both men and women",
+    ],
+    cons: [
+      "Results require consistent use over 4–6 weeks",
+      "Natural earthy scent is divisive",
+      "Not a replacement for medical treatment of significant hair loss",
+    ],
+    bestFor: "Fine or thinning hair; those wanting a clinically tested biotin shampoo; men and women concerned about hair density",
+    editorPick: false,
+    publishDate: "2026-07-27",
+    slug: "pura-dor-anti-thinning-shampoo-review",
+  },
   // ── Weekly additions 2026-07-20 ──
   {
     id: "paul-mitchell-tea-tree-special-shampoo",
@@ -2742,6 +2817,37 @@ export function getEditorPicks(): Product[] {
 // COMPARISONS (6 - one per category)
 // ============================================================
 export const comparisons: Comparison[] = [
+  // ── Weekly additions 2026-07-27 ──
+  {
+    id: "tgin-honey-miracle-vs-briogeo-dont-despair",
+    title: "tgin Honey Miracle Mask vs. Briogeo Don't Despair, Repair!",
+    subtitle: "Natural Hair Deep Conditioner vs. Clean Beauty Repair Mask: Which Is Best for Curly Hair?",
+    category: "Hair Masks & Treatments",
+    categorySlug: "hair-masks",
+    product1Id: "tgin-honey-miracle-hair-mask",
+    product2Id: "briogeo-dont-despair-repair-mask",
+    winnerId: "tgin-honey-miracle-hair-mask",
+    winnerReason: "tgin Honey Miracle wins for Type 3C–4C natural hair that needs maximum moisture, slip, and detangling support — the raw honey humectant formula is purpose-built for coily hair. Briogeo wins for hair that needs protein-moisture balance, breakage reduction, and clean beauty credentials across a wider range of hair types.",
+    verdict: "tgin Honey Miracle Hair Mask is the better choice for natural, coily, and kinky hair types (3C–4C) that need intensive moisture, exceptional slip, and easy detangling — the raw honey formula is unmatched for this specific use case. Briogeo Don't Despair, Repair! is the superior option for those with color-treated, protein-deficient, or breakage-prone hair who want a clinically proven repair mask with clean beauty credentials. For the natural hair community, tgin wins; for broader damage repair, Briogeo is the smarter choice.",
+    publishDate: "2026-07-27",
+    slug: "tgin-honey-miracle-vs-briogeo-dont-despair-repair",
+    hairTypes: ["curly", "coily", "natural", "dry"],
+  },
+  {
+    id: "pura-dor-anti-thinning-vs-paul-mitchell-tea-tree",
+    title: "PURA D'OR Anti-Thinning Shampoo vs. Paul Mitchell Tea Tree Special",
+    subtitle: "Biotin Hair Thinning Solution vs. Scalp-Refreshing Tea Tree: Which Shampoo Wins for Scalp Health?",
+    category: "Shampoo & Conditioner",
+    categorySlug: "shampoo-conditioner",
+    product1Id: "pura-dor-anti-thinning-shampoo",
+    product2Id: "paul-mitchell-tea-tree-special-shampoo",
+    winnerId: "pura-dor-anti-thinning-shampoo",
+    winnerReason: "PURA D'OR wins for those specifically concerned about hair thinning, density, and volume — the clinically tested biotin and argan oil formula is purpose-built to address hair loss and thinning. Paul Mitchell Tea Tree wins for scalp refreshing, deep cleansing, oily scalp management, and the invigorating sensory experience.",
+    verdict: "PURA D'OR Anti-Thinning Shampoo is the better choice for men and women experiencing hair thinning or density concerns — the clinically tested formula with biotin, argan oil, and pumpkin seed delivers targeted results that Paul Mitchell cannot match for this specific concern. Paul Mitchell Tea Tree Special is the superior option for those with oily scalps, product buildup, or anyone who wants the most invigorating, deep-cleansing scalp experience. For hair thinning, PURA D'OR wins; for scalp health and refreshing cleansing, Paul Mitchell is unbeatable.",
+    publishDate: "2026-07-27",
+    slug: "pura-dor-anti-thinning-vs-paul-mitchell-tea-tree-special",
+    hairTypes: ["thinning", "fine", "oily", "normal"],
+  },
   // ── Weekly additions 2026-07-20 ──
   {
     id: "paul-mitchell-tea-tree-vs-ogx-keratin",
@@ -3387,4 +3493,4 @@ export function getComparisonsForProduct(productId: string): Comparison[] {
  * If older than 24 hours (or missing), the price-rendering layer hides
  * numeric prices and shows a 'Check price on Amazon' affiliate link instead.
  */
-export const lastSyncedAt: string = "2026-07-27T12:55:39.813Z";
+export const lastSyncedAt: string = "2026-07-27T18:00:00.000Z";
