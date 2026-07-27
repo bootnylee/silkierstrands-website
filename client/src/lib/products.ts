@@ -347,8 +347,8 @@ At $34 for 8.5 oz, it's a luxury purchase, but the results and longevity justify
     name: "It's a 10 Miracle Hair Mask 8oz",
     brand: "It's a 10",
     asin: "B005IEK634",
-    price: 17.31,
-    priceDisplay: "$17.31",
+    price: 17.49,
+    priceDisplay: "$17.49",
     rating: 4.7,
     reviewCount: 15000,
     category: "Hair Masks & Treatments",
@@ -705,8 +705,8 @@ At $88, it represents excellent value for a professional-grade tool. The build q
     name: "Revlon One-Step Hair Dryer & Volumizer",
     brand: "Revlon",
     asin: "B01LSUQSB0",
-    price: 41.97,
-    priceDisplay: "$41.97",
+    price: 41.95,
+    priceDisplay: "$41.95",
     rating: 4.3,
     reviewCount: 50000,
     category: "Hair Dryers",
@@ -1207,8 +1207,8 @@ export const allProducts: Product[] = [
     reviewCount: 7112,
     category: "Hair Masks & Treatments",
     categorySlug: "hair-masks",
-    imageUrl: "https://m.media-amazon.com/images/I/911wZtVpppL._SL500_.jpg",
-    amazonImageUrl: "https://m.media-amazon.com/images/I/911wZtVpppL._SL500_.jpg",
+    imageUrl: "https://m.media-amazon.com/images/I/51VS8EfMnDL._SL500_.jpg",
+    amazonImageUrl: "https://m.media-amazon.com/images/I/51VS8EfMnDL._SL500_.jpg",
     hairTypes: ["curly", "coily", "dry", "natural"],
     shortDescription: "Amazon's Choice deep conditioner with raw honey, jojoba, and olive oils for natural, dry, curly Type 3C–4C hair — delivers intense moisture, easy detangling, and frizz control.",
     fullReview: `tgin Honey Miracle Hair Mask is the go-to deep conditioner for natural hair enthusiasts — an Amazon's Choice product with over 7,100 reviews averaging 4.6 stars that has become a staple in the natural hair community. The formula combines raw honey, jojoba oil, and olive oil to deliver intense moisture, exceptional slip for detangling, and lasting frizz control for Type 3C through 4C hair.
@@ -1244,8 +1244,8 @@ At $18.48 for 12 oz, the value is excellent for a professional-quality deep cond
     reviewCount: 37910,
     category: "Shampoo & Conditioner",
     categorySlug: "shampoo-conditioner",
-    imageUrl: "https://m.media-amazon.com/images/I/71U0O8IbWeL._SL500_.jpg",
-    amazonImageUrl: "https://m.media-amazon.com/images/I/71U0O8IbWeL._SL500_.jpg",
+    imageUrl: "https://m.media-amazon.com/images/I/414QL+m3BIL._SL500_.jpg",
+    amazonImageUrl: "https://m.media-amazon.com/images/I/414QL+m3BIL._SL500_.jpg",
     hairTypes: ["thinning", "fine", "normal", "all"],
     shortDescription: "Amazon's Choice clinically tested biotin and argan oil shampoo that reduces hair thinning and promotes strength, volume, and fullness for men and women.",
     fullReview: `PURA D'OR Original Gold Label Anti-Thinning Shampoo is one of the most reviewed hair thinning shampoos on Amazon — with over 37,900 reviews averaging 4.3 stars and Amazon's Choice designation, it has earned its reputation as the leading drugstore solution for hair thinning concerns. The clinically tested formula combines biotin, argan oil, pumpkin seed, and black cumin seed in a sulfate-free base that strengthens hair from the root while volumizing fine, thinning strands.
@@ -2579,8 +2579,8 @@ The formula is vegan, cruelty-free, and free from sulfates, silicones, parabens,
     name: "Mielle Organics Rosemary & Mint Scalp & Hair Strengthening Oil",
     brand: "Mielle",
     asin: "B07N7PK9QK",
-    price: 9.94,
-    priceDisplay: "$9.94",
+    price: 9.97,
+    priceDisplay: "$9.97",
     rating: 4.5,
     reviewCount: 122226,
     category: "Serums & Oils",
@@ -3493,4 +3493,4 @@ export function getComparisonsForProduct(productId: string): Comparison[] {
  * If older than 24 hours (or missing), the price-rendering layer hides
  * numeric prices and shows a 'Check price on Amazon' affiliate link instead.
  */
-export const lastSyncedAt: string = "2026-07-27T18:00:00.000Z";
+export const lastSyncedAt: string = "2026-07-27T13:37:52.518Z";
