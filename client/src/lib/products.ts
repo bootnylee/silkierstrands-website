@@ -2102,33 +2102,7 @@ At $199, it's a significant investment, but for those who blow-dry daily and wan
     publishDate: "2026-04-25",
     slug: "parlux-385-powerlight-hair-dryer-review",
   },
-  {
-    id: "verb-ghost-oil",
-    name: "Verb Ghost Oil",
-    brand: "Verb",
-    asin: "B00C3HQB9C",
-    price: 22.00,
-    priceDisplay: "$22.00",
-    rating: 4.6,
-    reviewCount: 5600,
-    category: "Serums & Oils",
-    categorySlug: "serums-oils",
-    imageUrl: "https://m.media-amazon.com/images/I/21dQiVwm6tL._SL500_.jpg",
-    amazonImageUrl: "https://m.media-amazon.com/images/I/21dQiVwm6tL._SL500_.jpg",
-    hairTypes: ["fine","normal","color-treated"],
-    shortDescription: "Lightweight, weightless hair oil for shine and frizz control without buildup.",
-    fullReview: `Verb Ghost Oil is the clean beauty answer to the luxury hair oil category - a lightweight, silicone-free formula that delivers genuine shine and frizz control without the buildup that plagues many conventional hair oils. The formula is built around a blend of marula, jojoba, and baobab oils that nourish without heaviness.
 
-We tested this on fine, color-treated hair and found it one of the best lightweight oils available at any price. A single pump applied to damp or dry hair added noticeable shine and smoothness without any visible oiliness. The formula is also free of sulfates, parabens, and silicones - a genuine clean beauty achievement.
-
-At $22, it's exceptional value for a clean beauty hair oil. Verb Ghost Oil is our top recommendation for those who want the benefits of a hair oil without any of the typical downsides.`,
-    pros: ["Truly lightweight - no buildup","Clean formula: silicone-free, sulfate-free","Excellent value for clean beauty","Works on damp or dry hair"],
-    cons: ["Not moisturizing enough for very dry or coarse hair","Small bottle","Subtle results compared to heavier oils"],
-    bestFor: "Fine hair; clean beauty enthusiasts; those wanting lightweight shine",
-    editorPick: false,
-    publishDate: "2026-04-25",
-    slug: "verb-ghost-oil-review",
-  },
   {
     id: "bumble-hairdressers-invisible-oil",
     name: "Bumble and bumble Hairdresser's Invisible Oil",
