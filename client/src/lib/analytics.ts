@@ -2,8 +2,8 @@
 // ─────────────────────────────────────────────────────────────────────────────
 // Thin wrapper around GA4 gtag.js.
 //
-// The Measurement ID is set in client/index.html (search for G-XXXXXXXXXX).
-// Replace the placeholder with your real GA4 Measurement ID before going live.
+// The Measurement ID is set in client/index.html (G-EMS5M8LTSM).
+// Measurement ID is live — do not replace or revert.
 //
 // Usage:
 //   import { trackAffiliateClick } from "@/lib/analytics";

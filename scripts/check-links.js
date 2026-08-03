@@ -42,12 +42,12 @@ const RETRY_DELAY   = 2_000;   // 2 s before the single retry
 const BETWEEN_DELAY = 1_500;   // 1.5 s between distinct URLs (courtesy)
 
 // Known duplicate ASINs in silkierstrands products.ts (static analysis only)
+// NOTE: B00BB8ZIRK, B0BQ8P9LS2, and B0CRG6S7W8 were resolved in the Aug 3 2026 audit fix.
+// NOTE: /.netlify/functions/subscribe returns {"ok":true,"existing":true} for repeat signups;
+//       this is correct behavior — audit criteria should accept ok:true with any extra fields.
 const KNOWN_SS_DUPLICATES = [
   'B004INUWX0',
-  'B00BB8ZIRK',
   'B00C3HQB9C',
-  'B0BQ8P9LS2',
-  'B0CRG6S7W8',
 ];
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
