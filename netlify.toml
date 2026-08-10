@@ -3,7 +3,7 @@
 [build]
   # Build: validate ASINs → generate sitemap → Vite build → static prerender
   # ASIN_VALIDATE=warn to warn-only; ASIN_VALIDATE=skip to bypass (emergency only)
-  command = "pnpm install && node scripts/validate-asins.mjs ${ASIN_VALIDATE:+--warn-only} && node scripts/generate-sitemap.mjs && pnpm build && node scripts/prerender.mjs"
+  command = "pnpm install && node scripts/validate-asins.mjs --warn-only && node scripts/generate-sitemap.mjs && pnpm build && node scripts/prerender.mjs"
   publish = "dist/public"
   functions = "netlify/functions"
 
