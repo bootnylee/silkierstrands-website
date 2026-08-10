@@ -347,8 +347,8 @@ At $34 for 8.5 oz, it's a luxury purchase, but the results and longevity justify
     name: "It's a 10 Miracle Hair Mask 8oz",
     brand: "It's a 10",
     asin: "B005IEK634",
-    price: 17.52,
-    priceDisplay: "$17.52",
+    price: 17.59,
+    priceDisplay: "$17.59",
     rating: 4.7,
     reviewCount: 15000,
     category: "Hair Masks & Treatments",
@@ -401,8 +401,8 @@ At $38 for a multi-pack, it's excellent value for a keratin-infused shampoo. OGX
     name: "OGX Brazilian Keratin Therapy Shampoo",
     brand: "OGX",
     asin: "B00GMP6O9I",
-    price: 33.74,
-    priceDisplay: "$33.74",
+    price: 33.72,
+    priceDisplay: "$33.72",
     rating: 4.5,
     reviewCount: 35000,
     category: "Hair Masks & Treatments",
@@ -1972,8 +1972,8 @@ At $34, it's a premium purchase for a shampoo, but the clean formula and genuine
     name: "Sultra The Bombshell 1\" Curling Rod",
     brand: "Sultra",
     asin: "B07CKKGR83",
-    price: 19.97,
-    priceDisplay: "$19.97",
+    price: 19.99,
+    priceDisplay: "$19.99",
     rating: 4.5,
     reviewCount: 4200,
     category: "Curling Irons & Wands",
@@ -3705,4 +3705,4 @@ export function getComparisonsForProduct(productId: string): Comparison[] {
  * If older than 24 hours (or missing), the price-rendering layer hides
  * numeric prices and shows a 'Check price on Amazon' affiliate link instead.
  */
-export const lastSyncedAt: string = "2026-08-10T11:09:41.078Z";
+export const lastSyncedAt: string = "2026-08-10T11:46:56.974Z";
