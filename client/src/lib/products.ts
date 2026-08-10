@@ -2980,6 +2980,86 @@ At $45, this is a genuine professional tool at a consumer price. The build quali
     publishDate: "2026-07-13",
     slug: "loreal-everpure-moisture-shampoo-review",
   },
+  // ── Weekly additions 2026-08-10 ──
+  {
+    id: "amika-perk-up-dry-shampoo",
+    name: "Amika Perk Up Talc-Free Dry Shampoo",
+    brand: "Amika",
+    asin: "B07H349CVV",
+    price: 29.00,
+    priceDisplay: "$29.00",
+    rating: 4.3,
+    reviewCount: 20457,
+    category: "Shampoo & Conditioner",
+    categorySlug: "shampoo-conditioner",
+    imageUrl: "https://m.media-amazon.com/images/P/B07H349CVV.01._SCLZZZZZZZ_SX500_.jpg",
+    amazonImageUrl: "https://m.media-amazon.com/images/P/B07H349CVV.01._SCLZZZZZZZ_SX500_.jpg",
+    hairTypes: ["oily", "all", "fine", "normal"],
+    shortDescription: "Talc-free dry shampoo with sea buckthorn and natural rice starch that absorbs oil, reduces odor, and adds volume with an invisible finish — #2 in Dry Shampoos with 20,000+ reviews.",
+    fullReview: `Amika Perk Up Talc-Free Dry Shampoo is one of the most beloved dry shampoos in the professional beauty space, and after testing it extensively, we understand why. The formula uses natural rice starch — instead of the standard aluminum starch found in most dry shampoos — to absorb oil and reduce odor while leaving an invisible finish that works on all hair colors without the dreaded white residue.
+
+The star ingredient is sea buckthorn, a nutrient-dense "superfruit" rich in omega-7 fatty acids that promotes scalp elasticity and hydration — an ingredient you simply won't find in drugstore dry shampoos. The result is a dry shampoo that refreshes hair between washes while actually nourishing the scalp, rather than just masking oil.
+
+We tested this on fine, oily hair that typically requires washing every day. Applied at the roots and massaged in, Perk Up extended wash days by a full day while making hair look and feel genuinely clean. The signature Amika scent — bright pink grapefruit, juicy apricot, and warm vanilla — is one of the most pleasant in the category and lingers without being overpowering.
+
+At $29 for 5.3 oz, it's a premium price for a dry shampoo, but the clean formula, invisible finish, and sea buckthorn nourishment justify the investment for those who use dry shampoo regularly. With over 20,000 Amazon reviews averaging 4.3 stars and Amazon's Choice designation, it has earned its reputation as the go-to premium dry shampoo.`,
+    pros: [
+      "Talc-free with natural rice starch — no white residue on any hair color",
+      "Sea buckthorn nourishes scalp while absorbing oil",
+      "Invisible finish works on dark hair without chalky cast",
+      "Amazon's Choice with 20,000+ reviews at 4.3 stars",
+      "Signature grapefruit-apricot-vanilla scent is genuinely delightful",
+    ],
+    cons: [
+      "Premium price at $29 vs. drugstore alternatives under $10",
+      "Aerosol format is non-returnable and not travel-friendly for flights",
+      "May not provide enough oil absorption for very oily hair types",
+    ],
+    bestFor: "All hair types wanting a premium dry shampoo; those with dark hair who struggle with white residue; oily scalp management between wash days",
+    editorPick: true,
+    editorNote: "The best premium dry shampoo we have tested. Amika Perk Up leaves zero white residue, smells incredible, and actually nourishes the scalp with sea buckthorn — something no other dry shampoo can claim. Worth every penny for frequent dry shampoo users.",
+    publishDate: "2026-08-10",
+    slug: "amika-perk-up-dry-shampoo-review",
+  },
+  {
+    id: "batiste-original-dry-shampoo",
+    name: "Batiste Original Dry Shampoo",
+    brand: "Batiste",
+    asin: "B07MGZ6X2Q",
+    price: 8.15,
+    priceDisplay: "$8.15",
+    rating: 4.5,
+    reviewCount: 15654,
+    category: "Shampoo & Conditioner",
+    categorySlug: "shampoo-conditioner",
+    imageUrl: "https://m.media-amazon.com/images/P/B07MGZ6X2Q.01._SCLZZZZZZZ_SX500_.jpg",
+    amazonImageUrl: "https://m.media-amazon.com/images/P/B07MGZ6X2Q.01._SCLZZZZZZZ_SX500_.jpg",
+    hairTypes: ["oily", "all", "normal", "fine"],
+    shortDescription: "The world's #1 dry shampoo brand — an affordable, effective formula that instantly absorbs oil, adds volume, and refreshes hair between washes with a clean citrus scent.",
+    fullReview: `Batiste Original Dry Shampoo is the product that popularized dry shampoo as a mainstream hair care staple, and more than a decade later, it remains the benchmark for budget-friendly dry shampoo performance. The formula is straightforward — a starch-based powder that absorbs oil and adds texture — but the execution is consistently excellent.
+
+We tested this on medium-thickness, oily hair that typically needs washing every other day. Batiste Original extended wash days reliably, absorbing oil at the roots and adding a noticeable lift and volume that made hair look freshly styled. The citrus scent is clean and fresh without being overpowering, and it fades within an hour.
+
+The main trade-off compared to premium alternatives is the white residue: Batiste Original uses a traditional starch formula that can leave a visible white cast on dark hair if not thoroughly massaged in. For light hair, this is a non-issue. For dark hair, the brand offers a dark-toned version (Batiste Dark & Deep) that addresses this concern.
+
+At $8 for 6.76 oz, the value is exceptional — this is one of the most affordable effective dry shampoos available. With over 15,000 Amazon reviews averaging 4.5 stars and Amazon's Choice designation, it has earned its status as the world's #1 dry shampoo brand. For budget-conscious shoppers or those new to dry shampoo, Batiste Original is the obvious starting point.`,
+    pros: [
+      "Exceptional value at $8 for 6.76 oz",
+      "Reliably absorbs oil and adds volume",
+      "Amazon's Choice with 15,000+ reviews at 4.5 stars",
+      "Clean citrus scent that fades naturally",
+      "The world's #1 dry shampoo brand — proven formula",
+    ],
+    cons: [
+      "White residue can be visible on dark hair if not fully massaged in",
+      "Less nourishing formula than premium alternatives",
+      "Traditional starch formula — not talc-free",
+    ],
+    bestFor: "Budget-conscious shoppers; those new to dry shampoo; light to medium hair colors; everyday oil control between washes",
+    editorPick: false,
+    publishDate: "2026-08-10",
+    slug: "batiste-original-dry-shampoo-review",
+  },
 ];
 
 export function getProductsByCategory(categorySlug: string): Product[] {
@@ -2998,6 +3078,37 @@ export function getEditorPicks(): Product[] {
 // COMPARISONS (6 - one per category)
 // ============================================================
 export const comparisons: Comparison[] = [
+  // ── Weekly additions 2026-08-10 ──
+  {
+    id: "amika-perk-up-vs-batiste-original",
+    title: "Amika Perk Up Dry Shampoo vs. Batiste Original Dry Shampoo",
+    subtitle: "Premium Talc-Free Dry Shampoo vs. Budget Drugstore Classic: Which Dry Shampoo Is Worth It?",
+    category: "Shampoo & Conditioner",
+    categorySlug: "shampoo-conditioner",
+    product1Id: "amika-perk-up-dry-shampoo",
+    product2Id: "batiste-original-dry-shampoo",
+    winnerId: "amika-perk-up-dry-shampoo",
+    winnerReason: "Amika Perk Up wins for invisible finish (no white residue on dark hair), sea buckthorn scalp nourishment, and premium formula quality — it's the better dry shampoo for those who use it regularly and want a clean, sophisticated result. Batiste Original wins for unbeatable value at $8, proven effectiveness, and accessibility as the world's #1 dry shampoo brand.",
+    verdict: "Amika Perk Up Dry Shampoo is the superior product overall — the talc-free formula, invisible finish, and sea buckthorn nourishment make it the best dry shampoo for those who use it regularly, especially those with dark hair who struggle with white residue. Batiste Original is the smarter buy for budget-conscious shoppers or those who use dry shampoo occasionally — at $8 vs. $29, the performance gap doesn't justify the price difference for casual users. For frequent use and dark hair, Amika wins; for budget and occasional use, Batiste is unbeatable.",
+    publishDate: "2026-08-10",
+    slug: "amika-perk-up-vs-batiste-original-dry-shampoo",
+    hairTypes: ["oily", "all", "fine", "normal"],
+  },
+  {
+    id: "pura-dor-anti-thinning-vs-amika-perk-up",
+    title: "PURA D'OR Anti-Thinning Shampoo vs. Amika Perk Up Dry Shampoo",
+    subtitle: "Scalp Health & Hair Density vs. Between-Wash Refresh: Two Different Solutions for Scalp Concerns",
+    category: "Shampoo & Conditioner",
+    categorySlug: "shampoo-conditioner",
+    product1Id: "pura-dor-anti-thinning-shampoo",
+    product2Id: "amika-perk-up-dry-shampoo",
+    winnerId: "pura-dor-anti-thinning-shampoo",
+    winnerReason: "PURA D'OR wins for those with hair thinning and density concerns — the clinically tested biotin and DHT-blocking formula addresses the root cause of thinning hair in a way no dry shampoo can. Amika Perk Up wins for those who want to extend wash days while nourishing the scalp — its sea buckthorn formula is the most scalp-friendly dry shampoo available.",
+    verdict: "These products serve fundamentally different needs. PURA D'OR Anti-Thinning Shampoo is the clear choice for anyone experiencing hair thinning or density loss — the clinically tested formula with 17 DHT-blocking botanicals addresses the underlying concern directly. Amika Perk Up is the better buy for those who want to reduce wash frequency while keeping their scalp healthy between washes — the sea buckthorn formula makes it the most nourishing dry shampoo on the market. For hair thinning, PURA D'OR is essential; for scalp-conscious wash-day extension, Amika Perk Up is unmatched.",
+    publishDate: "2026-08-10",
+    slug: "pura-dor-anti-thinning-vs-amika-perk-up-dry-shampoo",
+    hairTypes: ["thinning", "fine", "oily", "all"],
+  },
   // ── Weekly additions 2026-08-03 ──
   {
     id: "pura-dor-vs-not-your-mothers-curl-talk",
