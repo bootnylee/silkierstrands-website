@@ -1,9 +1,8 @@
 # SilkierStrands.com — Netlify Configuration
 
 [build]
-  # Build: validate ASINs → generate sitemap → Vite build → static prerender
-  # ASIN_VALIDATE=warn to warn-only; ASIN_VALIDATE=skip to bypass (emergency only)
-  command = "pnpm install && node scripts/validate-asins.mjs --warn-only && node scripts/generate-sitemap.mjs && pnpm build && node scripts/prerender.mjs && echo ${COMMIT_REF:-local} > dist/public/version.txt"
+  # Build: enforce direct, live title-matched ASINs → generate sitemap → Vite build → static prerender
+  command = "pnpm install && node scripts/validate-asins.mjs && node scripts/validate-asin-mappings.mjs --output /tmp/asin_mapping_report.json && node scripts/generate-sitemap.mjs && pnpm build && node scripts/prerender.mjs && echo ${COMMIT_REF:-local} > dist/public/version.txt"
   publish = "dist/public"
   functions = "netlify/functions"
 
