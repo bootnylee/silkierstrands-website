@@ -204,33 +204,7 @@ At under $17 for the set, this is exceptional value. The formulas are lightweigh
     slug: "loreal-elvive-hyaluron-plump-review",
     hairTypes: ["dry", "normal", "color-treated"],
   },
-  {
-    id: "pantene-moisture-renewal-set",
-    name: "Pantene Daily Moisture Renewal Shampoo & Conditioner Set",
-    brand: "Pantene",
-    asin: "B07MGMD2YF",
-    price: 44.00,
-    priceDisplay: "$44.00",
-    rating: 4.7,
-    reviewCount: 14662,
-    category: "Shampoo & Conditioner",
-    categorySlug: "shampoo-conditioner",
-    imageUrl: "https://m.media-amazon.com/images/I/312X+HpBy4L._SL500_.jpg",
-    amazonImageUrl: "https://m.media-amazon.com/images/I/312X+HpBy4L._SL500_.jpg",
-    shortDescription: "Pro-V formula for 72-hour hydration and softness. Works on straight to curly hair.",
-    fullReview: `Pantene's Daily Moisture Renewal set is a reliable, well-formulated option that has stood the test of time. The Pro-V formula delivers consistent results across a wide range of hair types, which explains its massive following. The 72-hour hydration claim is marketing language, but the moisturizing effect does last noticeably longer than many competitors.
-
-We tested this on medium-thickness, slightly wavy hair and found it delivered reliable softness and manageability without any buildup over time. The shampoo creates a satisfying lather and rinses clean. The conditioner is thick but distributes evenly and rinses out completely.
-
-The value proposition is strong - you get a large set for $22, and both formulas are genuinely effective. This is the kind of dependable, everyday shampoo and conditioner that works for most people without drama.`,
-    pros: ["Works for multiple hair types", "Large size for the price", "Reliable, consistent results", "No buildup over time"],
-    cons: ["Not specialized enough for very specific hair concerns", "Fragrance is strong", "Not sulfate-free"],
-    bestFor: "Normal to dry hair; everyday use; multiple hair types",
-    publishDate: "2025-01-29",
-    slug: "pantene-daily-moisture-renewal-review",
-    hairTypes: ["dry", "normal", "all"],
-  },
-  {
+    {
     id: "nexxus-therappe-humectress",
     name: "Nexxus Therappe Humectress Shampoo & Conditioner",
     brand: "Nexxus",
@@ -288,35 +262,7 @@ At $20 for the set, it's competitively priced for a clean beauty formula. The ma
 // PRODUCTS - HAIR MASKS & TREATMENTS (6)
 // ============================================================
 const hairMaskProducts: Product[] = [
-  {
-    id: "olaplex-no8-mask",
-    name: "Olaplex No. 8 Bond Intense Moisture Mask",
-    brand: "Olaplex",
-    asin: "B0FLTGFKPR",
-    price: 44.00,
-    priceDisplay: "$44.00",
-    rating: 4.7,
-    reviewCount: 22000,
-    category: "Hair Masks & Treatments",
-    categorySlug: "hair-masks",
-    imageUrl: "https://m.media-amazon.com/images/I/41jn8L+ZCBL._SL500_.jpg",
-    amazonImageUrl: "https://m.media-amazon.com/images/I/41jn8L+ZCBL._SL500_.jpg",
-    shortDescription: "Bond-building moisture mask that repairs and strengthens damaged hair in one use.",
-    fullReview: `Olaplex No. 8 is the brand's most accessible entry point into bond-building technology, and it delivers results that justify the hype. Unlike traditional masks that simply coat the hair, No. 8 works at the molecular level to repair broken disulfide bonds - the structural damage caused by heat, color, and chemical processing.
-
-We tested this on heavily bleached hair and the results after a single use were remarkable: reduced breakage, improved elasticity, and a glossy finish that lasted through multiple washes. The texture is rich but not heavy, and it rinses out completely without leaving residue.
-
-The 3-5 minute processing time makes it practical for regular use. At $30 for 3.3 oz, it's not cheap, but the efficacy is unmatched for damaged hair. This is our top recommendation for anyone dealing with bleach damage or excessive heat damage.`,
-    pros: ["Bond-building technology repairs structural damage", "Visible results after single use", "Rinses out completely", "Works on all hair types"],
-    cons: ["Small size for the price", "Not necessary for healthy hair", "Results require consistent use for lasting improvement"],
-    bestFor: "Bleached, heat-damaged, or chemically processed hair",
-     editorPick: true,
-    editorNote: "If your hair has been through bleach, heat damage, or chemical processing, this is the single product we'd tell you to try first. The bond-building technology is real — we saw measurable improvement in elasticity within two uses.",
-    publishDate: "2025-01-22",
-    slug: "olaplex-no8-mask-review",
-    hairTypes: ["color-treated", "dry", "all"],
-  },
-  {
+    {
     id: "moroccanoil-intense-hydrating-mask",
     name: "Moroccanoil Intense Hydrating Mask",
     brand: "Moroccanoil",
@@ -1137,33 +1083,7 @@ At $60, it's slightly more expensive than the original but worth the upgrade for
     slug: "revlon-salon-one-step-plus-review",
     hairTypes: ["fine", "normal", "thick"],
   },
-  {
-    id: "conair-double-ceramic-curling",
-    name: "INFINITIPRO BY CONAIR Spin Air Rotating Styler",
-    brand: "Conair",
-    asin: "B010XIHC54",
-    price: 75.29,
-    priceDisplay: "$75.29",
-    rating: 4.4,
-    reviewCount: 42000,
-    category: "Curling Irons & Wands",
-    categorySlug: "curling-irons",
-    imageUrl: "https://m.media-amazon.com/images/I/31+jEt6aIdL._SL500_.jpg",
-    amazonImageUrl: "https://m.media-amazon.com/images/I/31+jEt6aIdL._SL500_.jpg",
-    shortDescription: "Double ceramic coating for even heat distribution and frizz-free curls at an unbeatable price.",
-    fullReview: `The Conair Double Ceramic Curling Iron is the best budget curling iron available, and at $20, it's a remarkable value. The double ceramic coating provides even heat distribution that prevents hot spots, and the ionic conditioning reduces frizz for smooth, shiny curls.
-
-We tested this on fine, medium-length hair and found it effective and easy to use. The clip design makes it beginner-friendly, and the multiple heat settings (from 265°F to 400°F) provide adequate range for different hair types. The curls created were bouncy and held well through the day.
-
-At $20, expectations should be calibrated accordingly - it won't match the performance of professional tools, but for occasional use or as a starter curling iron, it's entirely competent. The 42,000+ reviews and 4.4-star rating speak to its reliability.`,
-    pros: ["Exceptional value at $20", "Double ceramic for even heat", "Beginner-friendly clip design", "Multiple heat settings"],
-    cons: ["Not as durable as professional options", "Heats unevenly at maximum temperature", "Basic design"],
-    bestFor: "Budget shoppers; beginners; occasional use; fine to medium hair",
-    publishDate: "2025-02-12",
-    slug: "conair-double-ceramic-curling-iron-review",
-    hairTypes: ["fine", "normal", "thick"],
-  },
-  {
+    {
     id: "nume-classic-curling-wand",
     name: "NuMe Classic Curling Wand",
     brand: "NuMe",
@@ -1726,7 +1646,7 @@ At $249, it's a significant investment, but for those who regularly use multiple
   },
   {
     id: "remington-s8540-keratin-protect",
-    name: "Remington S8540 Keratin Protect Ceramic Flat Iron",
+    name: "Remington S8540 Keratin Protect Straightener",
     brand: "Remington",
     asin: "B073ZG6J9N",
     price: 51.50,
@@ -1751,34 +1671,7 @@ At $50, it's excellent value for a mid-range flat iron. The Remington Pearl Pro 
     publishDate: "2026-05-04",
     slug: "remington-s9500-pearl-pro-flat-iron-review",
   },
-  {
-    id: "conair-infiniti-pro-spin-air",
-    name: "Conair Infiniti PRO Spin Air Rotating Styler",
-    brand: "Conair",
-    asin: "B010XIHC54",
-    price: 75.29,
-    priceDisplay: "$75.29",
-    rating: 4.3,
-    reviewCount: 15000,
-    category: "Hair Dryers",
-    categorySlug: "hair-dryers",
-    imageUrl: "https://m.media-amazon.com/images/I/31+jEt6aIdL._SL500_.jpg",
-    amazonImageUrl: "https://m.media-amazon.com/images/I/31+jEt6aIdL._SL500_.jpg",
-    hairTypes: ["normal","fine","medium"],
-    shortDescription: "Rotating styler brush that dries and styles simultaneously for voluminous blowouts.",
-    fullReview: `Conair Infiniti PRO Spin Air is a rotating styler brush that delivers voluminous blowout results at a fraction of the price of premium alternatives. The rotating barrel automatically wraps hair as you style, creating volume and smoothness simultaneously without the technique required by traditional round brushes.
-
-We tested this on fine, shoulder-length hair and found it excellent for creating the kind of voluminous, smooth blowout that typically requires professional skill. The ionic technology reduces frizz, and the multiple heat settings accommodate different hair types. The rotating mechanism is smooth and reliable.
-
-At $50, it's exceptional value for a rotating styler. The Conair Spin Air is our top recommendation for those who want professional-looking blowouts without professional skill or price.`,
-    pros: ["Automatic rotation for easy blowouts","Excellent value at $50","Ionic technology for frizz control","Multiple heat settings"],
-    cons: ["Not as powerful as premium alternatives","Can tangle very long hair","Build quality is basic"],
-    bestFor: "Fine to medium hair; those wanting easy voluminous blowouts; budget shoppers",
-    editorPick: false,
-    publishDate: "2026-05-04",
-    slug: "conair-infiniti-pro-spin-air-review",
-  },
-  {
+    {
     id: "bio-ionic-goldpro-dryer",
     name: "BIO IONIC Powerlight Pro Hair Dryer",
     brand: "Bio Ionic",
@@ -1807,7 +1700,7 @@ At $147, it's competitively priced for a professional dryer. The BIO IONIC Power
   },
   {
     id: "olaplex-no3-hair-perfector",
-    name: "Olaplex No. 3 Hair Perfector",
+    name: "Olaplex N°.3PLUS Hair Repair Pre-Shampoo Treatment",
     brand: "Olaplex",
     asin: "B0GHSXYY3Z",
     price: 34.00,
@@ -1861,7 +1754,7 @@ At $26, it's excellent value for a professional-quality serum. Amika Nourish and
   },
   {
     id: "kerastase-resistance-masque",
-    name: "Kérastase Résistance Masque Thérapiste",
+    name: "Kérastase Resistance Therapiste Hair Mask",
     brand: "Kérastase",
     asin: "B01KNWQW3I",
     price: 68.00,
@@ -1913,88 +1806,7 @@ At $18 for 16.9 oz, it's exceptional value for an extremely effective toning tre
     publishDate: "2026-05-04",
     slug: "fanola-no-yellow-mask-review",
   },
-  {
-    id: "oribe-gold-lust-shampoo",
-    name: "Oribe Gold Lust Repair & Restore Shampoo",
-    brand: "Oribe",
-    asin: "B07XGVX19G",
-    price: 56.00,
-    priceDisplay: "$56.00",
-    rating: 4.7,
-    reviewCount: 3100,
-    category: "Shampoo & Conditioner",
-    categorySlug: "shampoo-conditioner",
-    imageUrl: "https://m.media-amazon.com/images/I/31DAnzuq-8L._SL500_.jpg",
-    amazonImageUrl: "https://m.media-amazon.com/images/I/31DAnzuq-8L._SL500_.jpg",
-    hairTypes: ["dry","color-treated","fine"],
-    shortDescription: "Ultra-luxury shampoo with biotin, argan oil, and Oribe's signature Côte d'Azur scent.",
-    fullReview: `Oribe Gold Lust Repair & Restore is the most luxurious shampoo we've reviewed — a salon-exclusive formula that delivers results as exceptional as its price suggests. The biotin and argan oil complex strengthens and nourishes simultaneously, while the Côte d'Azur fragrance is one of the most sophisticated scents in hair care.
-
-We tested this on fine, color-treated hair and found it exceptional. Hair felt stronger, looked shinier, and the color vibrancy was noticeably maintained compared to standard shampoos. The lather is rich and indulgent, and the scent lingers beautifully throughout the day.
-
-At $52, it's the most expensive shampoo we've reviewed. But for those who want the absolute best — and are willing to pay for it — Oribe Gold Lust is unmatched.`,
-    pros: ["Biotin and argan oil for strength and moisture","Signature Côte d'Azur scent","Exceptional color vibrancy maintenance","Ultra-luxurious experience"],
-    cons: ["Most expensive shampoo reviewed","Small bottle for the price","Overkill for healthy hair"],
-    bestFor: "Fine, color-treated, or damaged hair; those wanting the absolute best",
-    editorPick: false,
-    publishDate: "2026-05-04",
-    slug: "oribe-gold-lust-shampoo-review",
-  },
-  {
-    id: "aveda-nutriplenish-shampoo",
-    name: "Aveda Nutriplenish Shampoo Deep Moisture",
-    brand: "Aveda",
-    asin: "B082Y5J8GP",
-    price: 39.00,
-    priceDisplay: "$39.00",
-    rating: 4.5,
-    reviewCount: 7600,
-    category: "Shampoo & Conditioner",
-    categorySlug: "shampoo-conditioner",
-    imageUrl: "https://m.media-amazon.com/images/I/31vOL7g6RfL._SL500_.jpg",
-    amazonImageUrl: "https://m.media-amazon.com/images/I/31vOL7g6RfL._SL500_.jpg",
-    hairTypes: ["dry","thick","coarse"],
-    shortDescription: "Plant-powered deep moisture shampoo with coconut oil and omega-5 for dry, thirsty hair.",
-    fullReview: `Aveda Nutriplenish Deep Moisture is a clean beauty shampoo that delivers genuine results without compromising on ingredient quality. The formula is built around coconut oil and omega-5 fatty acids from pomegranate seed oil, creating a deeply nourishing cleanse that leaves hair soft and manageable.
-
-We tested this on thick, dry hair over four weeks and found it consistently effective at adding moisture and reducing frizz. The lather is rich for a clean formula, and the signature Aveda scent — a blend of essential oils — is sophisticated and long-lasting. Hair felt noticeably softer and more manageable after each wash.
-
-At $34, it's a premium purchase for a shampoo, but the clean formula and genuine results make it worth the investment for those who prioritize ingredient quality.`,
-    pros: ["Clean, plant-powered formula","Coconut oil and omega-5 for deep moisture","Signature Aveda essential oil scent","Excellent for thick, dry hair"],
-    cons: ["Premium price","Scent may be too strong for some","Not the most concentrated formula"],
-    bestFor: "Dry, thick, or coarse hair; clean beauty enthusiasts",
-    editorPick: false,
-    publishDate: "2026-05-04",
-    slug: "aveda-nutriplenish-deep-moisture-shampoo-review",
-  },
-  {
-    id: "sultra-bombshell-curling-rod",
-    name: "Sultra The Bombshell 1\" Curling Rod",
-    brand: "Sultra",
-    asin: "B07CKKGR83",
-    price: 19.97,
-    priceDisplay: "$19.97",
-    rating: 4.5,
-    reviewCount: 4200,
-    category: "Curling Irons & Wands",
-    categorySlug: "curling-irons",
-    imageUrl: "https://m.media-amazon.com/images/I/21EwnPaq5GL._SL500_.jpg",
-    amazonImageUrl: "https://m.media-amazon.com/images/I/21EwnPaq5GL._SL500_.jpg",
-    hairTypes: ["all","thick","normal"],
-    shortDescription: "Ceramic tourmaline clipless rod for natural-looking curls and waves without clip marks.",
-    fullReview: `Sultra The Bombshell is a premium clipless curling rod that creates the most natural-looking curls and waves of any tool we've tested. The ceramic tourmaline barrel generates negative ions for frizz-free results, and the clipless design eliminates the dreaded clip marks that can ruin otherwise perfect curls.
-
-We tested this on thick, medium-length hair and found it excellent for creating the kind of effortless, natural-looking curls that are difficult to achieve with clip-style irons. The barrel heats quickly and maintains consistent temperature. The 360-degree swivel cord prevents tangling during use.
-
-At $89, it's a premium purchase for a curling rod, but the quality of results and the natural-looking finish justify the investment for those who style their hair regularly.`,
-    pros: ["Clipless design eliminates clip marks","Natural-looking curls and waves","Ceramic tourmaline for frizz-free results","360-degree swivel cord"],
-    cons: ["Learning curve for clipless technique","Expensive for a curling rod","Risk of burns without heat glove"],
-    bestFor: "Natural-looking curls; medium to thick hair; intermediate to advanced users",
-    editorPick: false,
-    publishDate: "2026-04-25",
-    slug: "sultra-bombshell-curling-rod-review",
-  },
-  {
+        {
     id: "hot-tools-one-shot-curling-iron",
     name: "HOT TOOLS Pro Artist Nano Ceramic 1\" Curling Iron",
     brand: "HOT TOOLS",
@@ -2284,45 +2096,7 @@ The only limitation is that it's not a deep conditioner — if your hair is seve
     publishDate: "2026-05-04",
     slug: "redken-one-united-leave-in-review",
   },
-  {
-    id: "olaplex-no4p-purple-shampoo",
-    name: "Olaplex No.4P Blonde Enhancer Purple Toning Shampoo",
-    brand: "Olaplex",
-    asin: "B09FYK7FKR",
-    price: 34.00,
-    priceDisplay: "$34.00",
-    rating: 4.4,
-    reviewCount: 8200,
-    category: "Shampoo & Conditioner",
-    categorySlug: "shampoo-conditioner",
-    imageUrl: "https://m.media-amazon.com/images/I/41n9pHTHUHL._SL500_.jpg",
-    amazonImageUrl: "https://m.media-amazon.com/images/I/41n9pHTHUHL._SL500_.jpg",
-    hairTypes: ["color-treated", "fine", "normal"],
-    shortDescription: "Olaplex's bond-building technology meets purple toning in a shampoo that neutralizes brassiness while actively repairing damage in blonde and lightened hair.",
-    fullReview: `Olaplex No.4P is the only purple toning shampoo that also repairs hair bonds — making it uniquely suited for blonde and lightened hair that is both brassy and damaged. Most purple shampoos only tone; this one tones and treats simultaneously.
-
-The toning performance is strong but measured. Unlike some aggressive purple shampoos that can over-tone in minutes, No.4P is forgiving — leaving it on for 3–5 minutes delivers a noticeable cool-down of brassiness without the risk of a lavender cast. We found it most effective on highlighted hair with moderate brassiness; for very brassy hair, a dedicated purple mask may be needed alongside it.
-
-The bond-building component (Olaplex's patented Bis-Aminopropyl Diglycol Dimaleate) works cumulatively. After 4–6 weeks of regular use, hair feels stronger and less prone to breakage — a benefit no other purple shampoo can claim. This makes it especially valuable for heavily processed hair that undergoes frequent lightening.
-
-At $34 it's a premium price for a shampoo, but the dual toning-and-repair functionality justifies the cost for anyone already committed to the Olaplex system. For those who only need toning, Joico Color Balance Purple at $20 delivers comparable toning at a lower price point.`,
-    pros: [
-      "Tones and repairs bonds simultaneously — unique in the purple shampoo category",
-      "Forgiving formula — won't over-tone with normal use",
-      "Cumulative bond-strengthening benefit with regular use",
-      "Gentle enough for fine, fragile hair",
-    ],
-    cons: [
-      "Premium price at $34 vs. comparable toning-only alternatives",
-      "May need supplementing with a purple mask for very brassy hair",
-      "Results build gradually — not a one-wash fix",
-    ],
-    bestFor: "Blonde, highlighted, or lightened hair that is both brassy and damaged; ideal for those already using Olaplex",
-    editorPick: false,
-    publishDate: "2026-05-04",
-    slug: "olaplex-no4p-purple-shampoo-review",
-  },
-  // ── Weekly additions 2026-06-15 ──
+    // ── Weekly additions 2026-06-15 ──
   // ── Weekly additions 2026-06-22 ──
   // ── Weekly additions 2026-06-29 ──
   {
@@ -2439,7 +2213,7 @@ At $17 for 4 oz, it's a mid-range investment, but its multi-tasking nature means
   },
   {
     id: "moroccanoil-treatment-original",
-    name: "Moroccanoil Treatment Hair Oil",
+    name: "Moroccanoil Treatment, 1.7 Fl. Oz.",
     brand: "Moroccanoil",
     asin: "B003L3OQ76",
     price: 38.00,
@@ -2511,43 +2285,7 @@ At $75 for 1.7 oz, K18 is expensive by any measure. But the formula is extraordi
     publishDate: "2026-06-15",
     slug: "k18-leave-in-molecular-repair-mask-review",
   },
-  {
-    id: "briogeo-dont-despair-repair-mask",
-    name: "Briogeo Don't Despair, Repair! Deep Conditioning Mask",
-    brand: "Briogeo",
-    asin: "B0BKGZ9V1Z",
-    price: 15.00,
-    priceDisplay: "$15.00",
-    rating: 4.4,
-    reviewCount: 5463,
-    category: "Hair Masks & Treatments",
-    categorySlug: "hair-masks",
-    imageUrl: "https://m.media-amazon.com/images/I/31SQPt48hYL._SL500_.jpg",
-    amazonImageUrl: "https://m.media-amazon.com/images/I/31SQPt48hYL._SL500_.jpg",
-    hairTypes: ["dry", "color-treated", "normal", "fine", "coarse"],
-    shortDescription: "15-time award-winning deep conditioning mask that balances protein and moisture to reduce breakage and restore softness in dry, damaged, or color-treated hair — vegan and cruelty-free.",
-    fullReview: `Briogeo Don't Despair, Repair! Deep Conditioning Mask is one of the most decorated hair masks in the professional beauty space, having won 15 industry awards — and after testing it extensively, the recognition is deserved. The formula is built around a protein-moisture balance that addresses two of the most common causes of hair damage simultaneously: protein loss and dehydration.
-
-The key ingredients are B-vitamins, algae extract, and rosehip oil, which work together to strengthen the hair shaft while restoring moisture. We tested this on color-treated, medium-thickness hair that had become dry and prone to breakage after repeated coloring. After a single 10-minute treatment, hair was noticeably softer and more manageable. After three uses over two weeks, the improvement in strength was measurable — hair that had been snapping during combing became noticeably more resilient.
-
-The formula is vegan, cruelty-free, and free from sulfates, silicones, parabens, phthalates, DEA, and artificial dyes — a genuinely clean formulation that doesn't compromise on results. At $39 for 8 oz, it's a fair price for a professional-grade mask that delivers on its clinically proven claims. Briogeo is our top recommendation for those who want a clean beauty deep conditioning treatment that actually works.`,
-    pros: [
-      "Clinically proven to reduce breakage in 10 minutes",
-      "Protein-moisture balance addresses both strength and hydration",
-      "Clean formula: vegan, cruelty-free, free from 6 harmful ingredients",
-      "15-time award winner with strong consumer track record",
-    ],
-    cons: [
-      "Not a bond-building treatment like K18 or Olaplex",
-      "Results are less dramatic for severely bleached or chemically processed hair",
-      "Scent (floral) may not appeal to everyone",
-    ],
-    bestFor: "Dry, damaged, or color-treated hair; clean beauty enthusiasts; those wanting a protein-moisture balanced treatment",
-    editorPick: false,
-    publishDate: "2026-06-15",
-    slug: "briogeo-dont-despair-repair-mask-review",
-  },
-  // ── Weekly additions 2026-06-01 ──
+    // ── Weekly additions 2026-06-01 ──
   {
     id: "mielle-rosemary-mint-hair-oil",
     name: "Mielle Organics Rosemary & Mint Scalp & Hair Strengthening Oil",
@@ -2586,46 +2324,7 @@ The best use case is weekly scalp care, protective styles, curls, coils, and dry
     publishDate: "2026-06-01",
     slug: "mielle-rosemary-mint-hair-oil-review",
   },
-  {
-    id: "kenra-platinum-blow-dry-spray",
-    name: "Kenra Platinum Blow-Dry Spray",
-    brand: "Kenra Professional",
-    asin: "B005BEF5EQ",
-    price: 42.00,
-    priceDisplay: "$42.00",
-    rating: 4.7,
-    reviewCount: 23062,
-    category: "Serums & Oils",
-    categorySlug: "serums-oils",
-    imageUrl: "https://m.media-amazon.com/images/I/21eIuwS2XgL._SL500_.jpg",
-    amazonImageUrl: "https://m.media-amazon.com/images/I/21eIuwS2XgL._SL500_.jpg",
-    hairTypes: ["normal", "thick", "coarse", "color-treated"],
-    shortDescription: "Salon-favorite blow-dry spray that cuts drying time, adds heat protection, detangles, smooths, and resists humidity.",
-    fullReview: `Kenra Platinum Blow-Dry Spray is a salon-styling staple because it solves a practical problem: it makes blow-drying faster while leaving hair smoother, softer, and less frizz-prone. Amazon lists the 6.8 oz size with a 4.7-star average across more than 23,000 reviews, and the product page highlights its ability to decrease blow-dry time by up to 50 percent while providing intense thermal protection.
-
-We tested it on medium-to-coarse hair that typically takes a long time to dry and found the time-saving claim credible. The spray adds slip immediately, which makes round-brush styling easier and reduces tugging. After blow-drying, hair felt smoother and more polished than with a basic heat protectant spray, and the humidity resistance was especially noticeable on frizz-prone lengths.
-
-At $42, Kenra is not a budget product, but it can replace several separate steps: detangler, heat protectant, smoothing spray, and blow-dry accelerator. That makes it a good value for people who blow-dry regularly, especially those with medium, thick, coarse, or frizz-prone hair. Fine hair users should apply conservatively from mid-lengths to ends to avoid over-softening at the root.
-
-The main caveat is that this is an aerosol styling spray, not a conditioner or repair treatment. It helps hair look and feel smoother, but severely damaged hair will still need a weekly mask or bond-building product. For regular blowout users, however, Kenra is one of the most effective styling treatments we have tested.`,
-    pros: [
-      "Noticeably reduces blow-dry time on medium to coarse hair",
-      "Combines heat protection, detangling, smoothing, and frizz control",
-      "Strong Amazon rating profile: 4.7 stars across more than 23,000 reviews",
-      "Excellent for polished blowouts and humidity-prone hair",
-    ],
-    cons: [
-      "Premium price compared with basic heat protectants",
-      "Aerosol format is less travel-friendly and non-returnable on some Amazon listings",
-      "Fine hair needs a light hand to avoid softness at the roots",
-    ],
-    bestFor: "Medium, thick, coarse, or frizz-prone hair; frequent blow-dry users who want faster, smoother blowouts",
-    editorPick: true,
-    editorNote: "Our top blow-dry accelerator: it meaningfully shortens drying time while delivering the smoothness and heat protection most users expect from multiple products.",
-    publishDate: "2026-06-01",
-    slug: "kenra-platinum-blow-dry-spray-review",
-  },
-  // ── Weekly additions 2026-08-03 ──
+    // ── Weekly additions 2026-08-03 ──
   {
     id: "pura-dor-anti-thinning-shampoo",
     name: "PURA D'OR Gold Label Anti-Thinning Biotin Shampoo & Conditioner",
@@ -2701,79 +2400,7 @@ The formula is impressively clean for a drugstore product: free from sulfates, p
     slug: "not-your-mothers-curl-talk-gel-cream-review",
   },
   // ── Weekly additions 2026-07-13 ──
-  {
-    id: "redken-all-soft-heavy-cream-mask",
-    name: "Redken All Soft Heavy Cream Mask Treatment",
-    brand: "Redken",
-    asin: "B005YNB6VA",
-    price: 36.00,
-    priceDisplay: "$36.00",
-    rating: 4.7,
-    reviewCount: 4654,
-    category: "Hair Masks & Treatments",
-    categorySlug: "hair-masks",
-    imageUrl: "https://m.media-amazon.com/images/I/31s2QfUEokL._SL500_.jpg",
-    amazonImageUrl: "https://m.media-amazon.com/images/I/31s2QfUEokL._SL500_.jpg",
-    hairTypes: ["dry", "coarse", "color-treated", "thick"],
-    shortDescription: "Intensely moisturizing argan oil hair mask that softens, smooths, and tames frizz in dry, brittle hair — Amazon's Choice with 4.7 stars.",
-    fullReview: `Redken All Soft Heavy Cream Mask Treatment is the deep-conditioning counterpart to the brand's bestselling All Soft Shampoo, and it delivers the intensive moisture that the shampoo alone cannot provide. The formula is built around argan oil, which penetrates the hair shaft to restore softness, elasticity, and shine to dry, brittle, or coarse hair.
-
-We tested this on thick, color-treated hair that had become dry and prone to frizz after repeated chemical processing. After a single 10-minute treatment, the transformation was immediate: hair was noticeably softer, smoother, and significantly less frizzy. The mask rinses out cleanly without leaving a heavy residue, which is a common issue with intensive conditioning treatments.
-
-At $36 for 8.5 oz, it's a fair price for a professional-grade treatment that delivers consistent, measurable results. The argan oil formula works particularly well on coarse, dry, or color-treated hair that needs intensive moisture without the protein overload that can make hair feel stiff. Redken All Soft Heavy Cream Mask is our top recommendation for anyone who already loves the All Soft Shampoo and wants to take their moisture routine to the next level.`,
-    pros: [
-      "Argan oil formula delivers intensive moisture for dry, brittle hair",
-      "Rinses cleanly without heavy residue",
-      "Amazon's Choice with 4.7 stars across 4,600+ reviews",
-      "Pairs perfectly with Redken All Soft Shampoo for a complete routine",
-    ],
-    cons: [
-      "Not a bond-building treatment for structurally damaged hair",
-      "May be too heavy for fine or oily hair types",
-      "Premium price compared to drugstore alternatives",
-    ],
-    bestFor: "Dry, brittle, coarse, or color-treated hair needing intensive moisture and frizz control",
-    editorPick: false,
-    publishDate: "2026-07-13",
-    slug: "redken-all-soft-heavy-cream-mask-review",
-  },
-  {
-    id: "kitsch-rice-water-shampoo-conditioner",
-    name: "Kitsch Rice Water Protein Solid Shampoo & Conditioner Set",
-    brand: "Kitsch",
-    asin: "B0BS2D2KN7",
-    price: 22.37,
-    priceDisplay: "$22.37",
-    rating: 4.3,
-    reviewCount: 35994,
-    category: "Shampoo & Conditioner",
-    categorySlug: "shampoo-conditioner",
-    imageUrl: "https://m.media-amazon.com/images/I/51MtN4KwbgL._SL500_.jpg",
-    amazonImageUrl: "https://m.media-amazon.com/images/I/51MtN4KwbgL._SL500_.jpg",
-    hairTypes: ["all", "dry", "normal", "color-treated"],
-    shortDescription: "Eco-friendly solid shampoo and conditioner bars enriched with rice protein, biotin, and vitamins B, C & E for stronger, healthier hair — sulfate, paraben, and silicone free.",
-    fullReview: `Kitsch Rice Water Protein Solid Shampoo & Conditioner Set is one of the most innovative entries in the shampoo category — a solid bar format that eliminates plastic packaging while delivering genuine hair-strengthening results. The formula is built around rice protein and amino acids, which strengthen the hair shaft and reduce breakage, combined with vitamins B, C, and E for scalp nourishment and shine.
-
-We tested this on fine to medium hair over four weeks and found the results genuinely impressive. The shampoo bar lathers more richly than expected for a solid format, and the conditioner bar detangles and softens effectively. Hair felt noticeably stronger and less prone to breakage after two weeks of consistent use. The bars are also exceptionally travel-friendly — no liquid restrictions, no leaking bottles.
-
-At $28 for the set, the value is excellent, particularly given that each bar is designed to last significantly longer than a conventional liquid bottle. The formula is sulfate-free, paraben-free, and silicone-free, making it suitable for color-treated hair. With nearly 36,000 Amazon reviews at 4.3 stars, this is one of the most widely validated shampoo sets in the category. Kitsch is our top recommendation for eco-conscious shoppers who want a high-performing, sustainable hair care routine.`,
-    pros: [
-      "Eco-friendly solid bar format eliminates plastic waste",
-      "Rice protein and biotin strengthen hair and reduce breakage",
-      "Sulfate, paraben, and silicone free — safe for color-treated hair",
-      "Nearly 36,000 Amazon reviews at 4.3 stars — exceptional validation",
-    ],
-    cons: [
-      "Solid bar format requires an adjustment period for first-time users",
-      "Not as moisturizing as liquid formulas for very dry or coarse hair",
-      "Bars can dissolve faster if left sitting in water",
-    ],
-    bestFor: "Eco-conscious shoppers, travelers, fine to normal hair, and those wanting a sustainable strengthening routine",
-    editorPick: false,
-    publishDate: "2026-07-13",
-    slug: "kitsch-rice-water-shampoo-conditioner-review",
-  },
-  // ── Weekly additions 2026-07-06 ──
+      // ── Weekly additions 2026-07-06 ──
   {
     id: "olaplex-no9-bond-protector",
     name: "Olaplex Nº. 9 Bond Protector Nourishing Hair Serum",
@@ -2920,37 +2547,7 @@ At $45, this is a genuine professional tool at a consumer price. The build quali
     publishDate: "2026-05-04",
     slug: "hot-tools-24k-gold-curling-iron-review",
   },
-  {
-    id: "ogx-keratin-smoothing-shampoo",
-    name: "OGX Smoothing + Keratin Smoothing Oil Shampoo",
-    brand: "OGX",
-    asin: "B0D185179H",
-    price: 21.38,
-    priceDisplay: "$21.38",
-    rating: 4.5,
-    reviewCount: 24600,
-    category: "Shampoo & Conditioner",
-    categorySlug: "shampoo-conditioner",
-    imageUrl: "https://m.media-amazon.com/images/I/51VMxJQv6IL._SL500_.jpg",
-    amazonImageUrl: "https://m.media-amazon.com/images/I/51VMxJQv6IL._SL500_.jpg",
-    hairTypes: ["dry", "frizzy", "normal", "all"],
-    shortDescription: "Drugstore keratin-infused shampoo with Moroccan argan oil that smooths frizz and adds shine — 24,000+ reviews at an unbeatable price.",
-    fullReview: "OGX Smoothing + Keratin Smoothing Oil Shampoo is one of the best-selling drugstore shampoos on Amazon — a keratin-infused formula with Moroccan argan oil that smooths frizz and adds shine at a price that is hard to beat. The formula combines hydrolyzed keratin proteins with argan oil to deliver a dual smoothing effect: the keratin fills in gaps in the hair cuticle for a smoother surface, while the argan oil adds moisture and shine. We tested this on dry, frizzy hair and found meaningful frizz control that lasted through the day. At $10 for 13 oz, the value is exceptional.",
-    pros: [
-      "Keratin and argan oil deliver meaningful frizz control",
-      "Exceptional value at $10 for 13 oz",
-      "24,600+ Amazon reviews at 4.5 stars",
-    ],
-    cons: [
-      "Not sulfate-free — may not be ideal for color-treated hair",
-      "Less intensive smoothing than professional keratin treatments",
-    ],
-    bestFor: "Dry, frizzy, or normal hair; those wanting drugstore keratin smoothing; budget-conscious shoppers",
-    editorPick: false,
-    publishDate: "2026-07-20",
-    slug: "ogx-keratin-smoothing-shampoo-review",
-  },
-  {
+    {
     id: "loreal-everpure-moisture-shampoo",
     name: "L'Oreal Paris EverPure Moisture Sulfate-Free Shampoo",
     brand: "L'Oreal Paris",
