@@ -150,33 +150,7 @@ At $38 for 9 oz, it's an investment, but the concentrated formula means you use 
     publishDate: "2025-01-15",
     slug: "pureology-hydrate-shampoo-review",
   },
-  {
-    id: "redken-all-soft-shampoo",
-    name: "Redken All Soft Shampoo",
-    brand: "Redken",
-    asin: "B0007X749U",
-    price: 56.00,
-    priceDisplay: "$56.00",
-    rating: 4.6,
-    reviewCount: 25772,
-    category: "Shampoo & Conditioner",
-    categorySlug: "shampoo-conditioner",
-    imageUrl: "https://m.media-amazon.com/images/I/313jxM4GoHL._SL500_.jpg",
-    amazonImageUrl: "https://m.media-amazon.com/images/I/313jxM4GoHL._SL500_.jpg",
-    shortDescription: "Moisturizing shampoo with argan oil for dry, brittle hair. Safe for color-treated hair.",
-    fullReview: `Redken All Soft Shampoo is a salon-professional formula that has crossed over into mainstream success for good reason. The star ingredient is argan oil, which provides deep moisture without weighing hair down - a difficult balance that Redken has clearly mastered.
-
-We tested this on thick, dry, naturally curly hair and found it exceptional at taming frizz from the very first wash. The formula is gentle enough for color-treated hair and doesn't strip vibrancy. The lather is moderate, which is appropriate for a moisturizing formula.
-
-The scent is light and clean, fading quickly - ideal for those who prefer their hair to smell neutral. At $29 for a generous bottle, it offers better value than Pureology while delivering comparable moisturizing results. The main differentiator is that Redken All Soft works particularly well on thicker, coarser hair types.`,
-    pros: ["Excellent for thick, coarse hair", "Argan oil formula reduces frizz", "Good value for a professional formula", "Color-safe"],
-    cons: ["Less concentrated than Pureology", "Scent fades quickly", "May not be moisturizing enough for extremely dry hair"],
-    bestFor: "Dry, brittle, or coarse hair; color-treated hair",
-    publishDate: "2025-01-15",
-    slug: "redken-all-soft-shampoo-review",
-    hairTypes: ["dry", "coarse", "normal"],
-  },
-  {
+    {
     id: "loreal-elvive-hyaluron-set",
     name: "L'Oréal Paris EverPure Moisture Sulfate Free Shampoo",
     brand: "L'Oréal Paris",
@@ -236,33 +210,7 @@ The conditioner is particularly noteworthy - it's lightweight enough for fine ha
 // PRODUCTS - HAIR MASKS & TREATMENTS (6)
 // ============================================================
 const hairMaskProducts: Product[] = [
-    {
-    id: "moroccanoil-intense-hydrating-mask",
-    name: "Moroccanoil Intense Hydrating Mask",
-    brand: "Moroccanoil",
-    asin: "B002N5MKMG",
-    price: 46.00,
-    priceDisplay: "$46.00",
-    rating: 4.7,
-    reviewCount: 8500,
-    category: "Hair Masks & Treatments",
-    categorySlug: "hair-masks",
-    imageUrl: "https://m.media-amazon.com/images/I/41BfpWb65IL._SL500_.jpg",
-    amazonImageUrl: "https://m.media-amazon.com/images/I/41BfpWb65IL._SL500_.jpg",
-    shortDescription: "Argan oil-infused mask for intense hydration and frizz control for dry, thick hair.",
-    fullReview: `Moroccanoil Intense Hydrating Mask is the gold standard for thick, dry, frizzy hair. The argan oil-rich formula penetrates deeply, delivering moisture that lasts for days rather than hours. The signature Moroccanoil scent - amber, musk, and floral notes - is iconic and lingers pleasantly.
-
-We tested this on thick, naturally curly hair prone to frizz and found it exceptional. After 10 minutes under a shower cap, hair was transformed: softer, more defined curls with dramatically reduced frizz. The effect lasted through 3-4 washes, which is remarkable for a rinse-out treatment.
-
-At $34 for 8.5 oz, it's a luxury purchase, but the results and longevity justify the cost. The main caveat is that this formula is too heavy for fine hair - it's specifically designed for thick, coarse, or very dry hair types.`,
-    pros: ["Exceptional for thick, frizzy hair", "Long-lasting results (3-4 washes)", "Iconic, luxurious scent", "Deep penetrating argan oil formula"],
-    cons: ["Too heavy for fine or thin hair", "Premium price", "Requires 10+ minutes processing time"],
-    bestFor: "Thick, coarse, frizzy, or very dry hair",
-    publishDate: "2025-01-22",
-    slug: "moroccanoil-intense-hydrating-mask-review",
-    hairTypes: ["dry", "coarse", "thick"],
-  },
-  {
+      {
     id: "itsa10-miracle-leave-in-product",
     name: "It's a 10 Miracle Hair Mask 8oz",
     brand: "It's a 10",
@@ -430,91 +378,13 @@ At $13 for a pack of two, the value is exceptional. This is our top budget pick 
     slug: "ogx-argan-oil-morocco-review",
     hairTypes: ["dry", "coarse", "thick"],
   },
-    {
-    id: "john-frieda-frizz-ease",
-    name: "John Frieda Frizz Ease Extra Strength Serum",
-    brand: "John Frieda",
-    asin: "B0G5T91S3F",
-    price: 9.85,
-    priceDisplay: "$9.85",
-    rating: 4.5,
-    reviewCount: 22000,
-    category: "Serums & Oils",
-    categorySlug: "serums-oils",
-    imageUrl: "https://m.media-amazon.com/images/I/31OHYSUxeAL._SL500_.jpg",
-    amazonImageUrl: "https://m.media-amazon.com/images/I/31OHYSUxeAL._SL500_.jpg",
-    shortDescription: "Silicone-based serum specifically formulated to eliminate frizz in high humidity.",
-    fullReview: `John Frieda Frizz Ease Extra Strength Serum is a drugstore classic that has been solving frizz problems for decades. The silicone-based formula creates a protective barrier around the hair shaft that blocks humidity - the primary cause of frizz - with remarkable effectiveness.
-
-We tested this in humid conditions on naturally curly, frizz-prone hair and found it one of the most effective anti-frizz products at any price point. A small amount applied to damp hair before styling kept frizz at bay for an entire day, even in high humidity.
-
-The trade-off is that silicone can cause buildup over time, requiring a clarifying shampoo periodically. But for those who struggle with humidity-induced frizz, this is one of the most reliable solutions available. At $13, it's excellent value.`,
-    pros: ["Highly effective against humidity-induced frizz", "Long-lasting results", "Affordable and widely available", "Small amount goes a long way"],
-    cons: ["Silicone formula can cause buildup", "Requires clarifying shampoo periodically", "Not suitable for those avoiding silicones"],
-    bestFor: "Frizz-prone hair; humid climates; everyday anti-frizz protection",
-    publishDate: "2025-02-19",
-    slug: "john-frieda-frizz-ease-serum-review",
-    hairTypes: ["thick", "coarse", "curly"],
-  },
-];
+    ];
 
 // ============================================================
 // PRODUCTS - HAIR DRYERS (6)
 // ============================================================
 const hairDryerProducts: Product[] = [
-    {
-    id: "shark-hyperair-hd113",
-    name: "Shark HyperAIR Fast-Drying Hair Dryer",
-    brand: "Shark",
-    asin: "B09CLN86XB",
-    price: 224.89,
-    priceDisplay: "$224.89",
-    rating: 4.2,
-    reviewCount: 1000,
-    category: "Hair Dryers",
-    categorySlug: "hair-dryers",
-    imageUrl: "https://m.media-amazon.com/images/I/416Qx+r0zwL._SL500_.jpg",
-    amazonImageUrl: "https://m.media-amazon.com/images/I/416Qx+r0zwL._SL500_.jpg",
-    shortDescription: "IQ 2-in-1 concentrator and diffuser with auto presets and ionic technology.",
-    fullReview: `The Shark HyperAIR positions itself as the smart alternative to the Dyson Supersonic at roughly half the price. The IQ 2-in-1 attachments are genuinely innovative - the concentrator and diffuser are combined into a single attachment that switches modes, reducing the clutter of multiple attachments.
-
-We tested this on wavy, medium-thickness hair and found the auto presets surprisingly useful. The ionic technology effectively reduced frizz, and the drying speed was impressive - comparable to the Dyson in our testing. The extendable prongs on the diffuser attachment are a clever design touch.
-
-At $225, it's a significant purchase but offers genuine value compared to the Dyson. The main limitation is that the auto presets, while convenient, don't offer the same level of customization as manual controls. For those who want premium performance without the Dyson price tag, this is the best alternative.`,
-    pros: ["Innovative 2-in-1 attachment design", "Auto presets for convenience", "Excellent ionic technology", "Strong performance at half the Dyson price"],
-    cons: ["Auto presets limit customization", "Heavier than Dyson", "Fewer color options"],
-    bestFor: "Wavy to curly hair; those wanting premium performance at mid-range price",
-    publishDate: "2025-01-22",
-    slug: "shark-hyperair-hair-dryer-review",
-    hairTypes: ["thick", "coarse", "normal", "all"],
-  },
-  {
-    id: "hot-tools-tourmaline-2000",
-    name: "HOT TOOLS Pro Artist Tourmaline 2000 Turbo Hair Dryer",
-    brand: "HOT TOOLS",
-    asin: "B000Q30NDA",
-    price: 89.95,
-    priceDisplay: "$89.95",
-    rating: 4.2,
-    reviewCount: 1000,
-    category: "Hair Dryers",
-    categorySlug: "hair-dryers",
-    imageUrl: "https://m.media-amazon.com/images/I/41W+pEz5aiL._SL500_.jpg",
-    amazonImageUrl: "https://m.media-amazon.com/images/I/41W+pEz5aiL._SL500_.jpg",
-    shortDescription: "Professional 2000W tourmaline dryer for quiet, powerful blowouts.",
-    fullReview: `HOT TOOLS Pro Artist Tourmaline 2000 is a professional-grade dryer that delivers salon-quality results at a mid-range price. The 2000W motor is powerful enough for thick hair, while the tourmaline technology generates negative ions that reduce frizz and add shine.
-
-We tested this on thick, coarse hair and found it exceptionally powerful - one of the fastest dryers we tested at this price point. The quiet motor is a genuine differentiator; it's noticeably quieter than most dryers in this category, making it pleasant for early-morning use.
-
-At $88, it represents excellent value for a professional-grade tool. The build quality feels premium, and the tourmaline plates deliver consistent ionic output. This is our top mid-range pick for thick or coarse hair that needs serious power.`,
-    pros: ["2000W motor - powerful enough for thick hair", "Notably quiet operation", "Tourmaline technology reduces frizz", "Professional build quality"],
-    cons: ["Heavier than consumer dryers", "Limited attachment options", "Not as technologically advanced as Dyson or Shark"],
-    bestFor: "Thick, coarse hair; those who value quiet operation; professional results",
-    publishDate: "2025-01-29",
-    slug: "hot-tools-tourmaline-2000-review",
-    hairTypes: ["thick", "coarse", "normal"],
-  },
-  {
+        {
     id: "revlon-one-step-volumizer",
     name: "Revlon One-Step Hair Dryer & Volumizer",
     brand: "Revlon",
