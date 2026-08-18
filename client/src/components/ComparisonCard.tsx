@@ -4,6 +4,7 @@ import { Link } from "wouter";
 import { Trophy, ExternalLink } from "lucide-react";
 import { type Comparison, getProductById, amazonLink, lastSyncedAt } from "@/lib/products";
 import { StarRatingDisplay } from "./ProductCard";
+import { VerifiedAmazonCta } from "@/components/ProductCommerce";
 
 const PRICES_FRESH = (() => {
   if (!lastSyncedAt) return false;
@@ -64,15 +65,7 @@ export default function ComparisonCard({ comparison, variant = "default" }: Comp
               {winner.priceDisplay}
             </p>
           ) : (
-            <a
-              href={amazonLink(winner.asin)}
-              target="_blank"
-              rel="noopener noreferrer nofollow"
-              className="font-label font-bold text-center mt-1 block"
-              style={{ color: "#8B1A2F", fontSize: "0.85rem", textDecoration: "underline" }}
-            >
-              Check price on Amazon
-            </a>
+            <div className="mt-2 text-center"><VerifiedAmazonCta product={winner} compact /></div>
           )}
         </div>
 
@@ -101,15 +94,7 @@ export default function ComparisonCard({ comparison, variant = "default" }: Comp
               {loser.priceDisplay}
             </p>
           ) : (
-            <a
-              href={amazonLink(loser.asin)}
-              target="_blank"
-              rel="noopener noreferrer nofollow"
-              className="font-label font-bold text-center mt-1 block"
-              style={{ color: "#B8A99A", fontSize: "0.85rem", textDecoration: "underline" }}
-            >
-              Check price on Amazon
-            </a>
+            <div className="mt-2 text-center"><VerifiedAmazonCta product={loser} compact /></div>
           )}
         </div>
       </div>

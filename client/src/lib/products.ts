@@ -15,6 +15,8 @@ export interface Product {
   asin: string;
   price: number;
   priceDisplay: string;
+  availability?: string;
+  isBuyBoxWinner?: boolean;
   rating: number;
   reviewCount: number;
   category: string;

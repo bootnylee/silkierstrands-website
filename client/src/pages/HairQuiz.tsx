@@ -7,6 +7,7 @@ import { Link } from "wouter";
 import { ChevronRight, ChevronLeft, RotateCcw, ExternalLink, Star, Share2, Check, Trash2, Mail, Download, Loader2 } from "lucide-react";
 
 import SiteLayout from "@/components/SiteLayout";
+import { VerifiedAmazonCta } from "@/components/ProductCommerce";
 import { allProducts } from "@/lib/products";
 import { trackEmailSignup, trackQuizComplete } from "@/lib/analytics";
 
@@ -472,7 +473,6 @@ function ProgressBar({ current, total }: { current: number; total: number }) {
 // ─── Product Card ──────────────────────────────────────────────────────────────
 
 function QuizProductCard({ product }: { product: typeof allProducts[0] }) {
-  const amazonUrl = `https://www.amazon.com/dp/${product.asin}?tag=silkierstrands-20`;
   return (
     <div
       className="flex flex-col rounded-lg overflow-hidden transition-all duration-200 hover:shadow-lg"
@@ -520,15 +520,7 @@ function QuizProductCard({ product }: { product: typeof allProducts[0] }) {
           </span>
         </div>
         <div className="flex gap-2">
-          <a
-            href={amazonUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex-1 flex items-center justify-center gap-1.5 py-2 px-3 rounded text-xs font-body font-semibold transition-all duration-200 hover:opacity-90"
-            style={{ backgroundColor: "#8B1A2F", color: "#FDF6EE", letterSpacing: "0.05em" }}
-          >
-            View on Amazon <ExternalLink size={11} />
-          </a>
+          <VerifiedAmazonCta product={product} label="Check Price on Amazon" compact className="flex-1" />
           <Link
             href={`/review/${product.slug}`}
             className="flex items-center justify-center py-2 px-3 rounded text-xs font-body font-semibold transition-all duration-200"
