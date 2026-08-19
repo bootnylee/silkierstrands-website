@@ -82,36 +82,6 @@ interface ProductCardProps {
   variant?: "default" | "compact" | "featured";
 }
 
-export function StarRatingDisplay({
-  rating,
-  reviewCount,
-  size = 14,
-}: {
-  rating: number;
-  reviewCount: number;
-  size?: number;
-}) {
-  return (
-    <div className="flex items-center gap-0.5">
-      {[1, 2, 3, 4, 5].map((star) => (
-        <Star
-          key={star}
-          size={size}
-          fill={star <= Math.round(rating) ? "#D4822A" : "none"}
-          stroke={star <= Math.round(rating) ? "#D4822A" : "#B8A99A"}
-        />
-      ))}
-      <span className="font-body text-xs ml-1" style={{ color: "#8C8C8C" }}>
-        {rating.toFixed(1)} (
-        {reviewCount >= 1000
-          ? `${(reviewCount / 1000).toFixed(1)}k`
-          : reviewCount}
-        )
-      </span>
-    </div>
-  );
-}
-
 // ─── Price Drop Badge Component ───────────────────────────────────────────────
 function PriceDropBadge({ badge, size = "sm" }: { badge: PriceBadge; size?: "sm" | "xs" }) {
   if (!badge) return null;
@@ -185,11 +155,6 @@ export default function ProductCard({
               {product.name}
             </h3>
           </Link>
-          <StarRatingDisplay
-            rating={product.rating}
-            reviewCount={product.reviewCount}
-            size={12}
-          />
           <div className="flex items-center justify-between mt-2">
             <div className="flex flex-col gap-0.5">
               <PriceDisplay product={product} fontSize="0.9rem" />
@@ -239,10 +204,6 @@ export default function ProductCard({
               {product.name}
             </h3>
           </Link>
-          <StarRatingDisplay
-            rating={product.rating}
-            reviewCount={product.reviewCount}
-          />
           <p
             className="font-body text-sm mt-2 line-clamp-2 leading-relaxed"
             style={{ color: "#6C6C6C" }}
@@ -315,11 +276,6 @@ export default function ProductCard({
             {product.name}
           </h3>
         </Link>
-        <StarRatingDisplay
-          rating={product.rating}
-          reviewCount={product.reviewCount}
-          size={12}
-        />
         <div
           className="flex items-center justify-between mt-3 pt-3 border-t"
           style={{ borderColor: "#F0E8DE" }}

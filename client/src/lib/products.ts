@@ -1002,7 +1002,7 @@ export const allProducts: Product[] = [
       imageUrl: "https://m.media-amazon.com/images/I/31AsQn8q0hL._SL500_.jpg",
       amazonImageUrl: "https://m.media-amazon.com/images/I/31AsQn8q0hL._SL500_.jpg",
       hairTypes: ["oily", "normal", "all"],
-      shortDescription: "Amazon's Choice scalp-refreshing shampoo with Australian tea tree oil, peppermint, and lavender for a deep, invigorating cleanse.",
+      shortDescription: "popular option scalp-refreshing shampoo with Australian tea tree oil, peppermint, and lavender for a deep, invigorating cleanse.",
       fullReview: `Paul Mitchell Tea Tree Special Shampoo is one of the most iconic scalp-care shampoos on the market — a formula that has been invigorating scalps for decades and now carries over 61,000 Amazon reviews averaging 4.6 stars. The combination of Australian tea tree oil, peppermint, and lavender creates a signature tingle that signals a genuinely deep, refreshing cleanse.
   
   We tested this on oily, product-buildup-prone hair and found it exceptional at removing residue and balancing the scalp without stripping moisture from the lengths. The tea tree oil provides natural antimicrobial benefits that help manage scalp health over time, while the peppermint delivers an invigorating sensation that makes each wash feel like a scalp treatment.
@@ -1040,8 +1040,8 @@ export const allProducts: Product[] = [
       imageUrl: "https://m.media-amazon.com/images/I/31+Y7rEXSrL._SL500_.jpg",
       amazonImageUrl: "https://m.media-amazon.com/images/I/31+Y7rEXSrL._SL500_.jpg",
       hairTypes: ["all", "fine", "thick", "color-treated"],
-      shortDescription: "Amazon's Choice heat protectant spray with ceramic minerals that shields hair from heat damage up to 450°F while adding frizz control and shine.",
-      fullReview: `CHI 44 Iron Guard Thermal Protection Spray is the best-selling heat protectant on Amazon for good reason — with over 70,000 reviews averaging 4.5 stars and Amazon's Choice designation, it has earned its reputation as the go-to heat protection spray for all hair types. The ceramic mineral formula creates a protective barrier that shields hair from flat irons, curling irons, and blow dryers up to 450°F.
+      shortDescription: "popular option heat protectant spray with ceramic minerals that shields hair from heat damage up to 450°F while adding frizz control and shine.",
+      fullReview: `CHI 44 Iron Guard Thermal Protection Spray is the best-selling heat protectant on Amazon for good reason — with over 70,000 reviews averaging 4.5 stars and strong retail visibility, it has earned its reputation as the go-to heat protection spray for all hair types. The ceramic mineral formula creates a protective barrier that shields hair from flat irons, curling irons, and blow dryers up to 450°F.
   
   We tested this on color-treated, medium-thickness hair and found it exceptional at preventing heat damage while adding a noticeable improvement in shine and smoothness. The lightweight spray formula distributes evenly without leaving any residue or heaviness, making it suitable for fine hair that struggles with heavier heat protectants. The frizz control benefits are meaningful and last through the entire styling session.
   
@@ -1344,14 +1344,14 @@ export const allProducts: Product[] = [
     imageUrl: "https://m.media-amazon.com/images/I/51VS8EfMnDL._SL500_.jpg",
     amazonImageUrl: "https://m.media-amazon.com/images/I/51VS8EfMnDL._SL500_.jpg",
     hairTypes: ["curly", "coily", "dry", "natural"],
-    shortDescription: "Amazon's Choice deep conditioner with raw honey, jojoba, and olive oils for natural, dry, curly Type 3C–4C hair — delivers intense moisture, easy detangling, and frizz control.",
-    fullReview: `tgin Honey Miracle Hair Mask is the go-to deep conditioner for natural hair enthusiasts — an Amazon's Choice product with over 7,100 reviews averaging 4.6 stars that has become a staple in the natural hair community. The formula combines raw honey, jojoba oil, and olive oil to deliver intense moisture, exceptional slip for detangling, and lasting frizz control for Type 3C through 4C hair.
+    shortDescription: "popular option deep conditioner with raw honey, jojoba, and olive oils for natural, dry, curly Type 3C–4C hair — delivers intense moisture, easy detangling, and frizz control.",
+    fullReview: `tgin Honey Miracle Hair Mask is the go-to deep conditioner for natural hair enthusiasts — an popular option product with over 7,100 reviews averaging 4.6 stars that has become a staple in the natural hair community. The formula combines raw honey, jojoba oil, and olive oil to deliver intense moisture, exceptional slip for detangling, and lasting frizz control for Type 3C through 4C hair.
 
 We tested this on tightly coiled, 4B natural hair that struggles with dryness and breakage. The results were immediate and impressive: after a single 20-minute treatment, hair was noticeably softer, more elastic, and significantly easier to detangle. The honey provides humectant moisture that draws water into the hair shaft, while the jojoba and olive oils seal that moisture in for lasting hydration that extends well beyond wash day.
 
 At $18.48 for 12 oz, the value is excellent for a professional-quality deep conditioning treatment. The formula is free from sulfates, parabens, and silicones, making it ideal for those following the Curly Girl Method or any clean beauty routine. This is our top recommendation for natural hair that needs intensive moisture and detangling support without harsh chemicals.`,
     pros: [
-      "Amazon's Choice with 7,100+ reviews at 4.6 stars",
+      "popular option with 7,100+ reviews at 4.6 stars",
       "Raw honey provides humectant moisture for lasting hydration",
       "Exceptional slip for easy detangling on coily hair",
       "Sulfate-free, paraben-free, silicone-free — Curly Girl Method approved",
@@ -1381,15 +1381,15 @@ At $18.48 for 12 oz, the value is excellent for a professional-quality deep cond
     imageUrl: "https://m.media-amazon.com/images/I/41SXn+02DcL._SL500_.jpg",
     amazonImageUrl: "https://m.media-amazon.com/images/I/41SXn+02DcL._SL500_.jpg",
     hairTypes: ["thinning", "fine", "normal", "all"],
-    shortDescription: "Amazon's Choice clinically tested biotin and argan oil shampoo that reduces hair thinning and promotes strength, volume, and fullness for men and women.",
-    fullReview: `PURA D'OR Original Gold Label Anti-Thinning Shampoo is one of the most reviewed hair thinning shampoos on Amazon — with over 37,900 reviews averaging 4.3 stars and Amazon's Choice designation, it has earned its reputation as the leading drugstore solution for hair thinning concerns. The clinically tested formula combines biotin, argan oil, pumpkin seed, and black cumin seed in a sulfate-free base that strengthens hair from the root while volumizing fine, thinning strands.
+    shortDescription: "popular option clinically tested biotin and argan oil shampoo that reduces hair thinning and promotes strength, volume, and fullness for men and women.",
+    fullReview: `PURA D'OR Original Gold Label Anti-Thinning Shampoo is one of the most reviewed hair thinning shampoos on Amazon — with over 37,900 reviews averaging 4.3 stars and strong retail visibility, it has earned its reputation as the leading drugstore solution for hair thinning concerns. The clinically tested formula combines biotin, argan oil, pumpkin seed, and black cumin seed in a sulfate-free base that strengthens hair from the root while volumizing fine, thinning strands.
 
 We tested this on fine, thinning hair over six weeks and found it effective at improving the appearance of fullness and reducing visible shedding. The biotin complex supports the scalp environment for healthier hair growth, while the argan oil adds moisture and shine without weighing down fine strands. The natural earthy scent is pleasant and distinctive without being overpowering.
 
 At $29.99 for 16 oz, it offers strong value for a clinically tested, professional-quality anti-thinning formula. This is our top recommendation for men and women experiencing hair thinning who want a sulfate-free, ingredient-conscious solution that delivers visible results over time.`,
     pros: [
       "Clinically tested to reduce hair thinning",
-      "Amazon's Choice with 37,900+ reviews at 4.3 stars",
+      "popular option with 37,900+ reviews at 4.3 stars",
       "Biotin and argan oil formula strengthens and volumizes",
       "Sulfate-free — safe for color-treated hair",
       "Works for both men and women",
@@ -2133,13 +2133,13 @@ At $18 for 20 oz, the value is exceptional — this is one of the most generousl
 
 We tested this on 4A and 4B hair and found it exceptional at elongating coils and reducing shrinkage without sacrificing definition. The custard texture is thicker than most curl creams, which allows it to coat each coil thoroughly for maximum definition. Applied to wet hair in small sections using the shingling method, it created beautifully defined coils with impressive hold that lasted through the day.
 
-At $12.45 for 12 oz, it's one of the most affordable dedicated type 4 curl products available. The honey and pomegranate formula provides genuine moisture retention, and the results are noticeably better than generic curl creams that aren't formulated with tighter curl patterns in mind. With over 6,600 reviews averaging 4.5 stars and Amazon's Choice designation, it's a trusted staple in the natural hair community.`,
+At $12.45 for 12 oz, it's one of the most affordable dedicated type 4 curl products available. The honey and pomegranate formula provides genuine moisture retention, and the results are noticeably better than generic curl creams that aren't formulated with tighter curl patterns in mind. With over 6,600 reviews averaging 4.5 stars and strong retail visibility, it's a trusted staple in the natural hair community.`,
     pros: [
       "Specifically formulated for type 4 (4A–4C) hair",
       "Pomegranate and honey provide genuine moisture retention",
       "Excellent coil definition and elongation",
       "Affordable at $12.45 for 12 oz",
-      "Amazon's Choice with 4.5-star average",
+      "popular option with 4.5-star average",
     ],
     cons: [
       "Thick custard consistency requires thorough application",
@@ -2316,7 +2316,7 @@ The best use case is weekly scalp care, protective styles, curls, coils, and dry
     imageUrl: "https://m.media-amazon.com/images/I/511pPBQQFuL._SL500_.jpg",
     amazonImageUrl: "https://m.media-amazon.com/images/I/511pPBQQFuL._SL500_.jpg",
     hairTypes: ["thinning", "fine", "dry", "color-treated"],
-    shortDescription: "Clinically tested biotin shampoo and conditioner set with 17 DHT blockers and botanical extracts for thicker-looking, fuller hair — #1 Best Seller in Hair Regrowth Conditioners.",
+    shortDescription: "Clinically tested biotin shampoo and conditioner set with 17 DHT blockers and botanical extracts for thicker-looking, fuller hair — well-regarded product in Hair Regrowth Conditioners.",
     fullReview: `PURA D'OR Gold Label Anti-Thinning Biotin Shampoo & Conditioner is the best-selling hair thinning solution on Amazon, and its 67,000+ reviews at 4.3 stars reflect a genuinely large and satisfied user base. The formula is built around biotin, argan oil, and a proprietary blend of 17 DHT-blocking botanical extracts — including nettle extract, pumpkin seed, and red Korean seaweed — that work together to support a healthier scalp environment and thicker-looking hair.
 
 We tested this on fine, thinning hair over six weeks and found it effective at adding noticeable volume and improving scalp condition. The shampoo lathers well despite being sulfate-free, and the conditioner adds moisture without weighing down fine strands. Hair appeared fuller and felt stronger after consistent use, and the scalp felt noticeably healthier.
@@ -2324,7 +2324,7 @@ We tested this on fine, thinning hair over six weeks and found it effective at a
 At $40 for a 16 oz set (32 oz total), the value is reasonable for a clinically tested formula. The natural earthy scent is pleasant and not overpowering. PURA D'OR is our top recommendation for men and women experiencing hair thinning who want a clinically tested, sulfate-free solution at a mid-range price point.`,
     pros: [
       "Clinically tested formula with 17 DHT-blocking botanical extracts",
-      "#1 Best Seller in Hair Regrowth Conditioners with 67,000+ reviews",
+      "well-regarded product in Hair Regrowth Conditioners with 67,000+ reviews",
       "Sulfate-free, paraben-free, and free from artificial colors",
       "Works for both men and women experiencing hair thinning",
       "Biotin and argan oil formula adds volume and scalp nourishment",
@@ -2428,17 +2428,17 @@ At $32 for 3 oz, it's a premium price for a heat protectant, but the dual functi
     imageUrl: "https://m.media-amazon.com/images/I/21dQiVwm6tL._SL500_.jpg",
     amazonImageUrl: "https://m.media-amazon.com/images/I/21dQiVwm6tL._SL500_.jpg",
     hairTypes: ["fine", "normal", "all"],
-    shortDescription: "Amazon's Choice weightless hair oil for fine to medium hair — clinically proven to increase shine by 118%, reduce frizz by 70%, and protect against heat up to 450°F without weighing hair down.",
+    shortDescription: "popular option weightless hair oil for fine to medium hair — clinically proven to increase shine by 118%, reduce frizz by 70%, and protect against heat up to 450°F without weighing hair down.",
     fullReview: `VERB Ghost Oil is one of the most impressive fine-hair products we have reviewed — a genuinely weightless oil that delivers the shine and frizz-control benefits of a traditional hair oil without any of the heaviness that makes most oils unsuitable for fine or thin hair.
 
 The formula's performance claims are backed by third-party lab testing: 118% more shine, 70% less frizz, and heat protection up to 450°F. We tested this on fine, color-treated hair that typically gets weighed down by even a single drop of conventional hair oil. VERB Ghost Oil was invisible on the hair — no greasiness, no heaviness — while delivering a noticeable improvement in shine and a meaningful reduction in flyaways and frizz.
 
-At $22 for 2 oz, the value is excellent for a professional-quality oil. The citrus and sweet violet scent is fresh and pleasant without being overpowering. With over 11,500 Amazon reviews averaging 4.6 stars and Amazon's Choice designation, it has earned its reputation as the go-to oil for fine hair. This is our top recommendation for anyone who has given up on hair oils because they felt too heavy.`,
+At $22 for 2 oz, the value is excellent for a professional-quality oil. The citrus and sweet violet scent is fresh and pleasant without being overpowering. With over 11,500 Amazon reviews averaging 4.6 stars and strong retail visibility, it has earned its reputation as the go-to oil for fine hair. This is our top recommendation for anyone who has given up on hair oils because they felt too heavy.`,
     pros: [
       "Truly weightless — invisible on fine and thin hair",
       "Clinically proven: 118% more shine, 70% less frizz",
       "Heat protection up to 450°F covers all styling tools",
-      "Amazon's Choice with 11,500+ reviews at 4.6 stars",
+      "popular option with 11,500+ reviews at 4.6 stars",
       "Fresh citrus and sweet violet scent",
     ],
     cons: [
@@ -2576,12 +2576,12 @@ The star ingredient is sea buckthorn, a nutrient-dense "superfruit" rich in omeg
 
 We tested this on fine, oily hair that typically requires washing every day. Applied at the roots and massaged in, Perk Up extended wash days by a full day while making hair look and feel genuinely clean. The signature Amika scent — bright pink grapefruit, juicy apricot, and warm vanilla — is one of the most pleasant in the category and lingers without being overpowering.
 
-At $29 for 5.3 oz, it's a premium price for a dry shampoo, but the clean formula, invisible finish, and sea buckthorn nourishment justify the investment for those who use dry shampoo regularly. With over 20,000 Amazon reviews averaging 4.3 stars and Amazon's Choice designation, it has earned its reputation as the go-to premium dry shampoo.`,
+At $29 for 5.3 oz, it's a premium price for a dry shampoo, but the clean formula, invisible finish, and sea buckthorn nourishment justify the investment for those who use dry shampoo regularly. With over 20,000 Amazon reviews averaging 4.3 stars and strong retail visibility, it has earned its reputation as the go-to premium dry shampoo.`,
     pros: [
       "Talc-free with natural rice starch — no white residue on any hair color",
       "Sea buckthorn nourishes scalp while absorbing oil",
       "Invisible finish works on dark hair without chalky cast",
-      "Amazon's Choice with 20,000+ reviews at 4.3 stars",
+      "popular option with 20,000+ reviews at 4.3 stars",
       "Signature grapefruit-apricot-vanilla scent is genuinely delightful",
     ],
     cons: [
@@ -2616,11 +2616,11 @@ We tested this on medium-thickness, oily hair that typically needs washing every
 
 The main trade-off compared to premium alternatives is the white residue: Batiste Original uses a traditional starch formula that can leave a visible white cast on dark hair if not thoroughly massaged in. For light hair, this is a non-issue. For dark hair, the brand offers a dark-toned version (Batiste Dark & Deep) that addresses this concern.
 
-At $8 for 6.76 oz, the value is exceptional — this is one of the most affordable effective dry shampoos available. With over 15,000 Amazon reviews averaging 4.5 stars and Amazon's Choice designation, it has earned its status as the world's #1 dry shampoo brand. For budget-conscious shoppers or those new to dry shampoo, Batiste Original is the obvious starting point.`,
+At $8 for 6.76 oz, the value is exceptional — this is one of the most affordable effective dry shampoos available. With over 15,000 Amazon reviews averaging 4.5 stars and strong retail visibility, it has earned its status as the world's #1 dry shampoo brand. For budget-conscious shoppers or those new to dry shampoo, Batiste Original is the obvious starting point.`,
     pros: [
       "Exceptional value at $8 for 6.76 oz",
       "Reliably absorbs oil and adds volume",
-      "Amazon's Choice with 15,000+ reviews at 4.5 stars",
+      "popular option with 15,000+ reviews at 4.5 stars",
       "Clean citrus scent that fades naturally",
       "The world's #1 dry shampoo brand — proven formula",
     ],

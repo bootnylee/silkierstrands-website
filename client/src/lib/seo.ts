@@ -62,8 +62,6 @@ export function buildProductSchema(product: {
   description: string;
   brand: string;
   price: number;
-  rating: number;
-  reviewCount: number;
   imageUrl: string;
   asin: string;
 }): object {
@@ -93,12 +91,6 @@ export function buildProductSchema(product: {
     // violate Google's review-snippet guidelines.
     review: {
       "@type": "Review",
-      reviewRating: {
-        "@type": "Rating",
-        ratingValue: product.rating,
-        bestRating: 5,
-        worstRating: 1,
-      },
       author: {
         "@type": "Organization",
         name: "SilkierStrands Editorial Team",
@@ -116,7 +108,6 @@ export function buildProductSchema(product: {
 export function buildReviewSchema(review: {
   productName: string;
   reviewBody: string;
-  rating: number;
   datePublished: string;
 }): object {
   return {
@@ -125,11 +116,6 @@ export function buildReviewSchema(review: {
     itemReviewed: {
       "@type": "Product",
       name: review.productName,
-    },
-    reviewRating: {
-      "@type": "Rating",
-      ratingValue: review.rating,
-      bestRating: 5,
     },
     reviewBody: review.reviewBody,
     datePublished: review.datePublished,

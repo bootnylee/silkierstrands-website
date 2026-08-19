@@ -317,22 +317,6 @@ export default function HairTypePage() {
                         </p>
                       )}
 
-                      {/* Rating row */}
-                      <div className="flex items-center gap-2 mb-3">
-                        <div className="flex items-center gap-0.5">
-                          {[1,2,3,4,5].map(star => (
-                            <Star
-                              key={star}
-                              size={12}
-                              fill={star <= Math.round(product.rating) ? "#D4822A" : "none"}
-                              style={{ color: "#D4822A" }}
-                            />
-                          ))}
-                        </div>
-                        <span className="font-label font-bold text-xs" style={{ color: "#D4822A" }}>{product.rating.toFixed(1)}</span>
-                        <span className="font-body text-xs" style={{ color: "#9E8E84" }}>({product.reviewCount.toLocaleString()})</span>
-                      </div>
-
                       <p className="font-body text-sm leading-relaxed flex-1" style={{ color: "#4A4A4A" }}>
                         {product.shortDescription}
                       </p>

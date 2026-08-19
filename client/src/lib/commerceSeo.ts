@@ -5,7 +5,7 @@ const SITE = "SilkierStrands";
 const ORIGIN = "https://silkierstrands.com";
 const TAG = "silkierstrands-20";
 
-type ProductLike = Pick<Product, "name" | "brand" | "shortDescription" | "imageUrl" | "asin" | "price" | "priceDisplay" | "rating" | "publishDate" | "bestFor"> & { availability?: string };
+type ProductLike = Pick<Product, "name" | "brand" | "shortDescription" | "imageUrl" | "asin" | "price" | "priceDisplay" | "publishDate" | "bestFor"> & { availability?: string };
 
 export function editorialProductSchema(product: ProductLike, author?: { name: string; role?: string; url?: string }) {
   const schema: Record<string, unknown> = {
@@ -16,7 +16,6 @@ export function editorialProductSchema(product: ProductLike, author?: { name: st
     image: product.imageUrl,
     review: {
       "@type": "Review",
-      reviewRating: { "@type": "Rating", ratingValue: product.rating, bestRating: 5, worstRating: 1 },
       author: author ? { "@type": "Person", name: author.name, jobTitle: author.role, url: author.url } : { "@type": "Organization", name: `${SITE} Editorial Team`, url: ORIGIN },
       publisher: { "@type": "Organization", name: SITE, url: ORIGIN },
       datePublished: product.publishDate,
