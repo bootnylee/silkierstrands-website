@@ -9,6 +9,8 @@
 [build.environment]
   NODE_VERSION = "20"
   PNPM_VERSION = "10"
+  # Remote Creators API and Amazon responses are advisory; local template checks remain blocking.
+  ASIN_VALIDATE = "warn"
 
 [functions]
   node_bundler = "esbuild"
