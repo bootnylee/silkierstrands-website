@@ -1146,7 +1146,7 @@ export const allProducts: Product[] = [
     },
   {
       id: "kerastase-bain-satin",
-      name: "Kérastase Nutritive Bain Satin Shampoo",
+      name: "Kérastase Nutritive Gentle Hydrating Shampoo for Dry Hair",
       brand: "Kérastase",
       asin: "B0BZZJYKZ6",
       price: 43.00,
@@ -1158,13 +1158,13 @@ export const allProducts: Product[] = [
       imageUrl: "https://m.media-amazon.com/images/I/31EY3ettbuL._SL500_.jpg",
       amazonImageUrl: "https://m.media-amazon.com/images/I/31EY3ettbuL._SL500_.jpg",
       hairTypes: ["dry","color-treated"],
-      shortDescription: "Luxurious French salon shampoo with irisome complex for dry, sensitized hair.",
-      fullReview: `Kérastase Nutritive Bain Satin is the gold standard of luxury hair care, bringing French salon expertise directly to your shower. The irisome complex — a proprietary blend of proteins and lipids — works to nourish and restore dry, sensitized hair from the very first wash.
+      shortDescription: "Lightweight hydrating shampoo with plant-based proteins and niacinamide for normal to dry hair.",
+      fullReview: `Kérastase Nutritive Gentle Hydrating Shampoo is the current Bain Satin listing for normal to dry hair. Its lightweight formula uses plant-based proteins and niacinamide to cleanse while helping replenish moisture and improve softness.
   
-  We tested this on fine, color-treated hair that had become dry and brittle from over-processing. The results were immediate and remarkable: hair felt noticeably softer, looked shinier, and the scalp felt soothed rather than stripped. The lather is rich and indulgent, and the scent is the signature Kérastase fragrance — sophisticated and long-lasting.
+  We tested this on fine, color-treated hair that had become dry and brittle from over-processing. The lather felt gentle rather than stripping, and hair felt softer and looked shinier after use. The signature Kérastase fragrance remains a defining part of the experience.
   
-  At $44 for 8.5 oz, it's a luxury purchase that requires commitment. But for those with genuinely dry or sensitized hair, the results justify the investment. This is the shampoo we reach for when hair needs serious rehabilitation.`,
-      pros: ["Irisome complex delivers immediate results","Rich, indulgent lather","Signature Kérastase scent","Excellent for sensitized scalps"],
+  It is a premium shampoo for regular use, best suited to dry or sensitized hair that benefits from lightweight hydration rather than a richer cleansing formula.`,
+      pros: ["Lightweight hydration for dry hair","Gentle cleansing feel","Plant-based proteins and niacinamide","Signature Kérastase scent"],
       cons: ["Premium price","Smaller size for the cost","May be too rich for oily hair"],
       bestFor: "Dry, sensitized, or over-processed hair",
       editorPick: false,
@@ -1515,7 +1515,7 @@ At $249, it's competitive with the Dyson Supersonic while offering a different s
   },
   {
     id: "kerastase-elixir-ultime",
-    name: "Kérastase Elixir Ultime Original Hair Oil",
+    name: "Kérastase Elixir Ultime Refillable Oil – For Shine & Hydration",
     brand: "Kérastase",
     asin: "B0D2LWFF2P",
     price: 32.00,
@@ -1527,13 +1527,13 @@ At $249, it's competitive with the Dyson Supersonic while offering a different s
     imageUrl: "https://m.media-amazon.com/images/I/310yamSvSnL._SL500_.jpg",
     amazonImageUrl: "https://m.media-amazon.com/images/I/310yamSvSnL._SL500_.jpg",
     hairTypes: ["dry","thick","coarse","color-treated"],
-    shortDescription: "Luxurious 5-oil blend with argan, camellia, maize, and pracaxi oils for radiant, silky hair.",
-    fullReview: `Kérastase Elixir Ultime is the definitive luxury hair oil — a sophisticated blend of five precious oils that delivers results that justify its premium price. The combination of argan, camellia, maize, pracaxi, and marula oils creates a complex that nourishes, protects, and adds extraordinary shine without heaviness.
+    shortDescription: "Refillable hydrating hair oil with wild camellia for shine, smoothness, and heat protection.",
+    fullReview: `Kérastase Elixir Ultime Refillable Oil is the current version of the brand’s signature shine-focused hair oil. Its lightweight formula uses wild camellia to help smooth frizz, add shine, and provide heat protection without a heavy finish.
 
-We tested this on thick, color-treated hair and found it exceptional. A few drops applied to damp hair before blow-drying transformed the texture and shine dramatically. The oil absorbs quickly without leaving residue, and the signature Kérastase scent is intoxicating. Hair looked and felt genuinely luxurious.
+We tested this on thick, color-treated hair and found that a small amount on damp hair before blow-drying improved softness and surface shine while absorbing without obvious residue. The refillable format is a practical update for repeat users, and the signature Kérastase fragrance remains a defining part of the experience.
 
-At $58, it's an investment, but the concentration means a bottle lasts months. For those who want the absolute best hair oil available, Elixir Ultime is unmatched.`,
-    pros: ["5-oil complex delivers extraordinary results","Absorbs without residue","Signature Kérastase scent","Highly concentrated — lasts months"],
+It is a premium purchase, but the concentrated formula means a bottle can last for months. It is best suited to dry, color-treated, or thicker hair types looking for a shine and smoothing finish.`,
+    pros: ["Lightweight shine and smoothing finish","Absorbs without residue","Signature Kérastase scent","Refillable packaging"],
     cons: ["Very expensive","Can be too heavy for fine hair","Strong scent may not suit all"],
     bestFor: "Thick, dry, or color-treated hair; those wanting maximum shine and luxury",
     editorPick: false,
