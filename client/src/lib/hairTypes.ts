@@ -47,7 +47,7 @@ export const hairTypes: HairType[] = [
     accentColor: "#D4822A",
     icon: "🌾",
     heroImageUrl:
-      "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=1200&auto=format&fit=crop&q=80",
+      "https://images.pexels.com/photos/35267456/pexels-photo-35267456/free-photo-of-elegant-asian-woman-with-long-silky-hair.jpeg?auto=compress&cs=tinysrgb&w=1200",
     relatedHairTypes: ["normal", "color-treated"],
   },
   {
@@ -105,7 +105,7 @@ export const hairTypes: HairType[] = [
     accentColor: "#6B4C8A",
     icon: "🌀",
     heroImageUrl:
-      "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=1200&auto=format&fit=crop&q=80",
+      "https://images.pexels.com/photos/11118472/pexels-photo-11118472.jpeg?auto=compress&cs=tinysrgb&w=1200",
     relatedHairTypes: ["thick", "coarse"],
   },
   {
@@ -134,7 +134,7 @@ export const hairTypes: HairType[] = [
     accentColor: "#5C4033",
     icon: "🪨",
     heroImageUrl:
-      "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=1200&auto=format&fit=crop&q=80",
+      "https://images.pexels.com/photos/5617364/pexels-photo-5617364.jpeg?auto=compress&cs=tinysrgb&w=1200",
     relatedHairTypes: ["thick", "dry"],
   },
   {
@@ -163,7 +163,7 @@ export const hairTypes: HairType[] = [
     accentColor: "#C0874A",
     icon: "💧",
     heroImageUrl:
-      "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=1200&auto=format&fit=crop&q=80",
+      "https://images.pexels.com/photos/6144285/pexels-photo-6144285.jpeg?auto=compress&cs=tinysrgb&w=1200",
     relatedHairTypes: ["coarse", "color-treated"],
   },
   {
@@ -192,7 +192,7 @@ export const hairTypes: HairType[] = [
     accentColor: "#4A7C59",
     icon: "✨",
     heroImageUrl:
-      "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=1200&auto=format&fit=crop&q=80",
+      "https://images.pexels.com/photos/19461452/pexels-photo-19461452.jpeg?auto=compress&cs=tinysrgb&w=1200",
     relatedHairTypes: ["fine", "thick"],
   },
   {
@@ -221,7 +221,7 @@ export const hairTypes: HairType[] = [
     accentColor: "#C0392B",
     icon: "🎨",
     heroImageUrl:
-      "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=1200&auto=format&fit=crop&q=80",
+      "https://images.pexels.com/photos/3356211/pexels-photo-3356211.jpeg?auto=compress&cs=tinysrgb&w=1200",
     relatedHairTypes: ["dry", "fine"],
   },
 ];
