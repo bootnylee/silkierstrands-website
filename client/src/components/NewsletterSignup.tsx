@@ -1,75 +1,17 @@
-/**
- * NewsletterSignup Component - SilkierStrands.com
- * Design: Bold Magazine - Burgundy (#8B1A2F) + Amber (#D4822A) + Cream (#FDF6EE)
- *
- * EmailOctopus integration: injects the <script data-form="..."> tag directly
- * inside the component's container div via useEffect. The EmailOctopus widget
- * finds this script tag, inserts the form HTML immediately after it
- * (parentNode.insertBefore(form, script.nextSibling)), then removes the script.
- * Because the script is inside our div, the form renders inside the component —
- * not appended to <body> as it would with a static <script> tag.
- *
- * Note: hair type tagging via member[fields][HairType] requires the EmailOctopus
- * form to have a custom "HairType" field configured in the dashboard. The widget
- * handles reCAPTCHA automatically, which is why direct POST approaches fail.
- */
+import { useId, useState } from "react";
 
-import { useEffect, useRef } from "react";
+const HAIR_TYPES = [
+  { value: "fine", label: "Fine hair" },
+  { value: "thick", label: "Thick hair" },
+  { value: "curly", label: "Curly hair" },
+  { value: "coarse", label: "Coarse hair" },
+  { value: "dry", label: "Dry hair" },
+  { value: "normal", label: "Normal hair" },
+  { value: "color-treated", label: "Color-treated hair" },
+] as const;
 
-const EMAILOCTOPUS_FORM_ID = "aeb1d42c-40de-11f1-aa22-35d9c85d0d35";
-const EMAILOCTOPUS_SCRIPT_SRC = `https://eocampaign1.com/form/${EMAILOCTOPUS_FORM_ID}.js`;
-
-/** Inject the EmailOctopus widget script into a container element.
- *  Returns a cleanup function that removes the script on unmount. */
-function injectEmailOctopusWidget(container: HTMLElement): () => void {
-  // Clear any previously injected widget (handles React hot-reload / re-mounts)
-  container.innerHTML = "";
-
-  const script = document.createElement("script");
-  script.src = EMAILOCTOPUS_SCRIPT_SRC;
-  script.async = true;
-  script.setAttribute("data-form", EMAILOCTOPUS_FORM_ID);
-  container.appendChild(script);
-
-  // Inject a late-loading <style> tag to override the widget's own stylesheet
-  // which sets .mastfoot a { color: rgb(110,84,215) } — the purple EmailOctopus brand color.
-  // This style tag is appended AFTER the widget script so it always wins in cascade order.
-  const styleId = "eo-override-styles";
-  if (!document.getElementById(styleId)) {
-    const style = document.createElement("style");
-    style.id = styleId;
-    style.textContent = `
-      /* Override EmailOctopus widget's purple mastfoot link color */
-      [data-form="${EMAILOCTOPUS_FORM_ID}"] .mastfoot a,
-      [data-form="${EMAILOCTOPUS_FORM_ID}"] .mastfoot p {
-        color: rgba(253, 246, 238, 0.35) !important;
-        font-family: 'Inter', sans-serif !important;
-      }
-      footer [data-form="${EMAILOCTOPUS_FORM_ID}"] .mastfoot a,
-      footer [data-form="${EMAILOCTOPUS_FORM_ID}"] .mastfoot p {
-        color: rgba(253, 246, 238, 0.28) !important;
-      }
-      [data-form="${EMAILOCTOPUS_FORM_ID}"] .mastfoot a::before {
-        filter: grayscale(1) opacity(0.3) !important;
-      }
-      /* Footer subscribe button — burgundy instead of amber */
-      footer [data-form="${EMAILOCTOPUS_FORM_ID}"] input[type="submit"],
-      footer [data-form="${EMAILOCTOPUS_FORM_ID}"] .btn-primary {
-        background-color: #8B1A2F !important;
-        color: #FDF6EE !important;
-      }
-      footer [data-form="${EMAILOCTOPUS_FORM_ID}"] input[type="submit"]:hover,
-      footer [data-form="${EMAILOCTOPUS_FORM_ID}"] .btn-primary:hover {
-        background-color: #6B1224 !important;
-      }
-    `;
-    document.head.appendChild(style);
-  }
-
-  return () => {
-    if (container.contains(script)) container.removeChild(script);
-  };
-}
+type HairType = (typeof HAIR_TYPES)[number]["value"];
+type SubmitState = "idle" | "submitting" | "success" | "error";
 
 interface NewsletterSignupProps {
   variant?: "banner" | "footer" | "inline";
@@ -80,12 +22,118 @@ export default function NewsletterSignup({
   variant = "banner",
   className = "",
 }: NewsletterSignupProps) {
-  const containerRef = useRef<HTMLDivElement>(null);
+  const [email, setEmail] = useState("");
+  const [hairType, setHairType] = useState<HairType | "">("");
+  const [submitState, setSubmitState] = useState<SubmitState>("idle");
+  const statusId = useId();
+  const [errorMessage, setErrorMessage] = useState("");
 
-  useEffect(() => {
-    if (!containerRef.current) return;
-    return injectEmailOctopusWidget(containerRef.current);
-  }, []);
+  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    if (submitState === "submitting" || submitState === "success") return;
+
+    const normalizedEmail = email.trim().toLowerCase();
+    if (!normalizedEmail.includes("@")) {
+      setErrorMessage("Please enter a valid email address.");
+      setSubmitState("error");
+      return;
+    }
+    if (!hairType) {
+      setErrorMessage("Please select your hair type.");
+      setSubmitState("error");
+      return;
+    }
+
+    setSubmitState("submitting");
+    setErrorMessage("");
+
+    try {
+      const response = await fetch("/.netlify/functions/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: normalizedEmail, hairType }),
+      });
+      const data = await response.json().catch(() => ({}));
+
+      if (response.ok && data.ok) {
+        setSubmitState("success");
+        return;
+      }
+
+      setErrorMessage(data.error ?? "Something went wrong. Please try again.");
+      setSubmitState("error");
+    } catch {
+      setErrorMessage("Network error. Please check your connection and try again.");
+      setSubmitState("error");
+    }
+  }
+
+  const isFooter = variant === "footer";
+  const accentColor = isFooter ? "#8B1A2F" : "#D4822A";
+  const mutedTextColor = isFooter ? "rgba(253,246,238,0.7)" : "#6B5B6E";
+
+  const form = (
+    <form onSubmit={handleSubmit} noValidate aria-describedby={statusId}>
+      <div className="flex flex-col gap-2">
+        <select
+          value={hairType}
+          onChange={(event) => setHairType(event.target.value as HairType | "")}
+          required
+          disabled={submitState === "submitting" || submitState === "success"}
+          className="w-full px-4 py-3 rounded font-body text-sm border outline-none transition-all disabled:opacity-70"
+          style={{
+            borderColor: errorMessage ? "#C0392B" : "#E8DDD0",
+            backgroundColor: "#FFFFFF",
+            color: hairType ? "#2C2C2C" : "#6B5B6E",
+          }}
+          aria-label="Your hair type"
+        >
+          <option value="" disabled>Select your hair type</option>
+          {HAIR_TYPES.map((option) => (
+            <option key={option.value} value={option.value}>{option.label}</option>
+          ))}
+        </select>
+        <div className={isFooter ? "flex flex-col gap-2" : "flex flex-col sm:flex-row gap-2"}>
+          <input
+            type="email"
+            value={email}
+            onChange={(event) => setEmail(event.target.value)}
+            placeholder="Your email address"
+            autoComplete="email"
+            required
+            disabled={submitState === "submitting" || submitState === "success"}
+            className="flex-1 px-4 py-3 rounded font-body text-sm border outline-none transition-all disabled:opacity-70"
+            style={{
+              borderColor: errorMessage ? "#C0392B" : "#E8DDD0",
+              backgroundColor: "#FFFFFF",
+              color: "#2C2C2C",
+            }}
+          />
+          <button
+            type="submit"
+            disabled={submitState === "submitting" || submitState === "success"}
+            className="px-5 py-3 rounded font-body font-semibold text-sm transition-all duration-200 hover:opacity-80 disabled:opacity-60"
+            style={{ backgroundColor: accentColor, color: "#FDF6EE", whiteSpace: "nowrap" }}
+          >
+            {submitState === "submitting" ? "Joining…" : submitState === "success" ? "You’re In" : "Subscribe"}
+          </button>
+        </div>
+      </div>
+      <p
+        id={statusId}
+        role="status"
+        aria-live="polite"
+        className="font-body text-xs mt-3"
+        style={{ color: submitState === "error" ? "#C0392B" : submitState === "success" ? accentColor : mutedTextColor }}
+      >
+        {submitState === "success"
+          ? "Thanks — you’re subscribed to the SilkierStrands Weekly."
+          : submitState === "error"
+            ? errorMessage
+            : "No spam, ever. Unsubscribe at any time."}
+      </p>
+    </form>
+  );
 
   if (variant === "banner") {
     return (
@@ -128,13 +176,7 @@ export default function NewsletterSignup({
             Join thousands of women who receive our curated product reviews,
             exclusive deals, and expert styling advice every week.
           </p>
-          <div ref={containerRef} className="max-w-md mx-auto" />
-          <p
-            className="text-xs mt-4"
-            style={{ color: "rgba(253,246,238,0.5)" }}
-          >
-            No spam, ever. Unsubscribe at any time.
-          </p>
+          <div className="max-w-md mx-auto">{form}</div>
         </div>
       </section>
     );
@@ -155,12 +197,11 @@ export default function NewsletterSignup({
         >
           New reviews every Monday. No spam, ever.
         </p>
-        <div ref={containerRef} />
+        {form}
       </div>
     );
   }
 
-  // inline variant
   return (
     <div
       className={`rounded-sm p-6 ${className}`}
@@ -175,7 +216,7 @@ export default function NewsletterSignup({
       <p className="text-sm mb-4 leading-relaxed" style={{ color: "#4A4A4A" }}>
         Get new reviews and comparisons in your inbox every Monday.
       </p>
-      <div ref={containerRef} />
+      {form}
     </div>
   );
 }

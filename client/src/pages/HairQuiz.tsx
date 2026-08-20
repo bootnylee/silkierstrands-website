@@ -15,7 +15,7 @@ import { trackEmailSignup, trackQuizComplete } from "@/lib/analytics";
 export const HAIR_TYPE_PERSIST_KEY = "silkierstrands_hair_type";
 
 // ─── Quiz Email Capture ────────────────────────────────────────────────────────
-// Calls POST /api/subscribe (Netlify function) with email + hairType.
+// Calls POST /.netlify/functions/subscribe with email + hairType.
 // On success: persists hair type to localStorage, fires GA4 event, triggers PDF download.
 // Falls back gracefully if the API is not yet configured (still downloads PDF).
 
@@ -39,7 +39,7 @@ function QuizEmailCapture({ hairTypeLabel, accentColor, hairTypeId }: { hairType
     setErrorMsg("");
 
     try {
-      const res = await fetch("/api/subscribe", {
+      const res = await fetch("/.netlify/functions/subscribe", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email: email.trim(), hairType: hairTypeId }),
