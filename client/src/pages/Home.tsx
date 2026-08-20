@@ -27,6 +27,10 @@ const HAIR_TYPE_META: Record<string, { label: string; tagline: string; color: st
 
 const HERO_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663596051047/8Zc7R6kvi3WyqwPfKsGujc/hero_banner-mpcLHZ6E4Ht3HkvUJsAi4e.webp";
 
+function newestFirst<T extends { publishDate: string }>(items: T[]): T[] {
+  return [...items].sort((a, b) => new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime());
+}
+
 // ─── Recently Viewed Section ─────────────────────────────────────────────────
 function RecentlyViewedSection() {
   const [recentProducts, setRecentProducts] = useState<typeof allProducts>([]);
@@ -90,9 +94,9 @@ function QuizCtaSection() {
   // Returning visitor: personalized card
   if (savedResult?.primary && HAIR_TYPE_META[savedResult.primary]) {
     const meta = HAIR_TYPE_META[savedResult.primary];
-    const topProducts = allProducts
-      .filter(p => Array.isArray(p.hairTypes) && p.hairTypes.includes(savedResult.primary))
-      .slice(0, 3);
+    const topProducts = newestFirst(
+      allProducts.filter(p => Array.isArray(p.hairTypes) && p.hairTypes.includes(savedResult.primary)),
+    ).slice(0, 3);
 
     return (
       <section className="py-16 px-6" style={{ backgroundColor: meta.bg }}>
@@ -190,9 +194,9 @@ export default function Home() {
     });
   }, []);
 
-  const editorPicks = getEditorPicks().slice(0, 4);
-  const featuredComparisons = comparisons.slice(0, 3);
-  const recentReviews = allProducts.filter(p => !p.editorPick).slice(0, 6);
+  const editorPicks = newestFirst(getEditorPicks()).slice(0, 4);
+  const featuredComparisons = newestFirst(comparisons).slice(0, 3);
+  const recentReviews = newestFirst(allProducts.filter(p => !p.editorPick)).slice(0, 6);
 
   return (
     <SiteLayout>

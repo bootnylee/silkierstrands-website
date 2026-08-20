@@ -154,11 +154,13 @@ export default function AllComparisons() {
     } catch {}
   }, []);
 
-  const filtered = comparisons.filter(c => {
-    const categoryMatch = activeCategory === "all" || c.categorySlug === activeCategory;
-    const hairTypeMatch = !activeHairType || (c.hairTypes && c.hairTypes.includes(activeHairType));
-    return categoryMatch && hairTypeMatch;
-  });
+  const filtered = comparisons
+    .filter(c => {
+      const categoryMatch = activeCategory === "all" || c.categorySlug === activeCategory;
+      const hairTypeMatch = !activeHairType || (c.hairTypes && c.hairTypes.includes(activeHairType));
+      return categoryMatch && hairTypeMatch;
+    })
+    .sort((a, b) => new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime());
 
   return (
     <SiteLayout>
