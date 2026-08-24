@@ -1,5 +1,5 @@
 {
-  "auditDate": "2026-08-10",
+  "auditDate": "2026-08-24",
   "summary": {
     "passed": 8,
     "warnings": 1,
@@ -8,7 +8,7 @@
   },
   "passed": [
     "robots.txt exists and references sitemap",
-    "sitemap.xml exists with 162 URLs",
+    "sitemap.xml exists with 152 URLs",
     "All products have shortDescription",
     "All products have Amazon ASINs",
     "Affiliate tag \"silkierstrands-20\" is present in products data",
@@ -17,7 +17,7 @@
     "index.html has canonical URL"
   ],
   "warnings": [
-    "141 products may be missing slug field"
+    "131 products may be missing slug field"
   ],
   "issues": [],
   "recommendations": [
