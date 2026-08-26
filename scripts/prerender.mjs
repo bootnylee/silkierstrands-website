@@ -28,11 +28,10 @@ const OG_IMAGE = `${BASE_URL}/og-image.jpg`;
 // ─── Read the built index.html shell ─────────────────────────────────────────
 const indexHtml = readFileSync(resolve(DIST, "index.html"), "utf-8");
 
-// ─── Load source files ────────────────────────────────────────────────────────
-const productsSource = readFileSync(
-  resolve(ROOT, "client/src/lib/products.ts"),
-  "utf-8"
-);
+// ─── Load validated route data ───────────────────────────────────────────────
+// The extractor imports the same data used by the client router and rejects
+// duplicate review slugs or comparison records with unresolved products.
+const routeData = JSON.parse(readFileSync(resolve(ROOT, "scripts/site-data.json"), "utf-8"));
 const hairTypesSource = readFileSync(
   resolve(ROOT, "client/src/lib/hairTypes.ts"),
   "utf-8"
@@ -121,8 +120,8 @@ function extractHairTypes(src) {
   return types;
 }
 
-const products = extractProducts(productsSource);
-const comparisons = extractComparisons(productsSource);
+const products = routeData.allProducts;
+const comparisons = routeData.comparisons;
 const hairTypes = extractHairTypes(hairTypesSource);
 
 // ─── Author data (mirrors client/src/lib/authors.ts) ─────────────────────────
@@ -146,7 +145,6 @@ const AUTHORS = {
 const PRODUCT_AUTHOR_MAP = {
   "pureology-hydrate-shampoo-review": "renata-cole",
   "redken-all-soft-shampoo-review": "jamie-lin",
-  "loreal-elvive-hyaluron-plump-review": "renata-cole",
   "pantene-daily-moisture-renewal-review": "jamie-lin",
   "nexxus-therappe-humectress-review": "renata-cole",
   "native-coconut-vanilla-shampoo-review": "jamie-lin",
@@ -160,8 +158,6 @@ const PRODUCT_AUTHOR_MAP = {
   "olaplex-no8-mask-review": "renata-cole",
   "moroccanoil-intense-hydrating-mask-review": "jamie-lin",
   "its-a-10-miracle-mask-review": "renata-cole",
-  "briogeo-dont-despair-mask-review": "jamie-lin",
-  "karseell-collagen-hair-mask-review": "renata-cole",
   "sunatoria-korean-keratin-mask-review": "jamie-lin",
   "amika-soulfood-nourishing-mask-review": "renata-cole",
   "ouai-hair-mask-review": "jamie-lin",

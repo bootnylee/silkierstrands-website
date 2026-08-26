@@ -1,6 +1,6 @@
 // SilkierStrands.com — Sitemap Generator
-// Run: node scripts/generate-sitemap.mjs
-// Generates /client/public/sitemap.xml from product data
+// Run after: pnpm exec tsx scripts/extract-site-data.ts
+// Emits only unique review and comparison records the application can resolve.
 
 import { readFileSync, writeFileSync } from "fs";
 import { resolve, dirname } from "path";
@@ -11,33 +11,27 @@ const ROOT = resolve(__dirname, "..");
 const BASE_URL = "https://silkierstrands.com";
 const TODAY = new Date().toISOString().split("T")[0];
 
-// ─── Read product/comparison slugs from products.ts (same approach as prerender) ─
-const productsSource = readFileSync(resolve(ROOT, "client/src/lib/products.ts"), "utf-8");
+const routeData = JSON.parse(readFileSync(resolve(__dirname, "site-data.json"), "utf-8"));
+const productSlugs = routeData.allProducts.map((product) => product.slug);
+const comparisonSlugs = routeData.comparisons.map((comparison) => comparison.slug);
 
-const productSlugs = [...productsSource.matchAll(/slug:\s*"([^"]*-review)"/g)].map(m => m[1]);
-const comparisonSlugs = [...productsSource.matchAll(/slug:\s*"([^"]*-vs-[^"]*)"/g)].map(m => m[1]);
-
-// ─── Hair type slugs ──────────────────────────────────────────────────────────
 const hairTypesSource = readFileSync(resolve(ROOT, "client/src/lib/hairTypes.ts"), "utf-8");
-const hairTypeSlugs = [...hairTypesSource.matchAll(/slug:\s*['"]([^'"]+)['"]/g)].map(m => m[1]);
-
-// ─── Author slugs ─────────────────────────────────────────────────────────────
+const hairTypeSlugs = [...hairTypesSource.matchAll(/slug:\s*['"]([^'"]+)['"]/g)].map((match) => match[1]);
 const authorSlugs = ["renata-cole", "jamie-lin"];
 
-// ─── Static pages ─────────────────────────────────────────────────────────────
 const staticPages = [
-  { url: "/",                               priority: "1.0", changefreq: "weekly"  },
-  { url: "/reviews",                        priority: "0.9", changefreq: "weekly"  },
-  { url: "/comparisons",                    priority: "0.9", changefreq: "weekly"  },
-  { url: "/about",                          priority: "0.5", changefreq: "monthly" },
-  { url: "/how-we-test",                    priority: "0.6", changefreq: "monthly" },
-  { url: "/hair-quiz",                      priority: "0.6", changefreq: "monthly" },
-  { url: "/category/shampoo-conditioner",   priority: "0.8", changefreq: "weekly"  },
-  { url: "/category/hair-masks",            priority: "0.8", changefreq: "weekly"  },
-  { url: "/category/serums-oils",           priority: "0.8", changefreq: "weekly"  },
-  { url: "/category/hair-dryers",           priority: "0.8", changefreq: "weekly"  },
-  { url: "/category/flat-irons",            priority: "0.8", changefreq: "weekly"  },
-  { url: "/category/curling-irons",         priority: "0.8", changefreq: "weekly"  },
+  { url: "/", priority: "1.0", changefreq: "weekly" },
+  { url: "/reviews", priority: "0.9", changefreq: "weekly" },
+  { url: "/comparisons", priority: "0.9", changefreq: "weekly" },
+  { url: "/about", priority: "0.5", changefreq: "monthly" },
+  { url: "/how-we-test", priority: "0.6", changefreq: "monthly" },
+  { url: "/hair-quiz", priority: "0.6", changefreq: "monthly" },
+  { url: "/category/shampoo-conditioner", priority: "0.8", changefreq: "weekly" },
+  { url: "/category/hair-masks", priority: "0.8", changefreq: "weekly" },
+  { url: "/category/serums-oils", priority: "0.8", changefreq: "weekly" },
+  { url: "/category/hair-dryers", priority: "0.8", changefreq: "weekly" },
+  { url: "/category/flat-irons", priority: "0.8", changefreq: "weekly" },
+  { url: "/category/curling-irons", priority: "0.8", changefreq: "weekly" },
 ];
 
 function buildSitemapEntry({ url, priority, changefreq, lastmod }) {
@@ -50,31 +44,11 @@ function buildSitemapEntry({ url, priority, changefreq, lastmod }) {
 }
 
 const entries = [
-  ...staticPages.map(p => buildSitemapEntry({ ...p, lastmod: TODAY })),
-  ...authorSlugs.map(slug => buildSitemapEntry({
-    url: `/author/${slug}`,
-    priority: "0.5",
-    changefreq: "monthly",
-    lastmod: TODAY,
-  })),
-  ...hairTypeSlugs.map(slug => buildSitemapEntry({
-    url: `/hair-type/${slug}`,
-    priority: "0.7",
-    changefreq: "monthly",
-    lastmod: TODAY,
-  })),
-  ...productSlugs.map(slug => buildSitemapEntry({
-    url: `/review/${slug}`,
-    priority: "0.7",
-    changefreq: "monthly",
-    lastmod: TODAY,
-  })),
-  ...comparisonSlugs.map(slug => buildSitemapEntry({
-    url: `/comparison/${slug}`,
-    priority: "0.8",
-    changefreq: "monthly",
-    lastmod: TODAY,
-  })),
+  ...staticPages.map((page) => buildSitemapEntry({ ...page, lastmod: TODAY })),
+  ...authorSlugs.map((slug) => buildSitemapEntry({ url: `/author/${slug}`, priority: "0.5", changefreq: "monthly", lastmod: TODAY })),
+  ...hairTypeSlugs.map((slug) => buildSitemapEntry({ url: `/hair-type/${slug}`, priority: "0.7", changefreq: "monthly", lastmod: TODAY })),
+  ...productSlugs.map((slug) => buildSitemapEntry({ url: `/review/${slug}`, priority: "0.7", changefreq: "monthly", lastmod: TODAY })),
+  ...comparisonSlugs.map((slug) => buildSitemapEntry({ url: `/comparison/${slug}`, priority: "0.8", changefreq: "monthly", lastmod: TODAY })),
 ];
 
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
@@ -84,6 +58,5 @@ ${entries.join("\n")}
 
 const outputPath = resolve(__dirname, "../client/public/sitemap.xml");
 writeFileSync(outputPath, sitemap, "utf-8");
-console.log(`✅ Sitemap generated: ${outputPath}`);
-console.log(`   ${entries.length} URLs total`);
-console.log(`   Static: ${staticPages.length}, Authors: ${authorSlugs.length}, Hair types: ${hairTypeSlugs.length}, Reviews: ${productSlugs.length}, Comparisons: ${comparisonSlugs.length}`);
+console.log(`Sitemap generated: ${outputPath}`);
+console.log(`Static: ${staticPages.length}, Authors: ${authorSlugs.length}, Hair types: ${hairTypeSlugs.length}, Reviews: ${productSlugs.length}, Comparisons: ${comparisonSlugs.length}`);

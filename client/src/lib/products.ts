@@ -152,35 +152,7 @@ At $38 for 9 oz, it's an investment, but the concentrated formula means you use 
     publishDate: "2025-01-15",
     slug: "pureology-hydrate-shampoo-review",
   },
-    {
-    id: "loreal-elvive-hyaluron-set",
-    name: "L'Oréal Paris EverPure Moisture Sulfate Free Shampoo",
-    brand: "L'Oréal Paris",
-    asin: "B01N9OZ4P0",
-    price: 31.90,
-    priceDisplay: "$31.90",
-    rating: 4.7,
-    reviewCount: 5834,
-    category: "Shampoo & Conditioner",
-    categorySlug: "shampoo-conditioner",
-    imageUrl: "https://m.media-amazon.com/images/I/31ozs0RqmFL._SL500_.jpg",
-    amazonImageUrl: "https://m.media-amazon.com/images/I/31ozs0RqmFL._SL500_.jpg",
-    shortDescription: "Hyaluronic acid-infused shampoo and conditioner set for dehydrated, dry hair.",
-    fullReview: `L'Oréal's Elvive Hyaluron Plump set brings the hyaluronic acid skincare trend to hair care with impressive results. The shampoo delivers a thorough cleanse while the conditioner provides immediate, noticeable softness. Together, they work synergistically to plump and hydrate hair from within.
-
-What makes this set stand out at its price point is the genuine efficacy of the hyaluronic acid complex. We tested it on fine, dehydrated hair and saw measurable improvement in texture and manageability within two weeks. Hair appeared fuller and felt more resilient.
-
-At under $17 for the set, this is exceptional value. The formulas are lightweight enough for fine hair while still delivering meaningful hydration - a rare combination. This is our top drugstore pick for anyone dealing with dehydrated, limp hair.`,
-    pros: ["Outstanding value for the price", "Hyaluronic acid adds noticeable plumpness", "Lightweight - won't weigh down fine hair", "Strong 4.7-star rating with 5,800+ reviews"],
-    cons: ["Not as intensive as salon brands for severely damaged hair", "Conditioner may not be enough for very thick hair", "Packaging is basic"],
-    bestFor: "Fine, dehydrated hair; budget-conscious shoppers",
-    editorPick: true,
-    editorNote: "The best drugstore find we've tested this year. The hyaluronic acid complex genuinely plumps fine hair — not just a marketing claim. At under $17 for the set, it outperforms $40 salon brands we've tried.",
-    publishDate: "2025-01-22",
-    slug: "loreal-elvive-hyaluron-plump-review",
-    hairTypes: ["dry", "normal", "color-treated"],
-  },
-    {
+        {
     id: "nexxus-therappe-humectress",
     name: "Nexxus Therappe Humectress Shampoo & Conditioner",
     brand: "Nexxus",
@@ -238,61 +210,7 @@ The 17.5 oz size offers excellent value at $30, and the formula is versatile eno
     slug: "its-a-10-miracle-mask-review",
     hairTypes: ["dry", "color-treated", "all"],
   },
-  {
-    id: "briogeo-dont-despair-mask",
-    name: "OGX Frizz-Free + Keratin Smoothing Oil Shampoo",
-    brand: "OGX",
-    asin: "B0BJMBDYZN",
-    price: 18.99,
-    priceDisplay: "$18.99",
-    rating: 4.6,
-    reviewCount: 9200,
-    category: "Hair Masks & Treatments",
-    categorySlug: "hair-masks",
-    imageUrl: "https://m.media-amazon.com/images/I/41gUffI5KjL._SL500_.jpg",
-    amazonImageUrl: "https://m.media-amazon.com/images/I/41gUffI5KjL._SL500_.jpg",
-    shortDescription: "Keratin-infused frizz-fighting shampoo that smooths and strengthens with every wash.",
-    fullReview: `OGX Frizz-Free + Keratin Smoothing Oil Shampoo is a drugstore staple that delivers genuine frizz control and smoothing results at an accessible price. The keratin-infused formula coats the hair shaft to reduce frizz, while the smoothing oils add shine and manageability with every wash.
-
-We tested this on frizz-prone, color-treated hair over four weeks and found it consistently effective at reducing flyaways and improving overall smoothness. The lather is generous, the scent is pleasant, and hair feels noticeably more manageable after each wash. The formula is gentle enough for daily use.
-
-At $38 for a multi-pack, it's excellent value for a keratin-infused shampoo. OGX Frizz-Free + Keratin Smoothing Oil is our top recommendation for those who want drugstore convenience with professional-quality frizz control.`,
-    pros: ["Effective frizz control with every wash", "Keratin-infused formula for smoothing", "Gentle enough for daily use", "Pleasant scent"],
-    cons: ["Not a bond-building treatment", "Results are cumulative rather than immediate", "May be too heavy for very fine hair"],
-    bestFor: "Frizz-prone hair; color-treated hair; everyday smoothing maintenance",
-     editorPick: true,
-    editorNote: "We were skeptical of the keratin-smoothing claims at this price point, but this shampoo genuinely reduces frizz from the first wash. It's become a permanent fixture in our testing lab's rotation.",
-    publishDate: "2025-01-29",
-    slug: "briogeo-dont-despair-mask-review",
-    hairTypes: ["thick", "coarse", "normal"],
-  },
-  {
-    id: "karseell-collagen-mask",
-    name: "OGX Brazilian Keratin Therapy Shampoo",
-    brand: "OGX",
-    asin: "B00GMP6O9I",
-    price: 33.63,
-    priceDisplay: "$33.63",
-    rating: 4.5,
-    reviewCount: 35000,
-    category: "Hair Masks & Treatments",
-    categorySlug: "hair-masks",
-    imageUrl: "https://m.media-amazon.com/images/I/41ukUQT6AlL._SL500_.jpg",
-    amazonImageUrl: "https://m.media-amazon.com/images/I/41ukUQT6AlL._SL500_.jpg",
-    shortDescription: "Keratin-infused shampoo with Brazilian keratin complex for smoother, frizz-free hair.",
-    fullReview: `OGX Brazilian Keratin Therapy Shampoo is a salon-inspired formula that brings the smoothing power of Brazilian keratin treatments into your daily shower routine. The keratin complex works with each wash to progressively smooth the hair cuticle, reducing frizz and adding shine over time.
-
-We tested this on thick, frizz-prone hair over six weeks and found it one of the most effective drugstore smoothing shampoos available. The lather is rich and the scent — a warm, coconut-forward fragrance — is genuinely enjoyable. Hair felt progressively smoother and more manageable with continued use.
-
-At $19.99, it's outstanding value for a keratin-infused formula. OGX Brazilian Keratin Therapy is our top recommendation for those who want the smoothing benefits of a keratin treatment without the salon price tag.`,
-    pros: ["Brazilian keratin complex for progressive smoothing", "Rich, enjoyable lather", "Excellent value at under $20", "Works for all hair types"],
-    cons: ["Results are cumulative — not instant", "Fragrance is strong (not suitable for fragrance-sensitive users)", "Not a replacement for professional keratin treatments"],
-    bestFor: "Frizz-prone and thick hair; those wanting progressive smoothing; budget shoppers",
-    publishDate: "2025-02-12",
-    slug: "karseell-collagen-hair-mask-review",
-    hairTypes: ["thick", "coarse", "normal"],
-  },
-  ];
+      ];
 
 // ============================================================
 // PRODUCTS - SERUMS & OILS (6)
@@ -472,35 +390,7 @@ At $80, it's well-priced for a professional-grade tool. The build quality is exc
 // PRODUCTS - FLAT IRONS & STRAIGHTENERS (6)
 // ============================================================
 const flatIronProducts: Product[] = [
-  {
-    id: "ghd-platinum-plus",
-    name: "ghd Platinum+ Professional Hair Straightener",
-    brand: "ghd",
-    asin: "B09P4SVXK4",
-    price: 239.00,
-    priceDisplay: "$239.00",
-    rating: 4.6,
-    reviewCount: 12000,
-    category: "Flat Irons & Straighteners",
-    categorySlug: "flat-irons",
-    imageUrl: "https://m.media-amazon.com/images/I/311DqnW1NzL._SL500_.jpg",
-    amazonImageUrl: "https://m.media-amazon.com/images/I/311DqnW1NzL._SL500_.jpg",
-    shortDescription: "Predictive technology maintains optimal 365°F styling temperature for healthier hair.",
-    fullReview: `The ghd Platinum+ is widely considered the best flat iron in the world, and after extensive testing, we understand why. The predictive technology continuously monitors and adjusts the temperature 250 times per second to maintain the optimal 365°F styling temperature - the sweet spot that styles effectively without causing excessive damage.
-
-We tested this on fine, color-treated hair and found it delivered the smoothest, most consistent results of any flat iron we've tested. The floating plates glide effortlessly through hair, and the results are salon-quality: smooth, shiny, and long-lasting. The automatic sleep mode adds peace of mind.
-
-At $249, it's a premium investment, but for those who straighten regularly, the combination of superior results and reduced heat damage makes it worth every penny. This is the flat iron we recommend without hesitation.`,
-    pros: ["Predictive technology maintains optimal temperature", "Smoothest results of any flat iron tested", "Floating plates for even heat distribution", "Automatic sleep mode"],
-    cons: ["Very expensive", "Fixed temperature - no manual adjustment", "Heavy for prolonged use"],
-    bestFor: "All hair types; daily straightening; those prioritizing hair health",
-    editorPick: true,
-    editorNote: "The predictive temperature technology isn't just a marketing feature — we measured it. The ghd Platinum+ genuinely adapts to your hair's resistance in real time, which is why it delivers smoother results with less damage than any other flat iron we've tested.",
-    publishDate: "2025-02-12",
-    slug: "ghd-platinum-plus-review",
-    hairTypes: ["fine", "normal", "color-treated", "all"],
-  },
-  {
+    {
     id: "t3-singlepass-luxe",
     name: "T3 SinglePass Luxe 1\" Straightening & Styling Iron",
     brand: "T3",
@@ -679,33 +569,7 @@ At $50 with a 4.6-star rating from nearly 8,000 reviews, this is exceptional val
     slug: "tymo-curlpro-plus-review",
     hairTypes: ["normal", "thick", "fine"],
   },
-  {
-    id: "hot-tools-24k-gold-curling",
-    name: "Hot Tools Professional 24K Gold Marcel Curling Iron",
-    brand: "Hot Tools",
-    asin: "B00011QUKW",
-    price: 38.94,
-    priceDisplay: "$38.94",
-    rating: 4.6,
-    reviewCount: 28000,
-    category: "Curling Irons & Wands",
-    categorySlug: "curling-irons",
-    imageUrl: "https://m.media-amazon.com/images/I/31093J8cv2L._SL500_.jpg",
-    amazonImageUrl: "https://m.media-amazon.com/images/I/31093J8cv2L._SL500_.jpg",
-    shortDescription: "Professional 24K gold barrel for long-lasting curls with even heat distribution.",
-    fullReview: `Hot Tools Professional 24K Gold Marcel Curling Iron is a salon staple that has been trusted by professional stylists for decades. The 24K gold barrel provides even, consistent heat distribution that creates long-lasting curls with a beautiful shine. The Marcel-style design gives stylists precise control over curl placement.
-
-We tested this on medium-length, medium-thickness hair and found it delivered some of the longest-lasting curls of any iron we tested. The gold barrel heats evenly from base to tip, eliminating the hot spots that cause inconsistent results with cheaper irons. The rheostat control allows precise temperature adjustment.
-
-At $35, it's exceptional value for a professional-grade tool. The main limitation is that the Marcel design requires some practice - it's not as beginner-friendly as clip-style curling irons. But for those willing to learn the technique, the results are exceptional.`,
-    pros: ["24K gold barrel for even heat distribution", "Long-lasting curls", "Professional Marcel design", "Excellent value for professional quality"],
-    cons: ["Marcel design requires practice", "No clip - less beginner-friendly", "Basic design without modern features"],
-    bestFor: "Medium to thick hair; those willing to learn Marcel technique; long-lasting curls",
-    publishDate: "2025-01-29",
-    slug: "hot-tools-24k-gold-curling-iron-review",
-    hairTypes: ["normal", "thick", "coarse"],
-  },
-      ];
+        ];
 
 // ============================================================
 // ALL PRODUCTS
@@ -1367,46 +1231,9 @@ At $18.48 for 12 oz, the value is excellent for a professional-quality deep cond
     publishDate: "2026-07-27",
     slug: "tgin-honey-miracle-hair-mask-review",
   },
-  {
-    id: "pura-dor-anti-thinning-shampoo",
-    name: "PURA D'OR Original Gold Label Anti-Thinning Shampoo",
-    brand: "PURA D'OR",
-    asin: "B00FH692PQ",
-    price: 29.99,
-    priceDisplay: "$29.99",
-    rating: 4.3,
-    reviewCount: 37910,
-    category: "Shampoo & Conditioner",
-    categorySlug: "shampoo-conditioner",
-    imageUrl: "https://m.media-amazon.com/images/I/41SXn+02DcL._SL500_.jpg",
-    amazonImageUrl: "https://m.media-amazon.com/images/I/41SXn+02DcL._SL500_.jpg",
-    hairTypes: ["thinning", "fine", "normal", "all"],
-    shortDescription: "popular option clinically tested biotin and argan oil shampoo that reduces hair thinning and promotes strength, volume, and fullness for men and women.",
-    fullReview: `PURA D'OR Original Gold Label Anti-Thinning Shampoo is one of the most reviewed hair thinning shampoos on Amazon — with over 37,900 reviews averaging 4.3 stars and strong retail visibility, it has earned its reputation as the leading drugstore solution for hair thinning concerns. The clinically tested formula combines biotin, argan oil, pumpkin seed, and black cumin seed in a sulfate-free base that strengthens hair from the root while volumizing fine, thinning strands.
-
-We tested this on fine, thinning hair over six weeks and found it effective at improving the appearance of fullness and reducing visible shedding. The biotin complex supports the scalp environment for healthier hair growth, while the argan oil adds moisture and shine without weighing down fine strands. The natural earthy scent is pleasant and distinctive without being overpowering.
-
-At $29.99 for 16 oz, it offers strong value for a clinically tested, professional-quality anti-thinning formula. This is our top recommendation for men and women experiencing hair thinning who want a sulfate-free, ingredient-conscious solution that delivers visible results over time.`,
-    pros: [
-      "Clinically tested to reduce hair thinning",
-      "popular option with 37,900+ reviews at 4.3 stars",
-      "Biotin and argan oil formula strengthens and volumizes",
-      "Sulfate-free — safe for color-treated hair",
-      "Works for both men and women",
-    ],
-    cons: [
-      "Results require consistent use over 4–6 weeks",
-      "Natural earthy scent is divisive",
-      "Not a replacement for medical treatment of significant hair loss",
-    ],
-    bestFor: "Fine or thinning hair; those wanting a clinically tested biotin shampoo; men and women concerned about hair density",
-    editorPick: false,
-    publishDate: "2026-07-27",
-    slug: "pura-dor-anti-thinning-shampoo-review",
-  },
-  // ── Weekly additions 2026-07-20 ──
+    // ── Weekly additions 2026-07-20 ──
       {
-    id: "verb-ghost-flat-iron",
+    id: "ghd-platinum-plus",
     name: "ghd Platinum+ Professional Hair Straightener",
     brand: "ghd",
     asin: "B07F7Q4PTN",
@@ -2715,22 +2542,7 @@ export const comparisons: Comparison[] = [
     hairTypes: ["curly", "wavy", "coily", "type3", "type4"],
   },
   // ── Weekly additions 2026-07-27 ──
-  {
-    id: "tgin-honey-miracle-vs-briogeo-dont-despair",
-    title: "tgin Honey Miracle Mask vs. Briogeo Don't Despair, Repair!",
-    subtitle: "Natural Hair Deep Conditioner vs. Clean Beauty Repair Mask: Which Is Best for Curly Hair?",
-    category: "Hair Masks & Treatments",
-    categorySlug: "hair-masks",
-    product1Id: "tgin-honey-miracle-hair-mask",
-    product2Id: "briogeo-dont-despair-repair-mask",
-    winnerId: "tgin-honey-miracle-hair-mask",
-    winnerReason: "tgin Honey Miracle wins for Type 3C–4C natural hair that needs maximum moisture, slip, and detangling support — the raw honey humectant formula is purpose-built for coily hair. Briogeo wins for hair that needs protein-moisture balance, breakage reduction, and clean beauty credentials across a wider range of hair types.",
-    verdict: "tgin Honey Miracle Hair Mask is the better choice for natural, coily, and kinky hair types (3C–4C) that need intensive moisture, exceptional slip, and easy detangling — the raw honey formula is unmatched for this specific use case. Briogeo Don't Despair, Repair! is the superior option for those with color-treated, protein-deficient, or breakage-prone hair who want a clinically proven repair mask with clean beauty credentials. For the natural hair community, tgin wins; for broader damage repair, Briogeo is the smarter choice.",
-    publishDate: "2026-07-27",
-    slug: "tgin-honey-miracle-vs-briogeo-dont-despair-repair",
-    hairTypes: ["curly", "coily", "natural", "dry"],
-  },
-  {
+    {
     id: "pura-dor-anti-thinning-vs-paul-mitchell-tea-tree",
     title: "PURA D'OR Anti-Thinning Shampoo vs. Paul Mitchell Tea Tree Special",
     subtitle: "Biotin Hair Thinning Solution vs. Scalp-Refreshing Tea Tree: Which Shampoo Wins for Scalp Health?",
@@ -2746,22 +2558,7 @@ export const comparisons: Comparison[] = [
     hairTypes: ["thinning", "fine", "oily", "normal"],
   },
   // ── Weekly additions 2026-07-20 ──
-  {
-    id: "paul-mitchell-tea-tree-vs-ogx-keratin",
-    title: "Paul Mitchell Tea Tree Special vs. OGX Keratin Smoothing Oil Shampoo",
-    subtitle: "Scalp-Refreshing Tea Tree vs. Frizz-Fighting Keratin: Which Shampoo Wins?",
-    category: "Shampoo & Conditioner",
-    categorySlug: "shampoo-conditioner",
-    product1Id: "paul-mitchell-tea-tree-special-shampoo",
-    product2Id: "ogx-keratin-smoothing-shampoo",
-    winnerId: "paul-mitchell-tea-tree-special-shampoo",
-    winnerReason: "Paul Mitchell Tea Tree wins for scalp health, deep cleansing, and oily hair management — the tea tree and peppermint formula delivers an invigorating scalp reset that OGX Keratin cannot match. OGX Keratin wins for frizz control and smoothing on dry, frizz-prone hair that needs a keratin-infused formula.",
-    verdict: "Paul Mitchell Tea Tree Special Shampoo is the better choice for those with oily scalps, product buildup, or anyone who wants a genuinely invigorating cleansing experience — its 61,000+ reviews validate its effectiveness. OGX Keratin Smoothing Oil Shampoo is the smarter pick for dry, frizz-prone hair that needs a smoothing, keratin-infused formula at a lower price point. For scalp health and deep cleansing, Paul Mitchell wins; for frizz control and smoothing, OGX is the better buy.",
-    publishDate: "2026-07-20",
-    slug: "paul-mitchell-tea-tree-vs-ogx-keratin-smoothing-shampoo",
-    hairTypes: ["oily", "normal", "all", "dry"],
-  },
-  {
+    {
     id: "chi-44-iron-guard-vs-olaplex-no9",
     title: "CHI 44 Iron Guard vs. Olaplex Nº. 9 Bond Protector",
     subtitle: "Budget Heat Shield vs. Bond-Repairing Protectant: Which Heat Protectant Is Worth It?",
@@ -2779,37 +2576,7 @@ export const comparisons: Comparison[] = [
   // ── Weekly additions 2026-06-22 ──
   // ── Weekly additions 2026-06-29 ──
   // ── Weekly additions 2026-07-13 ──
-  {
-    id: "redken-all-soft-heavy-cream-vs-briogeo-repair",
-    title: "Redken All Soft Heavy Cream Mask vs. Briogeo Don't Despair, Repair!",
-    subtitle: "Argan Oil Luxury Conditioner vs. Award-Winning Clean Beauty Mask: Which Deep Treatment Wins?",
-    category: "Hair Masks & Treatments",
-    categorySlug: "hair-masks",
-    product1Id: "redken-all-soft-heavy-cream-mask",
-    product2Id: "briogeo-dont-despair-repair-mask",
-    winnerId: "redken-all-soft-heavy-cream-mask",
-    winnerReason: "Redken All Soft Heavy Cream wins for pure moisture delivery and immediate softness on dry, coarse, or color-treated hair — the argan oil formula is more intensely conditioning. Briogeo wins for clean beauty credentials, protein-moisture balance, and clinically proven breakage reduction for those who prioritize ingredient transparency.",
-    verdict: "Redken All Soft Heavy Cream Mask is the better choice for those who want maximum immediate softness and frizz control — the argan oil formula delivers a richer, more indulgent conditioning experience. Briogeo Don't Despair, Repair! is the superior option for clean beauty enthusiasts and those whose hair needs both protein and moisture balance to reduce breakage. For most users seeking deep moisture, Redken wins; for those with breakage-prone or chemically processed hair who prioritize clean ingredients, Briogeo is the smarter choice.",
-    publishDate: "2026-07-13",
-    slug: "redken-all-soft-heavy-cream-vs-briogeo-dont-despair-repair",
-    hairTypes: ["dry", "color-treated", "coarse", "thick"],
-  },
-  {
-    id: "kitsch-rice-water-vs-loreal-everpure",
-    title: "Kitsch Rice Water Bars vs. L'Oréal EverPure Moisture Shampoo",
-    subtitle: "Sustainable Solid Bars vs. Drugstore Sulfate-Free Liquid: Which Strengthening Shampoo Wins?",
-    category: "Shampoo & Conditioner",
-    categorySlug: "shampoo-conditioner",
-    product1Id: "kitsch-rice-water-shampoo-conditioner",
-    product2Id: "loreal-everpure-moisture-shampoo",
-    winnerId: "kitsch-rice-water-shampoo-conditioner",
-    winnerReason: "Kitsch wins for eco-conscious shoppers, travelers, and those wanting a strengthening rice protein formula that reduces breakage. L'Oréal EverPure wins for those who prefer a traditional liquid format, want hyaluronic acid plumping for fine hair, and prioritize the lowest possible price.",
-    verdict: "Kitsch Rice Water Protein Bars is the better choice for shoppers who want to reduce plastic waste, travel light, and strengthen their hair with a rice protein formula — the nearly 36,000 Amazon reviews validate its performance. L'Oréal EverPure Moisture is the smarter pick for fine, dehydrated hair that needs hyaluronic acid plumping at the lowest price point. For sustainability-minded shoppers or those with breakage concerns, Kitsch wins; for fine hair on a tight budget, L'Oréal remains unbeatable.",
-    publishDate: "2026-07-13",
-    slug: "kitsch-rice-water-bars-vs-loreal-everpure-moisture",
-    hairTypes: ["all", "dry", "normal", "color-treated"],
-  },
-  // ── Weekly additions 2026-07-06 ──
+      // ── Weekly additions 2026-07-06 ──
   {
     id: "olaplex-no9-vs-verb-ghost-oil",
     title: "Olaplex Nº. 9 Bond Protector vs. VERB Ghost Oil",
@@ -2901,22 +2668,7 @@ export const comparisons: Comparison[] = [
     hairTypes: ["all", "dry", "frizzy", "coarse"],
   },
   // ── Weekly additions 2026-06-15 ──
-  {
-    id: "k18-vs-briogeo-repair-mask",
-    title: "K18 Molecular Repair Mask vs. Briogeo Don't Despair, Repair!",
-    subtitle: "Science-Forward Peptide Treatment vs. Clean Beauty Deep Conditioner: Which Repairs Better?",
-    category: "Hair Masks & Treatments",
-    categorySlug: "hair-masks",
-    product1Id: "k18-leave-in-molecular-repair-mask",
-    product2Id: "briogeo-dont-despair-repair-mask",
-    winnerId: "k18-leave-in-molecular-repair-mask",
-    winnerReason: "K18 wins for structurally damaged hair because its patented peptide technology reconnects broken keratin chains at the molecular level — something no conventional conditioner or mask can replicate. Briogeo wins for everyday deep conditioning, clean beauty credentials, and better value for hair that is dry or mildly damaged rather than structurally compromised.",
-    verdict: "K18 is the superior choice for bleached, relaxed, or heavily heat-damaged hair where structural repair is the priority — the peptide technology delivers results that no other mask can match. Briogeo Don't Despair, Repair! is the better everyday deep conditioner for color-treated or dry hair that needs protein-moisture balance without the premium price. For most users, Briogeo is the smarter purchase; for those with serious chemical damage, K18 is worth every dollar.",
-    publishDate: "2026-06-15",
-    slug: "k18-molecular-repair-vs-briogeo-dont-despair-repair",
-    hairTypes: ["color-treated", "dry", "fine", "coarse"],
-  },
-  {
+    {
     id: "sheamoisture-manuka-vs-christophe-robin",
     title: "SheaMoisture Manuka Honey Mask vs. Christophe Robin Regenerating Mask",
     subtitle: "Budget Natural Moisture vs. Luxury Prickly Pear Regeneration: Which Is Worth It?",
@@ -2962,21 +2714,7 @@ export const comparisons: Comparison[] = [
     slug: "wavytalk-ionic-hair-dryer-vs-conair-infiniti-pro",
     hairTypes: ["curly", "thick", "coarse", "normal"],
   },
-  {
-    id: "kenra-vs-redken-one-united",
-    title: "Kenra Platinum Blow-Dry Spray vs. Redken One United",
-    subtitle: "Blowout Speed vs. All-In-One Leave-In: Which Heat Protectant Fits Your Routine?",
-    category: "Serums & Oils",
-    categorySlug: "serums-oils",
-    product1Id: "kenra-platinum-blow-dry-spray",
-    product2Id: "redken-one-united-leave-in",
-    winnerId: "kenra-platinum-blow-dry-spray",
-    winnerReason: "Kenra wins for frequent blow-dry users because it noticeably reduces drying time while smoothing and resisting humidity. Redken wins for everyday versatility and value when detangling, conditioning, and lightweight heat protection matter more than blowout speed.",
-    verdict: "Kenra Platinum Blow-Dry Spray is the better choice for medium to coarse hair and regular blowouts — the time-saving benefit is meaningful and the finish is more polished. Redken One United is the smarter all-purpose leave-in for fine hair, daily detangling, and shoppers who want one lightweight spray for the entire routine.",
-    publishDate: "2026-06-01",
-    slug: "kenra-platinum-blow-dry-spray-vs-redken-one-united",
-  },
-  {
+    {
     id: "mielle-vs-kerastase-elixir",
     title: "Mielle Rosemary Mint Oil vs. Kérastase Elixir Ultime",
     subtitle: "Affordable Scalp Oil vs. Luxury Shine Oil: Which Hair Oil Should You Buy?",
@@ -3005,18 +2743,18 @@ export const comparisons: Comparison[] = [
     slug: "beachwaver-s1-vs-remington-pro-spiral",
   },
   {
-    id: "chi-air-vs-verb-ghost-flat-iron",
+    id: "chi-air-expert-vs-ghd-platinum-plus",
     title: "CHI Air Expert vs. ghd Platinum+ Straightener",
     subtitle: "Professional Ceramic vs. Intelligent Heat Technology: Which Flat Iron Is Right for You?",
     category: "Flat Irons & Straighteners",
     categorySlug: "flat-irons",
     product1Id: "chi-air-expert-flat-iron",
-    product2Id: "verb-ghost-flat-iron",
-    winnerId: "verb-ghost-flat-iron",
+    product2Id: "ghd-platinum-plus",
+    winnerId: "ghd-platinum-plus",
     winnerReason: "ghd Platinum+ wins for fine and color-treated hair due to its predictive temperature technology that prevents heat damage. CHI Air Expert wins for thick, coarse hair that benefits from manual heat control at higher temperatures.",
     verdict: "The winner depends on your hair type and priorities. ghd Platinum+ is the better choice for fine, color-treated, or heat-sensitive hair — the intelligent temperature control delivers results with significantly less risk of heat damage. CHI Air Expert is the better choice for thick, coarse hair that needs higher heat and manual temperature control to achieve smooth results.",
     publishDate: "2026-05-11",
-    slug: "chi-air-expert-vs-verb-ghost-flat-iron",
+    slug: "chi-air-expert-vs-ghd-platinum-plus",
   },
   {
     id: "t3-featherweight-vs-ghd-helios",
@@ -3102,21 +2840,7 @@ export const comparisons: Comparison[] = [
     publishDate: "2026-05-04",
     slug: "remington-pearl-pro-vs-t3-whirl-trio",
   },
-  {
-    id: "bio-ionic-vs-conair-spin-air",
-    title: "Bio Ionic GoldPro vs. Conair Infiniti PRO Spin Air",
-    subtitle: "Premium Speed vs. Budget Versatility: Hair Dryer Comparison",
-    category: "Hair Dryers",
-    categorySlug: "hair-dryers",
-    product1Id: "bio-ionic-goldpro-dryer",
-    product2Id: "conair-infiniti-pro-spin-air",
-    winnerId: "bio-ionic-goldpro-dryer",
-    winnerReason: "Bio Ionic GoldPro wins for pure drying speed and shine results. Conair Spin Air wins for versatility and value — the rotating barrel creates blowout results that the Bio Ionic can't match.",
-    verdict: "Bio Ionic GoldPro is the winner for those who want the fastest, shiniest blowdry results. Conair Spin Air is the better choice for those who want a tool that both dries and styles simultaneously — the rotating barrel creates voluminous blowouts that justify its lower price.",
-    publishDate: "2026-05-04",
-    slug: "bio-ionic-goldpro-vs-conair-spin-air",
-  },
-  {
+    {
     id: "amika-serum-vs-olaplex-no3",
     title: "Amika Nourish & Shine vs. Olaplex No. 3",
     subtitle: "Shine Serum vs. Bond Builder: Which Does Your Hair Actually Need?",
@@ -3144,36 +2868,7 @@ export const comparisons: Comparison[] = [
     publishDate: "2026-05-04",
     slug: "fanola-no-yellow-vs-kerastase-resistance-masque",
   },
-  {
-    id: "aveda-vs-oribe-shampoo",
-    title: "Aveda Nutriplenish vs. Oribe Gold Lust Shampoo",
-    subtitle: "Clean Beauty vs. Ultra-Luxury: Is Oribe Worth 50% More?",
-    category: "Shampoo & Conditioner",
-    categorySlug: "shampoo-conditioner",
-    product1Id: "aveda-nutriplenish-shampoo",
-    product2Id: "oribe-gold-lust-shampoo",
-    winnerId: "oribe-gold-lust-shampoo",
-    winnerReason: "Oribe Gold Lust wins for results, scent, and the overall luxury experience. Aveda wins for clean beauty credentials and those who prioritize plant-based formulas.",
-    verdict: "Oribe Gold Lust is the winner for those who want the absolute best shampoo experience — the biotin complex, Côte d'Azur scent, and overall luxury are unmatched. Aveda Nutriplenish is the better choice for clean beauty enthusiasts who prioritize plant-based formulas and don't want to pay Oribe prices.",
-    publishDate: "2026-05-04",
-    slug: "aveda-nutriplenish-vs-oribe-gold-lust",
-  },
-  {
-    id: "hot-tools-vs-sultra-bombshell",
-    title: "Hot Tools One-Shot vs. Sultra The Bombshell",
-    subtitle: "Classic Clip Iron vs. Premium Clipless Rod: Which Creates Better Curls?",
-    category: "Curling Irons & Wands",
-    categorySlug: "curling-irons",
-    product1Id: "hot-tools-one-shot-curling-iron",
-    product2Id: "sultra-bombshell-curling-rod",
-    winnerId: "sultra-bombshell-curling-rod",
-    winnerReason: "Sultra Bombshell wins for natural-looking results and eliminating clip marks. Hot Tools wins for ease of use and value - the clip design is more beginner-friendly at a lower price.",
-    verdict: "Sultra Bombshell is the winner for those who want the most natural-looking curls without clip marks. Hot Tools One-Shot is the better choice for beginners or those who prefer the ease and control of a clip-style iron at a much lower price.",
-    publishDate: "2026-04-25",
-    slug: "hot-tools-one-shot-vs-sultra-bombshell",
-    hairTypes: ["curly", "normal", "thick"],
-  },
-  {
+      {
     id: "babyliss-pro-vs-remington-pearl",
     title: "BaBylissPRO Ultra-Thin vs. Remington Pearl Pro",
     subtitle: "Professional Precision vs. Mid-Range Value: Flat Iron Comparison",
@@ -3263,37 +2958,7 @@ export const comparisons: Comparison[] = [
     slug: "pureology-hydrate-vs-redken-all-soft",
     hairTypes: ["dry", "color-treated", "fine"],
   },
-  {
-    id: "olaplex-no8-vs-moroccanoil-mask",
-    title: "Olaplex No. 8 vs. Moroccanoil Intense Hydrating Mask",
-    subtitle: "Premium Deep Conditioning Masks Compared",
-    category: "Hair Masks & Treatments",
-    categorySlug: "hair-masks",
-    product1Id: "olaplex-no8-mask",
-    product2Id: "moroccanoil-intense-hydrating-mask",
-    winnerId: "olaplex-no8-mask",
-    winnerReason: "Olaplex No. 8 wins for damaged or chemically processed hair due to its unique bond-building technology. However, Moroccanoil is the better choice for thick, frizzy hair that needs intensive moisture rather than structural repair.",
-    verdict: "The winner depends entirely on your hair's primary concern. For structural damage (bleach, heat, chemical processing), Olaplex No. 8 is unmatched. For moisture and frizz control in thick hair, Moroccanoil is superior. If you're unsure, Olaplex is the safer choice as it benefits all hair types.",
-    publishDate: "2025-01-22",
-    slug: "olaplex-no8-vs-moroccanoil-mask",
-    hairTypes: ["coarse", "dry", "color-treated", "thick"],
-  },
-  {
-    id: "moroccanoil-vs-olaplex-no7-oil",
-    title: "Moroccanoil Treatment vs. Olaplex No. 7 Bonding Oil",
-    subtitle: "Luxury Hair Oils: The Definitive Comparison",
-    category: "Serums & Oils",
-    categorySlug: "serums-oils",
-    product1Id: "moroccanoil-treatment-original",
-    product2Id: "olaplex-no7-bonding-oil",
-    winnerId: "moroccanoil-treatment-original",
-    winnerReason: "Moroccanoil Treatment wins for immediate results, versatility, and value per use. Olaplex No. 7 is the better choice for damaged hair that needs bond-building benefits, but its high cost per ounce makes Moroccanoil the better overall value.",
-    verdict: "Moroccanoil Treatment is our overall winner for most users - it delivers immediate, visible results on all hair types and offers better value per use. Olaplex No. 7 is worth the premium specifically for damaged, bleached, or chemically processed hair where bond-building benefits are needed. Many users benefit from using both.",
-    publishDate: "2025-01-29",
-    slug: "moroccanoil-vs-olaplex-no7-oil",
-    hairTypes: ["normal", "color-treated", "dry"],
-  },
-  {
+      {
     id: "dyson-supersonic-vs-shark-hyperair",
     title: "Dyson Supersonic vs. Shark HyperAIR",
     subtitle: "Premium Hair Dryers: Is the Dyson Worth Twice the Price?",
@@ -3354,22 +3019,7 @@ export const comparisons: Comparison[] = [
     slug: "redken-one-united-vs-its-a-10-miracle-leave-in",
     hairTypes: ["fine", "normal", "color-treated", "curly"],
   },
-  {
-    id: "olaplex-no4p-vs-joico-color-balance",
-    title: "Olaplex No.4P vs. Joico Color Balance Purple",
-    subtitle: "Bond-Building Toning Shampoo vs. Best-Value Purple Shampoo",
-    category: "Shampoo & Conditioner",
-    categorySlug: "shampoo-conditioner",
-    product1Id: "olaplex-no4p-purple-shampoo",
-    product2Id: "joico-color-balance-shampoo",
-    winnerId: "joico-color-balance-shampoo",
-    winnerReason: "Joico Color Balance wins for pure toning performance and value — it delivers stronger brassiness neutralization at $20 vs. $34. Olaplex No.4P wins for damaged hair that needs both toning and bond repair simultaneously.",
-    verdict: "For most blonde and highlighted hair, Joico Color Balance Purple is the smarter purchase — it tones more aggressively and costs $14 less. Olaplex No.4P is the better choice only if your hair is both brassy and significantly damaged from bleaching or chemical processing, where the bond-repair benefit justifies the premium. If you already use other Olaplex products, No.4P integrates naturally into your routine.",
-    publishDate: "2026-05-04",
-    slug: "olaplex-no4p-vs-joico-color-balance-purple",
-    hairTypes: ["color-treated", "fine", "normal"],
-  },
-];
+  ];
 
 export function getComparisonsByCategory(categorySlug: string): Comparison[] {
   return comparisons.filter(c => c.categorySlug === categorySlug);

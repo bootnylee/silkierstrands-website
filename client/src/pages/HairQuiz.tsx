@@ -546,6 +546,11 @@ export default function HairQuiz() {
   const [secondary, setSecondary] = useState<HairTypeId | null>(null);
   const [copied, setCopied] = useState(false);
 
+  // Use page-specific metadata rather than inheriting the previous route title.
+  useEffect(() => {
+    document.title = "Hair Type Quiz | SilkierStrands";
+  }, []);
+
   // Load saved result from localStorage on mount
   useEffect(() => {
     const saved = localStorage.getItem(QUIZ_RESULT_KEY);

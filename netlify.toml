@@ -2,7 +2,7 @@
 
 [build]
   # Build: enforce direct, live title-matched ASINs → generate sitemap → Vite build → static prerender
-  command = "pnpm install && node scripts/validate-commerce-template.mjs && node scripts/validate-asins.mjs && if [ -n \"$CREATORS_API_CLIENT_ID\" ] && [ -n \"$CREATORS_API_CLIENT_SECRET\" ] && [ -n \"$CREATORS_API_PARTNER_TAG\" ]; then node scripts/fetch-prices.js; else echo 'Creators API credentials unavailable; price UI will hide catalog values.'; fi && node scripts/generate-sitemap.mjs && pnpm build && node scripts/prerender.mjs && echo ${COMMIT_REF:-local} > dist/public/version.txt"
+  command = "pnpm install && node scripts/validate-commerce-template.mjs && node scripts/validate-asins.mjs && if [ -n \"$CREATORS_API_CLIENT_ID\" ] && [ -n \"$CREATORS_API_CLIENT_SECRET\" ] && [ -n \"$CREATORS_API_PARTNER_TAG\" ]; then node scripts/fetch-prices.js; else echo 'Creators API credentials unavailable; price UI will hide catalog values.'; fi && pnpm exec tsx scripts/extract-site-data.ts && node scripts/generate-sitemap.mjs && pnpm build && node scripts/prerender.mjs && echo ${COMMIT_REF:-local} > dist/public/version.txt"
   publish = "dist/public"
   functions = "netlify/functions"
 
@@ -37,11 +37,42 @@
   status = 301
   force = true
 
-# SPA routing — serve index.html for any route not matched by a prerendered file
+# Consolidate duplicate detail routes on their descriptive canonical URLs.
 [[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+from = "/review/ghd-platinum-plus-review"
+to = "/review/ghd-platinum-plus-hair-straightener-review"
+status = 301
+force = true
+
+[[redirects]]
+from = "/comparison/moroccanoil-vs-olaplex-no7-oil"
+to = "/comparison/moroccanoil-treatment-vs-olaplex-no7-bonding-oil"
+status = 301
+force = true
+
+[[redirects]]
+from = "/comparison/chi-air-expert-vs-verb-ghost-flat-iron"
+to = "/comparison/chi-air-expert-vs-ghd-platinum-plus"
+status = 301
+force = true
+
+# Unknown detail routes return the static 404 document. Existing prerendered
+# detail routes win as static files because these rules are intentionally not forced.
+[[redirects]]
+from = "/review/*"
+to = "/404.html"
+status = 404
+
+[[redirects]]
+from = "/comparison/*"
+to = "/404.html"
+status = 404
+
+# SPA routing — serve index.html for any route not matched by a prerendered file.
+[[redirects]]
+from = "/*"
+to = "/index.html"
+status = 200
 
 # Security headers
 [[headers]]

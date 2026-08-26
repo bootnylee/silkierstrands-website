@@ -117,3 +117,6 @@ client/public/__manus__/version.json
 !.github/workflows/daily-price-sync.yml
 !.github/workflows/verify-deploy.yml
 !.github/workflows/weekly-asin-health.yml
+
+# Generated, validated route data for sitemap and prerender steps
+scripts/site-data.json

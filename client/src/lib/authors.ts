@@ -54,7 +54,6 @@ const PRODUCT_AUTHOR_MAP: Record<string, string> = {
   // Shampoo & Conditioner
   "pureology-hydrate-shampoo-review": "renata-cole",
   "redken-all-soft-shampoo-review": "jamie-lin",
-  "loreal-elvive-hyaluron-plump-review": "renata-cole",
   "pantene-daily-moisture-renewal-review": "jamie-lin",
   "nexxus-therappe-humectress-review": "renata-cole",
   "native-coconut-vanilla-shampoo-review": "jamie-lin",
@@ -69,8 +68,6 @@ const PRODUCT_AUTHOR_MAP: Record<string, string> = {
   "olaplex-no8-mask-review": "renata-cole",
   "moroccanoil-intense-hydrating-mask-review": "jamie-lin",
   "its-a-10-miracle-mask-review": "renata-cole",
-  "briogeo-dont-despair-mask-review": "jamie-lin",
-  "karseell-collagen-hair-mask-review": "renata-cole",
   "sunatoria-korean-keratin-mask-review": "jamie-lin",
   "amika-soulfood-nourishing-mask-review": "renata-cole",
   "ouai-hair-mask-review": "jamie-lin",
