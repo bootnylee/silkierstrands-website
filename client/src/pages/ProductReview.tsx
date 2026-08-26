@@ -130,7 +130,10 @@ export default function ProductReview() {
         : '';
       const rawTitle = `${product.name} Review${htLabel}`;
       const title = rawTitle.length <= 55 ? `${rawTitle} | SilkierStrands` : `${product.name} Review | SilkierStrands`;
-      const desc = `${product.shortDescription} Expert-tested for ${product.category.toLowerCase()}. Pros, cons, and our verdict.`.substring(0, 155);
+      const descriptionSource = product.editorNote || product.fullReview || product.shortDescription;
+      const desc = descriptionSource.length <= 155
+        ? descriptionSource
+        : descriptionSource.slice(0, 156).replace(/\s+\S*$/, "").trim();
       updateDocumentMeta({
         title,
         description: desc,

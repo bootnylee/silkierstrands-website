@@ -41,7 +41,7 @@ export default function CategoryPage() {
   useEffect(() => {
     if (category) {
       // Priority 5: long-tail category titles targeting hair-type + category
-      const catTitle = `Best ${category.name} 2025 | SilkierStrands`;
+      const catTitle = `Best ${category.name} 2026 | SilkierStrands`;
       const catDesc = `Expert-tested ${category.name.toLowerCase()} for every hair type. Honest reviews, head-to-head comparisons, and top picks for fine, thick, curly, and color-treated hair.`.substring(0, 155);
       updateDocumentMeta({
         title: catTitle,

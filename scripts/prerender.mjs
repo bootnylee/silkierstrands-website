@@ -27,6 +27,13 @@ const OG_IMAGE = `${BASE_URL}/og-image.jpg`;
 
 // ─── Read the built index.html shell ─────────────────────────────────────────
 const indexHtml = readFileSync(resolve(DIST, "index.html"), "utf-8");
+const BODY_DATA = JSON.parse(readFileSync(resolve(ROOT, "scripts", "static-bodies.json"), "utf-8"));
+
+function rootMarkup(urlPath) {
+  const body = BODY_DATA[urlPath];
+  if (!body) throw new Error(`Missing rendered body for ${urlPath}`);
+  return `<div id="root">${body}</div>`;
+}
 
 // ─── Load validated route data ───────────────────────────────────────────────
 // The extractor imports the same data used by the client router and rejects
@@ -442,11 +449,48 @@ function esc(str) {
 }
 
 function trunc(str, max) {
-  if (!str) return "";
-  return str.length <= max ? str : str.substring(0, max - 3) + "...";
+  const clean = String(str || "")
+    .replace(/\s+/g, " ")
+    .replace(/\s*\|\s*(?:…|\.\.\.)?\s*$/, "")
+    .replace(/(?:…|\.\.\.)\s*$/, "")
+    .trim();
+  if (clean.length <= max) return clean;
+  const bounded = clean.slice(0, max + 1);
+  const sentenceEnd = Math.max(
+    bounded.lastIndexOf(". "),
+    bounded.lastIndexOf("! "),
+    bounded.lastIndexOf("? ")
+  );
+  const candidate = sentenceEnd >= Math.floor(max * 0.72)
+    ? bounded.slice(0, sentenceEnd + 1)
+    : bounded.slice(0, max + 1).replace(/\s+\S*$/, "");
+  return candidate
+    .replace(/\s*[|:–—-]+\s*$/, "")
+    .replace(/(?:…|\.\.\.)\s*$/, "")
+    .trim();
 }
 
-function buildHtml({ title, description, canonical, ogType, ogImage, schemas, bodyStub }) {
+function compactProductLabel(product, detailWords) {
+  const brand = String(product.brand || "").trim();
+  const name = String(product.name || "").trim();
+  const remainder = brand && name.toLowerCase().startsWith(brand.toLowerCase())
+    ? name.slice(brand.length).trim()
+    : name;
+  const details = remainder.split(/\s+/).filter(Boolean).slice(0, detailWords).join(" ");
+  return [brand, details].filter(Boolean).join(" ").trim() || name;
+}
+
+function comparisonMetaTitle(product1, product2, category) {
+  for (const detailWords of [3, 2, 1]) {
+    const base = `${compactProductLabel(product1, detailWords)} vs ${compactProductLabel(product2, detailWords)}`;
+    const withCategory = category ? `${base}: ${category}` : base;
+    if (withCategory.length <= 60) return withCategory;
+    if (base.length <= 60) return base;
+  }
+  return trunc(`${product1.brand || product1.name} vs ${product2.brand || product2.name}`, 60);
+}
+
+function buildHtml({ title, description, canonical, ogType, ogImage, schemas, bodyHtml }) {
   let html = indexHtml;
 
   // Replace <title>
@@ -525,13 +569,10 @@ function buildHtml({ title, description, canonical, ogType, ogImage, schemas, bo
     .join("\n");
   html = html.replace("</head>", `${schemaBlock}\n</head>`);
 
-  // Inject noscript body stub before </body> (visible content for JS-disabled crawlers)
-  if (bodyStub) {
-    const noscript = `<noscript><div style="font-family:sans-serif;padding:2rem;max-width:800px;margin:0 auto"><h1>${esc(title)}</h1><p>${esc(description)}</p><p>Please enable JavaScript to view the full SilkierStrands experience.</p></div></noscript>`;
-    html = html.replace("</body>", `${noscript}\n</body>`);
-  }
-
-  return html;
+  const completeBody = bodyHtml || rootMarkup(new URL(canonical).pathname);
+  const rendered = html.replace(/<div id="root"><\/div>/, completeBody);
+  if (rendered === html) throw new Error(`Could not inject body HTML for ${canonical}`);
+  return rendered;
 }
 
 // ─── Write helper ─────────────────────────────────────────────────────────────
@@ -661,7 +702,7 @@ let count = 0;
 }
 // ─── 7. Category pages ───────────────────────────────────────────────────────
 for (const cat of categories) {
-  const title = trunc(`Best ${cat.name} Reviews 2025 | SilkierStrands`, 60);
+  const title = trunc(`Best ${cat.name} Reviews 2026 | SilkierStrands`, 60);
   const description = trunc(cat.description, 155);
   const catProducts = products.filter((p) => p.categorySlug === cat.slug);
   writeRoute(`/category/${cat.slug}`, buildHtml({
@@ -690,10 +731,7 @@ for (const cat of categories) {
 for (const product of products) {
   const rawTitle = `${product.name} Review — ${product.brand} | SilkierStrands`;
   const title = trunc(rawTitle, 60);
-  const description = trunc(
-    `Expert review of ${product.name} by ${product.brand}. ${product.shortDescription}`,
-    155
-  );
+  const description = trunc(product.editorNote || product.shortDescription || product.fullReview, 155);
   writeRoute(`/review/${product.slug}`, buildHtml({
     title,
     description,
@@ -717,8 +755,11 @@ for (const product of products) {
 
 // ─── 8. Comparison pages ─────────────────────────────────────────────────────
 for (const comp of comparisons) {
-  const title = trunc(`${comp.title} | SilkierStrands`, 60);
-  const description = trunc(comp.subtitle || comp.verdict, 155);
+  const product1 = products.find((product) => product.id === comp.product1Id);
+  const product2 = products.find((product) => product.id === comp.product2Id);
+  if (!product1 || !product2) throw new Error(`Unresolvable comparison products: ${comp.slug}`);
+  const title = comparisonMetaTitle(product1, product2, comp.category);
+  const description = trunc(comp.verdict || comp.subtitle || comp.summary, 155);
   writeRoute(`/comparison/${comp.slug}`, buildHtml({
     title,
     description,
@@ -734,7 +775,7 @@ for (const comp of comparisons) {
       ]),
       articleSchema(comp),
     ],
-    bodyStub: true,
+    bodyHtml: rootMarkup(`/comparison/${comp.slug}`),
   }));
   count++;
 }

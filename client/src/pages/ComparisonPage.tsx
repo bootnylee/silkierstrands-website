@@ -22,6 +22,26 @@ const HAIR_META: Record<string, { label: string; color: string; bg: string }> = 
   "color-treated": { label: "Color-Treated Hair", color: "#8B1A2F", bg: "#FFF5F7" },
 };
 
+function compactProductLabel(product: { brand: string; name: string }, detailWords: number) {
+  const brand = product.brand.trim();
+  const name = product.name.trim();
+  const remainder = brand && name.toLowerCase().startsWith(brand.toLowerCase())
+    ? name.slice(brand.length).trim()
+    : name;
+  const details = remainder.split(/\s+/).filter(Boolean).slice(0, detailWords).join(" ");
+  return [brand, details].filter(Boolean).join(" ").trim() || name;
+}
+
+function comparisonMetaTitle(product1: { brand: string; name: string }, product2: { brand: string; name: string }, category: string) {
+  for (const detailWords of [3, 2, 1]) {
+    const base = `${compactProductLabel(product1, detailWords)} vs ${compactProductLabel(product2, detailWords)}`;
+    const withCategory = category ? `${base}: ${category}` : base;
+    if (withCategory.length <= 60) return withCategory;
+    if (base.length <= 60) return base;
+  }
+  return `${product1.brand || product1.name} vs ${product2.brand || product2.name}`.slice(0, 60).trim();
+}
+
 // Contextual tips per hair type per product category
 const CATEGORY_TIPS: Record<string, Record<string, string>> = {
   fine: {
@@ -164,10 +184,16 @@ export default function ComparisonPage() {
 
   useEffect(() => {
     if (comparison) {
-      // Priority 5: title ≤60 chars, description ≤155 chars, long-tail X vs Y pattern
-      const compTitle = `${comparison.title} | SilkierStrands`;
-      const safeTitle = compTitle.length <= 60 ? compTitle : `${comparison.title.substring(0, 45)}... | SilkierStrands`;
-      const compDesc = `${comparison.subtitle} See our hands-on verdict.`.substring(0, 155);
+      const titleSource = product1 && product2
+        ? comparisonMetaTitle(product1, product2, comparison.category)
+        : comparison.title;
+      const safeTitle = titleSource.length <= 60
+        ? titleSource
+        : titleSource.slice(0, 61).replace(/\s+\S*$/, "").replace(/\s*[|:–—-]+\s*$/, "").trim();
+      const descSource = comparison.verdict || comparison.subtitle;
+      const compDesc = descSource.length <= 155
+        ? descSource
+        : descSource.slice(0, 156).replace(/\s+\S*$/, "").trim();
       updateDocumentMeta({
         title: safeTitle,
         description: compDesc,
