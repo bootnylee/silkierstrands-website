@@ -20,6 +20,7 @@ import {
 import { updateDocumentMeta } from "@/lib/seo";
 import { ArrowRight, CheckCircle, Lightbulb, ChevronRight, SlidersHorizontal, X, Star, Award } from "lucide-react";
 import { categories } from "@/lib/products";
+import { FreshCatalogPrice, VerifiedAmazonCta } from "@/components/ProductCommerce";
 
 // Map each hair type to its most relevant head-to-head comparison
 const HAIR_TYPE_FEATURED_COMPARISON: Record<string, { slug: string; title: string; subtitle: string }> = {
@@ -260,8 +261,7 @@ export default function HairTypePage() {
             {/* Top 3 cards — horizontal editorial layout */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {top3Picks.map((product, index) => (
-                <Link key={product.id} href={`/review/${product.slug}`}>
-                  <div
+                  <div key={product.id}
                     className="group relative flex flex-col h-full rounded-sm overflow-hidden cursor-pointer transition-all duration-300 hover:-translate-y-1"
                     style={{
                       backgroundColor: "#FFFFFF",
@@ -321,27 +321,29 @@ export default function HairTypePage() {
                         {product.shortDescription}
                       </p>
 
-                      {/* Price + CTA */}
-                      <div className="flex items-center justify-between mt-4 pt-4 border-t" style={{ borderColor: "#E8DDD0" }}>
-                        <span className="font-display font-bold" style={{ fontSize: "1.1rem", color: "#2C2C2C" }}>
-                          {product.priceDisplay}
-                        </span>
-                        <span
-                          className="font-label font-semibold text-xs px-3 py-1.5 rounded-sm transition-colors"
-                          style={{
-                            backgroundColor: index === 0 ? "#8B1A2F" : "transparent",
-                            color: index === 0 ? "#FDF6EE" : "#8B1A2F",
-                            border: index === 0 ? "none" : "1px solid #8B1A2F",
-                            letterSpacing: "0.06em",
-                            textTransform: "uppercase",
-                          }}
-                        >
-                          Read Review
-                        </span>
+                      {/* Current price + CTAs */}
+                      <div className="flex items-center justify-between gap-2 mt-4 pt-4 border-t" style={{ borderColor: "#E8DDD0" }}>
+                        <FreshCatalogPrice product={product} className="text-lg" color="#2C2C2C" />
+                        <div className="flex items-center gap-2">
+                          <Link href={`/review/${product.slug}`}>
+                            <span
+                              className="font-label font-semibold text-xs px-3 py-1.5 rounded-sm transition-colors"
+                              style={{
+                                backgroundColor: index === 0 ? "#8B1A2F" : "transparent",
+                                color: index === 0 ? "#FDF6EE" : "#8B1A2F",
+                                border: index === 0 ? "none" : "1px solid #8B1A2F",
+                                letterSpacing: "0.06em",
+                                textTransform: "uppercase",
+                              }}
+                            >
+                              Read Review
+                            </span>
+                          </Link>
+                          <VerifiedAmazonCta product={product} label="Check Price on Amazon" compact />
+                        </div>
                       </div>
                     </div>
                   </div>
-                </Link>
               ))}
             </div>
 

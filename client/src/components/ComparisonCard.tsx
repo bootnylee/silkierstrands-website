@@ -2,13 +2,9 @@
 
 import { Link } from "wouter";
 import { Trophy, ExternalLink } from "lucide-react";
-import { type Comparison, getProductById, amazonLink, lastSyncedAt } from "@/lib/products";
+import { type Comparison, getProductById, amazonLink } from "@/lib/products";
+import { isProductPriceFresh } from "@/lib/priceFreshness.generated";
 import { VerifiedAmazonCta } from "@/components/ProductCommerce";
-
-const PRICES_FRESH = (() => {
-  if (!lastSyncedAt) return false;
-  return Date.now() - new Date(lastSyncedAt).getTime() < 24 * 60 * 60 * 1000;
-})();
 
 interface ComparisonCardProps {
   comparison: Comparison;
@@ -59,7 +55,7 @@ export default function ComparisonCard({ comparison, variant = "default" }: Comp
           <p className="font-body text-xs font-semibold text-center leading-tight" style={{ color: "#2C2C2C" }}>
             {winner.name}
           </p>
-          {PRICES_FRESH && winner.price > 0 ? (
+          {isProductPriceFresh(winner.asin) && winner.price > 0 ? (
             <p className="font-label font-bold text-center mt-1" style={{ color: "#8B1A2F", fontSize: "0.85rem" }}>
               {winner.priceDisplay}
             </p>
@@ -88,7 +84,7 @@ export default function ComparisonCard({ comparison, variant = "default" }: Comp
           <p className="font-body text-xs font-semibold text-center leading-tight" style={{ color: "#6C6C6C" }}>
             {loser.name}
           </p>
-          {PRICES_FRESH && loser.price > 0 ? (
+          {isProductPriceFresh(loser.asin) && loser.price > 0 ? (
             <p className="font-label font-bold text-center mt-1" style={{ color: "#B8A99A", fontSize: "0.85rem" }}>
               {loser.priceDisplay}
             </p>

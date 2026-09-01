@@ -387,7 +387,7 @@ function productWithReviewSchema(product) {
     },
   };
   if (product.imageUrl) schema.image = product.imageUrl;
-  if (product.asin) {
+  if (product.priceFresh && product.asin) {
     schema.offers = {
       "@type": "Offer",
       availability: "https://schema.org/InStock",

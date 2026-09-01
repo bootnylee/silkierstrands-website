@@ -348,6 +348,12 @@ function updateProductBlocks(source, priceMap) {
     let block = source.slice(open, close + 1);
     let changed = false;
 
+    if (data.amount != null && data.display) {
+      // `updated` is the success set consumed by the build-time freshness gate.
+      // Record a current live offer even when its price already matches the catalog.
+      updated.add(asin);
+    }
+
     if (data.amount != null) {
       const numStr = data.amount.toFixed(2);
       const nb = block

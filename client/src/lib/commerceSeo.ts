@@ -24,7 +24,7 @@ export function editorialProductSchema(product: ProductLike, author?: { name: st
   };
   // Only emit Offer data when the Creators API price is fresh. AggregateRating
   // is intentionally absent; it is reserved for genuine approved user reviews.
-  if (catalogIsFresh() && Number(product.price) > 0 && hasVerifiedAsin(product.asin)) {
+  if (catalogIsFresh(product) && Number(product.price) > 0 && hasVerifiedAsin(product.asin)) {
     schema.offers = {
       "@type": "Offer",
       price: product.price,

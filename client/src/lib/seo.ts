@@ -1,6 +1,8 @@
 // SilkierStrands.com - SEO Utilities
 // Handles meta tags, structured data, and canonical URLs
 
+import { isProductPriceFresh } from "@/lib/priceFreshness.generated";
+
 export interface SEOMeta {
   title: string;
   description: string;
@@ -65,7 +67,7 @@ export function buildProductSchema(product: {
   imageUrl: string;
   asin: string;
 }): object {
-  return {
+  const schema: Record<string, unknown> = {
     "@context": "https://schema.org",
     "@type": "Product",
     name: product.name,
@@ -75,17 +77,6 @@ export function buildProductSchema(product: {
       name: product.brand,
     },
     image: product.imageUrl,
-    offers: {
-      "@type": "Offer",
-      price: product.price,
-      priceCurrency: "USD",
-      availability: "https://schema.org/InStock",
-      url: `https://www.amazon.com/dp/${product.asin}?tag=silkierstrands-20`,
-      seller: {
-        "@type": "Organization",
-        name: "Amazon",
-      },
-    },
     // NOTE: aggregateRating intentionally omitted — we only have editorial ratings,
     // not genuine user-submitted reviews. Using reviewCount as aggregateRating would
     // violate Google's review-snippet guidelines.
@@ -103,6 +94,20 @@ export function buildProductSchema(product: {
       },
     },
   };
+  if (isProductPriceFresh(product.asin) && product.price > 0) {
+    schema.offers = {
+      "@type": "Offer",
+      price: product.price,
+      priceCurrency: "USD",
+      availability: "https://schema.org/InStock",
+      url: `https://www.amazon.com/dp/${product.asin}?tag=silkierstrands-20`,
+      seller: {
+        "@type": "Organization",
+        name: "Amazon",
+      },
+    };
+  }
+  return schema;
 }
 
 export function buildReviewSchema(review: {
