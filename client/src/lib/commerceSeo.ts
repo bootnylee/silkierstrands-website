@@ -1,5 +1,6 @@
 import { type Product } from "@/lib/products";
 import { catalogIsFresh, hasVerifiedAsin } from "@/components/ProductCommerce";
+import { getRenderableProductImage } from "@/lib/productImageFreshness";
 
 const SITE = "SilkierStrands";
 const ORIGIN = "https://silkierstrands.com";
@@ -8,12 +9,12 @@ const TAG = "silkierstrands-20";
 type ProductLike = Pick<Product, "name" | "brand" | "shortDescription" | "imageUrl" | "asin" | "price" | "priceDisplay" | "publishDate" | "bestFor"> & { availability?: string };
 
 export function editorialProductSchema(product: ProductLike, author?: { name: string; role?: string; url?: string }) {
+  const image = getRenderableProductImage(product);
   const schema: Record<string, unknown> = {
     "@type": "Product",
     name: product.name,
     description: product.shortDescription,
     brand: { "@type": "Brand", name: product.brand },
-    image: product.imageUrl,
     review: {
       "@type": "Review",
       author: author ? { "@type": "Person", name: author.name, jobTitle: author.role, url: author.url } : { "@type": "Organization", name: `${SITE} Editorial Team`, url: ORIGIN },
@@ -22,6 +23,7 @@ export function editorialProductSchema(product: ProductLike, author?: { name: st
       reviewBody: product.shortDescription,
     },
   };
+  if (image) schema.image = image;
   // Only emit Offer data when the Creators API price is fresh. AggregateRating
   // is intentionally absent; it is reserved for genuine approved user reviews.
   if (catalogIsFresh(product) && Number(product.price) > 0 && hasVerifiedAsin(product.asin)) {

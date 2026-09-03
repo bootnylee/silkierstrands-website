@@ -10,6 +10,7 @@ import { getAuthorForComparison } from "@/lib/authors";
 import { QUIZ_RESULT_KEY } from "@/pages/HairQuiz";
 import { ProductComparisonTable, VerifiedAmazonCta, FreshCatalogPrice, catalogIsFresh } from "@/components/ProductCommerce";
 import { commerceComparisonFaqSchema, commerceItemListSchema } from "@/lib/commerceSeo";
+import { getRenderableProductImage } from "@/lib/productImageFreshness";
 
 // Hair type metadata for contextual tips
 const HAIR_META: Record<string, { label: string; color: string; bg: string }> = {
@@ -316,16 +317,11 @@ export default function ComparisonPage() {
                   </div>
                 )}
                 <div className="p-6">
-                  <div className="h-40 flex items-center justify-center mb-4 rounded-sm" style={{ backgroundColor: "#F5EBE0" }}>
-                    <img
-                      src={product.imageUrl}
-                      alt={product.name}
-                      className="h-full w-full object-contain p-4"
-                      onError={(e) => {
-                        (e.target as HTMLImageElement).src = `https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=300&auto=format&fit=crop`;
-                      }}
-                    />
-                  </div>
+                  {getRenderableProductImage(product) ? (
+                    <div className="h-40 flex items-center justify-center mb-4 rounded-sm" style={{ backgroundColor: "#F5EBE0" }}>
+                      <img src={getRenderableProductImage(product)} alt={product.name} className="h-full w-full object-contain p-4" />
+                    </div>
+                  ) : null}
                   <p className="section-label text-xs mb-1">{product.brand}</p>
                   <h3 className="font-display font-bold mb-2 leading-snug" style={{ fontSize: "1.1rem", color: "#2C2C2C" }}>
                     {product.name}

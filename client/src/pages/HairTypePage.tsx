@@ -21,6 +21,7 @@ import { updateDocumentMeta } from "@/lib/seo";
 import { ArrowRight, CheckCircle, Lightbulb, ChevronRight, SlidersHorizontal, X, Star, Award } from "lucide-react";
 import { categories } from "@/lib/products";
 import { FreshCatalogPrice, VerifiedAmazonCta } from "@/components/ProductCommerce";
+import { getRenderableProductImage } from "@/lib/productImageFreshness";
 
 // Map each hair type to its most relevant head-to-head comparison
 const HAIR_TYPE_FEATURED_COMPARISON: Record<string, { slug: string; title: string; subtitle: string }> = {
@@ -290,14 +291,12 @@ export default function HairTypePage() {
                       </div>
                     )}
 
-                    {/* Product image */}
-                    <div className="relative overflow-hidden" style={{ height: "200px", backgroundColor: "#F5EBE0" }}>
-                      <img
-                        src={product.imageUrl || product.amazonImageUrl}
-                        alt={product.name}
-                        className="w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-105"
-                      />
-                    </div>
+                    {/* Product image — stale Amazon-hosted URLs are intentionally omitted. */}
+                    {getRenderableProductImage(product) ? (
+                      <div className="relative overflow-hidden" style={{ height: "200px", backgroundColor: "#F5EBE0" }}>
+                        <img src={getRenderableProductImage(product)} alt={product.name} className="w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-105" />
+                      </div>
+                    ) : null}
 
                     {/* Content */}
                     <div className="flex flex-col flex-1 p-5">

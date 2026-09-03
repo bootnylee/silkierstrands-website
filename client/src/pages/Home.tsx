@@ -6,6 +6,7 @@ import { Link } from "wouter";
 import { ArrowRight, Sparkles, RefreshCw, Clock } from "lucide-react";
 import SiteLayout from "@/components/SiteLayout";
 import ProductCard from "@/components/ProductCard";
+import { isAmazonHostedProductImage } from "@/lib/productImageFreshness";
 import ComparisonCard from "@/components/ComparisonCard";
 import NewsletterSignup from "@/components/NewsletterSignup";
 import { categories, getEditorPicks, comparisons, allProducts } from "@/lib/products";
@@ -263,18 +264,12 @@ export default function Home() {
             {categories.map((cat) => (
               <Link key={cat.id} href={`/category/${cat.slug}`}>
                 <div className="group cursor-pointer text-center">
-                  <div className="relative overflow-hidden rounded-sm mb-3" style={{ height: "120px", backgroundColor: "#F5EBE0" }}>
-                    <img
-                      src={cat.imageUrl}
-                      alt={cat.name}
-                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                      onError={(e) => {
-                        (e.target as HTMLImageElement).src = `https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=300&auto=format&fit=crop`;
-                      }}
-                    />
-                    <div className="absolute inset-0"
-                      style={{ background: "rgba(139,26,47,0.08)" }} />
-                  </div>
+                  {!isAmazonHostedProductImage(cat.imageUrl) ? (
+                    <div className="relative overflow-hidden rounded-sm mb-3" style={{ height: "120px", backgroundColor: "#F5EBE0" }}>
+                      <img src={cat.imageUrl} alt={cat.name} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+                      <div className="absolute inset-0" style={{ background: "rgba(139,26,47,0.08)" }} />
+                    </div>
+                  ) : null}
                   <p className="font-label font-semibold text-xs leading-tight group-hover:text-red-800 transition-colors"
                     style={{ color: "#2C2C2C", letterSpacing: "0.05em" }}>
                     {cat.name}

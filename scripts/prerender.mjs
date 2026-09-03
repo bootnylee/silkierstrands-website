@@ -25,6 +25,19 @@ const BASE_URL = "https://silkierstrands.com";
 const SITE_NAME = "SilkierStrands";
 const OG_IMAGE = `${BASE_URL}/og-image.jpg`;
 
+function isAmazonHostedProductImage(url) {
+  try {
+    return ["m.media-amazon.com", "images-na.ssl-images-amazon.com"].includes(new URL(url).hostname.toLowerCase());
+  } catch {
+    return false;
+  }
+}
+
+function renderableProductImage(product) {
+  const url = product?.imageUrl;
+  return url && (!isAmazonHostedProductImage(url) || product.imageFresh) ? url : undefined;
+}
+
 // ─── Read the built index.html shell ─────────────────────────────────────────
 const indexHtml = readFileSync(resolve(DIST, "index.html"), "utf-8");
 const BODY_DATA = JSON.parse(readFileSync(resolve(ROOT, "scripts", "static-bodies.json"), "utf-8"));
@@ -386,7 +399,8 @@ function productWithReviewSchema(product) {
       reviewBody: product.shortDescription,
     },
   };
-  if (product.imageUrl) schema.image = product.imageUrl;
+  const image = renderableProductImage(product);
+  if (image) schema.image = image;
   if (product.priceFresh && product.asin) {
     schema.offers = {
       "@type": "Offer",
@@ -737,7 +751,7 @@ for (const product of products) {
     description,
     canonical: `${BASE_URL}/review/${product.slug}`,
     ogType: "article",
-    ogImage: product.imageUrl || OG_IMAGE,
+    ogImage: renderableProductImage(product) || OG_IMAGE,
     schemas: [
       organizationSchema(),
       breadcrumbSchema([

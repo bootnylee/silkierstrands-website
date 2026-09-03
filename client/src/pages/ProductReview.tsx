@@ -14,6 +14,7 @@ import UserReviewSection from "@/components/UserReviewSection";
 import { USER_REVIEWS_ENABLED, computeAggregateRating } from "@/lib/userReviews";
 import ProductCard from "@/components/ProductCard";
 import { trackAffiliateClick } from "@/lib/analytics";
+import { getRenderableProductImage } from "@/lib/productImageFreshness";
 
 // ─── Recently Viewed Key ────────────────────────────────────────────────────
 export const RECENTLY_VIEWED_KEY = "silkierstrands_recently_viewed";
@@ -85,6 +86,7 @@ function QuizPromptBanner() {
 export default function ProductReview() {
   const { slug } = useParams<{ slug: string }>();
   const product = allProducts.find(p => p.slug === slug);
+  const productImage = getRenderableProductImage(product);
   const [savedHairType, setSavedHairType] = useState<string | null>(null);
 
   useEffect(() => {
@@ -139,7 +141,7 @@ export default function ProductReview() {
         description: desc,
         keywords: `${product.name} review, ${product.brand}, ${product.category}${product.hairTypes ? ', ' + product.hairTypes.join(', ') + ' hair' : ''}`,
         canonical: `https://silkierstrands.com/review/${product.slug}`,
-        ogImage: product.imageUrl,
+        ogImage: getRenderableProductImage(product) || "https://silkierstrands.com/og-image.jpg",
         ogType: "article",
       });
 
@@ -234,17 +236,12 @@ export default function ProductReview() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
           {/* Left: Product Info */}
           <div className="lg:col-span-1">
-            {/* Product Image */}
-            <div className="rounded-sm overflow-hidden mb-4" style={{ backgroundColor: "#F5EBE0", height: "280px" }}>
-              <img
-                src={product.imageUrl}
-                alt={product.name}
-                className="w-full h-full object-contain p-6"
-                onError={(e) => {
-                  (e.target as HTMLImageElement).src = `https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=400&auto=format&fit=crop`;
-                }}
-              />
-            </div>
+            {/* Product Image — Amazon-hosted images render only after a current per-ASIN API sync. */}
+            {productImage ? (
+              <div className="rounded-sm overflow-hidden mb-4" style={{ backgroundColor: "#F5EBE0", height: "280px" }}>
+                <img src={productImage} alt={product.name} className="w-full h-full object-contain p-6" />
+              </div>
+            ) : null}
 
             {/* Price & Buy */}
             <div className="p-5 rounded-sm border" style={{ borderColor: "#E8DDD0", backgroundColor: "white" }}>

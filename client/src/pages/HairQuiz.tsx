@@ -8,6 +8,7 @@ import { ChevronRight, ChevronLeft, RotateCcw, ExternalLink, Star, Share2, Check
 
 import SiteLayout from "@/components/SiteLayout";
 import { VerifiedAmazonCta } from "@/components/ProductCommerce";
+import { getRenderableProductImage } from "@/lib/productImageFreshness";
 import { allProducts } from "@/lib/products";
 import { trackEmailSignup, trackQuizComplete } from "@/lib/analytics";
 
@@ -473,29 +474,25 @@ function ProgressBar({ current, total }: { current: number; total: number }) {
 // ─── Product Card ──────────────────────────────────────────────────────────────
 
 function QuizProductCard({ product }: { product: typeof allProducts[0] }) {
+  const productImage = getRenderableProductImage(product);
   return (
     <div
       className="flex flex-col rounded-lg overflow-hidden transition-all duration-200 hover:shadow-lg"
       style={{ backgroundColor: "#FFFFFF", border: "1px solid #E8DDD0" }}
     >
-      <div className="relative overflow-hidden" style={{ aspectRatio: "1/1", backgroundColor: "#F9F4EE" }}>
-        <img
-          src={product.amazonImageUrl || product.imageUrl}
-          alt={product.name}
-          className="w-full h-full object-contain p-4 transition-transform duration-300 hover:scale-105"
-          onError={(e) => {
-            (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=400&auto=format&fit=crop&q=60";
-          }}
-        />
-        {product.editorPick && (
-          <div
-            className="absolute top-2 left-2 px-2 py-0.5 text-xs font-body font-semibold rounded"
-            style={{ backgroundColor: "#8B1A2F", color: "#FDF6EE", letterSpacing: "0.06em" }}
-          >
-            EDITOR'S PICK
-          </div>
-        )}
-      </div>
+      {productImage ? (
+        <div className="relative overflow-hidden" style={{ aspectRatio: "1/1", backgroundColor: "#F9F4EE" }}>
+          <img src={productImage} alt={product.name} className="w-full h-full object-contain p-4 transition-transform duration-300 hover:scale-105" />
+          {product.editorPick && (
+            <div
+              className="absolute top-2 left-2 px-2 py-0.5 text-xs font-body font-semibold rounded"
+              style={{ backgroundColor: "#8B1A2F", color: "#FDF6EE", letterSpacing: "0.06em" }}
+            >
+              EDITOR'S PICK
+            </div>
+          )}
+        </div>
+      ) : null}
       <div className="p-4 flex flex-col flex-1">
         <p className="font-body text-xs mb-1" style={{ color: "#9A7A8A", letterSpacing: "0.06em" }}>
           {product.category}

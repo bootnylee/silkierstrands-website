@@ -2,6 +2,7 @@
 // Handles meta tags, structured data, and canonical URLs
 
 import { isProductPriceFresh } from "@/lib/priceFreshness.generated";
+import { getRenderableProductImage } from "@/lib/productImageFreshness";
 
 export interface SEOMeta {
   title: string;
@@ -67,6 +68,7 @@ export function buildProductSchema(product: {
   imageUrl: string;
   asin: string;
 }): object {
+  const image = getRenderableProductImage({ asin: product.asin, imageUrl: product.imageUrl });
   const schema: Record<string, unknown> = {
     "@context": "https://schema.org",
     "@type": "Product",
@@ -76,7 +78,6 @@ export function buildProductSchema(product: {
       "@type": "Brand",
       name: product.brand,
     },
-    image: product.imageUrl,
     // NOTE: aggregateRating intentionally omitted — we only have editorial ratings,
     // not genuine user-submitted reviews. Using reviewCount as aggregateRating would
     // violate Google's review-snippet guidelines.
@@ -94,6 +95,7 @@ export function buildProductSchema(product: {
       },
     },
   };
+  if (image) schema.image = image;
   if (isProductPriceFresh(product.asin) && product.price > 0) {
     schema.offers = {
       "@type": "Offer",

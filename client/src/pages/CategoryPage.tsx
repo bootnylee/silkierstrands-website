@@ -18,6 +18,7 @@ import { categories, getProductsByCategory, getComparisonsByCategory } from "@/l
 import { updateDocumentMeta } from "@/lib/seo";
 import { Link } from "wouter";
 import { ArrowLeft, SlidersHorizontal, X, ChevronDown } from "lucide-react";
+import { isAmazonHostedProductImage } from "@/lib/productImageFreshness";
 
 const SORT_OPTIONS = [
   { id: "default", label: "Featured" },
@@ -47,7 +48,7 @@ export default function CategoryPage() {
         title: catTitle,
         description: catDesc,
         canonical: `https://silkierstrands.com/category/${slug}`,
-        ogImage: category.imageUrl,
+        ogImage: isAmazonHostedProductImage(category.imageUrl) ? "https://silkierstrands.com/og-image.jpg" : category.imageUrl,
       });
     }
     // Reset filters when category changes
@@ -56,6 +57,7 @@ export default function CategoryPage() {
   }, [category, slug]);
 
   const anyActive = hasActiveFilters(filters) || sortBy !== "default";
+  const categoryImage = category && !isAmazonHostedProductImage(category.imageUrl) ? category.imageUrl : undefined;
 
   const activeFilterCount =
     (filters.priceMin > 0 || filters.priceMax < 600 ? 1 : 0) +
@@ -110,8 +112,8 @@ export default function CategoryPage() {
     <SiteLayout>
       {/* ── Category Hero ── */}
       <section className="relative overflow-hidden" style={{ minHeight: "300px" }}>
-        <div className="absolute inset-0">
-          <img src={category.imageUrl} alt={category.name} className="w-full h-full object-cover" />
+        <div className="absolute inset-0" style={{ backgroundColor: categoryImage ? undefined : "#2C2C2C" }}>
+          {categoryImage ? <img src={categoryImage} alt={category.name} className="w-full h-full object-cover" /> : null}
           <div
             className="absolute inset-0"
             style={{
