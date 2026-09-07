@@ -1088,7 +1088,7 @@ At $54.40 for a one-month supply, the cost is the main consideration; VEGAMOUR's
       id: "revlon-salon-one-step-plus",
       name: "Revlon Salon One-Step Volumizer PLUS 2.0",
       brand: "Revlon",
-      asin: "B0B6NVPGFP",
+      asin: "B096SVJZSW",
       price: 19.76,
       priceDisplay: "$19.76",
       rating: 4.3,
