@@ -47,6 +47,12 @@ const MATCH_THRESHOLD = 0.60;
 const REQUEST_DELAY_MS = 2500;
 const LOOKUP_ATTEMPTS = 3;
 const RETRY_BACKOFF_MS = 3000;
+// Warn-only remote validation must not consume the entire build window when
+// the catalog API is systematically unavailable. Blocking-mode behavior is
+// deliberately unchanged.
+const WARN_ONLY_REMOTE_FAILURE_THRESHOLD = 5;
+const WARN_ONLY_REMOTE_TIME_BUDGET_MS = 3 * 60 * 1000;
+let warnOnlyRemoteDeadlineMs = null;
 
 // Token cache
 let _tokenCache = { token: null, expiresAt: 0 };
@@ -107,11 +113,28 @@ function findAmazonSearchUrls(root) {
 // ─────────────────────────────────────────────────────────────────────────────
 // HTTP helper
 // ─────────────────────────────────────────────────────────────────────────────
+function warnOnlyRemoteBudgetExpired() {
+  return Boolean(WARN_ONLY && warnOnlyRemoteDeadlineMs && Date.now() >= warnOnlyRemoteDeadlineMs);
+}
+
+function requestTimeoutMs() {
+  if (!WARN_ONLY || !warnOnlyRemoteDeadlineMs) return 12000;
+  return Math.max(1, Math.min(12000, warnOnlyRemoteDeadlineMs - Date.now()));
+}
+
+function classifyWarnOnlyRemoteFailure(result) {
+  if (result.resolves || result.matches) return null;
+  const detail = String(result.error || "");
+  if (/no items returned/i.test(detail)) return "no-items";
+  if (/(creators api|api request|authentication failed|lookup unavailable|http\s*[45]\d\d)/i.test(detail)) return "api-failure";
+  return null;
+}
+
 function httpPost(hostname, path, headers, body) {
   return new Promise((resolve, reject) => {
     const data = typeof body === "string" ? body : JSON.stringify(body);
     const req = https.request(
-      { hostname, path, method: "POST", headers: { ...headers, "Content-Length": Buffer.byteLength(data) }, timeout: 12000 },
+      { hostname, path, method: "POST", headers: { ...headers, "Content-Length": Buffer.byteLength(data) }, timeout: requestTimeoutMs() },
       (res) => {
         let raw = "";
         res.on("data", c => { raw += c; });
@@ -128,7 +151,7 @@ function httpPost(hostname, path, headers, body) {
 function httpGet(hostname, path, headers) {
   return new Promise((resolve, reject) => {
     const req = https.request(
-      { hostname, path, method: "GET", headers, timeout: 12000 },
+      { hostname, path, method: "GET", headers, timeout: requestTimeoutMs() },
       (res) => {
         let raw = "";
         res.on("data", c => { raw += c; });
@@ -240,6 +263,7 @@ async function scrapeAmazonTitle(asin) {
 // ─────────────────────────────────────────────────────────────────────────────
 async function verifyAsin(asin, name) {
   let lastApiIssue = "Creators API lookup unavailable";
+  if (warnOnlyRemoteBudgetExpired()) return { budgetExhausted: true };
   if (CREATORS_CLIENT_ID && CREATORS_CLIENT_SECRET) {
     for (let attempt = 1; attempt <= LOOKUP_ATTEMPTS; attempt++) {
       try {
@@ -254,13 +278,21 @@ async function verifyAsin(asin, name) {
       } catch (error) {
         lastApiIssue = error?.message || "Creators API request failed";
       }
-      if (attempt < LOOKUP_ATTEMPTS) await sleep(RETRY_BACKOFF_MS * attempt);
+      if (warnOnlyRemoteBudgetExpired()) return { budgetExhausted: true };
+      if (attempt < LOOKUP_ATTEMPTS) {
+        const waitMs = WARN_ONLY && warnOnlyRemoteDeadlineMs
+          ? Math.max(0, Math.min(RETRY_BACKOFF_MS * attempt, warnOnlyRemoteDeadlineMs - Date.now()))
+          : RETRY_BACKOFF_MS * attempt;
+        if (waitMs > 0) await sleep(waitMs);
+      }
     }
   }
 
   // A final title fetch helps distinguish persistent API empty responses from a
   // real delisting. A missing or bot-protected title still fails closed.
+  if (warnOnlyRemoteBudgetExpired()) return { budgetExhausted: true };
   const { title, error } = await scrapeAmazonTitle(asin);
+  if (warnOnlyRemoteBudgetExpired()) return { budgetExhausted: true };
   if (error || !title) {
     return { title: null, resolves: false, matches: false, score: 0, source: "scrape", error: `${lastApiIssue}; ${error || "not found"}` };
   }
@@ -289,6 +321,18 @@ async function main() {
 
   let passed = 0, failed = 0;
   const failures = [];
+  // Product extraction and direct-link structural checks above always run in
+  // full. Only warn-only *remote* lookups are eligible for early exit.
+  const remoteStartedAt = Date.now();
+  warnOnlyRemoteDeadlineMs = WARN_ONLY ? remoteStartedAt + WARN_ONLY_REMOTE_TIME_BUDGET_MS : null;
+  let priorRemoteFailureClass = null;
+  let consecutiveRemoteApiFailures = 0;
+  let shortCircuitLogged = false;
+  const logTimeBudgetShortCircuit = (skipped) => {
+    if (shortCircuitLogged) return;
+    console.log(`remote validation time budget reached after ${Date.now() - remoteStartedAt}ms; ${skipped} products skipped (warn-only)`);
+    shortCircuitLogged = true;
+  };
   for (const file of searchUrlFiles) {
     failed++;
     failures.push({ product: "Amazon search URL", asin: "N/A", issue: `Amazon search destinations are prohibited (${file})`, amazon_title: null });
@@ -299,12 +343,23 @@ async function main() {
   }
 
   for (let i = 0; i < products.length; i++) {
+    if (WARN_ONLY && warnOnlyRemoteBudgetExpired()) {
+      logTimeBudgetShortCircuit(products.length - i);
+      break;
+    }
+
     const { name, asin } = products[i];
     const result = await verifyAsin(asin, name);
+    if (WARN_ONLY && (result.budgetExhausted || warnOnlyRemoteBudgetExpired())) {
+      logTimeBudgetShortCircuit(products.length - i);
+      break;
+    }
 
     if (result.resolves && result.matches) {
       console.log(`  ✓ ${name} (${asin})`);
       passed++;
+      priorRemoteFailureClass = null;
+      consecutiveRemoteApiFailures = 0;
     } else {
       const issue = !result.resolves
         ? (result.error || "ASIN not found")
@@ -312,9 +367,32 @@ async function main() {
       console.log(`  ✗ ${name} (${asin}): ${issue}`);
       failed++;
       failures.push({ product: name, asin, issue, amazon_title: result.title });
+
+      const failureClass = WARN_ONLY ? classifyWarnOnlyRemoteFailure(result) : null;
+      if (failureClass) {
+        consecutiveRemoteApiFailures = failureClass === priorRemoteFailureClass
+          ? consecutiveRemoteApiFailures + 1
+          : 1;
+        priorRemoteFailureClass = failureClass;
+      } else {
+        priorRemoteFailureClass = null;
+        consecutiveRemoteApiFailures = 0;
+      }
+
+      if (WARN_ONLY && consecutiveRemoteApiFailures >= WARN_ONLY_REMOTE_FAILURE_THRESHOLD) {
+        const skipped = products.length - i - 1;
+        console.log(`remote validation short-circuited after ${consecutiveRemoteApiFailures} consecutive API failures; ${skipped} products skipped (warn-only)`);
+        shortCircuitLogged = true;
+        break;
+      }
     }
 
-    if (i < products.length - 1) await sleep(REQUEST_DELAY_MS);
+    if (i < products.length - 1) {
+      const waitMs = WARN_ONLY && warnOnlyRemoteDeadlineMs
+        ? Math.max(0, Math.min(REQUEST_DELAY_MS, warnOnlyRemoteDeadlineMs - Date.now()))
+        : REQUEST_DELAY_MS;
+      if (waitMs > 0) await sleep(waitMs);
+    }
   }
 
   console.log(`\n${"=".repeat(60)}`);
