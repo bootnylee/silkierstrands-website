@@ -575,6 +575,153 @@ At $50 with a 4.6-star rating from nearly 8,000 reviews, this is exceptional val
 // ALL PRODUCTS
 // ============================================================
 export const allProducts: Product[] = [
+  // ── Weekly additions 2026-09-07 ──
+  {
+    id: "olaplex-no4-bond-maintenance-shampoo",
+    name: "OLAPLEX N°.4 Bond Maintenance™ Strengthening Shampoo",
+    brand: "OLAPLEX",
+    asin: "B07D37PQGL",
+    price: 31.29,
+    priceDisplay: "$31.29",
+    rating: 4.6,
+    reviewCount: 84043,
+    category: "Shampoo & Conditioner",
+    categorySlug: "shampoo-conditioner",
+    imageUrl: "https://m.media-amazon.com/images/I/61OaFWpCgAL._SL1500_.jpg",
+    amazonImageUrl: "https://m.media-amazon.com/images/I/61OaFWpCgAL._SL1500_.jpg",
+    hairTypes: ["dry", "normal", "thick", "coarse", "curly", "color-treated"],
+    shortDescription: "Concentrated, sulfate-free and color-safe shampoo that cleanses while supporting stronger, softer-looking hair across straight, wavy, curly, and coily patterns.",
+    fullReview: `OLAPLEX N°.4 Bond Maintenance™ Strengthening Shampoo extends the brand's bond-care system into a concentrated cleanser. OLAPLEX positions the sulfate-free, color-safe formula to remove buildup while reinforcing vulnerable bonds and improving the appearance of strength, softness, and shine. The standard N°.4 formula is designed primarily for medium-to-coarse textures and all porosity levels.
+
+The strongest use case is damage-prone or chemically treated hair that needs more nourishment than a basic daily shampoo. Independent testing published by Byrdie found that N°.4 cleansed thoroughly and removed dry-shampoo buildup without leaving a squeaky finish. That review also noted that the formula is not the brand's most hydrating option, so dry lengths still benefit from a compatible conditioner.
+
+The verified Amazon listing is the 250 mL / 8.5 fl oz bottle. Its public title identifies this exact Strengthening Shampoo rather than the separate N°.4FINE, N°.4P, or N°.4C formulas. The premium price makes the most sense for shoppers already prioritizing color care, chemical-damage support, or the broader OLAPLEX routine.`,
+    pros: [
+      "Sulfate-free, color-safe formula for chemically treated hair",
+      "Concentrated cleanser designed for medium-to-coarse textures",
+      "Independent editorial testing found effective buildup removal without a squeaky finish",
+      "Suitable across straight, wavy, curly, and coily patterns",
+    ],
+    cons: [
+      "Premium price for an 8.5 fl oz bottle",
+      "May still require a richer conditioner on very dry hair",
+      "Fine hair may be better served by the separate N°.4FINE formula",
+    ],
+    bestFor: "Medium-to-coarse, color-treated, chemically treated, or damage-prone hair needing a non-stripping strengthening shampoo",
+    editorPick: false,
+    publishDate: "2026-09-07",
+    slug: "olaplex-no4-bond-maintenance-shampoo-review",
+  },
+  {
+    id: "amika-kure-intense-strength-repair-mask",
+    name: "amika The Kure Intense Strength Repair Mask",
+    brand: "amika",
+    asin: "B09B8YQ6RF",
+    price: 44.00,
+    priceDisplay: "$44.00",
+    rating: 4.6,
+    reviewCount: 3037,
+    category: "Hair Masks & Treatments",
+    categorySlug: "hair-masks",
+    imageUrl: "https://m.media-amazon.com/images/I/613FkOeT0aL._AC_SL1500_.jpg",
+    amazonImageUrl: "https://m.media-amazon.com/images/I/613FkOeT0aL._AC_SL1500_.jpg",
+    hairTypes: ["dry", "thick", "coarse", "curly", "color-treated"],
+    shortDescription: "Ultra-rich weekly repair mask that combines bond-fortifying technology with sea buckthorn, borage oil, shea butter, and mango butter for damaged, high-porosity hair.",
+    fullReview: `amika The Kure Intense Strength Repair Mask is the repair-focused counterpart to the brand's moisture-led Soulfood mask. The rich rinse-out treatment combines bond-fortifying technology with sea buckthorn oil, borage oil, shea butter, and mango butter. Amika positions it for hair weakened by heat, chemical services, and environmental stress, including color-treated strands.
+
+This formula is best matched to dry, damaged, or high-porosity hair that can accommodate a substantial weekly treatment. The brand recommends applying it after shampooing, leaving it on for ten minutes, and rinsing thoroughly. An independent review from BrownStyle reported improved moisture and softness on thick type 4B hair, while also noting that the premium jar can be used quickly on dense hair.
+
+Amazon's public listing uses the title “amika the kure intense strength repair mask” for the selected 250 mL / 8.4 fl oz jar. Gallery context on that listing also identifies it as The Kure Intense Bond Repair Mask, confirming that the strength-repair and bond-repair descriptions refer to the same size and formula rather than different variants.`,
+    pros: [
+      "Rich weekly treatment for dry, damaged, and high-porosity hair",
+      "Combines bond-fortifying technology with multiple emollient oils and butters",
+      "Brand states the formula is safe for color-treated hair",
+      "Designed for hair patterns from straight through coily",
+    ],
+    cons: [
+      "Premium price for an 8.4 fl oz jar",
+      "Ten-minute treatment is less convenient than a daily conditioner",
+      "Contains fragrance and dimethicone, which some shoppers avoid",
+    ],
+    bestFor: "Dry, damaged, high-porosity, or color-treated hair needing a rich weekly strength-and-moisture treatment",
+    editorPick: false,
+    publishDate: "2026-09-07",
+    slug: "amika-the-kure-intense-strength-repair-mask-review",
+  },
+  {
+    id: "dyson-airstrait-straightener",
+    name: "Dyson Airstrait™ Straightener",
+    brand: "Dyson",
+    asin: "B0CV7L12SS",
+    price: 499.00,
+    priceDisplay: "$499.00",
+    rating: 4.2,
+    reviewCount: 403,
+    category: "Flat Irons & Straighteners",
+    categorySlug: "flat-irons",
+    imageUrl: "https://m.media-amazon.com/images/I/51xb1+gxMpL._SL1500_.jpg",
+    amazonImageUrl: "https://m.media-amazon.com/images/I/51xb1+gxMpL._SL1500_.jpg",
+    hairTypes: ["fine", "normal", "thick", "coarse", "curly"],
+    shortDescription: "Premium wet-to-dry straightener that uses directed airflow instead of conventional hot plates to dry and smooth hair in one styling step.",
+    fullReview: `Dyson Airstrait™ Straightener is a distinct alternative to both a blow dryer and a plated flat iron. It directs heated airflow downward at a 45-degree angle to create tension, align strands, and move towel-dried hair toward a natural straight finish. Glass-bead thermistors regulate airflow temperature up to 30 times per second, while Wet and Dry modes support different starting points.
+
+The central advantage is workflow consolidation: shoppers can rough-dry roots, then dry and straighten lengths with one device and no conventional hot plates. The trade-off is finish and handling. Allure's independent reviewer found the 2.2-pound body and arms bulky near the roots and preferred a traditional flat iron when the goal was an especially glassy result.
+
+The verified Amazon listing is the Ceramic Pink and Rose Gold U.S. variant. Its public title exactly identifies the Dyson Airstrait wet-to-dry straightener, and the selected product description confirms the colorway. At $499, it is best justified by frequent styling, a preference for a softer blowout-like finish, and a desire to replace two styling stages with one tool.`,
+    pros: [
+      "Dries and straightens from towel-dried hair in one workflow",
+      "Uses directed airflow rather than conventional hot plates",
+      "Wet and Dry modes plus root pre-drying support",
+      "Works across a broad range of hair textures",
+    ],
+    cons: [
+      "Very high purchase price",
+      "Heavier and bulkier near the roots than a conventional flat iron",
+      "Produces a natural straight finish rather than the glassiest flat-iron result",
+      "U.S. 120V model is not a dual-voltage travel tool",
+    ],
+    bestFor: "Frequent stylers who want to combine blow-drying and straightening while avoiding conventional hot plates",
+    editorPick: false,
+    publishDate: "2026-09-07",
+    slug: "dyson-airstrait-straightener-review",
+  },
+  {
+    id: "chi-spin-n-curl-rose-gold",
+    name: "CHI Spin N Curl 1″ Ceramic Rotating Curling Iron, Rose Gold",
+    brand: "CHI",
+    asin: "B07VYK8GY9",
+    price: 79.99,
+    priceDisplay: "$79.99",
+    rating: 4.3,
+    reviewCount: 33032,
+    category: "Curling Irons & Wands",
+    categorySlug: "curling-irons",
+    imageUrl: "https://m.media-amazon.com/images/P/B07VYK8GY9.01.LZZZZZZZ.jpg",
+    amazonImageUrl: "https://m.media-amazon.com/images/P/B07VYK8GY9.01.LZZZZZZZ.jpg",
+    hairTypes: ["fine", "normal", "thick", "coarse"],
+    shortDescription: "One-inch ceramic automatic curler that draws small sections into an enclosed rotating chamber for guided curls with directional, heat, and timing controls.",
+    fullReview: `CHI Spin N Curl 1″ Ceramic Rotating Curling Iron replaces manual wrapping with an enclosed ceramic curl chamber. The user places a section near the opening, selects a direction, and lets the rotating barrel draw the hair around the one-inch surface. Preset temperatures of 370°F, 390°F, and 410°F correspond to fine, medium, and coarse hair, with additional timing controls for curl formation.
+
+The enclosed format lowers the technique barrier for shoppers who struggle to coordinate a clamp or wand. Tangle protection, a digital temperature display, a beep alert, automatic temperature lock, and one-hour shutoff support repeatable use. CHI still recommends sections no larger than one inch, so long or dense hair will require patient sectioning.
+
+The public Amazon title exactly matches the Rose Gold, one-inch ceramic rotating model, and CHI's official page confirms the same color, size, and product identity. POPSUGAR's independent reviewer found the tool straightforward on visible sections but more awkward at the back of the head, which is the main ergonomic limitation to consider.`,
+    pros: [
+      "Automatic rotating chamber reduces manual curling technique",
+      "Preset heat levels for fine, medium, and coarse hair",
+      "Directional and timing controls support repeatable curls",
+      "Tangle protection and one-hour automatic shutoff",
+    ],
+    cons: [
+      "Requires small one-inch sections, increasing styling time on dense hair",
+      "More awkward to position at the back of the head",
+      "Not well suited to very short hair",
+      "Customer experiences with pulling or tangling are mixed",
+    ],
+    bestFor: "Fine-to-coarse hair at least four inches long; shoppers wanting guided, repeatable curls without manual wrapping",
+    editorPick: false,
+    publishDate: "2026-09-07",
+    slug: "chi-spin-n-curl-ceramic-rotating-curling-iron-review",
+  },
   // ── Weekly additions 2026-08-31 ──
   {
     id: "briogeo-dont-despair-repair-mask",
@@ -2616,6 +2763,22 @@ export function getEditorPicks(): Product[] {
 // COMPARISONS (6 - one per category)
 // ============================================================
 export const comparisons: Comparison[] = [
+  // ── Weekly additions 2026-09-07 ──
+  {
+    id: "amika-kure-vs-soulfood-mask",
+    title: "amika The Kure Intense Strength Repair Mask vs. Amika Soulfood Nourishing Mask",
+    subtitle: "Bond-Fortifying Repair vs. Moisture-First Nourishment: Which Amika Mask Fits Your Damage Profile?",
+    category: "Hair Masks & Treatments",
+    categorySlug: "hair-masks",
+    product1Id: "amika-kure-intense-strength-repair-mask",
+    product2Id: "amika-soulfood-mask",
+    winnerId: "amika-kure-intense-strength-repair-mask",
+    winnerReason: "The Kure wins for structurally weakened, high-porosity, color-treated, or heat-damaged hair because it combines a bond-fortifying system with rich oils and butters. Soulfood remains the better value for generally dry hair that needs softness and moisture without a dedicated repair emphasis.",
+    verdict: "Choose The Kure when breakage, chemical processing, or high porosity is the primary concern and a ten-minute weekly treatment fits the routine. Choose Soulfood when the main issue is dryness, roughness, or frizz and the goal is a more straightforward nourishing mask at a lower price. The Kure is the stronger specialist; Soulfood is the more accessible moisture-maintenance option.",
+    publishDate: "2026-09-07",
+    slug: "amika-the-kure-vs-soulfood-nourishing-mask",
+    hairTypes: ["dry", "thick", "coarse", "curly", "color-treated"],
+  },
   // ── Weekly additions 2026-08-31 ──
   {
     id: "briogeo-dont-despair-vs-k18-repair-mask",
