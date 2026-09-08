@@ -1,0 +1,13 @@
+{
+  "suggestedSubject": "New this week: OLAPLEX N°.4 Bond Maintenance™ Strengthening Shampoo",
+  "previewText": "Concentrated, sulfate-free and color-safe shampoo that cleanses while supporting stronger, softer-looking hair across straight, wavy, curly, and coily patterns.",
+  "fromName": "SilkierStrands",
+  "fromAddress": "hello@silkierstrands.com",
+  "listName": "SilkierStrands newsletter list",
+  "articleUrl": "https://silkierstrands.com/review/olaplex-no4-bond-maintenance-shampoo-review",
+  "publishedDate": "2026-09-07",
+  "articleTitle": "OLAPLEX N°.4 Bond Maintenance™ Strengthening Shampoo",
+  "articleSource": "client/src/lib/products.ts (allProducts)",
+  "stagedAt": "2026-09-08T19:19:26.451Z",
+  "note": "Create and send this campaign manually in the EmailOctopus dashboard. This workflow never calls the EmailOctopus API."
+}
