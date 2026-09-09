@@ -595,9 +595,10 @@ function writeRoute(urlPath, html) {
     writeFileSync(resolve(DIST, "index.html"), html, "utf-8");
     return;
   }
-  const dir = resolve(DIST, urlPath.replace(/^\//, ""));
-  mkdirSync(dir, { recursive: true });
-  writeFileSync(resolve(dir, "index.html"), html, "utf-8");
+  const relativePath = urlPath.replace(/^\//, "");
+  const outputPath = resolve(DIST, `${relativePath}.html`);
+  mkdirSync(dirname(outputPath), { recursive: true });
+  writeFileSync(outputPath, html, "utf-8");
 }
 
 let count = 0;
