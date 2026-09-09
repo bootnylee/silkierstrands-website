@@ -9,7 +9,7 @@ import { isProductPriceFresh } from "@/lib/priceFreshness.generated";
 import { getRenderableProductImage } from "@/lib/productImageFreshness";
 import { getPriceBadge, type PriceBadge } from "@/lib/priceHistory";
 import { trackAffiliateClick } from "@/lib/analytics";
-import { VerifiedAmazonCta, hasVerifiedAsin } from "@/components/ProductCommerce";
+import { VerifiedAmazonCta, hasVerifiedAffiliateLink } from "@/components/ProductCommerce";
 
 // Returns true if the product was published within the last 14 days
 function isNewThisWeek(publishDate: string): boolean {
@@ -33,14 +33,14 @@ function PriceDisplay({
   fontSize?: string;
   color?: string;
 }) {
-  if (isProductPriceFresh(product.asin) && product.price > 0) {
+  if (!product.successorAsin && product.affiliateAvailable !== false && isProductPriceFresh(product.asin) && product.price > 0) {
     return (
       <span className="font-label font-bold block" style={{ color, fontSize }}>
         {product.priceDisplay}
       </span>
     );
   }
-  return hasVerifiedAsin(product.asin) ? (
+  return hasVerifiedAffiliateLink(product) ? ( 
     <span className="font-body text-xs block" style={{ color }}>See price on Amazon</span>
   ) : (
     <span className="font-body text-xs block" style={{ color: "#8C8C8C" }}>No verified link</span>

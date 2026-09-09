@@ -250,11 +250,11 @@ export default function ProductReview() {
                   <span className="editor-pick-badge text-xs px-3 py-1">Editor's Pick</span>
                 </div>
               )}
-              <div className="mb-3"><FreshCatalogPrice product={product} className="text-2xl" />{(!catalogIsFresh(product) || Number(product.price) <= 0) && <p className="font-body text-xs" style={{ color: "#B8A99A" }}>See price on Amazon</p>}</div>
+              <div className="mb-3"><FreshCatalogPrice product={product} className="text-2xl" />{(!catalogIsFresh(product) || Number(product.price) <= 0 || product.successorAsin || product.affiliateAvailable === false) && <p className="font-body text-xs" style={{ color: "#B8A99A" }}>{product.affiliateAvailable === false ? "Not linked" : product.successorAsin ? "Current successor available on Amazon" : "See price on Amazon"}</p>}</div>
               <VerifiedAmazonCta product={product} label="Check Price on Amazon" className="w-full mt-4" />
-              <p className="font-body text-xs text-center mt-2" style={{ color: "#B8A99A" }}>
+              {product.affiliateAvailable !== false && <p className="font-body text-xs text-center mt-2" style={{ color: "#B8A99A" }}>
                 Affiliate link - we earn a commission at no extra cost to you
-              </p>
+              </p>}
             </div>
 
             {/* Pros & Cons */}
@@ -314,6 +314,12 @@ export default function ProductReview() {
               <Link href="/how-we-test"><span className="font-body text-xs underline cursor-pointer" style={{ color: "#D4822A" }}>How we test</span></Link>
             </div>
             <hr className="editorial-rule w-16 mb-6" />
+
+            {product.commerceNotice && (
+              <aside className="mb-6 rounded-sm border-l-4 px-4 py-3 font-body text-sm leading-relaxed" role="note" style={{ borderColor: "#D4822A", backgroundColor: "#FFF8F0", color: "#3D2B1F" }}>
+                <strong>This model has been discontinued.</strong> {product.commerceNotice.replace(/^This model has been discontinued\.\s*/, "")}
+              </aside>
+            )}
 
             <p className="font-body text-lg leading-relaxed mb-8" style={{ color: "#6C6C6C" }}>
               {product.shortDescription}

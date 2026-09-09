@@ -3,7 +3,7 @@ import { type Product, amazonLink } from "@/lib/products";
 import { isProductPriceFresh } from "@/lib/priceFreshness.generated";
 import { trackAffiliateClick } from "@/lib/analytics";
 
-type CommerceProduct = Pick<Product, "asin" | "name" | "shortDescription" | "bestFor" | "price" | "priceDisplay"> & {
+type CommerceProduct = Pick<Product, "asin" | "name" | "shortDescription" | "bestFor" | "price" | "priceDisplay" | "successorAsin" | "successorName" | "affiliateAvailable"> & {
   availability?: string;
   isBuyBoxWinner?: boolean;
 };
@@ -12,12 +12,20 @@ export function hasVerifiedAsin(asin?: string): boolean {
   return Boolean(asin && /^[A-Z0-9]{10}$/i.test(asin));
 }
 
+export function commerceAsin(product?: CommerceProduct): string {
+  return product?.successorAsin || product?.asin || "";
+}
+
+export function hasVerifiedAffiliateLink(product?: CommerceProduct): boolean {
+  return Boolean(product?.affiliateAvailable !== false && hasVerifiedAsin(commerceAsin(product)));
+}
+
 export function catalogIsFresh(product?: CommerceProduct): boolean {
   return Boolean(product && isProductPriceFresh(product.asin));
 }
 
 export function FreshCatalogPrice({ product, className = "", color = "#8B1A2F" }: { product: CommerceProduct; className?: string; color?: string }) {
-  if (!catalogIsFresh(product) || !product.priceDisplay || Number(product.price) <= 0) return null;
+  if (product.affiliateAvailable === false || product.successorAsin || !catalogIsFresh(product) || !product.priceDisplay || Number(product.price) <= 0) return null;
   return (
     <span className={`inline-flex items-baseline flex-wrap gap-x-1.5 font-label font-bold ${className}`} style={{ color }}>
       <span className="whitespace-nowrap">{product.priceDisplay}</span>
@@ -27,10 +35,10 @@ export function FreshCatalogPrice({ product, className = "", color = "#8B1A2F" }
 }
 
 export function VerifiedAmazonCta({ product, label = "Check Price on Amazon", className = "", compact = false }: { product: CommerceProduct; label?: string; className?: string; compact?: boolean }) {
-  if (!hasVerifiedAsin(product.asin)) {
+  if (!hasVerifiedAffiliateLink(product)) {
     return <span className={`font-body text-xs ${className}`} style={{ color: "#8C8C8C" }}>No verified link</span>;
   }
-  const href = amazonLink(product.asin);
+  const href = amazonLink(commerceAsin(product));
   return (
     <a
       href={href}
@@ -39,7 +47,7 @@ export function VerifiedAmazonCta({ product, label = "Check Price on Amazon", cl
       className={`btn-amazon inline-flex items-center justify-center gap-2 rounded-sm ${compact ? "py-2 px-3 text-xs" : "py-2.5 px-4 text-sm"} ${className}`}
       onClick={() => trackAffiliateClick(product.name, href)}
     >
-      {label} <ExternalLink size={compact ? 10 : 12} />
+      {product.successorAsin ? "View current successor on Amazon" : label} <ExternalLink size={compact ? 10 : 12} />
     </a>
   );
 }
@@ -65,7 +73,7 @@ export function ProductComparisonTable({ products }: { products: CommerceProduct
             {products.map((product) => <tr key={product.asin || product.name} className="border-t" style={{ borderColor: "#EDE5DC" }}>
               <td className="px-5 py-4 font-body font-semibold text-sm" style={{ color: "#2C2C2C" }}>{product.name}</td>
               <td className="px-5 py-4 font-body text-xs leading-relaxed" style={{ color: "#6C6C6C" }}>{keySpec(product)}</td>
-              <td className="px-5 py-4 whitespace-nowrap align-middle"><FreshCatalogPrice product={product} className="text-sm" />{!catalogIsFresh(product) || Number(product.price) <= 0 ? <span className="font-body text-xs" style={{ color: "#8C8C8C" }}>{hasVerifiedAsin(product.asin) ? "See price on Amazon" : "Not linked"}</span> : null}</td>
+              <td className="px-5 py-4 whitespace-nowrap align-middle"><FreshCatalogPrice product={product} className="text-sm" />{!catalogIsFresh(product) || Number(product.price) <= 0 ? <span className="font-body text-xs" style={{ color: "#8C8C8C" }}>{hasVerifiedAffiliateLink(product) ? "See price on Amazon" : "Not linked"}</span> : null}</td>
               <td className="px-5 py-4 whitespace-nowrap align-middle"><VerifiedAmazonCta product={product} compact /></td>
             </tr>)}
           </tbody>

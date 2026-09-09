@@ -17,6 +17,13 @@ export interface Product {
   priceDisplay: string;
   availability?: string;
   isBuyBoxWinner?: boolean;
+  /** Current, verified commerce successor used only for an original-model review. */
+  successorAsin?: string;
+  successorName?: string;
+  /** Visible near-top disclosure for discontinued reviews and successor links. */
+  commerceNotice?: string;
+  /** False suppresses every outbound Amazon CTA while retaining historical review data. */
+  affiliateAvailable?: boolean;
   rating: number;
   reviewCount: number;
   category: string;
@@ -395,6 +402,9 @@ const flatIronProducts: Product[] = [
     name: "T3 SinglePass Luxe 1\" Straightening & Styling Iron",
     brand: "T3",
     asin: "B0BSHWKW1H",
+    successorAsin: "B0DCGTJMQ2",
+    successorName: "T3 SinglePass StyleMax Professional 1\" Ceramic Flat Iron",
+    commerceNotice: "This model has been discontinued. The current version is the T3 SinglePass StyleMax Professional 1\" Ceramic Flat Iron. The hands-on findings in this review apply to the original SinglePass Luxe, not the newer StyleMax.",
     price: 179.99,
     priceDisplay: "$179.99",
     rating: 4.5,
@@ -449,6 +459,8 @@ At $40, it's exceptional value. The main limitation is that it won't achieve the
     name: "HSI Professional Glider Ceramic Flat Iron",
     brand: "HSI Professional",
     asin: "B0B6QGWDKR",
+    affiliateAvailable: false,
+    commerceNotice: "This model has been discontinued. No current, title-matched Amazon successor has been verified, so this review is not linked.",
     price: 39.49,
     priceDisplay: "$39.49",
     rating: 4.4,
@@ -1548,6 +1560,8 @@ At $279, it's a significant investment, but for those who style their hair daily
     name: "Remington Pro 1\" Spiral Curling Wand",
     brand: "Remington",
     asin: "B0050QJHTO",
+    affiliateAvailable: false,
+    commerceNotice: "This model has been discontinued. The live Remington listing is a different conical Pearl Ceramic wand, not the reviewed 1-inch Spiral Wand, so this review is not linked.",
     price: 29.99,
     priceDisplay: "$29.99",
     rating: 4.3,
@@ -1602,6 +1616,9 @@ At $149, it's a premium purchase for a curling iron, but the ease of use and con
     name: "T3 Featherweight 3i Professional Ionic Hair Dryer",
     brand: "T3",
     asin: "B0BSJH7JKK",
+    successorAsin: "B0BSJH7JKK",
+    successorName: "T3 Featherweight StyleMax Professional Ionic Hair Dryer",
+    commerceNotice: "This model has been discontinued. The current version is the T3 Featherweight StyleMax Professional Ionic Hair Dryer. The hands-on findings in this review apply to the original Featherweight 3i, not the newer StyleMax.",
     price: 157.49,
     priceDisplay: "$157.49",
     rating: 4.5,
@@ -1737,6 +1754,8 @@ At $22, it's excellent value for a professional-grade formula. For those who wan
     name: "Kristin Ess Hair 1.25\" Curling Wand",
     brand: "Kristin Ess",
     asin: "B0B8YCSSWQ",
+    affiliateAvailable: false,
+    commerceNotice: "This model has been discontinued. No current, title-matched Amazon successor has been verified, so this review is not linked.",
     price: 73.80,
     priceDisplay: "$73.80",
     rating: 4.5,
