@@ -55,7 +55,7 @@ jobs:
           WEEK_NUMBER: ${{ steps.week.outputs.week_number }}
 
       - name: Regenerate sitemap
-        run: node scripts/generate-sitemap.mjs
+        run: pnpm exec tsx scripts/extract-site-data.ts && node scripts/generate-sitemap.mjs
 
       - name: Run SEO audit
         run: node scripts/seo-audit.mjs
