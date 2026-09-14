@@ -2782,6 +2782,52 @@ export function getEditorPicks(): Product[] {
 // COMPARISONS (6 - one per category)
 // ============================================================
 export const comparisons: Comparison[] = [
+  // ── Weekly additions 2026-09-14 ──
+  {
+    id: "olaplex-no3plus-vs-k18-molecular-repair-mask",
+    title: "Olaplex N°.3PLUS Hair Repair Pre-Shampoo Treatment vs. K18 Leave-In Molecular Repair Hair Mask",
+    subtitle: "Pre-Shampoo Bond Care vs. Four-Minute Leave-In Repair: Which Treatment Fits Your Damage Routine?",
+    category: "Hair Masks & Treatments",
+    categorySlug: "hair-masks",
+    product1Id: "olaplex-no3-hair-perfector",
+    product2Id: "k18-leave-in-molecular-repair-mask",
+    winnerId: "k18-leave-in-molecular-repair-mask",
+    winnerReason: "K18 wins for hair that feels severely compromised after bleaching, chemical processing, or frequent heat styling because its four-minute leave-in format is designed for intensive repair without adding another rinse-out step. Olaplex N°.3PLUS is the better fit for a repeatable pre-shampoo routine when breakage prevention and maintenance are the priority rather than a concentrated reset.",
+    verdict: "Choose K18 when your hair feels notably weak, stretchy, or difficult to manage after chemical services and you want a fast, targeted treatment after shampooing. Choose Olaplex N°.3PLUS when you prefer a pre-shampoo bond-care step that can become part of a consistent maintenance routine. K18 is the stronger choice for acute damage; Olaplex is the more natural fit for ongoing repair-minded upkeep.",
+    publishDate: "2026-09-14",
+    slug: "olaplex-no3plus-vs-k18-molecular-repair-mask",
+    hairTypes: ["damaged", "color-treated", "dry", "fine", "coarse"],
+  },
+  {
+    id: "redken-one-united-vs-living-proof-perfect-hair-day",
+    title: "Redken One United All-In-One Leave-In Conditioner vs. Living Proof Perfect Hair Day 5-in-1 Styling Treatment",
+    subtitle: "25-Benefit Leave-In Spray vs. Smoothing Styling Primer: Which Multitasker Belongs in Your Routine?",
+    category: "Serums & Oils",
+    categorySlug: "serums-oils",
+    product1Id: "redken-one-united-leave-in",
+    product2Id: "living-proof-perfect-hair-day",
+    winnerId: "redken-one-united-leave-in",
+    winnerReason: "Redken One United wins for routine flexibility because its lightweight spray format is built around detangling, heat protection, shine, and frizz control across a broad range of hair types. Living Proof Perfect Hair Day is the better specialist for someone who wants a single damp-hair styling treatment focused on priming, smoothing, and a more polished blow-dry finish.",
+    verdict: "Choose Redken One United when your daily need is a versatile leave-in that can detangle, protect before heat styling, and layer comfortably with other products. Choose Living Proof Perfect Hair Day when you want to simplify a blow-dry routine with one product that primes and smooths. Redken is the more adaptable all-purpose pick; Living Proof is the more focused styling shortcut.",
+    publishDate: "2026-09-14",
+    slug: "redken-one-united-vs-living-proof-perfect-hair-day",
+    hairTypes: ["fine", "normal", "thick", "curly", "color-treated"],
+  },
+  {
+    id: "joico-color-balance-vs-fanola-no-yellow",
+    title: "Joico Color Balance Purple Shampoo vs. Fanola No Yellow Mask",
+    subtitle: "Regular Toning Shampoo vs. Intensive Purple Mask: Which Is Better for Brassy Blonde or Gray Hair?",
+    category: "Hair Masks & Treatments",
+    categorySlug: "hair-masks",
+    product1Id: "joico-color-balance-shampoo",
+    product2Id: "fanola-no-yellow-mask",
+    winnerId: "joico-color-balance-shampoo",
+    winnerReason: "Joico Color Balance wins for regular maintenance because the shampoo format is intended to be worked into a normal wash routine while gradually addressing yellow and brassy tones. Fanola No Yellow Mask is the better specialist when brassiness is pronounced and an intensive, timed treatment is appropriate; its concentrated pigment calls for more deliberate use.",
+    verdict: "Choose Joico Color Balance Purple Shampoo for a manageable maintenance step between salon appointments, especially if you want to tone while cleansing. Choose Fanola No Yellow Mask when blonde, highlighted, or gray hair needs a more intensive correction and you are prepared to time the treatment carefully. Joico is the more practical weekly option; Fanola is the stronger occasional reset.",
+    publishDate: "2026-09-14",
+    slug: "joico-color-balance-purple-shampoo-vs-fanola-no-yellow-mask",
+    hairTypes: ["color-treated", "blonde", "gray"],
+  },
   // ── Weekly additions 2026-09-07 ──
   {
     id: "amika-kure-vs-soulfood-mask",
