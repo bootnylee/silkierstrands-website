@@ -4,9 +4,10 @@
 
 name: Weekly Content Update
 
+# RETIRED 2026-09-14: the Claude dispatch layer is the canonical SilkierStrands publisher.
+# This workflow is an unguarded second publisher with no same-day idempotency check.
+# Cron removed deliberately. Manual runs only. Do not re-enable without a same-day guard.
 on:
-  schedule:
-    - cron: '0 11 * * 1'
   workflow_dispatch:
     inputs:
       dry_run:
