@@ -9,6 +9,13 @@
     "start": "NODE_ENV=production node dist/index.js",
     "preview": "vite preview --host",
     "check": "tsc --noEmit",
+    "validate-content-completeness": "node scripts/validate-content-completeness.mjs",
+    "validate-distinctness": "node scripts/validate-distinctness.mjs",
+    "validate-mvp": "node scripts/validate-mvp.mjs",
+    "validate-routes": "node scripts/validate-routes.mjs",
+    "validate-crawlability": "node scripts/validate-crawlability.mjs",
+    "validate-forms": "node scripts/validate-forms.mjs",
+    "validate-affiliate-disclosure": "node scripts/validate-affiliate-disclosure.mjs",
     "format": "prettier --write ."
   },
   "dependencies": {

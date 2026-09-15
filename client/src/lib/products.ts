@@ -8,6 +8,12 @@ export function amazonLink(asin: string): string {
   return `https://www.amazon.com/dp/${asin}?tag=${AFFILIATE_TAG}`;
 }
 
+export interface ContentCitation {
+  claim: string;
+  url: string;
+  title: string;
+}
+
 export interface Product {
   id: string;
   name: string;
@@ -40,6 +46,8 @@ export interface Product {
   editorNote?: string;
   publishDate: string;
   slug: string;
+  /** Research provenance retained for programmatically authored records. */
+  citations?: ContentCitation[];
 }
 
 export interface Comparison {
@@ -56,6 +64,8 @@ export interface Comparison {
   publishDate: string;
   slug: string;
   hairTypes?: string[];
+  /** Research provenance retained for programmatically authored records. */
+  citations?: ContentCitation[];
 }
 
 export interface Category {
