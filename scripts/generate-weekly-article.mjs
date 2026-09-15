@@ -10,6 +10,7 @@ import { promisify } from "node:util";
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
+import Anthropic from "@anthropic-ai/sdk";
 import { CONTENT_BATCH_SCHEMA, validateContentBatch } from "./content-record-schema.mjs";
 
 const execFile = promisify(execFileCallback);
@@ -21,6 +22,14 @@ const GENERATED_DIR = resolve(ROOT, ".ops", "generated-content");
 const PRODUCTS_FILE = resolve(ROOT, "client", "src", "lib", "products.ts");
 const RENDERER = resolve(__dirname, "render-content-records.mjs");
 const MAX_TIMEOUT_MS = 120_000;
+const MIN_JWT_REMAINING_SECONDS = 90;
+const MAX_JWT_AGE_SECONDS = 90;
+const FEDERATION_VARIABLES = [
+  "ANTHROPIC_FEDERATION_RULE_ID",
+  "ANTHROPIC_ORGANIZATION_ID",
+  "ANTHROPIC_SERVICE_ACCOUNT_ID",
+  "ANTHROPIC_WORKSPACE_ID",
+];
 
 function argument(name, fallback = "") {
   const i = process.argv.indexOf(name);
@@ -198,32 +207,46 @@ function requestObject({ houseStyle, siteProfile, notebook, topic, index }) {
   };
 }
 
-async function fetchClaude(request) {
-  if (!process.env.ANTHROPIC_API_KEY) fail("ANTHROPIC_API_KEY is required; no generation request was made");
-  const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), MAX_TIMEOUT_MS);
+function preflightFederatedIdentity() {
+  const missing = FEDERATION_VARIABLES.filter((name) => !process.env[name]?.trim());
+  if (missing.length) {
+    fail(`Federated identity configuration is missing: ${missing.join(", ")}; no generation request was made`);
+  }
+
+  const tokenFile = process.env.ANTHROPIC_IDENTITY_TOKEN_FILE;
+  if (!tokenFile?.trim()) fail("Federated identity configuration is missing: ANTHROPIC_IDENTITY_TOKEN_FILE; no generation request was made");
+  if (!existsSync(tokenFile)) fail(`Federated identity token file does not exist: ${tokenFile}; no generation request was made`);
+  const token = readFileSync(tokenFile, "utf8").trim();
+  if (!token) fail(`Federated identity token file is empty: ${tokenFile}; no generation request was made`);
+
+  const parts = token.split(".");
+  if (parts.length !== 3) fail(`Federated identity token file is not a JWT: ${tokenFile}; no generation request was made`);
+  let claims;
   try {
-    const response = await fetch("https://api.anthropic.com/v1/messages", {
-      method: "POST",
-      signal: controller.signal,
-      headers: {
-        "content-type": "application/json",
-        "x-api-key": process.env.ANTHROPIC_API_KEY,
-        "anthropic-version": "2023-06-01",
-        "anthropic-beta": "prompt-caching-2024-07-31",
-      },
-      body: JSON.stringify({ ...request, max_tokens: 12_000 }),
-    });
-    const bodyText = await response.text();
-    let body;
-    try { body = JSON.parse(bodyText); } catch { fail(`Claude API returned non-JSON HTTP ${response.status}: ${bodyText.slice(0, 500)}`); }
-    if (!response.ok) fail(`Claude API HTTP ${response.status}: ${body?.error?.message || bodyText.slice(0, 500)}`);
-    return body;
+    claims = JSON.parse(Buffer.from(parts[1], "base64url").toString("utf8"));
+  } catch {
+    fail(`Federated identity token payload cannot be decoded: ${tokenFile}; no generation request was made`);
+  }
+  const now = Math.floor(Date.now() / 1000);
+  if (!Number.isFinite(claims.exp) || claims.exp <= now + MIN_JWT_REMAINING_SECONDS) {
+    fail("Federated identity token is expired or too close to expiry; fetch a fresh GitHub OIDC token immediately before generation");
+  }
+  if (!Number.isFinite(claims.iat) || claims.iat < now - MAX_JWT_AGE_SECONDS) {
+    fail("Federated identity token is not freshly issued; fetch a fresh GitHub OIDC token immediately before generation");
+  }
+}
+
+async function generateWithClaudeSdk(request) {
+  preflightFederatedIdentity();
+  // With no apiKey or authToken supplied, the official SDK resolves WIF from
+  // ANTHROPIC_* federation environment variables and the OIDC token file.
+  // Retries are disabled: expired identity, exchange, API, rate-limit, and
+  // timeout failures remain visible rather than becoming a second article run.
+  const client = new Anthropic({ maxRetries: 0, timeout: MAX_TIMEOUT_MS });
+  try {
+    return await client.messages.create({ ...request, max_tokens: 12_000 });
   } catch (error) {
-    if (error.name === "AbortError") fail(`Claude API timed out after ${MAX_TIMEOUT_MS}ms`);
-    throw error;
-  } finally {
-    clearTimeout(timeout);
+    fail(`Claude SDK request failed: ${error?.message || String(error)}`);
   }
 }
 
@@ -323,7 +346,7 @@ async function main() {
       console.warn(`CACHE_TRIPWIRE_WARNING: house-style.md estimates ${estimatedHouseStyleTokens} tokens, below Claude's 1,024-token minimum cacheable prefix. It was not padded.`);
     }
     const request = requestObject({ houseStyle, siteProfile, notebook, topic, index });
-    const response = await fetchClaude(request);
+    const response = await generateWithClaudeSdk(request);
     baseTelemetry.usage = apiUsage(response);
     baseTelemetry.computed_cost_usd = computeCost(baseTelemetry.usage);
     if (priorShadowTelemetry?.house_style_version && priorShadowTelemetry.house_style_version !== houseStyleVersion) {

@@ -5,9 +5,6 @@ on:
     - cron: "0 13 * * 1"
   workflow_dispatch: {}
 
-permissions:
-  contents: write
-
 concurrency:
   group: weekly-content-api-shadow
   cancel-in-progress: false
@@ -16,14 +13,17 @@ jobs:
   generate-validate-shadow:
     name: Generate and validate shadow content
     runs-on: ubuntu-latest
+    # This job can read source and mint a GitHub OIDC JWT, but has no Git write
+    # permission. Only the separate post-validation publication job can push.
+    permissions:
+      id-token: write
+      contents: read
 
     steps:
-      - name: Checkout scheduled main or dispatched ref with history
+      - name: Checkout main with history
         uses: actions/checkout@v7
         with:
-          # Scheduled runs author from main. A manual dispatch may validate this
-          # workflow on its feature branch without writing to main.
-          ref: ${{ github.event_name == 'workflow_dispatch' && github.ref || 'main' }}
+          ref: main
           fetch-depth: 0
 
       - name: Setup pnpm
@@ -55,9 +55,24 @@ jobs:
           fi
           echo "Same-day canonical publish guard passed for ${RUN_DATE}."
 
+      # OIDC tokens have a short lifetime. This is intentionally adjacent to
+      # generation: the script rejects a stale or near-expiry token instead of
+      # attempting a silent re-fetch or retry with a dead assertion.
+      - name: Fetch GitHub OIDC token
+        uses: actions/github-script@v8
+        with:
+          script: |
+            const fs = require('fs');
+            const token = await core.getIDToken('https://api.anthropic.com');
+            fs.writeFileSync('/tmp/gha-jwt', token, { mode: 0o600 });
+
       - name: Generate, schema-validate, render, and run all gates
         env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          ANTHROPIC_FEDERATION_RULE_ID: ${{ vars.ANTHROPIC_FEDERATION_RULE_ID }}
+          ANTHROPIC_ORGANIZATION_ID: ${{ vars.ANTHROPIC_ORGANIZATION_ID }}
+          ANTHROPIC_SERVICE_ACCOUNT_ID: ${{ vars.ANTHROPIC_SERVICE_ACCOUNT_ID }}
+          ANTHROPIC_WORKSPACE_ID: ${{ vars.ANTHROPIC_WORKSPACE_ID }}
+          ANTHROPIC_IDENTITY_TOKEN_FILE: /tmp/gha-jwt
           VITE_ANALYTICS_ENDPOINT: ${{ secrets.VITE_ANALYTICS_ENDPOINT || 'https://analytics.silkierstrands.com' }}
           VITE_ANALYTICS_WEBSITE_ID: ${{ secrets.VITE_ANALYTICS_WEBSITE_ID || 'silkierstrands' }}
           VITE_APP_ID: silkierstrands
@@ -67,25 +82,6 @@ jobs:
         run: |
           set -euo pipefail
           node scripts/generate-weekly-article.mjs --date "${{ steps.run-date.outputs.date }}"
-
-      - name: Push validated shadow branch
-        env:
-          RUN_DATE: ${{ steps.run-date.outputs.date }}
-        run: |
-          set -euo pipefail
-          BRANCH="content-shadow/${RUN_DATE}"
-          if git ls-remote --exit-code --heads origin "$BRANCH" >/dev/null 2>&1; then
-            echo "SHADOW_BRANCH_EXISTS: ${BRANCH}; refusing to overwrite a prior shadow run." >&2
-            exit 1
-          fi
-          git switch -c "$BRANCH"
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -- client/src/lib/products.ts client/public/sitemap.xml .ops/content-runs .ops/generated-content
-          git diff --cached --quiet && { echo "NO_SHADOW_OUTPUT_TO_PUSH" >&2; exit 1; }
-          git commit -m "chore: shadow weekly content ${RUN_DATE}"
-          git push origin "HEAD:${BRANCH}"
-          echo "Pushed validated shadow content to ${BRANCH}; main was not modified."
 
       - name: Upload generated content, rendered output, and telemetry
         if: always()
@@ -98,6 +94,55 @@ jobs:
             .ops/generated-content/**
             .ops/shadow-render/**
             .ops/content-runs/**
+            client/src/lib/products.ts
+            client/public/sitemap.xml
             dist/public/**
             scripts/static-bodies.json
             asin-mapping-report.json
+
+  publish-validated-shadow:
+    name: Publish validated shadow branch
+    needs: generate-validate-shadow
+    runs-on: ubuntu-latest
+    # This job has no OIDC permission and cannot obtain an Anthropic token. It
+    # only commits validated files received through the prior job artifact.
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout main with history
+        uses: actions/checkout@v7
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Establish run date
+        id: run-date
+        run: echo "date=$(date -u +%F)" >> "$GITHUB_OUTPUT"
+
+      - name: Download validated shadow artifact
+        uses: actions/download-artifact@v8
+        with:
+          name: weekly-content-api-shadow-${{ steps.run-date.outputs.date }}
+          path: .
+
+      - name: Push validated shadow branch
+        env:
+          RUN_DATE: ${{ steps.run-date.outputs.date }}
+        run: |
+          set -euo pipefail
+          BRANCH="content-shadow/${RUN_DATE}"
+          if git ls-remote --exit-code --heads origin "$BRANCH" >/dev/null 2>&1; then
+            echo "SHADOW_BRANCH_EXISTS: ${BRANCH}; refusing to overwrite a prior shadow run." >&2
+            exit 1
+          fi
+          test -s ".ops/generated-content/${RUN_DATE}.json"
+          test -s ".ops/content-runs/${RUN_DATE}.json"
+          git switch -c "$BRANCH"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- client/src/lib/products.ts client/public/sitemap.xml .ops/content-runs .ops/generated-content
+          git diff --cached --quiet && { echo "NO_SHADOW_OUTPUT_TO_PUSH" >&2; exit 1; }
+          git commit -m "chore: shadow weekly content ${RUN_DATE}"
+          git push origin "HEAD:${BRANCH}"
+          echo "Pushed validated shadow content to ${BRANCH}; main was not modified."
