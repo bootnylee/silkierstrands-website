@@ -18,6 +18,14 @@ jobs:
     permissions:
       id-token: write
       contents: read
+    env:
+      # All five WIF identifiers are non-secret repository variables. The
+      # workflow and generator deliberately contain no identifier literals.
+      ANTHROPIC_FEDERATION_RULE_ID: ${{ vars.ANTHROPIC_FEDERATION_RULE_ID }}
+      ANTHROPIC_ORGANIZATION_ID: ${{ vars.ANTHROPIC_ORGANIZATION_ID }}
+      ANTHROPIC_SERVICE_ACCOUNT_ID: ${{ vars.ANTHROPIC_SERVICE_ACCOUNT_ID }}
+      ANTHROPIC_WORKSPACE_ID: ${{ vars.ANTHROPIC_WORKSPACE_ID }}
+      ANTHROPIC_IDENTITY_TOKEN_FILE: ${{ vars.ANTHROPIC_IDENTITY_TOKEN_FILE }}
 
     steps:
       - name: Checkout main with history
@@ -63,16 +71,13 @@ jobs:
         with:
           script: |
             const fs = require('fs');
+            const path = process.env.ANTHROPIC_IDENTITY_TOKEN_FILE;
+            if (!path) throw new Error('Federated identity configuration is missing: ANTHROPIC_IDENTITY_TOKEN_FILE; no generation request was made');
             const token = await core.getIDToken('https://api.anthropic.com');
-            fs.writeFileSync('/tmp/gha-jwt', token, { mode: 0o600 });
+            fs.writeFileSync(path, token, { mode: 0o600 });
 
       - name: Generate, schema-validate, render, and run all gates
         env:
-          ANTHROPIC_FEDERATION_RULE_ID: ${{ vars.ANTHROPIC_FEDERATION_RULE_ID }}
-          ANTHROPIC_ORGANIZATION_ID: ${{ vars.ANTHROPIC_ORGANIZATION_ID }}
-          ANTHROPIC_SERVICE_ACCOUNT_ID: ${{ vars.ANTHROPIC_SERVICE_ACCOUNT_ID }}
-          ANTHROPIC_WORKSPACE_ID: ${{ vars.ANTHROPIC_WORKSPACE_ID }}
-          ANTHROPIC_IDENTITY_TOKEN_FILE: /tmp/gha-jwt
           VITE_ANALYTICS_ENDPOINT: ${{ secrets.VITE_ANALYTICS_ENDPOINT || 'https://analytics.silkierstrands.com' }}
           VITE_ANALYTICS_WEBSITE_ID: ${{ secrets.VITE_ANALYTICS_WEBSITE_ID || 'silkierstrands' }}
           VITE_APP_ID: silkierstrands
