@@ -147,7 +147,9 @@ async function canonicalPublishAlreadyExists() {
   const { stdout } = await execFile("git", ["log", "origin/main", "--format=%H%x09%ad%x09%s", "--date=short", "--since", `${RUN_DATE}T00:00:00Z`, "--until", `${RUN_DATE}T23:59:59Z`], { cwd: ROOT });
   return stdout.split("\n").filter(Boolean).some((line) => {
     const [, date = "", subject = ""] = line.split("\t");
-    return date === RUN_DATE && /weekly content update|weekly content|content:|publish/i.test(subject);
+    // Canonical publish commits are deliberately distinguished from pipeline
+    // implementation commits that happen to mention content in their subject.
+    return date === RUN_DATE && /^chore:\s*weekly content update\b/i.test(subject);
   });
 }
 

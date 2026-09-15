@@ -48,7 +48,7 @@ jobs:
         run: |
           set -euo pipefail
           git fetch origin main --quiet
-          SAME_DAY_CANONICAL="$(git log origin/main --format='%ad%x09%s' --date=short --since="${RUN_DATE}T00:00:00Z" --until="${RUN_DATE}T23:59:59Z" | awk -F '\t' -v date="$RUN_DATE" '$1 == date && $2 ~ /(weekly content update|weekly content|content:|publish)/ {print; exit}')"
+          SAME_DAY_CANONICAL="$(git log origin/main --format='%ad%x09%s' --date=short --since="${RUN_DATE}T00:00:00Z" --until="${RUN_DATE}T23:59:59Z" | awk -F '\t' -v date="$RUN_DATE" '$1 == date && $2 ~ /^chore: weekly content update/ {print; exit}')"
           if [ -n "$SAME_DAY_CANONICAL" ]; then
             echo "IDEMPOTENCY_GUARD_FAILED: same-day canonical publish exists on main: $SAME_DAY_CANONICAL" >&2
             exit 1
